@@ -87,6 +87,24 @@
   .nav-links{display:flex;gap:30px;font-size:14px;color:var(--ink-dim);font-family:var(--mono)}
   .nav-links a{transition:color .2s;display:inline-flex;align-items:center;height:40px}
   .nav-links a:hover{color:var(--ink)}
+
+  .nav-dropdown{position:relative;display:flex;align-items:center;height:40px}
+  .nav-dropdown-trigger{background:none;border:none;font:inherit;color:var(--ink-dim);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:0;height:40px;transition:color .2s}
+  .nav-dropdown-trigger:hover, .nav-dropdown.open .nav-dropdown-trigger{color:var(--ink)}
+  .nav-dropdown-trigger .caret{font-size:10px;transition:transform .2s}
+  .nav-dropdown.open .caret{transform:rotate(180deg)}
+  .nav-dropdown-menu{
+    position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;
+    min-width:160px;display:none;flex-direction:column;gap:2px;
+    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60;
+  }
+  .nav-dropdown.open .nav-dropdown-menu{display:flex}
+  .nav-dropdown-menu a{padding:9px 12px;border-radius:6px;font-size:13px;color:var(--ink-dim);height:auto;transition:all .15s}
+  .nav-dropdown-menu a:hover{background:var(--violet-deep);color:var(--ink)}
+  @media(max-width:720px){
+    .nav-dropdown-menu{position:static;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 0 14px;margin-top:2px}
+  }
   .nav-ctas{display:flex;align-items:center;gap:10px}
   .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s;box-shadow:0 0 16px -4px rgba(63,199,168,0.6)}
   .nav-cta:hover{background:#4FDBB8;border-color:#4FDBB8;transform:translateY(-2px);box-shadow:0 10px 30px -6px rgba(79,219,184,0.8)}
@@ -513,7 +531,7 @@
   header{position:relative;overflow:hidden}
   .spotlight{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(124,111,240,0.14),transparent 70%);pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity .4s;z-index:0}
 
-  /* aurora ambiance, inspired by aurora borealis: soft, drifting, additive light — kept low-opacity so text contrast is never compromised */
+  /* aurora ambiance, inspired by aurora borealis: soft, drifting, additive light, kept low-opacity so text contrast is never compromised */
   .aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
   .aurora-blob{position:absolute;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.4;will-change:transform}
   .aurora-blob.a1{width:60vw;max-width:640px;aspect-ratio:1;top:-22vw;left:-14vw;background:radial-gradient(circle,#3FC7A8,transparent 70%);animation:auroraDrift1 24s ease-in-out infinite}
@@ -557,11 +575,17 @@
 
 <nav>
   <div class="wrap nav-inner">
-    <div class="logo"><span class="mark"></span>DAVID_BERROCAL</div>
+    <a href="index.html" class="logo"><span class="mark"></span>DAVID_BERROCAL</a>
     <div class="nav-links" id="navLinks">
       <a href="index.html">GTM system</a>
       <a href="about.html">About me</a>
-      <a href="resources.html">Resources</a>
+      <div class="nav-dropdown" id="resourcesDropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="resources.html">Blog</a>
+          <a href="downloads.html">Downloads</a>
+        </div>
+      </div>
     </div>
     <div class="nav-ctas">
       <a href="contact.html" class="nav-contact">Contact</a>
@@ -821,7 +845,7 @@
 
         <div class="try-score">
           <div class="try-score-head">
-            <span class="try-score-label">Try it — score your own lead</span>
+            <span class="try-score-label">Try it: score your own lead</span>
             <span class="try-score-result">Action: <b id="tryScoreZone">Call Now</b></span>
           </div>
           <div class="try-score-row">
@@ -1145,6 +1169,28 @@
     links.classList.remove('open');
     toggle.setAttribute('aria-expanded','false');
   }));
+})();
+
+(function(){
+  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+  if(!dropdowns.length) return;
+  function closeAll(){
+    dropdowns.forEach(function(dd){
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+    });
+  }
+  dropdowns.forEach(function(dd){
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const wasOpen = dd.classList.contains('open');
+      closeAll();
+      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+    });
+  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
 })();
 
 (function(){

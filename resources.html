@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources · David Berrocal</title>
+<meta name="description" content="Practical breakdowns on CRM architecture, lead scoring, signals, automation, AI agents, and analytics for revenue teams.">
+<meta name="theme-color" content="#0B0E14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Crect x='24' y='24' width='9' height='9' rx='2' fill='%237C6FF0'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='22' font-weight='600' fill='%23EEF1F7' text-anchor='middle'%3EDB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0E14; --bg-soft:#11151F; --panel:#161B27; --line:#232A3A; --line-soft:#1B2130;
+    --ink:#EEF1F7; --ink-dim:#D7DCE8; --ink-faint:#8994AA;
+    --violet:#7C6FF0; --violet-soft:#A79EF6; --violet-deep:#2A2550; --teal:#3FC7A8;
+    --amber:#F0A93B; --coral:#F0997B; --blue:#378ADD; --green:#4FBF8B; --base:#8A93A8;
+    --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--violet);color:#0B0E14}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:56px 56px;opacity:0.3;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%)}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(22,27,39,0.8);box-shadow:0 8px 30px -12px rgba(0,0,0,0.6)}
+  nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,rgba(63,199,168,0.7),rgba(55,138,221,0.7),rgba(124,111,240,0.7))}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;z-index:2}
+  .logo{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px}
+  .logo .mark{width:9px;height:9px;background:var(--violet);border-radius:2px;box-shadow:0 0 10px var(--violet)}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-dim);font-family:var(--mono)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover, .nav-links a.active{color:var(--ink)}
+  .nav-dropdown{position:relative;display:flex;align-items:center}
+  .nav-dropdown-trigger{background:none;border:none;font:inherit;color:var(--ink-dim);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:0;transition:color .2s}
+  .nav-dropdown-trigger:hover, .nav-dropdown.open .nav-dropdown-trigger{color:var(--ink)}
+  .nav-dropdown-trigger .caret{font-size:10px;transition:transform .2s}
+  .nav-dropdown.open .caret{transform:rotate(180deg)}
+  .nav-dropdown-menu{
+    position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;
+    min-width:160px;display:none;flex-direction:column;gap:2px;
+    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60;
+  }
+  .nav-dropdown.open .nav-dropdown-menu{display:flex}
+  .nav-dropdown-menu a{padding:9px 12px;border-radius:6px;font-size:13px;color:var(--ink-dim);transition:all .15s}
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active{background:var(--violet-deep);color:var(--ink)}
+  .nav-ctas{display:flex;align-items:center;gap:10px}
+  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s;box-shadow:0 0 16px -4px rgba(63,199,168,0.6)}
+  .nav-cta:hover{background:#4FDBB8;border-color:#4FDBB8;transform:translateY(-2px)}
+  .nav-contact{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--violet);background:var(--violet);color:#0B0E14;padding:10px 16px;border-radius:6px;transition:all .2s;box-shadow:0 0 16px -4px rgba(124,111,240,0.6)}
+  .nav-contact:hover{background:var(--violet-soft);border-color:var(--violet-soft);transform:translateY(-2px)}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  .res-hero{position:relative;z-index:2;padding:80px 0 50px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--violet-soft);display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--violet-soft)}
+  .res-hero h1{font-family:var(--disp);font-weight:600;font-size:clamp(32px,5vw,52px);letter-spacing:-0.02em;line-height:1.08;max-width:16ch;margin-bottom:18px}
+  .res-hero .lede{font-size:17px;color:var(--ink-dim);max-width:56ch;line-height:1.65}
+
+  .tabs-section{position:relative;z-index:2;padding-bottom:100px}
+  .topic-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid var(--line-soft)}
+  .tab{font-family:var(--mono);font-size:13px;padding:9px 16px;border-radius:7px;border:1px solid var(--line);background:transparent;color:var(--ink-faint);cursor:pointer;transition:all .2s}
+  .tab:hover{border-color:var(--ink-faint);color:var(--ink)}
+  .tab.on{border-color:var(--violet);background:var(--violet-deep);color:var(--violet-soft)}
+
+  .article-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+  .article-card{
+    display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;
+    transition:all .25s;position:relative;overflow:hidden;
+  }
+  a.article-card:hover{transform:translateY(-4px);border-color:var(--violet);box-shadow:0 20px 50px -24px rgba(124,111,240,0.4)}
+  .article-card.soon{opacity:0.55;cursor:default}
+  .ac-tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:0.04em;text-transform:uppercase;padding:4px 10px;border-radius:5px;border:1px solid;margin-bottom:16px}
+  .article-card h3{font-family:var(--disp);font-size:19px;font-weight:600;letter-spacing:-0.01em;line-height:1.3;margin-bottom:10px}
+  .article-card p{font-size:14px;color:var(--ink-dim);line-height:1.6;margin-bottom:16px}
+  .ac-meta{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint)}
+  .ac-meta.soon-badge{color:var(--amber)}
+  .ac-arrow{position:absolute;top:22px;right:22px;color:var(--ink-faint);font-size:16px;transition:all .2s;opacity:0}
+  a.article-card:hover .ac-arrow{opacity:1;transform:translate(3px,-3px);color:var(--violet-soft)}
+  .ac-badge{position:absolute;top:22px;right:22px;font-family:var(--mono);font-size:10px;letter-spacing:0.04em;text-transform:uppercase;color:var(--amber);background:#F0A93B18;border:1px solid #F0A93B40;border-radius:5px;padding:3px 9px}
+  a.article-card:hover .ac-badge{opacity:0}
+
+  footer{position:relative;z-index:2;padding:40px 0;border-top:1px solid var(--line-soft);text-align:center}
+  footer p{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="mark"></span>DAVID_BERROCAL</a>
+    <div class="nav-links">
+      <a href="index.html">GTM system</a>
+      <a href="about.html">About me</a>
+      <div class="nav-dropdown" id="resourcesDropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="resources.html" class="active">Blog</a>
+          <a href="downloads.html">Downloads</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-ctas">
+      <a href="contact.html" class="nav-contact">Contact</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
+    </div>
+  </div>
+</nav>
+
+<header class="res-hero">
+  <div class="wrap">
+    <span class="eyebrow">Resources</span>
+    <h1>Notes on building revenue systems that actually work.</h1>
+    <p class="lede">Practical breakdowns on CRM architecture, lead scoring, signals, automation, and the AI agents doing the work in between. No fluff, no gated PDFs.</p>
+  </div>
+</header>
+
+<section class="tabs-section">
+  <div class="wrap">
+    <div class="topic-tabs" id="topicTabs">
+      <button class="tab on" data-topic="all">All</button>
+      <button class="tab" data-topic="crm">CRM</button>
+      <button class="tab" data-topic="gtm-engineering">GTM Engineering</button>
+      <button class="tab" data-topic="lead-scoring">Lead Scoring</button>
+      <button class="tab" data-topic="signals">Signals</button>
+      <button class="tab" data-topic="automation">Automation</button>
+      <button class="tab" data-topic="ai-agents">AI Agents</button>
+      <button class="tab" data-topic="analytics">Analytics</button>
+    </div>
+
+    <div class="article-grid" id="articleGrid">
+      <a class="article-card" data-topic="lead-scoring" href="how-to-score-leads-hubspot.html">
+        <span class="ac-badge">Latest</span>
+        <span class="ac-tag" style="color:var(--teal);border-color:#3FC7A840;background:#3FC7A812">Lead Scoring</span>
+        <h3>How do you calculate a lead score in HubSpot?</h3>
+        <p>A fit score and an engage score, combined into one number your reps can actually act on. Here's the exact formula.</p>
+        <span class="ac-meta">6 min read</span>
+        <span class="ac-arrow">↗</span>
+      </a>
+
+      <div class="article-card soon" data-topic="crm">
+        <span class="ac-tag" style="color:var(--base);border-color:#8A93A840;background:#8A93A812">CRM</span>
+        <h3>Why your CRM is the foundation of every GTM motion</h3>
+        <p>Sourcing, scoring, enrichment, automation: none of it means anything on a messy CRM. Here's what "clean" actually means.</p>
+        <span class="ac-meta soon-badge">Coming soon</span>
+      </div>
+
+      <div class="article-card soon" data-topic="gtm-engineering">
+        <span class="ac-tag" style="color:var(--violet-soft);border-color:#7C6FF040;background:#7C6FF012">GTM Engineering</span>
+        <h3>What is GTM engineering, and why does it matter now?</h3>
+        <p>The discipline that treats your revenue stack like software: versioned, tested, and owned, not duct-taped together.</p>
+        <span class="ac-meta soon-badge">Coming soon</span>
+      </div>
+
+      <div class="article-card soon" data-topic="signals">
+        <span class="ac-tag" style="color:var(--coral);border-color:#F0997B40;background:#F0997B12">Signals</span>
+        <h3>How to detect buying signals before your competitors do</h3>
+        <p>Email opens and page visits are just the start. The signals worth building alerts for, and the ones that are just noise.</p>
+        <span class="ac-meta soon-badge">Coming soon</span>
+      </div>
+
+      <div class="article-card soon" data-topic="automation">
+        <span class="ac-tag" style="color:var(--blue);border-color:#378ADD40;background:#378ADD12">Automation</span>
+        <h3>The difference between automating tasks and running a system</h3>
+        <p>Anyone can wire up a workflow. What separates one that survives contact with reality from one that quietly breaks.</p>
+        <span class="ac-meta soon-badge">Coming soon</span>
+      </div>
+
+      <div class="article-card soon" data-topic="ai-agents">
+        <span class="ac-tag" style="color:var(--green);border-color:#4FBF8B40;background:#4FBF8B12">AI Agents</span>
+        <h3>Can an AI agent actually replace a first-touch SDR?</h3>
+        <p>What changed in the last 18 months, what still needs a human, and where the failure modes actually show up.</p>
+        <span class="ac-meta soon-badge">Coming soon</span>
+      </div>
+
+      <div class="article-card soon" data-topic="analytics">
+        <span class="ac-tag" style="color:var(--amber);border-color:#F0A93B40;background:#F0A93B12">Analytics</span>
+        <h3>Why most RevOps dashboards lie to leadership</h3>
+        <p>A dashboard is only as honest as the data under it. The three ways attribution quietly breaks before anyone notices.</p>
+        <span class="ac-meta soon-badge">Coming soon</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+</footer>
+
+<script>
+(function(){
+  const tabs = Array.from(document.querySelectorAll('.tab'));
+  const cards = Array.from(document.querySelectorAll('.article-card'));
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('on'); });
+      tab.classList.add('on');
+      const topic = tab.dataset.topic;
+      cards.forEach(function(card){
+        card.style.display = (topic === 'all' || card.dataset.topic === topic) ? '' : 'none';
+      });
+    });
+  });
+})();
+
+(function(){
+  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+  if(!dropdowns.length) return;
+  function closeAll(){
+    dropdowns.forEach(function(dd){
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+    });
+  }
+  dropdowns.forEach(function(dd){
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const wasOpen = dd.classList.contains('open');
+      closeAll();
+      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+    });
+  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+})();
+</script>
+</body>
+</html>

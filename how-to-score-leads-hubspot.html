@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Do You Calculate a Lead Score in HubSpot? · David Berrocal</title>
+<meta name="description" content="A HubSpot lead score combines a fit score and an engage score into one number reps can act on. Here's the exact formula, step by step.">
+<meta name="theme-color" content="#0B0E14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Crect x='24' y='24' width='9' height='9' rx='2' fill='%237C6FF0'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='22' font-weight='600' fill='%23EEF1F7' text-anchor='middle'%3EDB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Do You Calculate a Lead Score in HubSpot?",
+  "author": {"@type": "Person", "name": "David Berrocal", "jobTitle": "GTM Revenue Systems Architect"},
+  "datePublished": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "description": "A HubSpot lead score combines a fit score and an engage score into one number reps can act on."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Does HubSpot have lead scoring built in?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. HubSpot's native scoring lives on the HubSpot Score contact property, available on Marketing Hub and Sales Hub Professional and Enterprise. You can also build fully custom score properties on any tier using workflows, which gives you more control over fit and engage logic."}},
+    {"@type": "Question", "name": "What is a good HubSpot lead score threshold for sales handoff?",
+     "acceptedAnswer": {"@type": "Answer", "text": "There's no universal number. It depends on your conversion data. Start by scoring your last 100 closed-won deals retroactively, find the score range where most of them cluster, and set your handoff threshold just below that range."}},
+    {"@type": "Question", "name": "Should fit score and engage score be combined into one number?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. Keep them separate and plot them on a two-axis matrix instead. A single blended number hides whether a low score means poor fit or low engagement, and those two problems need completely different responses from a rep."}},
+    {"@type": "Question", "name": "How often should lead scoring rules be updated?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Review scoring rules quarterly against actual closed-won and closed-lost data. Scoring models built once and never revisited drift out of sync with how your ICP or buying behavior actually evolves."}}
+  ]
+}
+</script>
+<style>
+  :root{
+    --bg:#0B0E14; --bg-soft:#11151F; --panel:#161B27; --line:#232A3A; --line-soft:#1B2130;
+    --ink:#EEF1F7; --ink-dim:#D7DCE8; --ink-faint:#8994AA;
+    --violet:#7C6FF0; --violet-soft:#A79EF6; --violet-deep:#2A2550; --teal:#3FC7A8; --amber:#F0A93B;
+    --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:var(--violet-soft);text-decoration:underline;text-decoration-color:rgba(167,158,246,0.35);text-underline-offset:2px}
+  a:hover{text-decoration-color:var(--violet-soft)}
+  ::selection{background:var(--violet);color:#0B0E14}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+
+  .progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--teal),#378ADD,var(--violet));z-index:60;box-shadow:0 0 10px 1px rgba(124,111,240,0.5)}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(22,27,39,0.8);box-shadow:0 8px 30px -12px rgba(0,0,0,0.6)}
+  nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,rgba(63,199,168,0.7),rgba(55,138,221,0.7),rgba(124,111,240,0.7))}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;z-index:2}
+  .logo{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px;text-decoration:none}
+  .logo .mark{width:9px;height:9px;background:var(--violet);border-radius:2px;box-shadow:0 0 10px var(--violet)}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-dim);font-family:var(--mono)}
+  .nav-links a{transition:color .2s;text-decoration:none;color:inherit}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-dropdown{position:relative;display:flex;align-items:center}
+  .nav-dropdown-trigger{background:none;border:none;font:inherit;color:var(--ink-dim);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:0;transition:color .2s}
+  .nav-dropdown-trigger:hover, .nav-dropdown.open .nav-dropdown-trigger{color:var(--ink)}
+  .nav-dropdown-trigger .caret{font-size:10px;transition:transform .2s}
+  .nav-dropdown.open .caret{transform:rotate(180deg)}
+  .nav-dropdown-menu{
+    position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;
+    min-width:160px;display:none;flex-direction:column;gap:2px;
+    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60;
+  }
+  .nav-dropdown.open .nav-dropdown-menu{display:flex}
+  .nav-dropdown-menu a{padding:9px 12px;border-radius:6px;font-size:13px;color:var(--ink-dim);transition:all .15s;display:block}
+  .nav-dropdown-menu a:hover{background:var(--violet-deep);color:var(--ink)}
+  .nav-ctas{display:flex;align-items:center;gap:10px}
+  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s;text-decoration:none}
+  .nav-contact{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--violet);background:var(--violet);color:#0B0E14;padding:10px 16px;border-radius:6px;transition:all .2s;text-decoration:none}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  article{position:relative;z-index:2;max-width:720px;margin:0 auto;padding:56px 32px 100px}
+  .back-link{display:inline-block;font-family:var(--mono);font-size:13px;color:var(--ink-faint);text-decoration:none;margin-bottom:28px}
+  .back-link:hover{color:var(--ink)}
+  .article-tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--teal);border:1px solid #3FC7A840;background:#3FC7A812;padding:5px 12px;border-radius:6px;margin-bottom:20px}
+  h1{font-family:var(--disp);font-weight:600;font-size:clamp(28px,4.5vw,42px);letter-spacing:-0.02em;line-height:1.15;margin-bottom:18px}
+  .article-meta{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);margin-bottom:36px;display:flex;gap:8px;flex-wrap:wrap}
+
+  .direct-answer{
+    font-size:17px;color:var(--ink-dim);line-height:1.7;background:var(--panel);
+    border-left:3px solid var(--violet);border-radius:0 10px 10px 0;padding:18px 22px;margin-bottom:36px;
+  }
+  .direct-answer strong{color:var(--ink);font-weight:600}
+
+  .toc{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--line-soft);line-height:2}
+  .toc-label{display:block;color:var(--ink);margin-bottom:8px;font-weight:500}
+  .toc a{color:var(--ink-faint);text-decoration:none;margin-right:16px}
+  .toc a:hover{color:var(--violet-soft)}
+
+  h2{font-family:var(--disp);font-weight:600;font-size:clamp(21px,3vw,26px);letter-spacing:-0.01em;margin:44px 0 16px;scroll-margin-top:90px}
+  h3{font-family:var(--disp);font-weight:600;font-size:17px;margin:26px 0 8px}
+  p{font-size:16px;color:var(--ink-dim);margin-bottom:16px}
+  p strong{color:var(--ink);font-weight:600}
+  ul, ol{margin:0 0 20px 22px;color:var(--ink-dim);font-size:16px}
+  li{margin-bottom:8px}
+  li strong{color:var(--ink)}
+
+  .callout{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:28px 0;font-size:15px;color:var(--ink-dim)}
+  .callout .cl-label{font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:8px}
+
+  table{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:14px}
+  th, td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line-soft)}
+  th{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.04em}
+  td{color:var(--ink-dim)}
+
+  .faq-item{border-bottom:1px solid var(--line-soft);padding:20px 0}
+  .faq-item:last-child{border-bottom:none}
+  .faq-item h3{margin:0 0 8px}
+  .faq-item p{margin-bottom:0}
+
+  .article-cta{margin-top:56px;padding:28px;background:var(--panel);border:1px solid var(--line);border-radius:14px;text-align:center}
+  .article-cta p{color:var(--ink);font-size:16px;margin-bottom:16px}
+  .article-cta .btn-primary{font-family:var(--mono);font-size:14px;font-weight:500;background:var(--violet);color:#0B0E14;padding:13px 22px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+
+  .author-box{margin-top:48px;padding-top:28px;border-top:1px solid var(--line-soft);display:flex;align-items:center;gap:14px}
+  .author-avatar{width:44px;height:44px;border-radius:50%;background:var(--violet-deep);border:1px solid var(--violet);color:var(--violet-soft);display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:14px;flex-shrink:0}
+  .author-name{font-family:var(--disp);font-weight:600;font-size:15px}
+  .author-role{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
+
+  footer{position:relative;z-index:2;padding:40px 0;border-top:1px solid var(--line-soft);text-align:center}
+  footer p{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="readProgress"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="mark"></span>DAVID_BERROCAL</a>
+    <div class="nav-links">
+      <a href="index.html">GTM system</a>
+      <a href="about.html">About me</a>
+      <div class="nav-dropdown" id="resourcesDropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="resources.html">Blog</a>
+          <a href="downloads.html">Downloads</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-ctas">
+      <a href="contact.html" class="nav-contact">Contact</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">Lead Scoring</span>
+  <h1>How Do You Calculate a Lead Score in HubSpot?</h1>
+  <div class="article-meta">
+    <span>David Berrocal</span><span>·</span><span>Aug 3, 2026</span><span>·</span><span>6 min read</span>
+  </div>
+
+  <p class="direct-answer"><strong>Direct answer:</strong> A HubSpot lead score combines a <strong>fit score</strong> (how closely the contact matches your ICP: industry, company size, role) and an <strong>engage score</strong> (how actively they interact: email opens, page visits, form fills), each built as a custom score property with weighted rules. Plot both on a two-axis matrix to decide the next action: call now, nurture, review, or discard.</p>
+
+  <nav class="toc">
+    <span class="toc-label">On this page</span>
+    <a href="#fit">Fit score</a>
+    <a href="#engage">Engage score</a>
+    <a href="#combine">Combining both</a>
+    <a href="#mistake">The common mistake</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <h2 id="fit">What goes into a fit score?</h2>
+  <p>A fit score answers one question: <strong>if this contact converted today, would they actually be a good customer?</strong> It has nothing to do with how engaged they are. A perfect-fit prospect who's never opened an email still scores high on fit.</p>
+  <p>Build it as a custom HubSpot score property with positive and negative attributes pulled from firmographic and demographic data:</p>
+  <ul>
+    <li><strong>Industry</strong>: match against your ICP list (+15), adjacent industries (+5), disqualified industries (−20)</li>
+    <li><strong>Company size</strong>: employee count or revenue band within your target range (+10 to +20)</li>
+    <li><strong>Job title / seniority</strong>: decision-maker titles score higher than individual contributors</li>
+    <li><strong>Tech stack</strong>: using a tool you integrate with, or a competitor's tool (+10)</li>
+  </ul>
+  <p>These attributes rarely change once set, so fit score tends to be stable. It's not something that decays over time the way engagement does.</p>
+
+  <h2 id="engage">What goes into an engage score?</h2>
+  <p>Engage score answers a different question: <strong>is this contact actively paying attention right now?</strong> Unlike fit, engagement decays. Someone who opened five emails last month but has gone quiet since should score lower today than they did then.</p>
+  <ul>
+    <li><strong>Email opens/clicks</strong>: small positive points per action, with a time-decay rule</li>
+    <li><strong>Website visits</strong>: extra weight on high-intent pages (pricing, demo, case studies)</li>
+    <li><strong>Form submissions</strong>: heavier weight than passive activity like an email open</li>
+    <li><strong>Content depth</strong>: time on page or scroll depth, if you're tracking it</li>
+  </ul>
+  <div class="callout">
+    <span class="cl-label">Build note</span>
+    In HubSpot, add a negative decay rule that subtracts points after 14-30 days of inactivity. Without decay, engage score just becomes a lifetime activity counter, not a "how warm are they right now" signal.
+  </div>
+
+  <h2 id="combine">How do you combine them into one decision?</h2>
+  <p>Don't blend fit and engage into a single number. Instead, plot every lead on a two-axis matrix, fit on one axis, engagement on the other, and split it into four zones:</p>
+  <table>
+    <tr><th>Fit</th><th>Engagement</th><th>Zone</th><th>Action</th></tr>
+    <tr><td>High</td><td>High</td><td>Call Now</td><td>Route to a rep immediately</td></tr>
+    <tr><td>High</td><td>Low</td><td>Nurture</td><td>Keep in an automated sequence</td></tr>
+    <tr><td>Low</td><td>High</td><td>Review</td><td>Worth a manual look: engaged, unclear fit</td></tr>
+    <tr><td>Low</td><td>Low</td><td>Discard</td><td>No action, don't waste rep time</td></tr>
+  </table>
+  <p>In HubSpot, build this as a workflow that reads both score properties and sets a single "Lead Zone" property reps can filter and sort by. That's the field that actually shows up in their queue.</p>
+
+  <h2 id="mistake">The common mistake</h2>
+  <p>Most HubSpot accounts that "have lead scoring" set it up once during onboarding and never touch it again. Scores drift out of sync with reality within a couple of quarters, because the market, the ICP, and buying behavior all shift, and the scoring rules don't shift with them.</p>
+  <p>Fix: pull your last 100 closed-won and closed-lost deals every quarter, check what their scores were at the point of conversion, and adjust the weights so the model matches what's actually converting, not what someone guessed converts in a workshop 18 months ago.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>Does HubSpot have lead scoring built in?</h3>
+    <p>Yes. HubSpot's native scoring lives on the HubSpot Score contact property, available on Marketing Hub and Sales Hub Professional and Enterprise. You can also build fully custom score properties on any tier using workflows, which gives you more control over fit and engage logic.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is a good HubSpot lead score threshold for sales handoff?</h3>
+    <p>There's no universal number. It depends on your conversion data. Start by scoring your last 100 closed-won deals retroactively, find the score range where most of them cluster, and set your handoff threshold just below that range.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Should fit score and engage score be combined into one number?</h3>
+    <p>No. Keep them separate and plot them on a two-axis matrix instead. A single blended number hides whether a low score means poor fit or low engagement, and those two problems need completely different responses from a rep.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How often should lead scoring rules be updated?</h3>
+    <p>Review scoring rules quarterly against actual closed-won and closed-lost data. Scoring models built once and never revisited drift out of sync with how your ICP or buying behavior actually evolves.</p>
+  </div>
+
+  <div class="article-cta">
+    <p>Want this built for your own CRM?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">DB</div>
+    <div>
+      <div class="author-name">David Berrocal</div>
+      <div class="author-role">GTM Revenue Systems Architect</div>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+</footer>
+
+<script>
+(function(){
+  const bar = document.getElementById('readProgress');
+  const article = document.querySelector('article');
+  if(!bar || !article) return;
+  let ticking = false;
+  function update(){
+    const articleTop = article.offsetTop;
+    const scrollable = article.offsetHeight - window.innerHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+
+(function(){
+  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+  if(!dropdowns.length) return;
+  function closeAll(){
+    dropdowns.forEach(function(dd){
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+    });
+  }
+  dropdowns.forEach(function(dd){
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const wasOpen = dd.classList.contains('open');
+      closeAll();
+      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+    });
+  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+})();
+</script>
+</body>
+</html>

@@ -41,6 +41,27 @@
   .logo .mark{width:9px;height:9px;background:var(--violet);border-radius:2px;box-shadow:0 0 10px var(--violet)}
   .back-link{font-family:var(--mono);font-size:13px;color:var(--ink-faint);transition:color .2s}
   .back-link:hover{color:var(--ink)}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-dim);font-family:var(--mono)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-dropdown{position:relative;display:flex;align-items:center}
+  .nav-dropdown-trigger{background:none;border:none;font:inherit;color:var(--ink-dim);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:0;transition:color .2s}
+  .nav-dropdown-trigger:hover, .nav-dropdown.open .nav-dropdown-trigger{color:var(--ink)}
+  .nav-dropdown-trigger .caret{font-size:10px;transition:transform .2s}
+  .nav-dropdown.open .caret{transform:rotate(180deg)}
+  .nav-dropdown-menu{
+    position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;
+    min-width:160px;display:none;flex-direction:column;gap:2px;
+    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60;
+  }
+  .nav-dropdown.open .nav-dropdown-menu{display:flex}
+  .nav-dropdown-menu a{padding:9px 12px;border-radius:6px;font-size:13px;color:var(--ink-dim);transition:all .15s;display:block}
+  .nav-dropdown-menu a:hover{background:var(--violet-deep);color:var(--ink)}
+  .nav-ctas{display:flex;align-items:center;gap:10px}
+  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s}
+  .nav-cta:hover{background:#4FDBB8;border-color:#4FDBB8;transform:translateY(-2px)}
+  @media(max-width:900px){.nav-links{display:none}}
 
   main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;padding:20px 24px 60px}
   .contact-card{width:100%;max-width:480px}
@@ -110,8 +131,19 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="logo"><span class="mark"></span>DAVID_BERROCAL</div>
-    <a href="index.html" class="back-link">← Back to site</a>
+    <a href="index.html" class="logo"><span class="mark"></span>DAVID_BERROCAL</a>
+    <div class="nav-links">
+      <a href="index.html">GTM system</a>
+      <a href="about.html">About me</a>
+      <div class="nav-dropdown" id="resourcesDropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="resources.html">Blog</a>
+          <a href="downloads.html">Downloads</a>
+        </div>
+      </div>
+    </div>
+    <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
   </div>
 </nav>
 
@@ -184,7 +216,7 @@
           <button type="button" class="btn-back" data-back>← Back</button>
           <button type="submit" class="btn-primary" id="submitBtn">Send →</button>
         </div>
-        <div class="error" id="formError">Something went wrong — try again, or email davidbervic@gmail.com directly.</div>
+        <div class="error" id="formError">Something went wrong. Try again, or email davidbervic@gmail.com directly.</div>
       </div>
 
       <div class="step thanks" data-step="thanks">
@@ -262,6 +294,28 @@
       submitBtn.textContent = 'Send →';
     });
   });
+})();
+
+(function(){
+  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+  if(!dropdowns.length) return;
+  function closeAll(){
+    dropdowns.forEach(function(dd){
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+    });
+  }
+  dropdowns.forEach(function(dd){
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const wasOpen = dd.classList.contains('open');
+      closeAll();
+      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+    });
+  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
 })();
 </script>
 </body>
