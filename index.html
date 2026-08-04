@@ -87,8 +87,12 @@
   .nav-links{display:flex;gap:30px;font-size:14px;color:var(--ink-dim);font-family:var(--mono)}
   .nav-links a{transition:color .2s;display:inline-flex;align-items:center;height:40px}
   .nav-links a:hover{color:var(--ink)}
+  .nav-ctas{display:flex;align-items:center;gap:10px}
   .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s;box-shadow:0 0 16px -4px rgba(63,199,168,0.6)}
   .nav-cta:hover{background:#4FDBB8;border-color:#4FDBB8;transform:translateY(-2px);box-shadow:0 10px 30px -6px rgba(79,219,184,0.8)}
+  .nav-contact{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--violet);background:var(--violet);color:#0B0E14;padding:10px 16px;border-radius:6px;transition:all .2s;box-shadow:0 0 16px -4px rgba(124,111,240,0.6)}
+  .nav-contact:hover{background:var(--violet-soft);border-color:var(--violet-soft);transform:translateY(-2px);box-shadow:0 10px 30px -6px rgba(167,158,246,0.8)}
+  @media(max-width:480px){.nav-cta,.nav-contact{padding:9px 12px;font-size:12px}}
   @media(max-width:720px){.nav-links{display:none}}
 
   /* ---- hero ---- */
@@ -559,7 +563,10 @@
       <a href="about.html">About me</a>
       <a href="resources.html">Resources</a>
     </div>
-    <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Let's chat</a>
+    <div class="nav-ctas">
+      <a href="contact.html" class="nav-contact">Contact</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
+    </div>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Toggle navigation menu">☰</button>
   </div>
 </nav>
@@ -1113,8 +1120,8 @@
       <h2>Let's build your system.</h2>
       <p class="sec-sub">No deck, no discovery-call template. Tell me what's broken and I'll tell you <strong>exactly how I'd fix it</strong>.</p>
       <div class="foot-actions">
-        <a href="mailto:davidbervic@gmail.com" class="btn-primary">davidbervic@gmail.com <span>→</span></a>
-        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="btn-whatsapp">Chat on WhatsApp <span>→</span></a>
+        <a href="contact.html" class="btn-primary">Contact <span>→</span></a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="btn-whatsapp">Chat with me <span>→</span></a>
       </div>
     </div>
     <div class="foot-inner">

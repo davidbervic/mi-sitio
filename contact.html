@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Let's talk · David Berrocal</title>
+<meta name="description" content="Tell me a bit about yourself and I'll get back to you within a business day.">
+<meta name="theme-color" content="#0B0E14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Crect x='24' y='24' width='9' height='9' rx='2' fill='%237C6FF0'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='22' font-weight='600' fill='%23EEF1F7' text-anchor='middle'%3EDB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0E14; --panel:#161B27; --line:#232A3A; --line-soft:#1B2130;
+    --ink:#EEF1F7; --ink-dim:#D7DCE8; --ink-faint:#8994AA;
+    --violet:#7C6FF0; --violet-soft:#A79EF6; --violet-deep:#2A2550; --teal:#3FC7A8;
+    --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;
+    min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--violet);color:#0B0E14}
+
+  .grid-bg{
+    position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+    background-size:56px 56px;opacity:0.3;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%);
+  }
+  .aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  .aurora-blob{position:absolute;width:56vw;max-width:600px;aspect-ratio:1;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.3;top:-20vw;left:50%;transform:translateX(-50%);background:radial-gradient(circle,#3FC7A8,transparent 70%);animation:auroraDrift 24s ease-in-out infinite}
+  @keyframes auroraDrift{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-46%) scale(1.08)}}
+
+  nav{position:relative;z-index:2;padding:24px 32px}
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px}
+  .logo .mark{width:9px;height:9px;background:var(--violet);border-radius:2px;box-shadow:0 0 10px var(--violet)}
+  .back-link{font-family:var(--mono);font-size:13px;color:var(--ink-faint);transition:color .2s}
+  .back-link:hover{color:var(--ink)}
+
+  main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;padding:20px 24px 60px}
+  .contact-card{width:100%;max-width:480px}
+
+  .progress{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:36px}
+  .progress .dot{width:28px;height:3px;border-radius:2px;background:var(--line);transition:all .3s}
+  .progress .dot.on{background:var(--violet);width:36px}
+  .progress .dot.done{background:var(--teal);width:28px}
+
+  .step{display:none;animation:stepIn .4s cubic-bezier(.2,.7,.3,1)}
+  .step.active{display:block}
+  @keyframes stepIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--violet-soft);margin-bottom:14px;display:block}
+  h2{font-family:var(--disp);font-weight:600;font-size:clamp(24px,4vw,32px);letter-spacing:-0.01em;margin-bottom:24px;line-height:1.2}
+  .field{margin-bottom:14px}
+  input, select{
+    width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:15px 16px;color:var(--ink);font-family:var(--body);font-size:15px;transition:border-color .2s;
+  }
+  input::placeholder{color:var(--ink-faint)}
+  input:focus, select:focus{outline:none;border-color:var(--violet)}
+  select{appearance:none;-webkit-appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238994AA' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;
+  }
+  select option{background:var(--panel);color:var(--ink)}
+  select:invalid{color:var(--ink-faint)}
+
+  .field-label{display:block;font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-bottom:10px}
+  .chip-select{display:flex;gap:10px;flex-wrap:wrap}
+  .chip-option{position:relative}
+  .chip-option input{position:absolute;opacity:0;width:1px;height:1px}
+  .chip-option span{
+    display:inline-flex;align-items:center;font-family:var(--mono);font-size:13.5px;
+    padding:11px 18px;border-radius:8px;border:1px solid var(--line);background:var(--panel);
+    color:var(--ink-dim);cursor:pointer;transition:all .2s;user-select:none;
+  }
+  .chip-option:hover span{border-color:var(--violet-soft);color:var(--ink)}
+  .chip-option input:checked + span{border-color:var(--violet);background:var(--violet-deep);color:var(--violet-soft)}
+  .chip-option input:focus-visible + span{outline:2px solid var(--violet-soft);outline-offset:2px}
+
+  .step-actions{display:flex;gap:12px;margin-top:26px;align-items:center}
+  .btn-primary, .btn-back{
+    font-family:var(--mono);font-size:14px;font-weight:500;padding:14px 24px;border-radius:8px;
+    border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{background:var(--violet);color:#0B0E14;box-shadow:0 0 0 0 var(--violet)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px -6px var(--violet)}
+  .btn-primary:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:none}
+  .btn-back{background:transparent;color:var(--ink-faint);padding:14px 10px}
+  .btn-back:hover{color:var(--ink)}
+
+  .hint{font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-top:18px}
+  .thanks p{color:var(--ink-dim);font-size:16px;margin-top:4px}
+  .thanks .check{width:52px;height:52px;border-radius:50%;background:rgba(63,199,168,0.15);border:1px solid var(--teal);color:var(--teal);display:grid;place-items:center;font-size:24px;margin-bottom:22px}
+
+  .error{color:#E24B4A;font-family:var(--mono);font-size:12.5px;margin-top:14px;display:none}
+  .error.show{display:block}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="aurora"><div class="aurora-blob"></div></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><span class="mark"></span>DAVID_BERROCAL</div>
+    <a href="index.html" class="back-link">← Back to site</a>
+  </div>
+</nav>
+
+<main>
+  <div class="contact-card">
+    <div class="progress" id="progress">
+      <span class="dot on" data-dot="1"></span>
+      <span class="dot" data-dot="2"></span>
+      <span class="dot" data-dot="3"></span>
+    </div>
+
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="contactForm" novalidate>
+      <input type="hidden" name="form-name" value="contact">
+      <p style="position:absolute;left:-9999px">
+        <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+      </p>
+
+      <div class="step active" data-step="1">
+        <span class="eyebrow">Step 1 of 3</span>
+        <h2>What's your name?</h2>
+        <div class="field"><input type="text" name="firstName" id="firstName" placeholder="First name" required autocomplete="given-name"></div>
+        <div class="field"><input type="text" name="lastName" id="lastName" placeholder="Last name" required autocomplete="family-name"></div>
+        <div class="step-actions">
+          <button type="button" class="btn-primary" data-next>Next →</button>
+        </div>
+      </div>
+
+      <div class="step" data-step="2">
+        <span class="eyebrow">Step 2 of 3</span>
+        <h2>How do you identify?</h2>
+        <div class="field">
+          <select name="role" id="role" required>
+            <option value="" selected disabled>Select one</option>
+            <option value="Founder / CEO">Founder / CEO</option>
+            <option value="Marketing Leader">Marketing Leader</option>
+            <option value="Sales Leader">Sales Leader</option>
+            <option value="RevOps / Systems Leader">RevOps / Systems Leader</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="step-actions">
+          <button type="button" class="btn-back" data-back>← Back</button>
+          <button type="button" class="btn-primary" data-next>Next →</button>
+        </div>
+      </div>
+
+      <div class="step" data-step="3">
+        <span class="eyebrow">Step 3 of 3</span>
+        <h2>Where can we reach you?</h2>
+        <div class="field"><input type="email" name="email" id="email" placeholder="Work email" required autocomplete="email"></div>
+        <div class="field"><input type="tel" name="phone" id="phone" placeholder="Phone number" required autocomplete="tel"></div>
+        <div class="field">
+          <label class="field-label">Preferred contact method</label>
+          <div class="chip-select" role="radiogroup">
+            <label class="chip-option">
+              <input type="radio" name="preferredChannel" value="Email" required>
+              <span>Email</span>
+            </label>
+            <label class="chip-option">
+              <input type="radio" name="preferredChannel" value="Call" required>
+              <span>Call</span>
+            </label>
+            <label class="chip-option">
+              <input type="radio" name="preferredChannel" value="WhatsApp" required>
+              <span>WhatsApp</span>
+            </label>
+          </div>
+        </div>
+        <div class="step-actions">
+          <button type="button" class="btn-back" data-back>← Back</button>
+          <button type="submit" class="btn-primary" id="submitBtn">Send →</button>
+        </div>
+        <div class="error" id="formError">Something went wrong — try again, or email davidbervic@gmail.com directly.</div>
+      </div>
+
+      <div class="step thanks" data-step="thanks">
+        <div class="check">✓</div>
+        <h2 id="thanksHeading">Thanks!</h2>
+        <p>I'll get back to you within a business day.</p>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script>
+(function(){
+  const form = document.getElementById('contactForm');
+  const steps = Array.from(form.querySelectorAll('.step'));
+  const dots = Array.from(document.querySelectorAll('.progress .dot'));
+  const errorBox = document.getElementById('formError');
+  const submitBtn = document.getElementById('submitBtn');
+  let current = 1;
+
+  function fieldsFor(stepNum){
+    return Array.from(steps.find(s => s.dataset.step === String(stepNum)).querySelectorAll('input, select'))
+      .filter(el => el.name !== 'bot-field');
+  }
+
+  function validateStep(stepNum){
+    const fields = fieldsFor(stepNum);
+    for(const f of fields){
+      if(!f.checkValidity()){ f.reportValidity(); return false; }
+    }
+    return true;
+  }
+
+  function goTo(stepNum){
+    steps.forEach(s => s.classList.toggle('active', s.dataset.step === String(stepNum)));
+    dots.forEach(d => {
+      const n = parseInt(d.dataset.dot, 10);
+      d.classList.toggle('on', n === stepNum);
+      d.classList.toggle('done', typeof stepNum === 'number' && n < stepNum);
+    });
+    current = stepNum;
+  }
+
+  form.querySelectorAll('[data-next]').forEach(btn => {
+    btn.addEventListener('click', function(){
+      if(!validateStep(current)) return;
+      goTo(current + 1);
+    });
+  });
+
+  form.querySelectorAll('[data-back]').forEach(btn => {
+    btn.addEventListener('click', function(){ goTo(current - 1); });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!validateStep(3)) return;
+    errorBox.classList.remove('show');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    const data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(data).toString()
+    }).then(function(){
+      const name = document.getElementById('firstName').value.trim();
+      document.getElementById('thanksHeading').textContent = name ? ('Thanks, ' + name + '!') : 'Thanks!';
+      dots.forEach(d => d.classList.add('done'));
+      goTo('thanks');
+    }).catch(function(){
+      errorBox.classList.add('show');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send →';
+    });
+  });
+})();
+</script>
+</body>
+</html>
