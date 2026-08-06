@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is Lead Scoring and How Does It Help Sales Teams Prioritize Leads? · David Berrocal</title>
+<meta name="description" content="Learn what lead scoring is, how it works with explicit and implicit data, and how resource-constrained startups can use HubSpot to prioritize the right leads.">
+<meta name="theme-color" content="#0B0E14">
+
+<link rel="canonical" href="https://davidbervic.com/what-is-lead-scoring.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="What Is Lead Scoring and How Does It Help Sales Teams Prioritize Leads?">
+<meta property="og:description" content="How lead scoring works, how it differs from guesswork, and how a lean startup team should set it up in HubSpot.">
+<meta property="og:url" content="https://davidbervic.com/what-is-lead-scoring.html">
+<meta property="article:published_time" content="2026-05-08">
+<meta property="article:modified_time" content="2026-08-06">
+<meta property="article:author" content="David Berrocal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What Is Lead Scoring and How Does It Help Sales Teams Prioritize Leads?">
+<meta name="twitter:description" content="How lead scoring works and how a lean startup team should set it up in HubSpot.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Crect x='24' y='24' width='9' height='9' rx='2' fill='%237C6FF0'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='22' font-weight='600' fill='%23EEF1F7' text-anchor='middle'%3EDB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Is Lead Scoring and How Does It Help Sales Teams Prioritize Leads?",
+  "author": {
+    "@type": "Person",
+    "name": "David Berrocal",
+    "jobTitle": "GTM Revenue Systems Architect",
+    "sameAs": ["https://www.linkedin.com/in/david-berrocal-vic/"]
+  },
+  "publisher": {"@type": "Person", "name": "David Berrocal"},
+  "datePublished": "2026-05-08",
+  "dateModified": "2026-08-06",
+  "mainEntityOfPage": "https://davidbervic.com/what-is-lead-scoring.html",
+  "description": "How lead scoring works, how it differs from guesswork, and how a lean startup team should set it up in HubSpot."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is lead scoring in simple terms?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Lead scoring is a methodology that assigns a numerical value to each prospect based on their fit with your ideal customer and their behavior or engagement, so sales and marketing teams can rank who is most likely to buy."}},
+    {"@type": "Question", "name": "What is the difference between explicit and implicit lead scoring data?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Explicit data covers information about the prospect such as company size, job title, or industry, while implicit data is derived from behavior like website visits, whitepaper downloads, and email opens and clicks."}},
+    {"@type": "Question", "name": "Does a startup need lead scoring if the sales team is small?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes, small teams can rely on intuition briefly, but that breaks down once leads exceed what a founder or single rep can track, leading to slow responses or wasted time on low-quality leads."}},
+    {"@type": "Question", "name": "What is the difference between manual and predictive lead scoring in HubSpot?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Manual lead scoring lets you define and assign point values to specific fields and is available on Professional and Enterprise tiers, while predictive scoring uses machine learning to score leads automatically and is only available on the Enterprise tier."}},
+    {"@type": "Question", "name": "How often should a lead scoring model be reviewed?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Lead scoring models should be reviewed at least once a quarter, or whenever a company introduces a new product, market, or campaign, to keep scoring aligned with current goals."}},
+    {"@type": "Question", "name": "What ROI impact does lead scoring have on lead generation?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Companies implementing lead scoring achieve 138% ROI on lead generation compared to 78% for companies without it, with B2B organizations specifically seeing a 77% increase in lead generation ROI."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://davidbervic.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://davidbervic.com/resources.html"},
+    {"@type": "ListItem", "position": 3, "name": "What Is Lead Scoring?", "item": "https://davidbervic.com/what-is-lead-scoring.html"}
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --bg:#0B0E14; --bg-soft:#11151F; --panel:#161B27; --line:#232A3A; --line-soft:#1B2130;
+    --ink:#EEF1F7; --ink-dim:#D7DCE8; --ink-faint:#8994AA;
+    --violet:#7C6FF0; --violet-soft:#A79EF6; --violet-deep:#2A2550; --teal:#3FC7A8; --amber:#F0A93B;
+    --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:var(--violet-soft);text-decoration:underline;text-decoration-color:rgba(167,158,246,0.35);text-underline-offset:2px}
+  a:hover{text-decoration-color:var(--violet-soft)}
+  ::selection{background:var(--violet);color:#0B0E14}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+
+  .progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--teal),#378ADD,var(--violet));z-index:60;box-shadow:0 0 10px 1px rgba(124,111,240,0.5)}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(22,27,39,0.8);box-shadow:0 8px 30px -12px rgba(0,0,0,0.6)}
+  nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,rgba(63,199,168,0.7),rgba(55,138,221,0.7),rgba(124,111,240,0.7))}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;z-index:2}
+  .logo{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px;text-decoration:none}
+  .logo .mark{width:9px;height:9px;background:var(--violet);border-radius:2px;box-shadow:0 0 10px var(--violet)}
+  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-dim);font-family:var(--mono)}
+  .nav-links a{transition:color .2s;text-decoration:none;color:inherit}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-dropdown{position:relative;display:flex;align-items:center}
+  .nav-dropdown-trigger{background:none;border:none;font:inherit;color:var(--ink-dim);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:0;transition:color .2s}
+  .nav-dropdown-trigger:hover, .nav-dropdown.open .nav-dropdown-trigger{color:var(--ink)}
+  .nav-dropdown-trigger .caret{font-size:10px;transition:transform .2s}
+  .nav-dropdown.open .caret{transform:rotate(180deg)}
+  .nav-dropdown-menu{
+    position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
+    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;
+    min-width:160px;display:none;flex-direction:column;gap:2px;
+    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60;
+  }
+  .nav-dropdown.open .nav-dropdown-menu{display:flex}
+  .nav-dropdown-menu a{padding:9px 12px;border-radius:6px;font-size:13px;color:var(--ink-dim);transition:all .15s;display:block}
+  .nav-dropdown-menu a:hover{background:var(--violet-deep);color:var(--ink)}
+  .nav-ctas{display:flex;align-items:center;gap:10px}
+  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s;text-decoration:none}
+  .nav-contact{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--violet);background:var(--violet);color:#0B0E14;padding:10px 16px;border-radius:6px;transition:all .2s;text-decoration:none}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  article{position:relative;z-index:2;max-width:720px;margin:0 auto;padding:56px 32px 100px}
+  .back-link{display:inline-block;font-family:var(--mono);font-size:13px;color:var(--ink-faint);text-decoration:none;margin-bottom:28px}
+  .back-link:hover{color:var(--ink)}
+  .article-tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--teal);border:1px solid #3FC7A840;background:#3FC7A812;padding:5px 12px;border-radius:6px;margin-bottom:20px}
+  h1{font-family:var(--disp);font-weight:600;font-size:clamp(28px,4.5vw,42px);letter-spacing:-0.02em;line-height:1.15;margin-bottom:18px}
+  .article-meta{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);margin-bottom:36px;display:flex;gap:8px;flex-wrap:wrap}
+
+  .direct-answer{
+    font-size:17px;color:var(--ink-dim);line-height:1.7;background:var(--panel);
+    border-left:3px solid var(--violet);border-radius:0 10px 10px 0;padding:18px 22px;margin-bottom:28px;
+  }
+  .direct-answer strong{color:var(--ink);font-weight:600}
+
+  .takeaways{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:20px 24px;margin-bottom:40px}
+  .takeaways .tk-label{font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:12px}
+  .takeaways ul{margin:0 0 0 20px;font-size:15px;color:var(--ink-dim)}
+  .takeaways li{margin-bottom:8px}
+  .takeaways li strong{color:var(--ink)}
+
+  .qtoc{margin:0 0 48px;padding:22px 24px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+  .qtoc-label{font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:14px}
+  .qtoc ol{margin:0 0 0 18px;padding:0;font-size:15px;color:var(--ink-dim)}
+  .qtoc li{margin-bottom:9px}
+  .qtoc a{color:var(--ink-dim);text-decoration:none}
+  .qtoc a:hover{color:var(--violet-soft)}
+  .qtoc .qtoc-faq{color:var(--ink-faint)}
+
+  h2{font-family:var(--disp);font-weight:600;font-size:clamp(21px,3vw,26px);letter-spacing:-0.01em;margin:44px 0 16px;scroll-margin-top:90px}
+  h3{font-family:var(--disp);font-weight:600;font-size:17px;margin:26px 0 8px}
+  p{font-size:16px;color:var(--ink-dim);margin-bottom:16px}
+  p strong{color:var(--ink);font-weight:600}
+  ul, ol{margin:0 0 20px 22px;color:var(--ink-dim);font-size:16px}
+  li{margin-bottom:8px}
+  li strong{color:var(--ink)}
+
+  .lead-answer{font-size:17px;color:var(--ink);font-weight:500;line-height:1.55;padding-left:14px;border-left:2px solid var(--teal);margin-bottom:14px}
+
+  .callout{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:28px 0;font-size:15px;color:var(--ink-dim);border-left:3px solid var(--amber)}
+  .callout .cl-label{font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:8px}
+
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;margin:20px 0 28px}
+  .table-wrap table{width:100%;border-collapse:collapse;margin:0;font-size:14px}
+  .table-wrap th, .table-wrap td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line-soft)}
+  .table-wrap th{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.04em;background:var(--bg-soft)}
+  .table-wrap td{color:var(--ink-dim)}
+  .table-wrap tr:nth-child(even) td{background:rgba(255,255,255,0.015)}
+  .table-wrap tr:last-child td{border-bottom:none}
+
+  .faq-item{border-bottom:1px solid var(--line-soft);padding:20px 0}
+  .faq-item:last-child{border-bottom:none}
+  .faq-item h3{margin:0 0 8px}
+  .faq-item p{margin-bottom:0}
+
+  .related{margin-top:44px;padding-top:28px;border-top:1px solid var(--line-soft)}
+  .related h2{font-size:18px;margin:0 0 14px}
+  .related-card{display:block;padding:16px 18px;background:var(--panel);border:1px solid var(--line);border-radius:10px;text-decoration:none;margin-bottom:10px;transition:border-color .2s,transform .2s}
+  .related-card:hover{border-color:var(--violet);transform:translateY(-2px)}
+  .related-card .rc-tag{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:0.05em;color:var(--teal);display:block;margin-bottom:5px}
+  .related-card .rc-title{color:var(--ink);font-size:15px;font-weight:600}
+
+  .sources{margin-top:40px;padding-top:24px;border-top:1px solid var(--line-soft)}
+  .sources h2{font-size:16px;margin:0 0 12px}
+  .sources ol{margin:0 0 0 20px;font-size:13px;color:var(--ink-faint)}
+  .sources li{margin-bottom:6px;word-break:break-word}
+  .sources a{color:var(--ink-faint)}
+
+  .article-cta{margin-top:48px;padding:28px;background:var(--panel);border:1px solid var(--line);border-radius:14px;text-align:center}
+  .article-cta p{color:var(--ink);font-size:16px;margin-bottom:16px}
+  .article-cta .btn-primary{font-family:var(--mono);font-size:14px;font-weight:500;background:var(--violet);color:#0B0E14;padding:13px 22px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+
+  .author-box{margin-top:44px;padding-top:28px;border-top:1px solid var(--line-soft);display:flex;align-items:flex-start;gap:14px}
+  .author-avatar{width:44px;height:44px;border-radius:50%;background:var(--violet-deep);border:1px solid var(--violet);color:var(--violet-soft);display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:14px;flex-shrink:0}
+  .author-name{font-family:var(--disp);font-weight:600;font-size:15px}
+  .author-role{font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-bottom:8px}
+  .author-bio{font-size:14px;color:var(--ink-dim);margin-bottom:6px}
+  .author-link{font-family:var(--mono);font-size:12.5px}
+
+  footer{position:relative;z-index:2;padding:40px 0;border-top:1px solid var(--line-soft);text-align:center}
+  footer p{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
+
+  /* UI enhancements */
+  article::before{
+    content:"";position:absolute;top:-30px;left:50%;transform:translateX(-50%);
+    width:min(720px,92%);height:340px;pointer-events:none;z-index:-1;
+    background:radial-gradient(60% 60% at 50% 0%,rgba(124,111,240,0.18),transparent 70%),
+               radial-gradient(46% 50% at 82% 8%,rgba(63,199,168,0.10),transparent 70%);
+    filter:blur(8px);
+  }
+  .article-meta{align-items:center;gap:8px}
+  .meta-avatar{width:26px;height:26px;border-radius:50%;background:var(--violet-deep);border:1px solid var(--violet);color:var(--violet-soft);display:grid;place-items:center;font-size:10.5px;font-weight:600}
+  .meta-chip{background:var(--bg-soft);border:1px solid var(--line-soft);border-radius:20px;padding:4px 11px;color:var(--ink-faint)}
+  .direct-answer{background:linear-gradient(135deg,rgba(124,111,240,0.10),rgba(63,199,168,0.05));border:1px solid var(--line);border-left:3px solid var(--violet)}
+  .takeaways ul{list-style:none;margin-left:0}
+  .takeaways li{position:relative;padding-left:26px}
+  .takeaways li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--teal);font-weight:700}
+  article{counter-reset:sec}
+  h2.sec{counter-increment:sec;display:flex;flex-direction:column;gap:3px}
+  h2.sec::before{content:counter(sec,decimal-leading-zero);font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:0.14em;color:var(--violet-soft)}
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0 28px}
+  .compare-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;position:relative;overflow:hidden}
+  .compare-card::after{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+  .compare-card.accent-a::after{background:var(--teal)}
+  .compare-card.accent-b::after{background:var(--violet)}
+  .compare-card .cc-label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:inline-flex;align-items:center;gap:7px}
+  .compare-card .cc-label::before{content:"";width:7px;height:7px;border-radius:2px}
+  .compare-card.accent-a .cc-label{color:var(--teal)}
+  .compare-card.accent-a .cc-label::before{background:var(--teal);box-shadow:0 0 8px var(--teal)}
+  .compare-card.accent-b .cc-label{color:var(--violet-soft)}
+  .compare-card.accent-b .cc-label::before{background:var(--violet);box-shadow:0 0 8px var(--violet)}
+  .compare-card .cc-title{font-family:var(--disp);font-weight:600;font-size:15px;color:var(--ink);margin-bottom:6px}
+  .compare-card p{font-size:14px;margin-bottom:0}
+  @media(max-width:560px){.compare{grid-template-columns:1fr}}
+  .statblock{margin:26px 0;padding:28px 24px;background:linear-gradient(135deg,rgba(124,111,240,0.12),rgba(63,199,168,0.06));border:1px solid var(--line);border-radius:14px;text-align:center}
+  .statblock .stat-num{font-family:var(--disp);font-weight:700;font-size:clamp(42px,9vw,64px);line-height:1;background:linear-gradient(90deg,var(--teal),var(--violet-soft));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .statblock .stat-desc{font-size:15px;color:var(--ink-dim);margin:12px auto 0;max-width:440px}
+  .statblock .stat-src{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);margin-top:10px}
+  .qtoc li{transition:transform .15s}
+  .qtoc li:hover{transform:translateX(3px)}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="mark"></span>DAVID_BERROCAL</a>
+    <div class="nav-links">
+      <a href="index.html">GTM system</a>
+      <a href="about.html">About me</a>
+      <div class="nav-dropdown" id="resourcesDropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="resources.html">Blog</a>
+          <a href="downloads.html">Downloads</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-ctas">
+      <a href="contact.html" class="nav-contact">Contact</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">Lead Scoring</span>
+  <h1>What Is Lead Scoring and How Does It Help Sales Teams Prioritize Leads?</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">DB</span>
+    <span class="meta-chip">David Berrocal</span>
+    <span class="meta-chip">Published May 8, 2026</span>
+    <span class="meta-chip">Updated Aug 6, 2026</span>
+    <span class="meta-chip">8 min read</span>
+  </div>
+
+  <p class="direct-answer"><strong>Direct answer:</strong> Lead scoring is a methodology that assigns a numerical value to each prospect based on fit and behavior, so sales and marketing teams can objectively rank who is most likely to buy. It turns a chaotic pile of signups, demo requests, and subscribers into a ranked, actionable list, directing limited sales bandwidth toward the people actually ready to buy.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li>Lead scoring combines <strong>explicit data</strong> (company size, job title, industry) with <strong>implicit data</strong> (website visits, email opens, downloads) into one composite score.</li>
+      <li>Points can be added or subtracted, so unsubscribes or inactivity decay a score downward, keeping pipelines from filling with stale contacts.</li>
+      <li>A lead becomes sales-qualified once it crosses an agreed threshold; getting that threshold wrong wastes rep time or lets real buyers slip through.</li>
+      <li>HubSpot offers <strong>manual scoring</strong> on Professional and Enterprise tiers and <strong>predictive scoring</strong> only on Enterprise, making manual the practical starting point for startups.</li>
+      <li>Companies that implement lead scoring see 138% ROI on lead generation versus 78% for those that do not, according to <a href="https://www.landbase.com/blog/lead-scoring-statistics" target="_blank" rel="noopener">Landbase</a>.</li>
+    </ul>
+  </div>
+
+  <nav class="qtoc">
+    <span class="qtoc-label">Questions this article answers</span>
+    <ol>
+      <li><a href="#mean">What does lead scoring actually mean in plain terms?</a></li>
+      <li><a href="#manual">Why does manual lead prioritization break down for startups?</a></li>
+      <li><a href="#data">What are the two types of data behind every lead score?</a></li>
+      <li><a href="#points">How do points get assigned and adjusted in a lead scoring model?</a></li>
+      <li><a href="#handoff">How does a score turn into a sales handoff?</a></li>
+      <li><a href="#hubspot">How does lead scoring work inside HubSpot?</a></li>
+      <li><a href="#pitfalls">What pitfalls should founders watch for when building a scoring model?</a></li>
+      <li><a href="#revenue">What revenue impact does lead scoring actually have?</a></li>
+      <li><a href="#first-step">What is the practical first step for a resource-constrained startup?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 6 FAQs answered below</a></li>
+    </ol>
+  </nav>
+
+  <h2 id="mean" class="sec">What does lead scoring actually mean in plain terms?</h2>
+  <p class="lead-answer">Lead scoring is the process of assigning a numerical value, typically 1 to 100, to each lead based on how well they fit your ideal customer and how actively they engage, so teams can prioritize instead of guessing.</p>
+  <p>Rather than relying on gut feeling, a founder or sales rep looks at a number attached to each contact record. That number reflects a composite judgment: how well this person or company fits your ideal customer profile, and how actively they have engaged with your product or content, according to <a href="https://www.activecampaign.com/blog/lead-scoring-101" target="_blank" rel="noopener">ActiveCampaign</a>.</p>
+  <p>Lead scoring works by assigning numerical values, typically 1 to 100, to prospect attributes and behaviors, creating a composite score that represents both fit and engagement, per <a href="https://www.cognism.com/blog/lead-scoring" target="_blank" rel="noopener">Cognism</a>.</p>
+
+  <h2 id="manual" class="sec">Why does manual lead prioritization break down for startups?</h2>
+  <p class="lead-answer">Sales reps at small companies can informally judge leads for a while, but this quickly hits limits once lead volume rises past what a founder or single rep can track by memory.</p>
+  <p>Many early-stage founders assume lead scoring is an enterprise-only concern. In reality, warning signs appear early: your sales team has more leads than it can respond to in a timely fashion, or reps waste time on low-quality leads that never convert, as noted by <a href="https://www.agilecrm.com/lead-scoring" target="_blank" rel="noopener">Agile CRM</a>.</p>
+  <p>For a founder-led sales motion where the CEO or a single account executive does outreach personally, this inefficiency is a direct tax on the most scarce resource in the company: founder and early-rep time.</p>
+
+  <h2 id="data" class="sec">What are the two types of data behind every lead score?</h2>
+  <p class="lead-answer">Lead scoring models combine explicit data, information about the prospect like company size or job title, with implicit data, behavioral signals like website visits and email opens.</p>
+  <p>Explicit data is provided by or about the prospect, such as company size, industry segment, job title, or geographic location, while implicit scores are derived from monitoring prospect behavior, such as website visits, whitepaper downloads, or email opens and clicks, according to <a href="https://www.oracle.com/cx/marketing/what-is-lead-scoring/" target="_blank" rel="noopener">Oracle</a>.</p>
+  <p>Some platforms add a third layer: social scores that analyze a person's presence and activity on social networks, per <a href="https://www.techtarget.com/searchcustomerexperience/definition/lead-scoring" target="_blank" rel="noopener">TechTarget</a>. In practice, the two core dimensions answer different questions:</p>
+  <div class="compare">
+    <div class="compare-card accent-a">
+      <div class="cc-label">Explicit data</div>
+      <div class="cc-title">Who they are</div>
+      <p>Company size, industry, job title, location. Answers: is this the right kind of company or person?</p>
+    </div>
+    <div class="compare-card accent-b">
+      <div class="cc-label">Implicit data</div>
+      <div class="cc-title">What they do</div>
+      <p>Website visits, downloads, email opens and clicks. Answers: are they actually interested right now?</p>
+    </div>
+  </div>
+  <p>A startup that tracks only one dimension will misfire, mistaking either a disengaged perfect-fit VP or an engaged-but-powerless intern for a sales-ready lead.</p>
+
+  <h2 id="points" class="sec">How do points get assigned and adjusted in a lead scoring model?</h2>
+  <p class="lead-answer">Each action or attribute gets a point value based on how likely it predicts a purchase, and points can also be subtracted when engagement drops, such as after an email unsubscribe.</p>
+  <p>Each action is assigned a point value depending on how likely the software predicts that action will lead to a purchase, and leads with strong fit and high interest become marketing-qualified leads passed to sales, per <a href="https://www.salesforce.com/blog/sales/lead-scoring/" target="_blank" rel="noopener">Salesforce</a>.</p>
+  <p>Scoring is not only additive. If a lead unsubscribes from an email list, their score can be adjusted downward. Common signals tracked include:</p>
+  <ul>
+    <li>Which email messages leads respond to</li>
+    <li>Which pages they visit and how long they stay</li>
+    <li>Whether they filled out or downloaded a form</li>
+    <li>Whether they clicked a blog post or engaged on social media</li>
+  </ul>
+  <p>This negative scoring and decay, described by <a href="https://www.creatio.com/glossary/lead-scoring" target="_blank" rel="noopener">Creatio</a>, prevents pipelines from filling with contacts who looked promising months ago but have since gone cold.</p>
+
+  <h2 id="handoff" class="sec">How does a score turn into a sales handoff?</h2>
+  <p class="lead-answer">Once a lead crosses an agreed threshold, it graduates from marketing-qualified to sales-qualified and gets routed for direct outreach, but setting that threshold correctly is critical.</p>
+  <p>The transition from Marketing Qualified Leads to Sales Qualified Leads is sometimes called the "Valley of Death" in B2B, and if your MQL to SQL conversion rate falls below 10%, your scoring is likely too lenient, according to <a href="https://marketjoy.com/b2b-sales-pipeline-conversion-rates-marketjoy-data/" target="_blank" rel="noopener">MarketJoy</a>.</p>
+  <p>For a two-person go-to-market team, a lenient threshold means reps chase unqualified contacts, while an overly strict one lets real buyers slip through untouched. This is why cross-functional agreement matters more than the scoring math itself: scoring only works if both teams agree on what the scores mean, per <a href="https://pipeline.zoominfo.com/marketing/lead-scoring" target="_blank" rel="noopener">ZoomInfo</a>. Jointly defining scoring criteria creates a shared language that reduces finger-pointing over lead quality, even when the marketing team and sales team are the same one or two people.</p>
+
+  <h2 id="hubspot" class="sec">How does lead scoring work inside HubSpot?</h2>
+  <p class="lead-answer">HubSpot offers manual lead scoring, using a customizable HubSpot Score property, and predictive scoring, which uses machine learning; manual is available on Professional and Enterprise tiers, while predictive requires Enterprise.</p>
+  <p>HubSpot has two lead scoring features: manual and predictive, according to <a href="https://blog.hubspot.com/marketing/lead-scoring-instructions" target="_blank" rel="noopener">HubSpot's own guide</a>. The manual approach uses a contact property called the HubSpot Score, letting you award or deduct points for specific fields you define. Manual lead scoring is available with the Professional and Enterprise pricing tiers, while predictive only comes with the Enterprise tier, per <a href="https://www.marketveep.com/blog/ultimate-guide-to-lead-scoring-in-hubspot" target="_blank" rel="noopener">MarketVeep</a>.</p>
+  <div class="compare">
+    <div class="compare-card accent-a">
+      <div class="cc-label">Manual scoring</div>
+      <div class="cc-title">You define the rules</div>
+      <p>Award or deduct points for the fields you choose. Available on Professional and Enterprise tiers. The practical starting point for startups.</p>
+    </div>
+    <div class="compare-card accent-b">
+      <div class="cc-label">Predictive scoring</div>
+      <div class="cc-title">Machine learning decides</div>
+      <p>Logistic regression trained on your converted customers, scoring each contact 1 to 100. Enterprise only.</p>
+    </div>
+  </div>
+  <p>Predictive scoring is built using a logistic regression algorithm that analyzes existing customers and the actions they took before converting, then applies that learning to score current leads, as explained by <a href="https://www.madkudu.com/blog/predictive-lead-scoring-hubspot" target="_blank" rel="noopener">MadKudu</a>. Once built, the model assigns a score between 1 and 100 to each contact, and a higher score indicates a higher likelihood of becoming a customer.</p>
+  <p>Configuring the engine involves criteria and weight. There are technical limits worth knowing, per <a href="https://www.hublead.io/blog/hubspot-lead-scoring" target="_blank" rel="noopener">Hublead</a>:</p>
+  <ul>
+    <li>You can only have 100 active scoring criteria at one time</li>
+    <li>Each criterion can be assigned between -250 and 250 points</li>
+    <li>Points decay over time, with email actions decaying the fastest</li>
+  </ul>
+  <p>The score itself lives under Settings, Properties, Score, and updates dynamically as contacts interact with your business, according to <a href="https://insidea.com/blog/hubspot/kb/complete-guide-to-the-hubspot-lead-scoring-tool/" target="_blank" rel="noopener">Insidea</a>.</p>
+
+  <h2 id="pitfalls" class="sec">What pitfalls should founders watch for when building a scoring model?</h2>
+  <p class="lead-answer">The biggest traps are treating scoring as set-and-forget, applying one universal score to every contact, and over-engineering a model before you have the data volume to support it.</p>
+  <p>Regularly review your model at least once a quarter or whenever you introduce a new product, market, or campaign to keep scoring aligned with current goals, per <a href="https://www.factors.ai/blog/hubspot-lead-scoring" target="_blank" rel="noopener">Factors.ai</a>.</p>
+  <p>A second common trap is HubSpot's universal scoring nature: if you update your lead scoring attributes, all contacts across your HubSpot are updated at once, according to <a href="https://hightouch.com/blog/lead-scoring-and-account-scoring-in-hubspot" target="_blank" rel="noopener">Hightouch</a>. A third trap is over-engineering, attempting an enterprise-grade build before you have the defined ICP or data volume to support it.</p>
+  <p>Choosing the right complexity for your stage matters: traditional lead scoring is best for startups with low lead volume, while predictive scoring becomes essential for scale-ups with 500-plus leads per month and deep historical data, per <a href="https://www.default.com/post/hubspot-lead-scoring" target="_blank" rel="noopener">Default</a>.</p>
+
+  <h2 id="revenue" class="sec">What revenue impact does lead scoring actually have?</h2>
+  <p class="lead-answer">Companies implementing lead scoring achieve 138% ROI on lead generation compared to 78% for those without it, and speed of follow-up compounds that advantage further.</p>
+  <p>Companies implementing lead scoring achieve 138% ROI on lead generation compared to just 78% for those without it, with B2B organizations seeing a 77% increase in lead generation ROI specifically, according to <a href="https://www.landbase.com/blog/lead-scoring-statistics" target="_blank" rel="noopener">Landbase</a>.</p>
+  <div class="statblock">
+    <div class="stat-num">138%</div>
+    <p class="stat-desc">ROI on lead generation for companies that use lead scoring, versus 78% for those that do not.</p>
+    <div class="stat-src">Source: <a href="https://www.landbase.com/blog/lead-scoring-statistics" target="_blank" rel="noopener">Landbase</a></div>
+  </div>
+  <p>The scale of the underlying problem is significant: 98% of marketing-qualified leads never convert into closed deals, while only 27% of leads passed from marketing to sales are actually qualified in the first place, per <a href="https://prospeo.io/s/b2b-lead-conversion-rates" target="_blank" rel="noopener">Prospeo</a>.</p>
+  <p>Scoring is also tied to speed: when a lead hits a threshold score, an automated real-time alert should ping the assigned sales rep immediately, because following up within five minutes increases conversion odds significantly, as noted by <a href="https://www.thesmallbusinessexpo.com/blog/b2b-lead-scoring/" target="_blank" rel="noopener">The Small Business Expo</a>. For lean teams, every hour spent on an unqualified lead is an hour not spent closing a real deal.</p>
+
+  <h2 id="first-step" class="sec">What is the practical first step for a resource-constrained startup?</h2>
+  <p class="lead-answer">Start with manual lead scoring in HubSpot before attempting predictive models, defining a small set of explicit and implicit criteria and a single agreed MQL-to-SQL threshold.</p>
+  <p>The most practical next step for a resource-constrained startup already using HubSpot is to:</p>
+  <ol>
+    <li>Define five to ten explicit fit criteria (company size, job title, industry)</li>
+    <li>Define five to ten implicit engagement criteria (pricing page visits, demo requests, email opens)</li>
+    <li>Assign point values inside Settings, Properties, Score</li>
+    <li>Set a single MQL-to-SQL threshold that the founder and first sales hire agree on in writing</li>
+    <li>Review and recalibrate the model every quarter as real conversion data comes in</li>
+  </ol>
+  <p>Only graduate to HubSpot's predictive scoring in Sales Hub Enterprise once you have enough historical closed-won and closed-lost data to train the model reliably, per <a href="https://www.vanderbuild.co/blog/what-is-b2b-lead-scoring-the-ultimate-guide-to-qualifying-your-prospects" target="_blank" rel="noopener">Vanderbuild</a>.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>What is lead scoring in simple terms?</h3>
+    <p>Lead scoring is a methodology that assigns a numerical value to each prospect based on their fit with your ideal customer and their behavior or engagement, so sales and marketing teams can rank who is most likely to buy.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is the difference between explicit and implicit lead scoring data?</h3>
+    <p>Explicit data covers information about the prospect such as company size, job title, or industry, while implicit data is derived from behavior like website visits, whitepaper downloads, and email opens and clicks.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does a startup need lead scoring if the sales team is small?</h3>
+    <p>Yes, small teams can rely on intuition briefly, but that breaks down once leads exceed what a founder or single rep can track, leading to slow responses or wasted time on low-quality leads.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is the difference between manual and predictive lead scoring in HubSpot?</h3>
+    <p>Manual lead scoring lets you define and assign point values to specific fields and is available on Professional and Enterprise tiers, while predictive scoring uses machine learning to score leads automatically and is only available on the Enterprise tier.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How often should a lead scoring model be reviewed?</h3>
+    <p>Lead scoring models should be reviewed at least once a quarter, or whenever a company introduces a new product, market, or campaign, to keep scoring aligned with current goals.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What ROI impact does lead scoring have on lead generation?</h3>
+    <p>Companies implementing lead scoring achieve 138% ROI on lead generation compared to 78% for companies without it, with B2B organizations specifically seeing a 77% increase in lead generation ROI.</p>
+  </div>
+
+  <div class="related">
+    <h2>Related reading</h2>
+    <a href="how-to-score-leads-hubspot.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">How Do You Calculate a Lead Score in HubSpot?</span>
+    </a>
+    <a href="what-is-engagement-score-hubspot.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">What Is an Engagement Score in HubSpot?</span>
+    </a>
+  </div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://www.agilecrm.com/lead-scoring" target="_blank" rel="noopener">Agile CRM: Lead Scoring</a></li>
+      <li><a href="https://www.activecampaign.com/blog/lead-scoring-101" target="_blank" rel="noopener">ActiveCampaign: Lead Scoring 101</a></li>
+      <li><a href="https://www.oracle.com/cx/marketing/what-is-lead-scoring/" target="_blank" rel="noopener">Oracle: What Is Lead Scoring</a></li>
+      <li><a href="https://www.techtarget.com/searchcustomerexperience/definition/lead-scoring" target="_blank" rel="noopener">TechTarget: Lead Scoring Definition</a></li>
+      <li><a href="https://www.salesforce.com/blog/sales/lead-scoring/" target="_blank" rel="noopener">Salesforce: Lead Scoring</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Lead_scoring" target="_blank" rel="noopener">Wikipedia: Lead Scoring</a></li>
+      <li><a href="https://www.creatio.com/glossary/lead-scoring" target="_blank" rel="noopener">Creatio: Lead Scoring Glossary</a></li>
+      <li><a href="https://www.cognism.com/blog/lead-scoring" target="_blank" rel="noopener">Cognism: Lead Scoring</a></li>
+      <li><a href="https://blog.hubspot.com/marketing/lead-scoring-instructions" target="_blank" rel="noopener">HubSpot Blog: Lead Scoring Instructions</a></li>
+      <li><a href="https://pipeline.zoominfo.com/marketing/lead-scoring" target="_blank" rel="noopener">ZoomInfo: Lead Scoring</a></li>
+      <li><a href="https://www.madkudu.com/blog/predictive-lead-scoring-hubspot" target="_blank" rel="noopener">MadKudu: Predictive Lead Scoring in HubSpot</a></li>
+      <li><a href="https://www.default.com/post/hubspot-lead-scoring" target="_blank" rel="noopener">Default: HubSpot Lead Scoring</a></li>
+      <li><a href="https://www.marketveep.com/blog/ultimate-guide-to-lead-scoring-in-hubspot" target="_blank" rel="noopener">MarketVeep: Ultimate Guide to Lead Scoring in HubSpot</a></li>
+      <li><a href="https://www.hublead.io/blog/hubspot-lead-scoring" target="_blank" rel="noopener">Hublead: HubSpot Lead Scoring</a></li>
+      <li><a href="https://www.hubspot.com/products/marketing/lead-scoring" target="_blank" rel="noopener">HubSpot: Lead Scoring Product Page</a></li>
+      <li><a href="https://hightouch.com/blog/lead-scoring-and-account-scoring-in-hubspot" target="_blank" rel="noopener">Hightouch: Lead Scoring and Account Scoring in HubSpot</a></li>
+      <li><a href="https://www.factors.ai/blog/hubspot-lead-scoring" target="_blank" rel="noopener">Factors.ai: HubSpot Lead Scoring</a></li>
+      <li><a href="https://insidea.com/blog/hubspot/kb/complete-guide-to-the-hubspot-lead-scoring-tool/" target="_blank" rel="noopener">Insidea: Complete Guide to the HubSpot Lead Scoring Tool</a></li>
+      <li><a href="https://www.landbase.com/blog/lead-scoring-statistics" target="_blank" rel="noopener">Landbase: Lead Scoring Statistics</a></li>
+      <li><a href="https://prospeo.io/s/b2b-lead-conversion-rates" target="_blank" rel="noopener">Prospeo: B2B Lead Conversion Rates</a></li>
+      <li><a href="https://www.thesmallbusinessexpo.com/blog/b2b-lead-scoring/" target="_blank" rel="noopener">The Small Business Expo: B2B Lead Scoring</a></li>
+      <li><a href="https://marketjoy.com/b2b-sales-pipeline-conversion-rates-marketjoy-data/" target="_blank" rel="noopener">MarketJoy: B2B Sales Pipeline Conversion Rates</a></li>
+      <li><a href="https://www.vanderbuild.co/blog/what-is-b2b-lead-scoring-the-ultimate-guide-to-qualifying-your-prospects" target="_blank" rel="noopener">Vanderbuild: What Is B2B Lead Scoring</a></li>
+    </ol>
+  </section>
+
+  <div class="article-cta">
+    <p>Want lead scoring built into your own HubSpot?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">DB</div>
+    <div>
+      <div class="author-name">David Berrocal</div>
+      <div class="author-role">GTM Revenue Systems Architect</div>
+      <p class="author-bio">I build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+</footer>
+
+<script>
+(function(){
+  const bar = document.getElementById('readProgress');
+  const article = document.querySelector('article');
+  if(!bar || !article) return;
+  let ticking = false;
+  function update(){
+    const articleTop = article.offsetTop;
+    const scrollable = article.offsetHeight - window.innerHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+
+(function(){
+  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+  if(!dropdowns.length) return;
+  function closeAll(){
+    dropdowns.forEach(function(dd){
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+    });
+  }
+  dropdowns.forEach(function(dd){
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const wasOpen = dd.classList.contains('open');
+      closeAll();
+      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+    });
+  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+})();
+</script>
+</body>
+</html>
