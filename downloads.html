@@ -58,8 +58,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-contact{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--violet);background:var(--violet);color:#0B0E14;padding:10px 16px;border-radius:6px;transition:all .2s}
   @media(max-width:860px){.nav-links{display:none}}
 
-  main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;padding:60px 24px}
-  .soon-box{text-align:center;max-width:480px}
+  main{flex:1;position:relative;z-index:2;padding:60px 0 30px}
+  .res-head{max-width:660px;margin-bottom:44px}
+
+  .dl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+  .dl-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .2s}
+  .dl-card:hover{transform:translateY(-4px);border-color:var(--violet);box-shadow:0 24px 50px -28px rgba(124,111,240,0.5)}
+  .dl-thumb{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--violet-deep),rgba(63,199,168,0.1));border-bottom:1px solid var(--line)}
+  .dl-thumb svg{width:44px;height:44px;stroke:var(--violet-soft);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+  .dl-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+  .dl-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+  .dl-card h3{font-family:var(--disp);font-size:18px;font-weight:600;line-height:1.3;margin-bottom:10px}
+  .dl-card p{font-size:14px;color:var(--ink-dim);line-height:1.6;margin-bottom:18px;flex:1}
+  .dl-cta{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--violet-soft);display:inline-flex;align-items:center;gap:7px;margin-top:auto;transition:gap .2s}
+  .dl-card:hover .dl-cta{gap:12px}
+  .dl-cta.soon{color:var(--ink-faint)}
   .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--violet-soft);display:inline-flex;align-items:center;gap:10px;margin-bottom:22px}
   .eyebrow::before{content:"";width:26px;height:1px;background:var(--violet-soft)}
   h1{font-family:var(--disp);font-weight:600;font-size:clamp(28px,4vw,38px);letter-spacing:-0.02em;margin-bottom:16px}
@@ -72,6 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
+<link rel="stylesheet" href="nav.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -97,16 +111,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="nav-ctas">
       <a href="contact.html" class="nav-contact">Contact</a>
       <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
+      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
   </div>
 </nav>
 
 <main>
-  <div class="soon-box">
-    <span class="eyebrow">Downloads</span>
-    <h1>Templates and playbooks, coming soon.</h1>
-    <p>Scoring frameworks, CRM audit checklists, and automation blueprints you can drop straight into your own stack. Still building this shelf.</p>
-    <a href="resources.html" class="back">← Read the blog instead</a>
+  <div class="wrap">
+    <header class="res-head">
+      <span class="eyebrow">Downloads</span>
+      <h1>Templates and playbooks for your revenue stack.</h1>
+      <p>Scoring frameworks, CRM audit checklists, and automation blueprints you can drop straight into your own stack.</p>
+    </header>
+
+    <div class="dl-grid">
+      <a class="dl-card is-live" href="downloads/utm-generator.html">
+        <div class="dl-thumb"><svg viewBox="0 0 24 24"><path d="M9 15l6-6"/><path d="M8 8.5A3.5 3.5 0 0 1 11.5 5h1A3.5 3.5 0 0 1 16 8.5v0A3.5 3.5 0 0 1 12.5 12"/><path d="M16 15.5A3.5 3.5 0 0 1 12.5 19h-1A3.5 3.5 0 0 1 8 15.5v0A3.5 3.5 0 0 1 11.5 12"/></svg></div>
+        <div class="dl-body">
+          <span class="dl-tag">Spreadsheet</span>
+          <h3>UTM Generator</h3>
+          <p>Build consistent, tagged campaign links in under 30 seconds and keep GA4 and HubSpot reporting clean.</p>
+          <span class="dl-cta">Get the generator →</span>
+        </div>
+      </a>
+
+      <article class="dl-card">
+        <div class="dl-thumb"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/></svg></div>
+        <div class="dl-body">
+          <span class="dl-tag">Template</span>
+          <h3>Lead Scoring Framework</h3>
+          <p>A fit-plus-engagement model on a two-axis matrix, with thresholds and tiers you can rebuild inside HubSpot.</p>
+          <span class="dl-cta soon">Coming soon</span>
+        </div>
+      </article>
+
+      <article class="dl-card">
+        <div class="dl-thumb"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+        <div class="dl-body">
+          <span class="dl-tag">Checklist</span>
+          <h3>CRM Audit Checklist</h3>
+          <p>The exact list I run to find broken lifecycle stages, dead automations, and silent data debt in a HubSpot portal.</p>
+          <span class="dl-cta soon">Coming soon</span>
+        </div>
+      </article>
+
+      <article class="dl-card">
+        <div class="dl-thumb"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="6" height="6" rx="1.4"/><rect x="15" y="14" width="6" height="6" rx="1.4"/><path d="M6 10v4a2 2 0 0 0 2 2h7"/></svg></div>
+        <div class="dl-body">
+          <span class="dl-tag">Playbook</span>
+          <h3>Automation Blueprint</h3>
+          <p>A map of the multi-agent content system: how research becomes articles and social posts, with the human gates marked.</p>
+          <span class="dl-cta soon">Coming soon</span>
+        </div>
+      </article>
+    </div>
   </div>
 </main>
 
@@ -137,5 +195,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
 })();
 </script>
+<script src="nav.js"></script>
 </body>
 </html>

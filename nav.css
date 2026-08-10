@@ -1,0 +1,25 @@
+/* ============================================================
+   nav.css — shared mobile nav (hamburger + dropdown) for the
+   standalone pages (index, resources, contact, downloads,
+   how-to-score). Loaded AFTER each page's inline styles so its
+   mobile rules win. Relies on the CSS variables each page
+   already defines in :root. Article pages get the same behavior
+   from blog.css.
+   ============================================================ */
+
+.nav-burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;color:var(--ink);width:38px;height:38px;padding:0;cursor:pointer;align-items:center;justify-content:center;font-size:17px;line-height:1;flex-shrink:0}
+.nav-burger:hover{border-color:var(--violet)}
+
+@media(max-width:900px){
+  .nav-burger{display:inline-flex}
+  .nav-inner{gap:8px}
+  .nav-ctas{gap:8px}
+  .nav-contact,.nav-cta{padding:8px 12px;font-size:12px}
+  .nav-links{position:absolute;top:calc(100% + 8px);left:16px;right:16px;display:none;flex-direction:column;gap:2px;align-items:stretch;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60}
+  nav.nav-open .nav-links{display:flex}
+  .nav-links > a{padding:11px 14px;border-radius:8px}
+  .nav-links > a:hover{background:var(--violet-deep);color:var(--ink)}
+  .nav-dropdown{width:100%;display:block}
+  .nav-dropdown-trigger{width:100%;justify-content:space-between;padding:11px 14px}
+  .nav-dropdown-menu{position:static;transform:none;min-width:0;box-shadow:none;border:none;background:transparent;padding:0 0 4px 12px}
+}

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Are Lifecycle Stages in HubSpot? · David Berrocal</title>
+<meta name="description" content="Lifecycle stage is a native HubSpot property that tracks a contact's journey from subscriber to customer. Learn why it matters for startup CRM success.">
+<meta name="theme-color" content="#0B0E14">
+
+<link rel="canonical" href="https://davidbervic.com/what-are-lifecycle-stages-in-hubspot.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="What Are Lifecycle Stages in HubSpot?">
+<meta property="og:description" content="Lifecycle stage is the native HubSpot property that tracks a contact's journey from subscriber to customer, and one of the most important CRM fields a startup can configure correctly.">
+<meta property="og:url" content="https://davidbervic.com/what-are-lifecycle-stages-in-hubspot.html">
+<meta property="article:published_time" content="2026-05-08">
+<meta property="article:modified_time" content="2026-08-10">
+<meta property="article:author" content="David Berrocal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What Are Lifecycle Stages in HubSpot?">
+<meta name="twitter:description" content="Why lifecycle stage is the shared property marketing, sales, and service all rely on, and how a startup should set it up.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Crect x='24' y='24' width='9' height='9' rx='2' fill='%237C6FF0'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='22' font-weight='600' fill='%23EEF1F7' text-anchor='middle'%3EDB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Are Lifecycle Stages in HubSpot?",
+  "author": {
+    "@type": "Person",
+    "name": "David Berrocal",
+    "jobTitle": "GTM Revenue Systems Architect",
+    "sameAs": ["https://www.linkedin.com/in/david-berrocal-vic/"]
+  },
+  "publisher": {"@type": "Person", "name": "David Berrocal"},
+  "datePublished": "2026-05-08",
+  "dateModified": "2026-08-10",
+  "mainEntityOfPage": "https://davidbervic.com/what-are-lifecycle-stages-in-hubspot.html",
+  "description": "Lifecycle stage is a native HubSpot property that tracks a contact's journey from subscriber to customer. Learn why it matters for startup CRM success."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is the difference between an MQL and an SQL in HubSpot?",
+     "acceptedAnswer": {"@type": "Answer", "text": "An MQL (Marketing Qualified Lead) meets behavioral and fit criteria suggesting readiness for sales outreach, while an SQL (Sales Qualified Lead) has been contacted and evaluated one-on-one by a sales rep, who confirms fit based on triggers like a scheduled meeting or BANT criteria."}},
+    {"@type": "Question", "name": "Does HubSpot automatically move contacts to the Customer lifecycle stage?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes, in practice HubSpot applies the Customer stage automatically once a deal linked to the contact is marked Closed Won, especially when sync lifecycle stage settings are enabled."}},
+    {"@type": "Question", "name": "Can a lifecycle stage move backward in HubSpot?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No, HubSpot never auto-downgrades a lifecycle stage. Stages capture the highest achievement in the buyer's journey, and downgrading would disrupt conversion metrics, revenue attribution, and could misfire workflows."}},
+    {"@type": "Question", "name": "Should every startup use all eight default lifecycle stages?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No, using every default stage is not mandatory. Businesses can skip stages like Evangelist if they don't add reporting value, or create custom stages if the defaults don't reflect their actual sales funnel, though adding too many custom stages can make reporting harder to manage."}},
+    {"@type": "Question", "name": "What is a healthy SQL-to-Opportunity conversion rate?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A healthy B2B SQL-to-Opportunity rate sits between 20 and 50 percent. Below 20 percent usually signals the SQL definition is too loose, while above 50 percent may mean the criteria are too strict and filtering out good prospects."}},
+    {"@type": "Question", "name": "Why do manual lifecycle stage updates cause problems?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Manual updates make lifecycle stage data incomplete, inconsistent, and always behind, since reps may forget to update records or move contacts between stages just to game dashboards, which destroys data integrity and breaks reporting accuracy."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://davidbervic.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://davidbervic.com/resources.html"},
+    {"@type": "ListItem", "position": 3, "name": "What Are Lifecycle Stages in HubSpot?", "item": "https://davidbervic.com/what-are-lifecycle-stages-in-hubspot.html"}
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="mark"></span>DAVID_BERROCAL</a>
+    <div class="nav-links">
+      <a href="index.html">GTM system</a>
+      <a href="about.html">About me</a>
+      <div class="nav-dropdown" id="resourcesDropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="resources.html">Blog</a>
+          <a href="downloads.html">Downloads</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-ctas">
+      <a href="contact.html" class="nav-contact">Contact</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
+      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">CRM</span>
+  <h1>What Are Lifecycle Stages in HubSpot?</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">DB</span>
+    <span class="meta-chip">David Berrocal</span>
+    <span class="meta-chip">Published May 8, 2026</span>
+    <span class="meta-chip">Updated Aug 10, 2026</span>
+    <span class="meta-chip">8 min read</span>
+  </div>
+
+  <p class="direct-answer"><strong>Direct answer:</strong> Lifecycle stage is a native HubSpot property on contacts and companies that shows where someone sits in the customer journey, from subscriber to evangelist. It matters because it is the shared field marketing, sales, and customer service all rely on, powering reporting, workflows, attribution, and forecasting, which makes it one of the most important CRM properties a startup can configure correctly.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li>Lifecycle stage is a <strong>macro-level</strong> HubSpot property that should update only when a real relationship milestone occurs, not with every activity.</li>
+      <li>HubSpot ships with eight default stages: Subscriber, Lead, MQL, SQL, Opportunity, Customer, Evangelist, and Other.</li>
+      <li>Lifecycle stage is the common language across marketing, sales, and service, powering lists, workflows, reports, and attribution.</li>
+      <li>Most failures are organizational, not technical: undefined stage criteria, manual updates, and no funnel reporting break the data.</li>
+      <li>Automating stage changes through HubSpot workflows and syncing settings keeps the property reliable and protects revenue attribution.</li>
+    </ul>
+  </div>
+
+  <details class="qtoc">
+    <summary class="qtoc-label">Questions this article answers</summary>
+    <ol>
+      <li><a href="#what">What is lifecycle stage in HubSpot?</a></li>
+      <li><a href="#stages">What are the eight default HubSpot lifecycle stages?</a></li>
+      <li><a href="#vs-status">How is lifecycle stage different from lead status?</a></li>
+      <li><a href="#why">Why is lifecycle stage one of the most important properties in a CRM?</a></li>
+      <li><a href="#mistakes">What common mistakes do startups make with lifecycle stages?</a></li>
+      <li><a href="#setup">How should a startup set up lifecycle stages correctly?</a></li>
+      <li><a href="#revenue">How does lifecycle stage accuracy affect revenue?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 6 FAQs answered below</a></li>
+    </ol>
+  </details>
+
+  <h2 id="what" class="sec">What is lifecycle stage in HubSpot?</h2>
+  <p class="lead-answer">Lifecycle stage is a native HubSpot property on both contact and company records that tracks where someone stands in the customer journey, from first contact through purchase and retention.</p>
+  <p>Inside HubSpot, lifecycle stage is a native property that lives on both the contact and company object. As <a href="https://www.theknowledgeacademy.com/blog/hubspot-lifecycle-stages/" target="_blank" rel="noopener">The Knowledge Academy</a> explains, it tracks where a contact or company is in the customer journey, from first communication through purchase, retention, and referral. Unlike a manual note or tag, it is wired directly into HubSpot's reporting, workflow, and list tools.</p>
+  <p>This is meant to be a <strong>macro-level field</strong>, not a day-to-day activity log. According to <a href="https://www.default.com/post/hubspot-lead-status-lifecycle-stages" target="_blank" rel="noopener">Default</a>, it is a macro property used by marketing, sales, and customer service, and it should only update when a substantive relationship milestone has been crossed. If every team member treats it as something to fiddle with casually, the property stops meaning anything.</p>
+
+  <h2 id="stages" class="sec">What are the eight default HubSpot lifecycle stages?</h2>
+  <p class="lead-answer">HubSpot ships with eight default stages: Subscriber, Lead, MQL, SQL, Opportunity, Customer, Evangelist, and Other, each marking a distinct point in the buyer's journey.</p>
+  <ul>
+    <li><strong>Subscriber</strong>: opted in to receive content but has shown no purchase intent, such as blog subscribers or newsletter signups.</li>
+    <li><strong>Lead</strong>: has expressed interest by completing a form or downloading a resource.</li>
+    <li><strong>Marketing Qualified Lead (MQL)</strong>: meets a defined threshold of behavioral and fit criteria indicating readiness for sales outreach. There is no universal MQL definition, according to <a href="https://www.blendb2b.com/blog/hubspots-lifecycle-stages-explained" target="_blank" rel="noopener">Blend B2B</a>.</li>
+    <li><strong>Sales Qualified Lead (SQL)</strong>: a sales rep has made contact and confirmed fit, per <a href="https://www.hublead.io/blog/hubspot-lifecycle-stages" target="_blank" rel="noopener">HubLead</a>.</li>
+    <li><strong>Opportunity</strong>: aligns with the creation of an open deal in the sales pipeline.</li>
+    <li><strong>Customer</strong>: reached once a deal closes, applied automatically when a deal is marked Closed Won.</li>
+    <li><strong>Evangelist</strong>: an optional stage for customers who actively promote the brand; many small teams skip it, as noted by <a href="https://www.properexpression.com/growth-marketing-blog/hubspot-lifecycle-stages" target="_blank" rel="noopener">Proper Expression</a>.</li>
+    <li><strong>Other</strong>: a catch-all for contacts who don't fit any stage, such as internal staff or partners.</li>
+  </ul>
+  <p>None of this is mandatory. Businesses can create custom lifecycle stages if the defaults don't reflect their actual funnel, though too many custom stages can make reporting harder to manage consistently.</p>
+
+  <h2 id="vs-status" class="sec">How is lifecycle stage different from lead status?</h2>
+  <p class="lead-answer">Lifecycle stage is a strategic, macro-level milestone tracked by every team, while lead status is a tactical, day-to-day property sales reps use only within the SQL stage.</p>
+  <p>Founders frequently confuse the two, but they answer different questions. Per <a href="https://www.default.com/post/hubspot-lead-status-lifecycle-stages" target="_blank" rel="noopener">Default</a>, lifecycle stage tracks where a contact is in the overall customer journey and is used by marketing, sales, and customer service, updating only when a relationship milestone has been reached.</p>
+  <p>Lead status, by contrast, is an operational property used by sales reps to track activity within the SQL stage, such as <strong>attempted to contact</strong>, <strong>connected</strong>, or <strong>open deal</strong>. Lifecycle stage rarely changes and always moves forward; lead status shifts constantly as reps work a deal.</p>
+  <div class="compare">
+    <div class="compare-card accent-a">
+      <div class="cc-label">Lifecycle stage</div>
+      <div class="cc-title">Strategic milestone</div>
+      <p>Macro-level, tracked by marketing, sales, and service. Moves forward only when a real relationship milestone is crossed.</p>
+    </div>
+    <div class="compare-card accent-b">
+      <div class="cc-label">Lead status</div>
+      <div class="cc-title">Tactical activity</div>
+      <p>Day-to-day property used by reps inside the SQL stage. Shifts constantly as a deal is worked.</p>
+    </div>
+  </div>
+
+  <h2 id="why" class="sec">Why is lifecycle stage one of the most important properties in a CRM?</h2>
+  <p class="lead-answer">Lifecycle stage is the connective tissue across marketing, sales, and service because it is recognized by every HubSpot tool, giving lean teams a single shared answer to where a contact stands in the revenue process.</p>
+  <p>Because the field is recognized across lists, workflows, reports, attribution, and forecasting, it becomes the common language that aligns every function touching revenue, according to <a href="https://vaulted.co/blog/hubspot-lifecycle-stage-explained" target="_blank" rel="noopener">Vaulted</a>. Without that shared language, teams operate on gut feel: marketing nurtures contacts who are ready to buy, sales calls unqualified leads, and leadership reviews a pipeline report that no longer reflects reality.</p>
+  <p>For a resource-constrained founder, this single property can replace what would otherwise require multiple dashboards, spreadsheets, and status meetings. It also underpins <strong>attribution</strong>, one of the hardest problems for early-stage companies. As <a href="https://www.cometly.com/post/master-hubspot-marketing-attribution-models" target="_blank" rel="noopener">Cometly</a> notes, lifecycle stages enable revenue attribution by linking marketing efforts to actual sales outcomes. When misconfigured, <a href="https://www.octavehq.com/post/hubspot-attribution-reporting-revenue-insights" target="_blank" rel="noopener">Octave HQ</a> points out that contacts associated with closed deals not set to Customer lifecycle stage is one of the most common reasons an attribution report understates real revenue.</p>
+
+  <h2 id="mistakes" class="sec">What common mistakes do startups make with lifecycle stages?</h2>
+  <p class="lead-answer">The most common failures are leaving default stage definitions vague, updating stages manually instead of automatically, and never building reporting to make the data useful.</p>
+  <p>According to <a href="https://marcloudconsulting.com/hubspot/hubspot-lifecycle-stages/" target="_blank" rel="noopener">Marcloud Consulting</a>, lifecycle stages are one of the most powerful features in HubSpot and one of the most consistently broken. There are three main failure modes:</p>
+  <ol>
+    <li><strong>Undefined criteria</strong>: leaving default stage names without defining what each means for the specific business, since what makes a contact an MQL varies by company.</li>
+    <li><strong>Manual updates</strong>: if reps or coordinators manually update lifecycle stages, the data becomes incomplete, inconsistent, and always behind, per <a href="https://encharge.io/automating-hubspot-lifecycle-stages/" target="_blank" rel="noopener">Encharge</a>.</li>
+    <li><strong>No reporting connection</strong>: teams set up stages but never build funnel conversion reports, meaning the data stays as metadata rather than intelligence.</li>
+  </ol>
+  <p>A related pitfall is gaming the metric: reps sometimes move contacts between MQL and SQL to game dashboards, destroying data integrity, resulting in leads marked SQL with no deal attached.</p>
+
+  <h2 id="setup" class="sec">How should a startup set up lifecycle stages correctly?</h2>
+  <p class="lead-answer">The fix is automation over manual discipline: use HubSpot workflows and native sync settings to move contacts between stages automatically, then track funnel conversion reporting monthly.</p>
+  <p>Clear definitions allow automation, handoff, and reporting to work seamlessly. Wherever possible, teams should use HubSpot workflows to set and update lifecycle stages, as recommended by <a href="https://www.copy.ai/blog/hubspot-workflows" target="_blank" rel="noopener">Copy.ai</a>. HubSpot's own sync settings can carry much of this load: enabling sync lifecycle stages triggers three core automations, a new contact moving to the default stage, a deal created moving linked contacts to Opportunity, and a deal marked Closed Won moving the contact to Customer.</p>
+  <p>HubSpot also makes stages one-directional by design. Per <a href="https://knowledge.hubspot.com/records/use-lifecycle-stages" target="_blank" rel="noopener">Knowledge Base HubSpot</a>, HubSpot never auto-downgrades a stage, protecting attribution data, because stages capture the highest achievement in the buyer's journey.</p>
+  <p>Once automation is in place, track funnel conversion reporting: the percentage of Leads becoming MQLs, MQLs becoming SQLs, SQLs becoming Opportunities, and Opportunities becoming Customers. A useful benchmark from <a href="https://www.nbh.co/learn/hubspot-lifecycle-stages-for-pipeline-forecasting-in-2026" target="_blank" rel="noopener">NBH</a> is the SQL-to-Opportunity rate: a healthy B2B rate sits between 20 and 50 percent; below 20 percent usually means the SQL definition is too loose, while above 50 percent may indicate criteria are too strict.</p>
+
+  <h2 id="revenue" class="sec">How does lifecycle stage accuracy affect revenue?</h2>
+  <p class="lead-answer">When lifecycle stage data is clean, founders can trace which channels produce contacts that reach SQL and Customer, letting budget shift toward what actually closes rather than what merely generates volume.</p>
+  <p>For an early-stage company, every dollar of marketing and sales spend has to prove itself quickly, and lifecycle stage is the mechanism that lets founders see the proof. When the data is clean, budget gets reallocated toward what closes rather than what merely generates volume.</p>
+  <p>When it is broken, marketing keeps nurturing sales-ready people, sales chases unqualified leads, forecasts drift from reality, and leadership makes headcount and spend decisions on numbers nobody fully trusts, all of which erodes CAC efficiency and slows the path to predictable revenue founders need to raise their next round or hit runway targets.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>What is the difference between an MQL and an SQL in HubSpot?</h3>
+    <p>An MQL (Marketing Qualified Lead) meets behavioral and fit criteria suggesting readiness for sales outreach, while an SQL (Sales Qualified Lead) has been contacted and evaluated one-on-one by a sales rep, who confirms fit based on triggers like a scheduled meeting or BANT criteria.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does HubSpot automatically move contacts to the Customer lifecycle stage?</h3>
+    <p>Yes, in practice HubSpot applies the Customer stage automatically once a deal linked to the contact is marked Closed Won, especially when sync lifecycle stage settings are enabled.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can a lifecycle stage move backward in HubSpot?</h3>
+    <p>No, HubSpot never auto-downgrades a lifecycle stage. Stages capture the highest achievement in the buyer's journey, and downgrading would disrupt conversion metrics, revenue attribution, and could misfire workflows.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Should every startup use all eight default lifecycle stages?</h3>
+    <p>No, using every default stage is not mandatory. Businesses can skip stages like Evangelist if they don't add reporting value, or create custom stages if the defaults don't reflect their actual sales funnel, though adding too many custom stages can make reporting harder to manage.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is a healthy SQL-to-Opportunity conversion rate?</h3>
+    <p>A healthy B2B SQL-to-Opportunity rate sits between 20 and 50 percent. Below 20 percent usually signals the SQL definition is too loose, while above 50 percent may mean the criteria are too strict and filtering out good prospects.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Why do manual lifecycle stage updates cause problems?</h3>
+    <p>Manual updates make lifecycle stage data incomplete, inconsistent, and always behind, since reps may forget to update records or move contacts between stages just to game dashboards, which destroys data integrity and breaks reporting accuracy.</p>
+  </div>
+
+  <div class="related">
+    <h2>Related reading</h2>
+    <a href="what-is-lead-scoring.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">What Is Lead Scoring and How Does It Help Sales Teams Prioritize Leads?</span>
+    </a>
+    <a href="what-is-engagement-score-hubspot.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">What Is an Engagement Score in HubSpot?</span>
+    </a>
+  </div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://www.theknowledgeacademy.com/blog/hubspot-lifecycle-stages/" target="_blank" rel="noopener">The Knowledge Academy: HubSpot Lifecycle Stages</a></li>
+      <li><a href="https://www.blendb2b.com/blog/hubspots-lifecycle-stages-explained" target="_blank" rel="noopener">Blend B2B: HubSpot's Lifecycle Stages Explained</a></li>
+      <li><a href="https://www.hublead.io/blog/hubspot-lifecycle-stages" target="_blank" rel="noopener">HubLead: HubSpot Lifecycle Stages</a></li>
+      <li><a href="https://www.pedowitzgroup.com/blog/hubspot-lifecycle-stages-blog" target="_blank" rel="noopener">Pedowitz Group: Lifecycle Stages</a></li>
+      <li><a href="https://www.onthefuze.com/hubspot-insights-blog/hubspot-lifecycle-stages-explained" target="_blank" rel="noopener">OnTheFuze: HubSpot Lifecycle Stages Explained</a></li>
+      <li><a href="https://vaulted.co/blog/hubspot-lifecycle-stage-explained" target="_blank" rel="noopener">Vaulted: HubSpot Lifecycle Stage Explained</a></li>
+      <li><a href="https://www.properexpression.com/growth-marketing-blog/hubspot-lifecycle-stages" target="_blank" rel="noopener">Proper Expression: HubSpot Lifecycle Stages</a></li>
+      <li><a href="https://automationstrategists.com/blog/hubspot-lifecycle-stages/" target="_blank" rel="noopener">Automation Strategists: HubSpot Lifecycle Stages</a></li>
+      <li><a href="https://knowledge.hubspot.com/records/use-lifecycle-stages" target="_blank" rel="noopener">HubSpot Knowledge Base: Use Lifecycle Stages</a></li>
+      <li><a href="https://www.default.com/post/hubspot-lead-status-lifecycle-stages" target="_blank" rel="noopener">Default: HubSpot Lead Status and Lifecycle Stages</a></li>
+      <li><a href="https://wesimplifi.co.uk/our-work/hubspot-lifecycle-stages-guide" target="_blank" rel="noopener">We Simplifi: HubSpot Lifecycle Stages Guide</a></li>
+      <li><a href="https://www.huboexperts.com/blog/hubspot-lifecycle-stages-explained" target="_blank" rel="noopener">HuboExperts: HubSpot Lifecycle Stages Explained</a></li>
+      <li><a href="https://www.project36.io/blog/hubspot-lifecycle-stages-best-practices-for-scaleups" target="_blank" rel="noopener">Project36: Lifecycle Stages Best Practices for Scaleups</a></li>
+      <li><a href="https://www.copy.ai/blog/hubspot-workflows" target="_blank" rel="noopener">Copy.ai: HubSpot Workflows</a></li>
+      <li><a href="https://www.mediajunction.com/blog/lifecycle-stages-best-practices" target="_blank" rel="noopener">Media Junction: Lifecycle Stages Best Practices</a></li>
+      <li><a href="https://arisegtm.com/blog/ai-agents-automate-hubspot-lifecycle-stages" target="_blank" rel="noopener">Arise GTM: AI Agents Automate HubSpot Lifecycle Stages</a></li>
+      <li><a href="https://arisegtm.com/blog/hubspot-lifecycle-marketing/" target="_blank" rel="noopener">Arise GTM: HubSpot Lifecycle Marketing</a></li>
+      <li><a href="https://insidea.com/blog/hubspot/kb/guide-to-using-lifecycle-stages-in-hubspot/" target="_blank" rel="noopener">Insidea: Guide to Using Lifecycle Stages in HubSpot</a></li>
+      <li><a href="https://marcloudconsulting.com/hubspot/hubspot-lifecycle-stages/" target="_blank" rel="noopener">Marcloud Consulting: HubSpot Lifecycle Stages</a></li>
+      <li><a href="https://www.cometly.com/post/master-hubspot-marketing-attribution-models" target="_blank" rel="noopener">Cometly: Master HubSpot Marketing Attribution Models</a></li>
+      <li><a href="https://www.octavehq.com/post/hubspot-attribution-reporting-revenue-insights" target="_blank" rel="noopener">Octave HQ: HubSpot Attribution Reporting Revenue Insights</a></li>
+      <li><a href="https://www.pedowitzgroup.com/blog/hubspot-marketing-attribution-blog" target="_blank" rel="noopener">Pedowitz Group: HubSpot Marketing Attribution</a></li>
+      <li><a href="https://insidea.com/blog/hubspot/kb/how-to-track-lifecycle-stage-metrics-in-hubspot-campaigns" target="_blank" rel="noopener">Insidea: How to Track Lifecycle Stage Metrics in HubSpot Campaigns</a></li>
+      <li><a href="https://www.nbh.co/learn/hubspot-lifecycle-stages-for-pipeline-forecasting-in-2026" target="_blank" rel="noopener">NBH: HubSpot Lifecycle Stages for Pipeline Forecasting in 2026</a></li>
+      <li><a href="https://encharge.io/automating-hubspot-lifecycle-stages/" target="_blank" rel="noopener">Encharge: Automating HubSpot Lifecycle Stages</a></li>
+    </ol>
+  </section>
+
+  <div class="article-cta">
+    <p>Want lifecycle stages automated and reporting-ready in your own HubSpot?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">DB</div>
+    <div>
+      <div class="author-name">David Berrocal</div>
+      <div class="author-role">GTM Revenue Systems Architect</div>
+      <p class="author-bio">I build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+</footer>
+
+<script>
+(function(){
+  const bar = document.getElementById('readProgress');
+  const article = document.querySelector('article');
+  if(!bar || !article) return;
+  let ticking = false;
+  function update(){
+    const articleTop = article.offsetTop;
+    const scrollable = article.offsetHeight - window.innerHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+
+(function(){
+  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+  if(!dropdowns.length) return;
+  function closeAll(){
+    dropdowns.forEach(function(dd){
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+    });
+  }
+  dropdowns.forEach(function(dd){
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const wasOpen = dd.classList.contains('open');
+      closeAll();
+      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+    });
+  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+})();
+
+(function(){
+  if(window.matchMedia('(max-width: 700px)').matches){
+    var t = document.querySelector('details.qtoc');
+    if(t) t.removeAttribute('open');
+  }
+})();
+
+(function(){
+  var burger = document.querySelector('.nav-burger');
+  var nav = document.querySelector('nav');
+  if(!burger || !nav) return;
+  function close(){ nav.classList.remove('nav-open'); burger.setAttribute('aria-expanded','false'); burger.textContent='☰'; }
+  burger.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = nav.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', open?'true':'false');
+    burger.textContent = open?'✕':'☰';
+  });
+  document.addEventListener('click', function(e){ if(!nav.contains(e.target)) close(); });
+})();
+</script>
+</body>
+</html>

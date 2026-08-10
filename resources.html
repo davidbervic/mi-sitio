@@ -97,6 +97,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
+<link rel="stylesheet" href="nav.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -122,6 +123,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="nav-ctas">
       <a href="contact.html" class="nav-contact">Contact</a>
       <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
+      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
   </div>
 </nav>
@@ -148,8 +150,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="article-grid" id="articleGrid">
-      <a class="article-card" data-topic="lead-scoring" href="what-is-lead-scoring.html">
+      <a class="article-card" data-topic="crm" href="what-are-lifecycle-stages-in-hubspot.html">
         <span class="ac-badge">Latest</span>
+        <span class="ac-tag" style="color:var(--base);border-color:#8A93A840;background:#8A93A812">CRM</span>
+        <h3>What are lifecycle stages in HubSpot?</h3>
+        <p>The native property that tracks a contact from subscriber to customer, and the shared language marketing, sales, and service all report on. How to set it up right.</p>
+        <span class="ac-meta">8 min read</span>
+        <span class="ac-arrow">↗</span>
+      </a>
+
+      <a class="article-card" data-topic="lead-scoring" href="what-is-lead-scoring.html">
         <span class="ac-tag" style="color:var(--teal);border-color:#3FC7A840;background:#3FC7A812">Lead Scoring</span>
         <h3>What is lead scoring, and how does it help sales teams prioritize leads?</h3>
         <p>Assign a number to every prospect based on fit and behavior, so your team calls the leads actually ready to buy. What it is, and how to set it up in HubSpot.</p>
@@ -260,5 +270,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
 })();
 </script>
+<script src="nav.js"></script>
 </body>
 </html>
