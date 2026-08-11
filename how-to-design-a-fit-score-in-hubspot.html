@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Do You Design a Fit Score in HubSpot Step by Step? · David Berrocal</title>
+<meta name="description" content="Learn how to design a fit score in HubSpot in 5 steps: define your ICP, build the score object, set weighted rules, test thresholds, and automate routing.">
+<meta name="theme-color" content="#0B0E14">
+
+<link rel="canonical" href="https://davidbervic.com/how-to-design-a-fit-score-in-hubspot.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="How Do You Design a Fit Score in HubSpot Step by Step?">
+<meta property="og:description" content="A step-by-step guide to building a fit score in HubSpot's new Lead Scoring tool: ICP definition, weighted rules, thresholds, testing, and routing.">
+<meta property="og:url" content="https://davidbervic.com/how-to-design-a-fit-score-in-hubspot.html">
+<meta property="article:published_time" content="2026-05-08">
+<meta property="article:modified_time" content="2026-08-11">
+<meta property="article:author" content="David Berrocal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How Do You Design a Fit Score in HubSpot Step by Step?">
+<meta name="twitter:description" content="Build a fit score in HubSpot's new Lead Scoring tool: ICP, weighted rules, thresholds, testing, and routing.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Crect x='24' y='24' width='9' height='9' rx='2' fill='%237C6FF0'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='22' font-weight='600' fill='%23EEF1F7' text-anchor='middle'%3EDB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Do You Design a Fit Score in HubSpot Step by Step?",
+  "author": {
+    "@type": "Person",
+    "name": "David Berrocal",
+    "jobTitle": "GTM Revenue Systems Architect",
+    "sameAs": ["https://www.linkedin.com/in/david-berrocal-vic/"]
+  },
+  "publisher": {"@type": "Person", "name": "David Berrocal"},
+  "datePublished": "2026-05-08",
+  "dateModified": "2026-08-11",
+  "mainEntityOfPage": "https://davidbervic.com/how-to-design-a-fit-score-in-hubspot.html",
+  "description": "A step-by-step guide to building a fit score in HubSpot's new Lead Scoring tool: ICP definition, weighted rules, thresholds, testing, and routing."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is the difference between a fit score and an engagement score in HubSpot?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A fit score qualifies records based on demographic and firmographic information such as job title, company size, industry, or annual revenue, answering who the lead is. An engagement score is built from behavioral events and answers what the lead does. HubSpot's Lead Scoring tool deliberately separates these two dimensions instead of blending them into one number."}},
+    {"@type": "Question", "name": "Do I need a specific HubSpot plan to build a fit score?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. Fit scoring requires Marketing Hub or Sales Hub Professional or Enterprise. Contacts on Marketing Hub only can receive engagement, fit, or combined scores; companies on Marketing Hub or Sales Hub can receive the same three types; deals on Sales Hub only can receive combined engagement and fit scores."}},
+    {"@type": "Question", "name": "What happened to HubSpot's old single score property?",
+     "acceptedAnswer": {"@type": "Answer", "text": "HubSpot retired the legacy blended score property in stages during 2025: new score properties could not be created starting May 1, 2025, existing ones could not be edited starting July 1, 2025, and existing scores stopped updating starting August 31, 2025. Legacy scores not tied to an active asset are being periodically deleted from Q4 2025 onward."}},
+    {"@type": "Question", "name": "Should a fit score decay over time like an engagement score?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No. Fit scores are static because they describe who a lead is, such as company size or job title, which does not change based on recent activity. Decay should only be applied to engagement scores, which measure ongoing behavior."}},
+    {"@type": "Question", "name": "What should a startup do with a lead that has high engagement but low fit?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Route it to an SDR for qualification rather than directly to an account executive. A combined fit and engagement scoring grid treats medium fit plus high engagement as ambiguous, since high activity does not compensate for a poor ICP match."}},
+    {"@type": "Question", "name": "How should a resource-constrained startup start building a fit score?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Hold a short conversation between the founder or head of sales and whoever owns HubSpot to agree on five to seven firmographic attributes defining the best customers, build a single contact or company level fit score capped at 0 to 100 with three thresholds, test it against the last twenty closed-won and closed-lost deals, then connect it to one workflow notifying sales when a contact crosses the High threshold."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://davidbervic.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://davidbervic.com/resources.html"},
+    {"@type": "ListItem", "position": 3, "name": "How Do You Design a Fit Score in HubSpot?", "item": "https://davidbervic.com/how-to-design-a-fit-score-in-hubspot.html"}
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><span class="mark"></span>DAVID_BERROCAL</a>
+    <div class="nav-links">
+      <a href="index.html">GTM system</a>
+      <a href="about.html">About me</a>
+      <div class="nav-dropdown" id="resourcesDropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="resources.html">Blog</a>
+          <a href="downloads.html">Downloads</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-ctas">
+      <a href="contact.html" class="nav-contact">Contact</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
+      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">Lead Scoring</span>
+  <h1>How Do You Design a Fit Score in HubSpot Step by Step?</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">DB</span>
+    <span class="meta-chip">David Berrocal</span>
+    <span class="meta-chip">Published May 8, 2026</span>
+    <span class="meta-chip">Updated Aug 11, 2026</span>
+    <span class="meta-chip">7 min read</span>
+  </div>
+
+  <p class="direct-answer"><strong>Direct answer:</strong> A fit score in HubSpot is built by first defining your ideal customer profile with sales, then creating a dedicated Fit score object in HubSpot's Lead Scoring tool using property based rules, assigning weighted positive and negative points to firmographic attributes, setting thresholds and testing against real records, and activating the score in workflows combined with an engagement score.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li>Fit scores measure <strong>who a lead is</strong> (firmographics) while engagement scores measure <strong>what a lead does</strong>; HubSpot now separates these instead of blending them into one legacy score.</li>
+      <li>HubSpot's legacy single score property is frozen: no new score properties since May 1, 2025, no edits since July 1, 2025, no updates since August 31, 2025, and unused legacy scores are being deleted from Q4 2025 onward.</li>
+      <li>Fit scoring requires Marketing Hub or Sales Hub Professional or Enterprise, and is built entirely from property based rules on contact, company, or associated records, not from events.</li>
+      <li>Fit scores should stay static since they describe identity, not behavior; only engagement scores should decay over time.</li>
+      <li>Combining fit and engagement into a 3x3 grid (fit A/B/C by engagement 1/2/3) creates nine routing categories that prevent highly engaged but poor-fit leads from going straight to AEs.</li>
+    </ul>
+  </div>
+
+  <details class="qtoc">
+    <summary class="qtoc-label">Questions this article answers</summary>
+    <ol>
+      <li><a href="#new-approach">Why does fit scoring in HubSpot require a new approach now?</a></li>
+      <li><a href="#icp">How do you define ICP criteria before opening HubSpot?</a></li>
+      <li><a href="#create">How do you create the fit score object and choose its scope?</a></li>
+      <li><a href="#rules">How do you build property groups with positive and negative rules?</a></li>
+      <li><a href="#thresholds">How do you set thresholds and test the fit score before turning it on?</a></li>
+      <li><a href="#activate">How do you activate the fit score and combine it with engagement?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 6 FAQs answered below</a></li>
+    </ol>
+  </details>
+
+  <h2 id="new-approach" class="sec">Why does fit scoring in HubSpot require a new approach now?</h2>
+  <p class="lead-answer">HubSpot retired the old blended score property throughout 2025, replacing it with a Lead Scoring tool that separates fit (who a lead is) from engagement (what a lead does).</p>
+  <p>For years, startups relied on a single HubSpot Score property that mixed identity with behavior. That model is now obsolete. According to <a href="https://www.iodigital.com/en/insights/blogs/everything-you-need-to-know-about-hubspot-new-lead-scoring-model" target="_blank" rel="noopener">iodigital</a>, HubSpot began retiring this model in 2025: you could not create new score properties starting May 1, 2025, could not edit existing ones starting July 1, 2025, and existing score properties stopped updating starting August 31, 2025. Legacy scores not used in an active asset are also being periodically deleted from Q4 2025 onward.</p>
+  <p>The replacement, <a href="https://knowledge.hubspot.com/scoring/build-lead-scores?src=feed" target="_blank" rel="noopener">HubSpot's Lead Scoring tool</a>, deliberately splits two distinct questions. Fit measures who they are (company size, industry, job title, revenue), while engagement measures what they do. As one analysis puts it, mixing these dimensions makes it impossible to explain why a lead qualified. For a founder running a lean GTM stack, this split forces you to codify your ICP once, cleanly, instead of guessing which combination of clicks and titles equals a good customer.</p>
+  <div class="compare">
+    <div class="compare-card accent-a">
+      <div class="cc-label">Fit score</div>
+      <div class="cc-title">Who they are</div>
+      <p>Firmographics: company size, industry, job title, revenue. Static, built from property rules. Answers: is this the right kind of buyer?</p>
+    </div>
+    <div class="compare-card accent-b">
+      <div class="cc-label">Engagement score</div>
+      <div class="cc-title">What they do</div>
+      <p>Behavioral events: visits, opens, clicks, form fills. Decays over time. Answers: are they actually interested right now?</p>
+    </div>
+  </div>
+
+  <h2 id="icp" class="sec">How do you define ICP criteria before opening HubSpot?</h2>
+  <p class="lead-answer">Get sales and marketing aligned on explicit, verifiable firmographic signals before touching the tool, since this strategy work determines whether the fit score succeeds.</p>
+  <p>This is not a HubSpot task, it is a strategy task, and skipping it is the single biggest reason fit scores fail. Guidance from <a href="https://www.weidert.com/blog/hubspot-lead-scoring-tutorial" target="_blank" rel="noopener">Weidert</a> is explicit that scoring criteria should come from numerical scores assigned to attributes chosen collaboratively by marketing and sales.</p>
+  <p>Build a short list of firmographic signals:</p>
+  <ul>
+    <li>Company size</li>
+    <li>Industry vertical</li>
+    <li>Job title or seniority</li>
+    <li>Annual revenue</li>
+    <li>Geography</li>
+    <li>Tech stack</li>
+  </ul>
+  <p>Separately, list disqualifying traits such as competitors, students or job seekers, unsupported geographies, or company sizes below your minimum viable deal size. As one migration guide notes, this migration forces the ICP definition work you've deferred, referenced in analysis from <a href="https://www.simplemachinesmarketing.com/blog/modernizing-lead-scoring-how-hubspots-fit-engagement-model-improves-lead-qualification/" target="_blank" rel="noopener">Simple Machines Marketing</a>.</p>
+
+  <h2 id="create" class="sec">How do you create the fit score object and choose its scope in HubSpot?</h2>
+  <p class="lead-answer">Navigate to Marketing &gt; Lead Scoring, choose whether you're scoring contacts, companies, or deals, pick fit as the score type, and set a score ceiling like 0 to 100.</p>
+  <p>Fit scoring lives inside the dedicated <a href="https://knowledge.hubspot.com/scoring/build-lead-scores?src=feed" target="_blank" rel="noopener">Lead Scoring tool</a>, not the old Properties panel. In your HubSpot account, navigate to Marketing &gt; Lead Scoring, then create or edit a score.</p>
+  <p>HubSpot asks who and how: who means contacts, companies, or deals; how means engagement, fit, or combine. For a startup, contact-level fit scoring is usually the right starting point since it captures the individual buyer's role, while company-level fit scoring matters more when selling to multi-stakeholder accounts.</p>
+  <p>Subscription gating matters here, per <a href="https://knowledge.hubspot.com/crm-setup/set-up-score-properties-to-qualify-leads" target="_blank" rel="noopener">HubSpot's knowledge base</a>:</p>
+  <ul>
+    <li>Contacts on Marketing Hub only can get engagement, fit, or combined scores</li>
+    <li>Companies on Marketing Hub or Sales Hub can get the same three types</li>
+    <li>Deals on Sales Hub only can get combined engagement and fit scores</li>
+  </ul>
+  <p>Fit scoring specifically requires Marketing Hub or Sales Hub Professional or Enterprise. Also set your score ceiling: HubSpot's Score limit dropdown offers ranges from -100 to 100 up to -10,000 to 10,000. Most lean teams should keep it simple with a 0 to 100 scale so thresholds stay intuitive for reps unfamiliar with the tool.</p>
+
+  <h2 id="rules" class="sec">How do you build property groups with positive and negative rules?</h2>
+  <p class="lead-answer">Fit scores are built exclusively from property based rules on contact, company, or associated records, with positive points for ICP traits and negative points for disqualifiers.</p>
+  <p>Unlike engagement scores, which are built from events, fit scores use only property groups. Per <a href="https://knowledge.hubspot.com/properties/set-up-score-properties-to-qualify-leads" target="_blank" rel="noopener">HubSpot's documentation</a>, for fit scores you'll only have the option to add property groups.</p>
+  <p>HubSpot also supports pulling data from associated records, which matters for B2B startups selling to teams: click Add property criteria, then select Contact or Company, or Associated object for a related record's property.</p>
+  <p>Build both sides of the ledger:</p>
+  <ul>
+    <li><strong>Positive points</strong>: target industry, right-sized company, senior title.</li>
+    <li><strong>Negative points</strong>: competitors and job seekers identified by specific email domains, per an example cited by <a href="https://www.hubjoy.co/hubspot/lead-scoring" target="_blank" rel="noopener">Hubjoy</a>.</li>
+  </ul>
+  <p>Weight criteria based on actual win-rate correlation rather than spreading points evenly. If gated content downloaders convert at a notably higher rate, apply heavier weight to that signal since it closely correlates to revenue outcomes.</p>
+  <p>Importantly, fit scores should not decay over time the way engagement scores do, since fit describes identity, not activity: apply decay to engagement only, as fit scores are static.</p>
+
+  <h2 id="thresholds" class="sec">How do you set thresholds and test the fit score before turning it on?</h2>
+  <p class="lead-answer">Translate the raw score into High, Medium, and Low labels, then validate the logic against real closed-won and closed-lost records before activating it live.</p>
+  <p>A raw number means little to a rep triaging pipeline. HubSpot's threshold feature categorizes records by label, for example setting 0-49 as Low, 50-74 as Medium, and 75-100 as High, per <a href="https://community.hubspot.com/t5/Releases-and-Updates/HubSpot-s-New-Lead-Scoring-Your-Guide-to-the-August-2025-Update/ba-p/1110840" target="_blank" rel="noopener">HubSpot's release notes</a>.</p>
+  <p>Before flipping the switch, validate against real records. HubSpot lets you click "Test contact" to evaluate your score property. One implementation guide reinforces the same discipline: run your score logic against a few examples to confirm top prospects aren't underweighted and low-quality leads aren't scoring too high, per <a href="https://www.man.digital/blog/new-lead-scoring-in-hubspot" target="_blank" rel="noopener">Man Digital</a>.</p>
+  <p>For startups with thin data, this manual sanity check often catches errors, like a title filter that accidentally excludes your best customer segment, before it reaches a rep's queue.</p>
+
+  <h2 id="activate" class="sec">How do you activate the fit score and combine it with engagement?</h2>
+  <p class="lead-answer">Connect the fit score to a workflow that triggers alerts or tasks at your threshold, then pair it with an engagement score to build a routing matrix that prevents mismatched leads from reaching AEs.</p>
+  <p>A fit score only creates value once it drives action. Connect it to workflows so records crossing your threshold trigger something concrete, such as choosing a start trigger based on lead score above 50, then adding actions like sending an internal notification or creating a task for sales.</p>
+  <p>For most startups, the highest leverage move is pairing fit with an engagement score into a Combined score. One framework maps this as a 3x3 grid: fit A/B/C times engagement 1/2/3 equals 9 routing categories, described by <a href="https://blog.thalox.com/combined-score-in-hubspot" target="_blank" rel="noopener">Thalox</a>.</p>
+  <p>This grid resolves the classic ambiguous case: medium fit plus high engagement creates ambiguity, since the prospect shows interest but doesn't match ICP, so route to SDR for qualification rather than direct to AEs, because high activity doesn't compensate for wrong fit.</p>
+  <p>Finally, treat the score as a living system. Revisit it as your ICP sharpens, because lead scoring tools don't solve scoring problems, process design does, and the best model fails if sales doesn't trust it and marketing doesn't maintain it.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>What is the difference between a fit score and an engagement score in HubSpot?</h3>
+    <p>A fit score qualifies records based on demographic and firmographic information such as job title, company size, industry, or annual revenue, answering who the lead is. An engagement score is built from behavioral events and answers what the lead does. HubSpot's Lead Scoring tool deliberately separates these two dimensions instead of blending them into one number.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Do I need a specific HubSpot plan to build a fit score?</h3>
+    <p>Yes. Fit scoring requires Marketing Hub or Sales Hub Professional or Enterprise. Contacts on Marketing Hub only can receive engagement, fit, or combined scores; companies on Marketing Hub or Sales Hub can receive the same three types; deals on Sales Hub only can receive combined engagement and fit scores.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What happened to HubSpot's old single score property?</h3>
+    <p>HubSpot retired the legacy blended score property in stages during 2025: new score properties could not be created starting May 1, 2025, existing ones could not be edited starting July 1, 2025, and existing scores stopped updating starting August 31, 2025. Legacy scores not tied to an active asset are being periodically deleted from Q4 2025 onward.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Should a fit score decay over time like an engagement score?</h3>
+    <p>No. Fit scores are static because they describe who a lead is, such as company size or job title, which does not change based on recent activity. Decay should only be applied to engagement scores, which measure ongoing behavior.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What should a startup do with a lead that has high engagement but low fit?</h3>
+    <p>Route it to an SDR for qualification rather than directly to an account executive. A combined fit and engagement scoring grid treats medium fit plus high engagement as ambiguous, since high activity does not compensate for a poor ICP match.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How should a resource-constrained startup start building a fit score?</h3>
+    <p>Hold a short conversation between the founder or head of sales and whoever owns HubSpot to agree on five to seven firmographic attributes defining the best customers, build a single contact or company level fit score capped at 0 to 100 with three thresholds, test it against the last twenty closed-won and closed-lost deals, then connect it to one workflow notifying sales when a contact crosses the High threshold.</p>
+  </div>
+
+  <div class="related">
+    <h2>Related reading</h2>
+    <a href="what-is-engagement-score-hubspot.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">What Is an Engagement Score in HubSpot?</span>
+    </a>
+    <a href="how-to-score-leads-hubspot.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">How Do You Calculate a Lead Score in HubSpot?</span>
+    </a>
+  </div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://www.iodigital.com/en/insights/blogs/everything-you-need-to-know-about-hubspot-new-lead-scoring-model" target="_blank" rel="noopener">iodigital: Everything You Need to Know About HubSpot's New Lead Scoring Model</a></li>
+      <li><a href="https://www.xcellimark.com/blog/how-to-build-lead-scoring-in-hubspot-2025-update" target="_blank" rel="noopener">Xcellimark: How to Build Lead Scoring in HubSpot 2025 Update</a></li>
+      <li><a href="https://www.goals.marketing/post/the-new-hubspot-lead-scoring-model-a-guide-for-2025" target="_blank" rel="noopener">Goals Marketing: The New HubSpot Lead Scoring Model, a Guide for 2025</a></li>
+      <li><a href="https://www.weidert.com/blog/hubspot-lead-scoring-tutorial" target="_blank" rel="noopener">Weidert: HubSpot Lead Scoring Tutorial</a></li>
+      <li><a href="https://community.hubspot.com/t5/Releases-and-Updates/HubSpot-s-New-Lead-Scoring-Your-Guide-to-the-August-2025-Update/ba-p/1110840" target="_blank" rel="noopener">HubSpot Community: Guide to the August 2025 Lead Scoring Update</a></li>
+      <li><a href="https://www.man.digital/blog/new-lead-scoring-in-hubspot" target="_blank" rel="noopener">Man Digital: New Lead Scoring in HubSpot</a></li>
+      <li><a href="https://www.johnsteeleconsulting.com/blog/hubspot-lead-scoring-model-update" target="_blank" rel="noopener">John Steele Consulting: HubSpot Lead Scoring Model Update</a></li>
+      <li><a href="https://www.simplemachinesmarketing.com/blog/modernizing-lead-scoring-how-hubspots-fit-engagement-model-improves-lead-qualification/" target="_blank" rel="noopener">Simple Machines Marketing: Modernizing Lead Scoring</a></li>
+      <li><a href="https://knowledge.hubspot.com/crm-setup/set-up-score-properties-to-qualify-leads" target="_blank" rel="noopener">HubSpot Knowledge Base: Set Up Score Properties to Qualify Leads</a></li>
+      <li><a href="https://grain.com/blog/hubspot-lead-scoring" target="_blank" rel="noopener">Grain: HubSpot Lead Scoring</a></li>
+      <li><a href="https://www.hublead.io/blog/hubspot-lead-scoring" target="_blank" rel="noopener">Hublead: HubSpot Lead Scoring</a></li>
+      <li><a href="https://hightouch.com/blog/lead-scoring-and-account-scoring-in-hubspot" target="_blank" rel="noopener">Hightouch: Lead Scoring and Account Scoring in HubSpot</a></li>
+      <li><a href="https://knowledge.hubspot.com/articles/kcs_article/contacts/set-up-score-properties-to-qualify-leads" target="_blank" rel="noopener">HubSpot Knowledge Base: Set Up Score Properties (Article)</a></li>
+      <li><a href="https://www.marketveep.com/blog/ultimate-guide-to-lead-scoring-in-hubspot" target="_blank" rel="noopener">MarketVeep: Ultimate Guide to Lead Scoring in HubSpot</a></li>
+      <li><a href="https://blog.hubspot.com/customers/how-to-use-manual-lead-scoring-in-hubspot" target="_blank" rel="noopener">HubSpot Blog: How to Use Manual Lead Scoring in HubSpot</a></li>
+      <li><a href="https://knowledge.hubspot.com/properties/set-up-score-properties-to-qualify-leads" target="_blank" rel="noopener">HubSpot Knowledge Base: Set Up Score Properties (Properties)</a></li>
+      <li><a href="https://insidea.com/blog/hubspot/kb/how-to-set-up-score-properties-in-hubspot-crm" target="_blank" rel="noopener">InsideA: How to Set Up Score Properties in HubSpot CRM</a></li>
+      <li><a href="https://knowledge.hubspot.com/scoring/build-lead-scores?src=feed" target="_blank" rel="noopener">HubSpot Knowledge Base: Build Lead Scores</a></li>
+      <li><a href="https://community.hubspot.com/t5/Tips-Tricks-Best-Practices/Create-a-custom-Deal-Score/m-p/1171828" target="_blank" rel="noopener">HubSpot Community: Create a Custom Deal Score</a></li>
+      <li><a href="https://zapier.com/blog/hubspot-lead-scoring/" target="_blank" rel="noopener">Zapier: HubSpot Lead Scoring</a></li>
+      <li><a href="https://blog.thalox.com/combined-score-in-hubspot" target="_blank" rel="noopener">Thalox: Combined Score in HubSpot</a></li>
+      <li><a href="https://knowledge.hubspot.com/contacts/set-up-score-properties-to-qualify-leads" target="_blank" rel="noopener">HubSpot Knowledge Base: Set Up Score Properties (Contacts)</a></li>
+      <li><a href="https://knowledge.hubspot.com/help-desk/customize-a-health-score-in-the-customer-success-workspace" target="_blank" rel="noopener">HubSpot Knowledge Base: Customize a Health Score</a></li>
+      <li><a href="https://blog.hubspot.com/marketing/hubspot-marketing-hub-pricing" target="_blank" rel="noopener">HubSpot Blog: HubSpot Marketing Hub Pricing</a></li>
+      <li><a href="https://www.hubjoy.co/hubspot/lead-scoring" target="_blank" rel="noopener">Hubjoy: HubSpot Lead Scoring</a></li>
+    </ol>
+  </section>
+
+  <div class="article-cta">
+    <p>Want a fit and engagement scoring system built into your own HubSpot?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">DB</div>
+    <div>
+      <div class="author-name">David Berrocal</div>
+      <div class="author-role">GTM Revenue Systems Architect</div>
+      <p class="author-bio">I build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+</footer>
+
+<script>
+(function(){
+  const bar = document.getElementById('readProgress');
+  const article = document.querySelector('article');
+  if(!bar || !article) return;
+  let ticking = false;
+  function update(){
+    const articleTop = article.offsetTop;
+    const scrollable = article.offsetHeight - window.innerHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+
+(function(){
+  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+  if(!dropdowns.length) return;
+  function closeAll(){
+    dropdowns.forEach(function(dd){
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+    });
+  }
+  dropdowns.forEach(function(dd){
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const wasOpen = dd.classList.contains('open');
+      closeAll();
+      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+    });
+  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+})();
+
+(function(){
+  if(window.matchMedia('(max-width: 700px)').matches){
+    var t = document.querySelector('details.qtoc');
+    if(t) t.removeAttribute('open');
+  }
+})();
+
+(function(){
+  var burger = document.querySelector('.nav-burger');
+  var nav = document.querySelector('nav');
+  if(!burger || !nav) return;
+  function close(){ nav.classList.remove('nav-open'); burger.setAttribute('aria-expanded','false'); burger.textContent='☰'; }
+  burger.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = nav.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', open?'true':'false');
+    burger.textContent = open?'✕':'☰';
+  });
+  document.addEventListener('click', function(e){ if(!nav.contains(e.target)) close(); });
+})();
+</script>
+</body>
+</html>
