@@ -13,7 +13,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <title>Let's talk · David Berrocal</title>
 <meta name="description" content="Tell me a bit about yourself and I'll get back to you within a business day.">
 <meta name="theme-color" content="#0B0E14">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Crect x='24' y='24' width='9' height='9' rx='2' fill='%237C6FF0'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='22' font-weight='600' fill='%23EEF1F7' text-anchor='middle'%3EDB%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Crect x='24' y='24' width='9' height='9' rx='2' fill='%232F8CFF'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='22' font-weight='600' fill='%23EEF1F7' text-anchor='middle'%3EDB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   :root{
     --bg:#0B0E14; --panel:#161B27; --line:#232A3A; --line-soft:#1B2130;
     --ink:#EEF1F7; --ink-dim:#D7DCE8; --ink-faint:#8994AA;
-    --violet:#7C6FF0; --violet-soft:#A79EF6; --violet-deep:#2A2550; --teal:#3FC7A8;
+    --violet:#2F8CFF; --violet-soft:#6EC1FF; --violet-deep:#10254A; --teal:#22D3EE;
     --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -39,7 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%);
   }
   .aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-  .aurora-blob{position:absolute;width:56vw;max-width:600px;aspect-ratio:1;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.3;top:-20vw;left:50%;transform:translateX(-50%);background:radial-gradient(circle,#3FC7A8,transparent 70%);animation:auroraDrift 24s ease-in-out infinite}
+  .aurora-blob{position:absolute;width:56vw;max-width:600px;aspect-ratio:1;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.3;top:-20vw;left:50%;transform:translateX(-50%);background:radial-gradient(circle,#22D3EE,transparent 70%);animation:auroraDrift 24s ease-in-out infinite}
   @keyframes auroraDrift{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-46%) scale(1.08)}}
 
   nav{position:relative;z-index:2;padding:24px 32px}
@@ -67,7 +67,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .nav-dropdown-menu a:hover{background:var(--violet-deep);color:var(--ink)}
   .nav-ctas{display:flex;align-items:center;gap:10px}
   .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s}
-  .nav-cta:hover{background:#4FDBB8;border-color:#4FDBB8;transform:translateY(-2px)}
+  .nav-cta:hover{background:#4FE0FF;border-color:#4FE0FF;transform:translateY(-2px)}
   @media(max-width:900px){.nav-links{display:none}}
 
   main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;padding:20px 24px 60px}
@@ -124,7 +124,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .hint{font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-top:18px}
   .thanks p{color:var(--ink-dim);font-size:16px;margin-top:4px}
-  .thanks .check{width:52px;height:52px;border-radius:50%;background:rgba(63,199,168,0.15);border:1px solid var(--teal);color:var(--teal);display:grid;place-items:center;font-size:24px;margin-bottom:22px}
+  .thanks .check{width:52px;height:52px;border-radius:50%;background:rgba(34,211,238,0.15);border:1px solid var(--teal);color:var(--teal);display:grid;place-items:center;font-size:24px;margin-bottom:22px}
 
   .error{color:#E24B4A;font-family:var(--mono);font-size:12.5px;margin-top:14px;display:none}
   .error.show{display:block}

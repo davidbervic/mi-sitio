@@ -20,7 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="David Berrocal · GTM Revenue Systems Architect">
 <meta name="twitter:description" content="I build the revenue engine and the system that keeps it alive.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Crect x='24' y='24' width='9' height='9' rx='2' fill='%237C6FF0'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='22' font-weight='600' fill='%23EEF1F7' text-anchor='middle'%3EDB%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Crect x='24' y='24' width='9' height='9' rx='2' fill='%232F8CFF'/%3E%3Ctext x='32' y='45' font-family='monospace' font-size='22' font-weight='600' fill='%23EEF1F7' text-anchor='middle'%3EDB%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -44,10 +44,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --ink:#EEF1F7;
     --ink-dim:#D7DCE8;
     --ink-faint:#8994AA;
-    --violet:#7C6FF0;
-    --violet-soft:#A79EF6;
-    --violet-deep:#2A2550;
-    --teal:#3FC7A8;
+    --violet:#2F8CFF;
+    --violet-soft:#6EC1FF;
+    --violet-deep:#10254A;
+    --teal:#22D3EE;
     --amber:#F0A93B;
     --disp:'Space Grotesk',sans-serif;
     --body:'Inter',sans-serif;
@@ -86,7 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   nav::after{
     content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
-    background:linear-gradient(90deg,rgba(63,199,168,0.7),rgba(55,138,221,0.7),rgba(124,111,240,0.7));
+    background:linear-gradient(90deg,rgba(34,211,238,0.7),rgba(55,138,221,0.7),rgba(47,140,255,0.7));
   }
   .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
   .logo{font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:0.02em;display:flex;align-items:center;gap:9px}
@@ -113,9 +113,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .nav-dropdown-menu{position:static;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 0 14px;margin-top:2px}
   }
   .nav-ctas{display:flex;align-items:center;gap:10px}
-  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s;box-shadow:0 0 16px -4px rgba(63,199,168,0.6)}
-  .nav-cta:hover{background:#4FDBB8;border-color:#4FDBB8;transform:translateY(-2px);box-shadow:0 10px 30px -6px rgba(79,219,184,0.8)}
-  .nav-contact{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--violet);background:var(--violet);color:#0B0E14;padding:10px 16px;border-radius:6px;transition:all .2s;box-shadow:0 0 16px -4px rgba(124,111,240,0.6)}
+  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s;box-shadow:0 0 16px -4px rgba(34,211,238,0.6)}
+  .nav-cta:hover{background:#4FE0FF;border-color:#4FE0FF;transform:translateY(-2px);box-shadow:0 10px 30px -6px rgba(78,224,255,0.8)}
+  .nav-contact{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--violet);background:var(--violet);color:#0B0E14;padding:10px 16px;border-radius:6px;transition:all .2s;box-shadow:0 0 16px -4px rgba(47,140,255,0.6)}
   .nav-contact:hover{background:var(--violet-soft);border-color:var(--violet-soft);transform:translateY(-2px);box-shadow:0 10px 30px -6px rgba(167,158,246,0.8)}
   @media(max-width:480px){.nav-cta,.nav-contact{padding:9px 12px;font-size:12px}}
   @media(max-width:720px){.nav-links{display:none}}
@@ -134,7 +134,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     max-width:16ch;margin-bottom:26px;
   }
   h1 .accent{
-    color:var(--violet);
+    background:linear-gradient(90deg,var(--violet-soft),var(--teal));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
     position:relative;
   }
   .lede{
@@ -156,12 +157,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hero-photo-frame{
     position:relative;width:100%;max-width:320px;aspect-ratio:1/1;
     border-radius:20px;overflow:hidden;border:1px solid var(--line);
-    box-shadow:0 30px 80px -30px rgba(124,111,240,0.45);
+    box-shadow:0 30px 80px -30px rgba(47,140,255,0.45);
   }
   .hero-photo-frame img{width:100%;height:100%;object-fit:cover;display:block}
   .hero-photo-frame::after{
     content:"";position:absolute;inset:0;pointer-events:none;
-    background:linear-gradient(180deg,rgba(124,111,240,0.08) 0%,transparent 30%,transparent 70%,rgba(11,14,20,0.55) 100%);
+    background:linear-gradient(180deg,rgba(47,140,255,0.08) 0%,transparent 30%,transparent 70%,rgba(11,14,20,0.55) 100%);
   }
   @media(max-width:900px){
     .hero-grid{grid-template-columns:1fr;gap:32px}
@@ -515,7 +516,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ::-webkit-scrollbar-thumb{background:var(--line);border-radius:6px}
   ::-webkit-scrollbar-thumb:hover{background:var(--violet-deep)}
 
-  .scroll-progress{position:fixed;top:0;left:0;height:4px;width:0%;background:linear-gradient(90deg,var(--teal),#378ADD,var(--violet));z-index:60;box-shadow:0 0 12px 1px rgba(124,111,240,0.55);transition:box-shadow .3s}
+  .scroll-progress{position:fixed;top:0;left:0;height:4px;width:0%;background:linear-gradient(90deg,var(--teal),#378ADD,var(--violet));z-index:60;box-shadow:0 0 12px 1px rgba(47,140,255,0.55);transition:box-shadow .3s}
   .scroll-progress.at-end{background:linear-gradient(90deg,var(--violet),var(--teal),var(--amber));box-shadow:0 0 22px 3px rgba(240,169,59,0.85);animation:progressPulse 1s ease-in-out infinite}
   @keyframes progressPulse{0%,100%{opacity:1}50%{opacity:0.5}}
 
@@ -536,14 +537,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .diagram-panel:hover,.matrix-panel:hover,.enrich-panel:hover,.signals-panel:hover,.auto-panel:hover,.crm-panel:hover{transform:translateY(-4px);box-shadow:0 24px 60px -24px rgba(0,0,0,0.55)}
 
   header{position:relative;overflow:hidden}
-  .spotlight{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(124,111,240,0.14),transparent 70%);pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity .4s;z-index:0}
+  .spotlight{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(47,140,255,0.14),transparent 70%);pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity .4s;z-index:0}
 
   /* aurora ambiance, inspired by aurora borealis: soft, drifting, additive light, kept low-opacity so text contrast is never compromised */
   .aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
   .aurora-blob{position:absolute;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.4;will-change:transform}
-  .aurora-blob.a1{width:60vw;max-width:640px;aspect-ratio:1;top:-22vw;left:-14vw;background:radial-gradient(circle,#3FC7A8,transparent 70%);animation:auroraDrift1 24s ease-in-out infinite}
+  .aurora-blob.a1{width:60vw;max-width:640px;aspect-ratio:1;top:-22vw;left:-14vw;background:radial-gradient(circle,#22D3EE,transparent 70%);animation:auroraDrift1 24s ease-in-out infinite}
   .aurora-blob.a2{width:50vw;max-width:560px;aspect-ratio:1;top:-16vw;left:22%;background:radial-gradient(circle,#378ADD,transparent 70%);animation:auroraDrift2 28s ease-in-out infinite}
-  .aurora-blob.a3{width:56vw;max-width:600px;aspect-ratio:1;top:-24vw;right:-16vw;background:radial-gradient(circle,#7C6FF0,transparent 70%);animation:auroraDrift3 20s ease-in-out infinite}
+  .aurora-blob.a3{width:56vw;max-width:600px;aspect-ratio:1;top:-24vw;right:-16vw;background:radial-gradient(circle,#2F8CFF,transparent 70%);animation:auroraDrift3 20s ease-in-out infinite}
   @keyframes auroraDrift1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(4vw,2vw) scale(1.08)}}
   @keyframes auroraDrift2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-3vw,3vw) scale(1.05)}}
   @keyframes auroraDrift3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-4vw,2.5vw) scale(1.06)}}
@@ -562,9 +563,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     font-family:var(--mono);font-size:14px;font-weight:500;
     background:var(--teal);color:var(--ink);padding:14px 24px;border-radius:8px;
     display:inline-flex;align-items:center;gap:9px;transition:all .2s;
-    box-shadow:0 0 16px -4px rgba(63,199,168,0.6);
+    box-shadow:0 0 16px -4px rgba(34,211,238,0.6);
   }
-  .btn-whatsapp:hover{background:#4FDBB8;transform:translateY(-2px);box-shadow:0 10px 30px -6px rgba(79,219,184,0.8)}
+  .btn-whatsapp:hover{background:#4FE0FF;transform:translateY(-2px);box-shadow:0 10px 30px -6px rgba(78,224,255,0.8)}
   .foot-inner{justify-content:center;margin-top:56px}
 
   @media(prefers-reduced-motion:reduce){
@@ -690,12 +691,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span>Contact</span><span>Company</span><span>Stage</span>
           </div>
           <div class="crm-table-row">
-            <span class="ct-name"><span class="ct-avatar" style="background:#7C6FF0">MR</span>Maya Rodriguez</span>
+            <span class="ct-name"><span class="ct-avatar" style="background:#2F8CFF">MR</span>Maya Rodriguez</span>
             <span class="ct-company">Acme Inc</span>
             <span class="ct-stage" style="color:#4FBF8B">Customer</span>
           </div>
           <div class="crm-table-row">
-            <span class="ct-name"><span class="ct-avatar" style="background:#3FC7A8">DC</span>David Chen</span>
+            <span class="ct-name"><span class="ct-avatar" style="background:#22D3EE">DC</span>David Chen</span>
             <span class="ct-company">Northwind</span>
             <span class="ct-stage" style="color:#378ADD">Opportunity</span>
           </div>
@@ -761,7 +762,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </defs>
 
           <rect x="30" y="30" width="66" height="184" rx="10" fill="none" stroke="#232A3A" stroke-width="1" stroke-dasharray="3 4"/>
-          <text x="63" y="24" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" letter-spacing="0.1em" fill="#7C6FF0">OUTBOUND</text>
+          <text x="63" y="24" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" letter-spacing="0.1em" fill="#2F8CFF">OUTBOUND</text>
 
           <rect x="30" y="286" width="66" height="86" rx="10" fill="none" stroke="#232A3A" stroke-width="1" stroke-dasharray="3 4"/>
           <text x="63" y="384" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9.5" letter-spacing="0.1em" fill="#4C8DF0">INBOUND</text>
@@ -777,26 +778,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </g>
 
           <g id="srcnodes">
-            <g class="srcnode" data-c="#7C6FF0"><circle class="halo" cx="62" cy="54" r="13" fill="#7C6FF0" opacity="0"/><circle cx="62" cy="54" r="13" fill="#12172180" stroke="#7C6FF0" stroke-width="1.2"/><circle cx="62" cy="54" r="4.5" fill="#7C6FF0"/></g>
+            <g class="srcnode" data-c="#2F8CFF"><circle class="halo" cx="62" cy="54" r="13" fill="#2F8CFF" opacity="0"/><circle cx="62" cy="54" r="13" fill="#12172180" stroke="#2F8CFF" stroke-width="1.2"/><circle cx="62" cy="54" r="4.5" fill="#2F8CFF"/></g>
             <g class="srcnode" data-c="#F0A93B"><circle class="halo" cx="62" cy="94" r="13" fill="#F0A93B" opacity="0"/><circle cx="62" cy="94" r="13" fill="#12172180" stroke="#F0A93B" stroke-width="1.2"/><circle cx="62" cy="94" r="4.5" fill="#F0A93B"/></g>
             <g class="srcnode" data-c="#8A93A8"><circle class="halo" cx="62" cy="134" r="13" fill="#8A93A8" opacity="0"/><circle cx="62" cy="134" r="13" fill="#12172180" stroke="#8A93A8" stroke-width="1.2"/><circle cx="62" cy="134" r="4.5" fill="#8A93A8"/></g>
-            <g class="srcnode" data-c="#7C6FF0"><circle class="halo" cx="62" cy="174" r="13" fill="#7C6FF0" opacity="0"/><circle cx="62" cy="174" r="13" fill="#12172180" stroke="#7C6FF0" stroke-width="1.2"/><circle cx="62" cy="174" r="4.5" fill="#7C6FF0"/></g>
-            <g class="srcnode" data-c="#3FC7A8"><circle class="halo" cx="62" cy="205" r="13" fill="#3FC7A8" opacity="0"/><circle cx="62" cy="205" r="13" fill="#12172180" stroke="#3FC7A8" stroke-width="1.2"/><circle cx="62" cy="205" r="4.5" fill="#3FC7A8"/></g>
+            <g class="srcnode" data-c="#2F8CFF"><circle class="halo" cx="62" cy="174" r="13" fill="#2F8CFF" opacity="0"/><circle cx="62" cy="174" r="13" fill="#12172180" stroke="#2F8CFF" stroke-width="1.2"/><circle cx="62" cy="174" r="4.5" fill="#2F8CFF"/></g>
+            <g class="srcnode" data-c="#22D3EE"><circle class="halo" cx="62" cy="205" r="13" fill="#22D3EE" opacity="0"/><circle cx="62" cy="205" r="13" fill="#12172180" stroke="#22D3EE" stroke-width="1.2"/><circle cx="62" cy="205" r="4.5" fill="#22D3EE"/></g>
             <g class="srcnode" data-c="#4C8DF0"><circle class="halo" cx="62" cy="314" r="13" fill="#4C8DF0" opacity="0"/><circle cx="62" cy="314" r="13" fill="#12172180" stroke="#4C8DF0" stroke-width="1.2"/><circle cx="62" cy="314" r="4.5" fill="#4C8DF0"/></g>
             <g class="srcnode" data-c="#4C8DF0"><circle class="halo" cx="62" cy="348" r="13" fill="#4C8DF0" opacity="0"/><circle cx="62" cy="348" r="13" fill="#12172180" stroke="#4C8DF0" stroke-width="1.2"/><circle cx="62" cy="348" r="4.5" fill="#4C8DF0"/></g>
           </g>
 
-          <circle id="cGlow" cx="212" cy="202" r="38" fill="#7C6FF0" opacity="0"/>
+          <circle id="cGlow" cx="212" cy="202" r="38" fill="#2F8CFF" opacity="0"/>
           <circle cx="212" cy="202" r="38" fill="#12172140" stroke="#2A3346" stroke-width="1"/>
-          <circle cx="212" cy="202" r="38" fill="none" stroke="#7C6FF0" stroke-width="1" opacity="0.35"/>
-          <circle id="pulse" cx="212" cy="202" r="38" fill="none" stroke="#7C6FF0" stroke-width="1.5" opacity="0"/>
+          <circle cx="212" cy="202" r="38" fill="none" stroke="#2F8CFF" stroke-width="1" opacity="0.35"/>
+          <circle id="pulse" cx="212" cy="202" r="38" fill="none" stroke="#2F8CFF" stroke-width="1.5" opacity="0"/>
           <text x="212" y="207" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="12.5" font-weight="500" fill="#EEF1F7">sourcing</text>
 
-          <path id="outpath" d="M250 202 C 270 202, 274 202, 290 202" fill="none" stroke="#7C6FF0" stroke-width="1.5" marker-end="url(#ar3)"/>
+          <path id="outpath" d="M250 202 C 270 202, 274 202, 290 202" fill="none" stroke="#2F8CFF" stroke-width="1.5" marker-end="url(#ar3)"/>
 
-          <rect x="292" y="176" width="64" height="52" rx="8" fill="#1A1640" stroke="#7C6FF0" stroke-width="1.2"/>
-          <text x="324" y="197" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="500" fill="#A79EF6">CRM</text>
-          <text x="324" y="211" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7C6FF0">HubSpot · SF</text>
+          <rect x="292" y="176" width="64" height="52" rx="8" fill="#1A1640" stroke="#2F8CFF" stroke-width="1.2"/>
+          <text x="324" y="197" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="500" fill="#6EC1FF">CRM</text>
+          <text x="324" y="211" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#2F8CFF">HubSpot · SF</text>
         </svg>
       </div>
     </div>
@@ -863,12 +864,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
           <div class="try-score-row">
             <span class="ts-lbl">Fit</span>
-            <input type="range" min="0" max="100" value="50" id="fitSlider" class="ts-range" style="--range-color:#7C6FF0">
+            <input type="range" min="0" max="100" value="50" id="fitSlider" class="ts-range" style="--range-color:#2F8CFF">
             <span class="ts-val" id="fitVal">50</span>
           </div>
           <div class="try-score-row">
             <span class="ts-lbl">Engage</span>
-            <input type="range" min="0" max="100" value="50" id="engSlider" class="ts-range" style="--range-color:#3FC7A8">
+            <input type="range" min="0" max="100" value="50" id="engSlider" class="ts-range" style="--range-color:#22D3EE">
             <span class="ts-val" id="engVal">50</span>
           </div>
         </div>
@@ -887,11 +888,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>Every lead gets <strong>two scores</strong> from models built on real conversion data: one for how well it fits the ICP, one for how engaged it is. Together they place each lead on a map, so the team knows exactly what to do with it, and what to skip.</p>
         <div class="score-models">
           <div class="model-row">
-            <span class="mico" style="background:#7C6FF020;color:#A79EF6"><i>◈</i></span>
+            <span class="mico" style="background:#2F8CFF20;color:#6EC1FF"><i>◈</i></span>
             <span class="mtxt"><span class="mname">Fit score</span><span class="mdesc">How closely the lead matches the ideal customer.</span></span>
           </div>
           <div class="model-row">
-            <span class="mico" style="background:#3FC7A820;color:#3FC7A8"><i>◆</i></span>
+            <span class="mico" style="background:#22D3EE20;color:#22D3EE"><i>◆</i></span>
             <span class="mtxt"><span class="mname">Engage score</span><span class="mdesc">How actively the lead is interacting, with time decay.</span></span>
           </div>
         </div>
@@ -1328,7 +1329,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const pulse = svg.querySelector('#pulse');
   const cGlow = svg.querySelector('#cGlow');
   const NS = 'http://www.w3.org/2000/svg';
-  const colors = ['#7C6FF0','#F0A93B','#8A93A8','#7C6FF0','#3FC7A8','#4C8DF0','#4C8DF0'];
+  const colors = ['#2F8CFF','#F0A93B','#8A93A8','#2F8CFF','#22D3EE','#4C8DF0','#4C8DF0'];
   const feedLens = feeds.map(f=>f.getTotalLength());
   const outLen = outpath.getTotalLength();
   const ease = t => t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2;
@@ -1599,7 +1600,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   const FLOWS = [
     { tag:'contract automation · fires on deal won',
       nodes:[
-        {x:30,y:52,w:74,h:52,c:'#3FC7A8',ic:'⚡',l1:'Deal',l2:'Won'},
+        {x:30,y:52,w:74,h:52,c:'#22D3EE',ic:'⚡',l1:'Deal',l2:'Won'},
         {x:150,y:128,w:78,h:52,c:'#378ADD',ic:'{ }',l1:'Generate',l2:'contract'},
         {x:200,y:212,w:78,h:52,c:'#378ADD',ic:'✉',l1:'Send to',l2:'client'},
         {x:280,y:296,w:88,h:52,c:'#F0997B',ic:'#',l1:'Notify',l2:'#sales'}
@@ -1613,7 +1614,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       ]},
     { tag:'nurture sequence · fires at medium engage score',
       nodes:[
-        {x:30,y:52,w:84,h:52,c:'#3FC7A8',ic:'◈',l1:'Medium',l2:'score'},
+        {x:30,y:52,w:84,h:52,c:'#22D3EE',ic:'◈',l1:'Medium',l2:'score'},
         {x:156,y:128,w:74,h:52,c:'#378ADD',ic:'✉',l1:'Email',l2:'1'},
         {x:200,y:212,w:78,h:52,c:'#5F6A80',ic:'⏱',l1:'Wait',l2:'3 days'},
         {x:280,y:296,w:84,h:52,c:'#378ADD',ic:'✉',l1:'Email',l2:'2 ···'}
