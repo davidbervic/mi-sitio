@@ -12,9 +12,10 @@
 
 @media(max-width:900px){
   .nav-burger{display:inline-flex}
-  .nav-inner{gap:8px}
-  .nav-ctas{gap:8px}
-  .nav-contact,.nav-cta{padding:8px 12px;font-size:12px}
+  .nav-inner{gap:6px;padding:0 16px}
+  .nav-ctas{gap:6px}
+  .logo{font-size:12px;gap:6px}
+  .nav-contact,.nav-cta{padding:8px 12px;font-size:12px;white-space:nowrap;flex-shrink:0}
   .nav-links{position:absolute;top:calc(100% + 8px);left:16px;right:16px;display:none;flex-direction:column;gap:2px;align-items:stretch;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60}
   nav.nav-open .nav-links{display:flex}
   .nav-links > a{padding:11px 14px;border-radius:8px}

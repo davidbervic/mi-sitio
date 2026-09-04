@@ -24,6 +24,7 @@ nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(
 nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,rgba(34,211,238,0.7),rgba(55,138,221,0.7),rgba(47,140,255,0.7))}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;z-index:2}
 .logo{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px;text-decoration:none}
+.logo img{height:26px;width:auto;display:block}
 .logo .mark{width:9px;height:9px;background:var(--violet);border-radius:2px;box-shadow:0 0 10px var(--violet)}
 .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-dim);font-family:var(--mono)}
 .nav-links a{transition:color .2s;text-decoration:none;color:inherit}
@@ -49,9 +50,10 @@ nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;backg
 .nav-burger:hover{border-color:var(--violet)}
 @media(max-width:900px){
   .nav-burger{display:inline-flex}
-  .nav-inner{gap:8px}
-  .nav-ctas{gap:8px}
-  .nav-contact,.nav-cta{padding:8px 12px;font-size:12px}
+  .nav-inner{gap:6px;padding:0 16px}
+  .nav-ctas{gap:6px}
+  .logo{font-size:12px;gap:6px}
+  .nav-contact,.nav-cta{padding:8px 12px;font-size:12px;white-space:nowrap;flex-shrink:0}
   .nav-links{position:absolute;top:calc(100% + 8px);left:16px;right:16px;display:none;flex-direction:column;gap:2px;align-items:stretch;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px;box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60}
   nav.nav-open .nav-links{display:flex}
   .nav-links > a{padding:11px 14px;border-radius:8px}
