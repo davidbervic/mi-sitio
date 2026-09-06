@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Can You Use Fit Score for CRM Cleaning? · David Berrocal</title>
+<meta name="description" content="Learn how a HubSpot fit score identifies disqualified leads automatically, turning CRM cleaning from an open-ended manual audit into a mechanical filtering exercise.">
+<meta name="theme-color" content="#0B0E14">
+
+<link rel="canonical" href="https://davidbervic.com/how-to-use-fit-score-for-crm-cleaning.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="How Can You Use Fit Score for CRM Cleaning?">
+<meta property="og:description" content="A fit score automatically surfaces leads that were never going to close, turning CRM cleaning into a mechanical filter instead of a manual audit.">
+<meta property="og:url" content="https://davidbervic.com/how-to-use-fit-score-for-crm-cleaning.html">
+<meta property="article:published_time" content="2026-05-08">
+<meta property="article:modified_time" content="2026-09-06">
+<meta property="article:author" content="David Berrocal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How Can You Use Fit Score for CRM Cleaning?">
+<meta name="twitter:description" content="Grade contacts against your ICP and disqualified leads surface on their own. How fit score turns CRM cleaning into a mechanical filter.">
+
+<link rel="icon" type="image/png" href="images/bervic-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Can You Use Fit Score for CRM Cleaning?",
+  "author": {
+    "@type": "Person",
+    "name": "David Berrocal",
+    "jobTitle": "GTM Revenue Systems Architect",
+    "sameAs": ["https://www.linkedin.com/in/david-berrocal-vic/"]
+  },
+  "publisher": {"@type": "Person", "name": "David Berrocal"},
+  "datePublished": "2026-05-08",
+  "dateModified": "2026-09-06",
+  "mainEntityOfPage": "https://davidbervic.com/how-to-use-fit-score-for-crm-cleaning.html",
+  "description": "Learn how a HubSpot fit score identifies disqualified leads automatically, turning CRM cleaning from an open-ended manual audit into a mechanical filtering exercise."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is the difference between a fit score and an engagement score in HubSpot?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A fit score measures who a lead is, using static identity attributes like job title, company size, industry, and revenue, while an engagement score measures what a lead does, which is behavior that decays quickly. HubSpot lets you build either separately or combine them, but blending the two makes it harder to tell a low-fit but active visitor from a high-fit but quiet buyer."}},
+    {"@type": "Question", "name": "Should disqualified leads be deleted from the CRM?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No, disqualified leads should be suppressed or moved to a non-marketing list rather than deleted. This preserves historical attribution data while stopping the records from polluting active reporting, sequences, or sales queues, which matters if a disqualified contact's company later grows into your ICP."}},
+    {"@type": "Question", "name": "How often should a startup re-run fit scoring for CRM cleaning?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A practical cadence is to re-run fit scoring monthly, review the disqualified segment quarterly to catch miscategorized leads, and re-enrich core ICP fields like title, company size, and industry whenever a contact re-engages. This matches broader data-hygiene guidance recommending quarterly audits at minimum."}},
+    {"@type": "Question", "name": "Can bad CRM data cause a good-fit lead to be wrongly disqualified?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes. Since fit scores rely on firmographic fields like company size, industry, and title, missing or outdated data can artificially depress a genuinely good-fit lead's score, causing it to be miscategorized as disqualified. Running a lightweight enrichment pass before trusting disqualification outputs at scale helps avoid this."}},
+    {"@type": "Question", "name": "Should early-stage startups use machine learning for lead scoring?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No, teams with under 500 leads per month or less than 1,000 historical conversions should start with a simple rule-based fit score rather than machine learning. Rule-based models are transparent, explainable to sales, and faster to implement when there isn't enough historical data to support a complex model."}},
+    {"@type": "Question", "name": "What kinds of leads should be excluded from scoring entirely?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Contacts who were never a real opportunity, such as students, competitors, or personal email addresses, should be placed on a disqualification list and excluded from scoring entirely rather than scored and later filtered, since this single move does most of the CRM cleaning work automatically."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://davidbervic.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://davidbervic.com/resources.html"},
+    {"@type": "ListItem", "position": 3, "name": "How Can You Use Fit Score for CRM Cleaning?", "item": "https://davidbervic.com/how-to-use-fit-score-for-crm-cleaning.html"}
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><img src="images/logo-bervic.png" alt="David Bervic"></a>
+    <div class="nav-links">
+      <a href="index.html">GTM system</a>
+      <a href="about.html">About me</a>
+      <a href="customers.html">Customers</a>
+      <div class="nav-dropdown" id="resourcesDropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="resources.html">Blog</a>
+          <a href="downloads.html">Downloads</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-ctas">
+      <a href="contact.html" class="nav-contact">Contact</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
+      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">Lead Scoring</span>
+  <h1>How Can You Use Fit Score for CRM Cleaning?</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">DB</span>
+    <span class="meta-chip">David Berrocal</span>
+    <span class="meta-chip">Published May 8, 2026</span>
+    <span class="meta-chip">Updated Sep 6, 2026</span>
+    <span class="meta-chip">8 min read</span>
+  </div>
+
+  <div class="article-hero">
+    <img src="images/how-to-use-fit-score-for-crm-cleaning.jpg" alt="Bad-fit lead cards filtered through a funnel into a trash bin while good-fit leads flow into a clean CRM">
+  </div>
+
+  <p class="direct-answer"><strong>Direct answer:</strong> Building a HubSpot fit score that grades contacts and companies against your ideal customer profile automatically surfaces records that were never going to close. Once those disqualified leads are labeled, CRM cleaning, from suppressing bad emails to archiving stale companies, becomes a mechanical filtering exercise instead of an open-ended manual audit for lean startup teams.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li>Fit measures identity (job title, company size, industry) while engagement measures decaying behavior; blending them into one score hides which leads are worth cleaning up.</li>
+      <li>Excluding never-real-opportunities (students, competitors, personal emails) from scoring entirely does most of the CRM cleaning work automatically.</li>
+      <li>Negative scoring for known disqualifiers removes bad-fit leads and prevents them from cluttering the CRM without a manual audit team.</li>
+      <li>Suppress disqualified records instead of deleting them, this preserves historical data while stopping pollution of active reporting and sales queues.</li>
+      <li>Fit score outputs are only reliable if firmographic fields are filled in; incomplete data can misclassify good-fit leads as disqualified.</li>
+    </ul>
+  </div>
+
+  <details class="qtoc">
+    <summary class="qtoc-label">Questions this article answers</summary>
+    <ol>
+      <li><a href="#measures">What does a fit score actually measure?</a></li>
+      <li><a href="#clutter">Why are disqualified leads the real source of CRM clutter?</a></li>
+      <li><a href="#setup">How do you set up fit score for disqualification in HubSpot?</a></li>
+      <li><a href="#workflow">What does the fit-to-clean-CRM workflow look like?</a></li>
+      <li><a href="#bad-data">Why does bad data undermine the fit score itself?</a></li>
+      <li><a href="#cadence">What maintenance cadence works for resource-constrained teams?</a></li>
+      <li><a href="#pitfalls">What common pitfalls should you avoid?</a></li>
+      <li><a href="#impact">What is the revenue impact of ignoring this?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 6 FAQs answered below</a></li>
+    </ol>
+  </details>
+
+  <h2 id="measures" class="sec">What does a fit score actually measure?</h2>
+  <p class="lead-answer">A fit score measures who a lead is, their identity attributes like job title, company size, and industry, while an engagement score measures what they do, and conflating the two is the main reason startup CRMs stay dirty.</p>
+  <p><a href="https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" target="_blank" rel="noopener">HubSpot's own documentation</a> explains that you can create lead scores for contacts, including engagement scores, fit scores, or combined engagement and fit scores. Fit is about identity, the stuff that doesn't change much: job title, company size, industry, revenue, and the core question is whether the person matches the profile of a company you actually close, according to <a href="https://www.anneomaly.com/new-blog/2026/3/27/hubspot-lead-scoring-101-a-practical-guide-to-fit-engagement-and-the-handoff" target="_blank" rel="noopener">one practitioner guide</a>.</p>
+  <p>Engagement, by contrast, tracks behavior that decays quickly. A <a href="https://checkpointgtm.com/insights/2026-W07-fit-vs-engagement-scoring/" target="_blank" rel="noopener">2026 analysis of HubSpot scoring</a> notes that buying behavior at the contact level has gotten harder to read, and the signal-to-noise ratio on a composite grade has fallen further than most ops teams want to admit. When fit and engagement are blended into one number, a low-fit visitor who binges your blog can look identical to a high-fit VP who quietly checked pricing once. Splitting the scores lets you use fit as a pure filter and engagement as a queue-prioritization signal.</p>
+
+  <h2 id="clutter" class="sec">Why are disqualified leads the real source of CRM clutter?</h2>
+  <p class="lead-answer">Most CRM hygiene problems get framed as data problems like duplicates or missing fields, but for lean startups the real driver is qualification: if a lead was never going to buy, nobody keeps their record accurate and it rots in place.</p>
+  <p>A fit-based approach flips the usual question from "is this record clean" to "should this record even be scored." As <a href="https://leadadvisors.com/blog/lead-scoring/" target="_blank" rel="noopener">one HubSpot-focused guide</a> recommends, for contacts who were never a real opportunity, such as students, competitors, or personal email addresses, don't score them at all; create a disqualification list and exclude them from scoring entirely, since unsubscribes are a list management issue, not a scoring one.</p>
+  <p>This single move does most of the cleaning work for you, because once a lead is tagged as disqualified by fit, every downstream process, routing, nurture, reporting, can simply exclude that segment rather than requiring manual verification of each record's accuracy.</p>
+  <p>The negative-scoring layer reinforces this. A <a href="https://www.default.com/post/lead-scoring-model" target="_blank" rel="noopener">practical lead-scoring model</a> recommends assigning negative points for classic disqualifiers: a personal email instead of a business domain, engagement only with career pages, association with a competitor or spam source, or multiple form submissions with fake data. This approach quickly removes bad-fit leads, reducing sales and marketing inefficiencies, and prevents low-value leads from cluttering the CRM.</p>
+
+  <h2 id="setup" class="sec">How do you set up fit score for disqualification in HubSpot?</h2>
+  <p class="lead-answer">You define ICP criteria, assign positive points for matches and negative points for known disqualifiers, then set a threshold below which contacts are automatically flagged, all inside HubSpot's native scoring tool.</p>
+  <p>According to <a href="https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" target="_blank" rel="noopener">HubSpot's own knowledge base</a>, you can build custom lead scores based on record actions or properties, and scores assign values to leads so you can evaluate which contacts, companies, or deals are likely to become customers, with each score evaluating records based on criteria and setting values for a corresponding score property.</p>
+  <p>For a startup, the practical build looks like this: define ICP criteria (industry, employee count, job title, tech stack, funding stage), assign positive points for matches, assign negative points for known disqualifiers, and set a threshold below which contacts are automatically flagged. A <a href="https://blog.revpartners.io/en/revops-articles/mastering-lead-scoring-hubspot" target="_blank" rel="noopener">recent implementation guide</a> recommends using lead score settings deliberately to include or exclude segments, which keeps CRM data clean and actionable while preventing sales false positives.</p>
+  <p>Because fit criteria are largely static, they behave differently from engagement scores: as <a href="https://crmswitch.com/crm-features/hubspot-lead-scoring/" target="_blank" rel="noopener">one HubSpot user community and vendor source</a> notes, you can't reset fit, but you can reset engagement, which is helpful after a deal closes lost. This means disqualification logic, once built, keeps working without constant re-tuning.</p>
+
+  <h2 id="workflow" class="sec">What does the fit-to-clean-CRM workflow look like?</h2>
+  <p class="lead-answer">Score everything on entry, isolate anything below your disqualification threshold, and route those records into a suppressed or non-marketing list rather than deleting them, which preserves historical data while stopping pollution of active reporting and sales queues.</p>
+  <p>A <a href="https://www.default.com/post/hubspot-crm-data-cleansing" target="_blank" rel="noopener">HubSpot data-cleanup resource</a> confirms this pattern directly, advising teams to leverage HubSpot indicators such as hard bounces or low engagement to move contacts into non-marketing status or clean them from the database.</p>
+  <p>This is far less labor-intensive than traditional deduplication or field-standardization projects, because the fit score has already done the triage. Instead of reviewing thousands of records, your team reviews one segment, "fit score below X", and that segment defines your entire cleanup queue. Related <a href="https://vantagepoint.io/blog/hs/hubspot-database-clean-up-to-date" target="_blank" rel="noopener">database clean-up guidance</a> and <a href="https://nav43.com/blog/hubspot-crm-cleanup-checklist/" target="_blank" rel="noopener">HubSpot cleanup checklists</a> reinforce building this segment-first approach.</p>
+
+  <h2 id="bad-data" class="sec">Why does bad data undermine the fit score itself?</h2>
+  <p class="lead-answer">A fit score is only as good as the data feeding it, so incomplete CRM records can quietly sabotage the disqualification logic, causing genuinely good-fit leads to be miscategorized as disqualified.</p>
+  <p>One <a href="https://www.default.com/post/hubspot-lead-scoring" target="_blank" rel="noopener">HubSpot-focused source</a> is explicit about this failure mode: bad CRM data can lead to missed opportunities, since for manual lead scoring, key scoring criteria such as company size, industry, or intent data being lost can artificially depress HubSpot scores.</p>
+  <p>A separate <a href="https://www.slashexperts.com/post/the-hidden-flaws-in-your-behavioral-lead-scoring" target="_blank" rel="noopener">analysis of scoring failures</a> makes the same point from the buyer-quality side, noting that teams have spent weeks building scoring models only to realize that a large share of industry fields are blank and many contact records haven't been updated in months, meaning scoring on dirty data just automates bad decisions faster.</p>
+  <p>Practically, this means startups should run a lightweight enrichment pass, filling in company size, industry, and title via a free enrichment tool or manual LinkedIn lookups, before trusting fit score outputs enough to disqualify at scale.</p>
+
+  <h2 id="cadence" class="sec">What maintenance cadence works for resource-constrained teams?</h2>
+  <p class="lead-answer">Because CRM data degrades continuously, fit-based cleaning cannot be a one-time project; re-running fit scoring monthly and reviewing the disqualified segment quarterly keeps disqualification logic accurate without enterprise tooling.</p>
+  <p>Industry benchmarks show just how fast this happens: <a href="https://www.landbase.com/blog/data-decay-rate-statistics" target="_blank" rel="noopener">B2B contact data decays between 22.5% and 70.3% annually</a>, with <a href="https://www.keepsync.io/post/crm-data-decay-statistics-and-solutions-2026" target="_blank" rel="noopener">email decay accelerating to 3.6% monthly as of November 2024</a>, meaning nearly three-quarters of prospect databases become outdated within 12 months.</p>
+  <p>For a startup with a small target account list, this decay rate can quietly invalidate fit-score inputs like job title or company size within a single quarter. The fix does not require enterprise tooling: re-run fit scoring monthly, review the disqualified segment quarterly to catch miscategorized leads, and re-enrich core ICP fields (title, company size, industry) whenever a contact re-engages. This mirrors general <a href="https://salesmotion.io/blog/b2b-data-decay-strategy" target="_blank" rel="noopener">data-hygiene guidance</a> recommending quarterly data quality audits at minimum, checking email validity before major campaigns, re-enriching key accounts annually, and setting up processes to catch decay before it compounds, a pattern also confirmed by <a href="https://pipeline.zoominfo.com/marketing/b2b-data-decay" target="_blank" rel="noopener">ZoomInfo's analysis</a>.</p>
+
+  <h2 id="pitfalls" class="sec">What common pitfalls should you avoid?</h2>
+  <p class="lead-answer">Avoid over-engineering the scoring model before you have enough data, and avoid deleting disqualified records instead of suppressing them, since deletion destroys historical attribution that could matter later.</p>
+  <p>Two mistakes recur most often among early-stage teams. First, over-engineering the model before there is enough data to support it: <a href="https://houseofmartech.com/blog/lead-qualification-scoring-models-combining-behavioral-firmographic-and-intent-data-for-b2b-prioritization" target="_blank" rel="noopener">one analysis</a> notes that early-stage startups struggle to implement behavioral scoring because they lack historical data, since these companies get very few leads each month, sometimes fewer than 100, which makes complex scoring systems counterproductive.</p>
+  <p>For these teams, a simple rule-based fit score, not a machine-learning model, is the right starting point, a point echoed by <a href="https://prospeo.io/s/lead-quality-scoring" target="_blank" rel="noopener">guidance suggesting</a> that teams with under 500 leads per month or less than 1,000 historical conversions should start with a rule-based model, since it is transparent, explainable to sales, and faster to implement than machine learning approaches.</p>
+  <p>Second, deleting disqualified records instead of suppressing them, which destroys historical attribution data that could matter later if a disqualified contact's company grows into your ICP. The safer pattern is exclusion from active workflows, not deletion.</p>
+
+  <h2 id="impact" class="sec">What is the revenue impact of ignoring this?</h2>
+  <p class="lead-answer">A dirty CRM is a direct drain on revenue: research shows poor data quality costs U.S. businesses trillions annually, and 37% of CRM users lost revenue directly due to poor data quality, losing an average of 16 sales opportunities per quarter.</p>
+  <p>A dirty CRM is not a cosmetic problem, it is a direct drain on revenue: <a href="https://www.coffee.ai/articles/hidden-costs-bad-crm-data" target="_blank" rel="noopener">research shows</a> that poor data quality costs U.S. businesses trillions annually in aggregate, and at the individual company level, <a href="https://veruminc.com/resources/crm-data-decay-rate.html" target="_blank" rel="noopener">Validity's 2025 State of CRM Data Management report</a> found that 37% of CRM users lost revenue directly due to poor data quality, and companies lose an average of 16 sales opportunities per quarter from unreliable data.</p>
+  <p>For a resource-constrained startup, every hour a founder or rep spends chasing a disqualified lead, verifying a stale field, or working a duplicate record is an hour not spent on the accounts that actually convert. Using fit score to pre-filter disqualified leads before they ever consume rep attention converts CRM cleaning from a recurring cost center into a direct lever on pipeline efficiency and close rate.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>What is the difference between a fit score and an engagement score in HubSpot?</h3>
+    <p>A fit score measures who a lead is, using static identity attributes like job title, company size, industry, and revenue, while an engagement score measures what a lead does, which is behavior that decays quickly. HubSpot lets you build either separately or combine them, but blending the two makes it harder to tell a low-fit but active visitor from a high-fit but quiet buyer.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Should disqualified leads be deleted from the CRM?</h3>
+    <p>No, disqualified leads should be suppressed or moved to a non-marketing list rather than deleted. This preserves historical attribution data while stopping the records from polluting active reporting, sequences, or sales queues, which matters if a disqualified contact's company later grows into your ICP.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How often should a startup re-run fit scoring for CRM cleaning?</h3>
+    <p>A practical cadence is to re-run fit scoring monthly, review the disqualified segment quarterly to catch miscategorized leads, and re-enrich core ICP fields like title, company size, and industry whenever a contact re-engages. This matches broader data-hygiene guidance recommending quarterly audits at minimum.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can bad CRM data cause a good-fit lead to be wrongly disqualified?</h3>
+    <p>Yes. Since fit scores rely on firmographic fields like company size, industry, and title, missing or outdated data can artificially depress a genuinely good-fit lead's score, causing it to be miscategorized as disqualified. Running a lightweight enrichment pass before trusting disqualification outputs at scale helps avoid this.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Should early-stage startups use machine learning for lead scoring?</h3>
+    <p>No, teams with under 500 leads per month or less than 1,000 historical conversions should start with a simple rule-based fit score rather than machine learning. Rule-based models are transparent, explainable to sales, and faster to implement when there isn't enough historical data to support a complex model.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What kinds of leads should be excluded from scoring entirely?</h3>
+    <p>Contacts who were never a real opportunity, such as students, competitors, or personal email addresses, should be placed on a disqualification list and excluded from scoring entirely rather than scored and later filtered, since this single move does most of the CRM cleaning work automatically.</p>
+  </div>
+
+  <div class="related">
+    <h2>Related reading</h2>
+    <a href="how-to-design-a-fit-score-in-hubspot.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">How Do You Design a Fit Score in HubSpot Step by Step?</span>
+    </a>
+    <a href="why-do-you-need-a-crm-early-stage-startup.html" class="related-card">
+      <span class="rc-tag">CRM</span>
+      <span class="rc-title">Why Do You Need a CRM in the Early Stages of a Startup?</span>
+    </a>
+  </div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://crmswitch.com/crm-features/hubspot-lead-scoring/" target="_blank" rel="noopener">CRM Switch: HubSpot Lead Scoring</a></li>
+      <li><a href="https://www.xcellimark.com/blog/how-to-build-lead-scoring-in-hubspot-2025-update" target="_blank" rel="noopener">Xcellimark: How to Build Lead Scoring in HubSpot</a></li>
+      <li><a href="https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" target="_blank" rel="noopener">HubSpot Knowledge Base: Understand the Lead Scoring Tool</a></li>
+      <li><a href="https://blog.revpartners.io/en/revops-articles/mastering-lead-scoring-hubspot" target="_blank" rel="noopener">RevPartners: Mastering Lead Scoring in HubSpot</a></li>
+      <li><a href="https://checkpointgtm.com/insights/2026-W07-fit-vs-engagement-scoring/" target="_blank" rel="noopener">CheckpointGTM: Fit vs Engagement Scoring</a></li>
+      <li><a href="https://www.anneomaly.com/new-blog/2026/3/27/hubspot-lead-scoring-101-a-practical-guide-to-fit-engagement-and-the-handoff" target="_blank" rel="noopener">Anne Omaly: HubSpot Lead Scoring 101</a></li>
+      <li><a href="https://www.landbase.com/blog/data-decay-rate-statistics" target="_blank" rel="noopener">Landbase: Data Decay Rate Statistics</a></li>
+      <li><a href="https://www.keepsync.io/post/crm-data-decay-statistics-and-solutions-2026" target="_blank" rel="noopener">KeepSync: CRM Data Decay Statistics and Solutions</a></li>
+      <li><a href="https://salesmotion.io/blog/b2b-data-decay-strategy" target="_blank" rel="noopener">Salesmotion: B2B Data Decay Strategy</a></li>
+      <li><a href="https://pipeline.zoominfo.com/marketing/b2b-data-decay" target="_blank" rel="noopener">ZoomInfo: B2B Data Decay</a></li>
+      <li><a href="https://leadadvisors.com/blog/lead-scoring/" target="_blank" rel="noopener">Lead Advisors: Lead Scoring</a></li>
+      <li><a href="https://artemisgtm.ai/resources/lead-scoring/" target="_blank" rel="noopener">Artemis GTM: Lead Scoring</a></li>
+      <li><a href="https://pipeline.zoominfo.com/marketing/lead-scoring" target="_blank" rel="noopener">ZoomInfo: Lead Scoring</a></li>
+      <li><a href="https://www.default.com/post/lead-scoring-model" target="_blank" rel="noopener">Default: Lead Scoring Model</a></li>
+      <li><a href="https://houseofmartech.com/blog/lead-qualification-scoring-models-combining-behavioral-firmographic-and-intent-data-for-b2b-prioritization" target="_blank" rel="noopener">House of Martech: Lead Qualification Scoring Models</a></li>
+      <li><a href="https://prospeo.io/s/explicit-vs-implicit-lead-scoring" target="_blank" rel="noopener">Prospeo: Explicit vs Implicit Lead Scoring</a></li>
+      <li><a href="https://www.default.com/post/hubspot-crm-data-cleansing" target="_blank" rel="noopener">Default: HubSpot CRM Data Cleansing</a></li>
+      <li><a href="https://vantagepoint.io/blog/hs/hubspot-database-clean-up-to-date" target="_blank" rel="noopener">Vantage Point: HubSpot Database Clean-Up</a></li>
+      <li><a href="https://blog.insycle.com/hubspot-data-cleaning" target="_blank" rel="noopener">Insycle: HubSpot Data Cleaning</a></li>
+      <li><a href="https://nav43.com/blog/hubspot-crm-cleanup-checklist/" target="_blank" rel="noopener">Nav43: HubSpot CRM Cleanup Checklist</a></li>
+      <li><a href="https://prospeo.io/s/lead-quality-scoring" target="_blank" rel="noopener">Prospeo: Lead Quality Scoring</a></li>
+      <li><a href="https://www.slashexperts.com/post/the-hidden-flaws-in-your-behavioral-lead-scoring" target="_blank" rel="noopener">Slash Experts: Hidden Flaws in Behavioral Lead Scoring</a></li>
+      <li><a href="https://www.default.com/post/hubspot-lead-scoring" target="_blank" rel="noopener">Default: HubSpot Lead Scoring</a></li>
+      <li><a href="https://veruminc.com/resources/crm-data-decay-rate.html" target="_blank" rel="noopener">Verum Inc: CRM Data Decay Rate</a></li>
+      <li><a href="https://www.coffee.ai/articles/hidden-costs-bad-crm-data" target="_blank" rel="noopener">Coffee.ai: Hidden Costs of Bad CRM Data</a></li>
+      <li><a href="https://www.sparkdbi.com/blogs/crm-data-decay-rates-by-industry-complete-guide/" target="_blank" rel="noopener">SparkDBI: CRM Data Decay Rates by Industry</a></li>
+    </ol>
+  </section>
+
+  <div class="article-cta">
+    <p>Want a fit score built and wired into automatic CRM cleanup, not just a scoring exercise?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">DB</div>
+    <div>
+      <div class="author-name">David Berrocal</div>
+      <div class="author-role">GTM Revenue Systems Architect</div>
+      <p class="author-bio">I build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+</footer>
+
+<script>
+(function(){
+  const bar = document.getElementById('readProgress');
+  const article = document.querySelector('article');
+  if(!bar || !article) return;
+  let ticking = false;
+  function update(){
+    const articleTop = article.offsetTop;
+    const scrollable = article.offsetHeight - window.innerHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+
+(function(){
+  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+  if(!dropdowns.length) return;
+  function closeAll(){
+    dropdowns.forEach(function(dd){
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+    });
+  }
+  dropdowns.forEach(function(dd){
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const wasOpen = dd.classList.contains('open');
+      closeAll();
+      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+    });
+  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+})();
+
+(function(){
+  if(window.matchMedia('(max-width: 700px)').matches){
+    var t = document.querySelector('details.qtoc');
+    if(t) t.removeAttribute('open');
+  }
+})();
+
+(function(){
+  var burger = document.querySelector('.nav-burger');
+  var nav = document.querySelector('nav');
+  if(!burger || !nav) return;
+  function close(){ nav.classList.remove('nav-open'); burger.setAttribute('aria-expanded','false'); burger.textContent='☰'; }
+  burger.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = nav.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', open?'true':'false');
+    burger.textContent = open?'✕':'☰';
+  });
+  document.addEventListener('click', function(e){ if(!nav.contains(e.target)) close(); });
+})();
+</script>
+</body>
+</html>

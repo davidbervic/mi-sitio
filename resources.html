@@ -33,6 +33,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
 
   .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:56px 56px;opacity:0.3;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%)}
+  .aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  .aurora-blob{position:absolute;width:56vw;max-width:600px;aspect-ratio:1;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.3;top:-20vw;left:50%;transform:translateX(-50%);background:radial-gradient(circle,#22D3EE,transparent 70%);animation:auroraDrift 24s ease-in-out infinite}
+  @keyframes auroraDrift{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-46%) scale(1.08)}}
 
   nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(22,27,39,0.8);box-shadow:0 8px 30px -12px rgba(0,0,0,0.6)}
   nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,rgba(34,211,238,0.7),rgba(55,138,221,0.7),rgba(47,140,255,0.7))}
@@ -109,6 +112,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div class="grid-bg"></div>
+<div class="aurora"><div class="aurora-blob"></div></div>
 
 <nav>
   <div class="wrap nav-inner">
@@ -116,6 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="nav-links">
       <a href="index.html">GTM system</a>
       <a href="about.html">About me</a>
+      <a href="customers.html">Customers</a>
       <div class="nav-dropdown" id="resourcesDropdown">
         <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
         <div class="nav-dropdown-menu">
@@ -154,9 +159,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <div class="article-grid" id="articleGrid">
+      <a class="article-card" data-topic="automation" href="hubspot-agent-builder-vs-workflow-builder-2026.html">
+        <div class="ac-thumb"><img src="images/hubspot-agent-builder-vs-workflow-builder-2026.jpg" alt="Workflow Builder following fixed rules next to Agent Builder reading CRM context and content to recommend a best next action"></div>
+        <span class="ac-badge">Latest</span>
+        <span class="ac-tag" style="color:var(--blue);border-color:#378ADD40;background:#378ADD12">Automation</span>
+        <h3>Agent Builder vs Workflow Builder: what's the difference in HubSpot?</h3>
+        <p>Workflows follow rules. Agents use judgment. What HubSpot's 2026 Agent Builder launch means for a lean startup team, and when to use each.</p>
+        <span class="ac-meta">7 min read</span>
+        <span class="ac-arrow">↗</span>
+      </a>
+
+      <a class="article-card" data-topic="crm" href="most-used-crms-hubspot-salesforce-dynamics-365.html">
+        <div class="ac-thumb"><img src="images/most-used-crms-hubspot-salesforce-dynamics-365.jpg" alt="HubSpot, Salesforce, and Microsoft Dynamics 365 logo cards compared side by side"></div>
+        <span class="ac-tag" style="color:var(--base);border-color:#8A93A840;background:#8A93A812">CRM</span>
+        <h3>What are the most used CRMs: HubSpot, Salesforce, or Dynamics 365?</h3>
+        <p>Salesforce leads enterprise revenue, HubSpot dominates SMB adoption, Dynamics 365 wins inside Microsoft shops. Which one fits a lean startup team.</p>
+        <span class="ac-meta">8 min read</span>
+        <span class="ac-arrow">↗</span>
+      </a>
+
+      <a class="article-card" data-topic="lead-scoring" href="4-ways-engagement-score-hubspot-lead-scoring.html">
+        <div class="ac-thumb"><img src="images/4-ways-engagement-score-hubspot-lead-scoring.jpg" alt="HubSpot engagement score tower gathering email opens, page views, clicks, and form fills into a hot lead alert"></div>
+        <span class="ac-tag" style="color:var(--teal);border-color:#22D3EE40;background:#22D3EE12">Lead Scoring</span>
+        <h3>What are the 4 best ways to use your HubSpot engagement score?</h3>
+        <p>A score sitting in a CRM field is wasted data. How to turn it into real-time SDR alerts, triggered emails, automated routing, and sharper outreach.</p>
+        <span class="ac-meta">7 min read</span>
+        <span class="ac-arrow">↗</span>
+      </a>
+
+      <a class="article-card" data-topic="lead-scoring" href="how-to-use-fit-score-for-crm-cleaning.html">
+        <div class="ac-thumb"><img src="images/how-to-use-fit-score-for-crm-cleaning.jpg" alt="Bad-fit lead cards filtered through a funnel into a trash bin while good-fit leads flow into a clean CRM"></div>
+        <span class="ac-tag" style="color:var(--teal);border-color:#22D3EE40;background:#22D3EE12">Lead Scoring</span>
+        <h3>How can you use fit score for CRM cleaning?</h3>
+        <p>Grade contacts against your ICP and disqualified leads surface on their own. How fit score turns CRM cleaning into a mechanical filter, not a manual audit.</p>
+        <span class="ac-meta">8 min read</span>
+        <span class="ac-arrow">↗</span>
+      </a>
+
+      <a class="article-card" data-topic="crm" href="why-do-you-need-a-crm-early-stage-startup.html">
+        <div class="ac-thumb"><img src="images/why-do-you-need-a-crm-early-stage-startup.jpg" alt="Spreadsheets, inbox, and notes flowing into a CRM as one system of record"></div>
+        <span class="ac-tag" style="color:var(--base);border-color:#8A93A840;background:#8A93A812">CRM</span>
+        <h3>Why do you need a CRM in the early stages of a startup?</h3>
+        <p>Founders manage customers with spreadsheets and memory until it breaks. Why that blind spot is a direct threat to revenue, and often to survival.</p>
+        <span class="ac-meta">7 min read</span>
+        <span class="ac-arrow">↗</span>
+      </a>
+
       <a class="article-card" data-topic="lead-scoring" href="how-to-design-a-fit-score-in-hubspot.html">
         <div class="ac-thumb"><img src="images/how-to-design-a-fit-score-in-hubspot.jpg" alt="Steps to design a fit score in HubSpot's Lead Scoring tool"></div>
-        <span class="ac-badge">Latest</span>
         <span class="ac-tag" style="color:var(--teal);border-color:#22D3EE40;background:#22D3EE12">Lead Scoring</span>
         <h3>How do you design a fit score in HubSpot step by step?</h3>
         <p>HubSpot retired the old blended score in 2025. Here's how to build a fit score the new way: ICP, weighted rules, thresholds, testing, and routing.</p>

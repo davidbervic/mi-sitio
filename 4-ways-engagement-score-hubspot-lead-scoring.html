@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Are the 4 Best Ways to Use Your HubSpot Engagement Score? · David Berrocal</title>
+<meta name="description" content="Learn how US startup founders can turn a HubSpot engagement score into a revenue driver by alerting SDRs, triggering emails, automating routing, and arming reps with context.">
+<meta name="theme-color" content="#0B0E14">
+
+<link rel="canonical" href="https://davidbervic.com/4-ways-engagement-score-hubspot-lead-scoring.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="What Are the 4 Best Ways to Use Your HubSpot Engagement Score?">
+<meta property="og:description" content="A score sitting in a CRM field is wasted behavioral data. Four ways to turn a HubSpot engagement score into alerts, emails, routing, and sharper outreach.">
+<meta property="og:url" content="https://davidbervic.com/4-ways-engagement-score-hubspot-lead-scoring.html">
+<meta property="article:published_time" content="2026-05-08">
+<meta property="article:modified_time" content="2026-09-06">
+<meta property="article:author" content="David Berrocal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What Are the 4 Best Ways to Use Your HubSpot Engagement Score?">
+<meta name="twitter:description" content="Real-time SDR alerts, triggered emails, automated routing, and reps armed with context: four ways to monetize a HubSpot engagement score.">
+
+<link rel="icon" type="image/png" href="images/bervic-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Are the 4 Best Ways to Use Your HubSpot Engagement Score?",
+  "author": {
+    "@type": "Person",
+    "name": "David Berrocal",
+    "jobTitle": "GTM Revenue Systems Architect",
+    "sameAs": ["https://www.linkedin.com/in/david-berrocal-vic/"]
+  },
+  "publisher": {"@type": "Person", "name": "David Berrocal"},
+  "datePublished": "2026-05-08",
+  "dateModified": "2026-09-06",
+  "mainEntityOfPage": "https://davidbervic.com/4-ways-engagement-score-hubspot-lead-scoring.html",
+  "description": "Learn how US startup founders can turn a HubSpot engagement score into a revenue driver by alerting SDRs, triggering emails, automating routing, and arming reps with context."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Should startups combine fit and engagement scores from the start?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No, most startups should build engagement-only scoring first because they rarely have enough closed won data to define a reliable ideal customer profile, and can layer fit scoring on top once they have pattern data from real deals."}},
+    {"@type": "Question", "name": "What is a velocity based alert in HubSpot lead scoring?",
+     "acceptedAnswer": {"@type": "Answer", "text": "It is an alert triggered when a lead accumulates points rapidly, for example 30 points in 24 hours, rather than waiting for the lead to hit an absolute score ceiling, since fast accumulation signals stronger buying intent."}},
+    {"@type": "Question", "name": "What is the Black Hole of lead routing?",
+     "acceptedAnswer": {"@type": "Answer", "text": "It is when a lead sits untouched in a general queue or is assigned to an unavailable rep; modern routing avoids this by checking rep calendar availability before assigning a lead."}},
+    {"@type": "Question", "name": "Why should internal alerts include more than just the score number?",
+     "acceptedAnswer": {"@type": "Answer", "text": "A number alone tells a rep little; including the contact's name, company, fit score, and last engagement detail lets the rep personalize their first outreach without digging through the CRM timeline."}},
+    {"@type": "Question", "name": "What is score decay and why is it necessary?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Score decay automatically lowers the score of leads who have gone inactive, keeping the engagement score an accurate reflection of who is currently interested rather than who was interested months ago."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://davidbervic.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://davidbervic.com/resources.html"},
+    {"@type": "ListItem", "position": 3, "name": "What Are the 4 Best Ways to Use Your HubSpot Engagement Score?", "item": "https://davidbervic.com/4-ways-engagement-score-hubspot-lead-scoring.html"}
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><img src="images/logo-bervic.png" alt="David Bervic"></a>
+    <div class="nav-links">
+      <a href="index.html">GTM system</a>
+      <a href="about.html">About me</a>
+      <a href="customers.html">Customers</a>
+      <div class="nav-dropdown" id="resourcesDropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="resources.html">Blog</a>
+          <a href="downloads.html">Downloads</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-ctas">
+      <a href="contact.html" class="nav-contact">Contact</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
+      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">Lead Scoring</span>
+  <h1>What Are the 4 Best Ways to Use Your HubSpot Engagement Score?</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">DB</span>
+    <span class="meta-chip">David Berrocal</span>
+    <span class="meta-chip">Published May 8, 2026</span>
+    <span class="meta-chip">Updated Sep 6, 2026</span>
+    <span class="meta-chip">7 min read</span>
+  </div>
+
+  <div class="article-hero">
+    <img src="images/4-ways-engagement-score-hubspot-lead-scoring.jpg" alt="HubSpot engagement score tower gathering email opens, page views, clicks, and form fills into a hot lead alert">
+  </div>
+
+  <p class="direct-answer"><strong>Direct answer:</strong> Startup founders can turn a HubSpot engagement score into a revenue driver by operationalizing it four ways: alerting SDRs in real time when a lead gets hot, automatically triggering conversion focused emails, routing and re-prioritizing leads without manual review, and arming reps with behavioral context so their first outreach is specific rather than generic.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li>Build engagement-only scoring first and add fit scoring later, once you have enough closed deals to define an ICP.</li>
+      <li>Alert SDRs based on velocity, not just total score, since fast point accumulation signals stronger buying intent than slow accumulation.</li>
+      <li>Let score thresholds automatically trigger nurture emails, ownership changes, and routing so a small team behaves like a full RevOps function.</li>
+      <li>Score decay and per-activity group limits keep the number honest, so alerts, emails, and routing rules stay trustworthy.</li>
+      <li>Exposing the behavioral detail behind the score, not just the number, is what lets reps personalize outreach instantly.</li>
+    </ul>
+  </div>
+
+  <details class="qtoc">
+    <summary class="qtoc-label">Questions this article answers</summary>
+    <ol>
+      <li><a href="#measure">What does a HubSpot engagement score actually measure?</a></li>
+      <li><a href="#alerts">How can you turn the engagement score into a real time SDR alert?</a></li>
+      <li><a href="#emails">How can you use the engagement score to trigger conversion focused emails?</a></li>
+      <li><a href="#routing">How can you automate lead routing and ownership changes with the engagement score?</a></li>
+      <li><a href="#context">How can you arm reps with engagement context for personalized outreach?</a></li>
+      <li><a href="#decay">Why does score decay matter for keeping the engagement score reliable?</a></li>
+      <li><a href="#rollout">How should you sequence the rollout of these four techniques for revenue impact?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 5 FAQs answered below</a></li>
+    </ol>
+  </details>
+
+  <h2 id="measure" class="sec">What does a HubSpot engagement score actually measure?</h2>
+  <p class="lead-answer">The engagement score measures behavior, such as email opens, page views, and form submissions, while a separate fit score measures demographic quality; startups should build engagement-only scoring first because they rarely have enough closed deals to define a reliable ICP.</p>
+  <p>HubSpot's <a href="https://www.hubspot.com/products/marketing/lead-scoring" target="_blank" rel="noopener">Lead Scoring tool</a> separates behavior from identity: engagement scores qualify leads based on their actions, while fit scores rely on demographic information. Many practitioners deliberately keep the two apart, since <a href="https://crmswitch.com/crm-features/hubspot-lead-scoring/" target="_blank" rel="noopener">demographic scores assess lead quality while behavioral scores gauge interest</a>.</p>
+  <p>This distinction matters for early stage companies. A widely cited implementation guide argues that <a href="https://www.default.com/post/hubspot-lead-scoring" target="_blank" rel="noopener">startups should skip fit scoring at first and run engagement-only scoring</a> until they have enough closed deals to define an ideal customer profile. The engagement score itself is built from signals like email opens and clicks, website page views, form submissions, document views, ad interactions, and workflow enrollments. With <a href="https://www.hubspot.com/products/marketing/lead-scoring" target="_blank" rel="noopener">AI assisted engagement scoring</a>, HubSpot analyzes past interactions of successful converted leads and offers recommendations to build more precise scores, visible directly on the contact record.</p>
+
+  <h2 id="alerts" class="sec">How can you turn the engagement score into a real time SDR alert?</h2>
+  <p class="lead-answer">Set up workflow enrollment criteria so HubSpot Score greater than a defined threshold fires an alert only for the highest tier leads, and trigger on velocity of point accumulation rather than absolute score alone.</p>
+  <p>The highest leverage use of an engagement score is real time notification. Instead of an SDR sorting a list each morning, teams can go to Notifications and Integrations and <a href="https://community.hubspot.com/t5/Lead-Capture-Tools/Best-Practices-when-using-Lead-Score-beta/m-p/1039840" target="_blank" rel="noopener">build a workflow with enrollment criteria set to HubSpot Score greater than a defined number</a>. One implementation guide recommends <a href="https://www.anneomaly.com/new-blog/2026/3/27/hubspot-lead-scoring-101-a-practical-guide-to-fit-engagement-and-the-handoff" target="_blank" rel="noopener">triggering alerts only on the highest fit and engagement combinations, such as A1, A2, or B1 tiers</a>, so reps do not learn to ignore alerts that fire too often.</p>
+  <p>Speed matters as much as accuracy. A 2026 lead management analysis notes that <a href="https://crmmagnetics.com/blog/hubspot-lead-management-achieving-sub-second-speed-to-lead" target="_blank" rel="noopener">a lead who accumulates 30 points in 24 hours is more valuable than one who accumulated 50 points over six months</a>, and recommends a workflow that triggers a Surge Alert property when rapid point accumulation occurs, notifying a rep immediately rather than waiting for an absolute score ceiling.</p>
+
+  <h2 id="emails" class="sec">How can you use the engagement score to trigger conversion focused emails?</h2>
+  <p class="lead-answer">Use score-based workflow enrollment so a contact who crosses a threshold is automatically enrolled in a targeted email sequence, and map three or four score bands to distinct message types instead of one generic drip.</p>
+  <p>HubSpot's workflow tooling supports <a href="https://community.hubspot.com/t5/Lists-Lead-Scoring-Workflows/Increase-Decrease-lead-score-using-workflows/m-p/356386" target="_blank" rel="noopener">enrollment criteria based on list membership tied to engagement</a>, so a contact who crosses a threshold can be automatically enrolled in a targeted conversion sequence, then removed to allow re-enrollment the next time they engage again. This creates a compounding effect: an interested lead reads a case study, their score rises, a proof point email fires automatically, they click it, and the score rises again.</p>
+  <p>A practical framework describes this in lifecycle terms: a <a href="https://thedigitalring.com/insights/how-to-implement-lead-scoring-in-hubspot-crm" target="_blank" rel="noopener">top of funnel visit gets a lead on the board as a signal, a mid funnel action keeps the contact in nurture while the score climbs, and a high intent action like a demo request should trigger an automatic, immediate handoff</a> rather than another nurture email. For resource constrained founders, mapping three or four score bands to distinct message types, educational nurture, proof and objection handling, and a direct sales handoff, is more efficient than building dozens of email variants.</p>
+
+  <h2 id="routing" class="sec">How can you automate lead routing and ownership changes with the engagement score?</h2>
+  <p class="lead-answer">Workflows can automatically reassign contact ownership from an SDR to an account executive once a score threshold is reached, and routing should check rep availability so hot leads never sit untouched in a general queue.</p>
+  <p>HubSpot workflows can <a href="https://crmswitch.com/crm-features/hubspot-lead-scoring/" target="_blank" rel="noopener">automatically reassign a contact's ownership from an SDR to an account executive once the contact's score reaches a defined threshold</a>, and for teams running HubSpot alongside another CRM, a contact can be sent over as a new lead once a specified score is reached. This kind of waterfall routing checks ownership, territory, and rep availability before a lead reaches a human queue.</p>
+  <p>A 2026 lead management analysis calls the common failure mode the <a href="https://crmmagnetics.com/blog/hubspot-lead-management-achieving-sub-second-speed-to-lead" target="_blank" rel="noopener">"Black Hole" of lead routing, where a lead sits in a general queue or is assigned to an unavailable rep</a>, and recommends that modern routing check rep calendar availability and skip reps marked unavailable in their profile. A simpler variant for small teams is routing lower tier leads to a shared unassigned view where the first rep to claim it gets it, gamifying follow up speed.</p>
+
+  <h2 id="context" class="sec">How can you arm reps with engagement context for personalized outreach?</h2>
+  <p class="lead-answer">Expose the behavioral detail behind the score, not just the number, so reps see recent activity like pricing page views or case study downloads and can reference it in their first outreach touch.</p>
+  <p>A score alone tells a rep almost nothing; knowing a contact viewed a pricing page twice, opened three product emails, and downloaded a specific case study tells the rep exactly what to reference. HubSpot's lead scoring is built so that <a href="https://www.hubspot.com/products/marketing/lead-scoring" target="_blank" rel="noopener">lead scores are available directly in the CRM's contact records for complete transparency</a>, which enables this kind of just in time personalization without extra tooling.</p>
+  <p>Internal alerts should carry this context by design. One implementation guide recommends that <a href="https://www.anneomaly.com/new-blog/2026/3/27/hubspot-lead-scoring-101-a-practical-guide-to-fit-engagement-and-the-handoff" target="_blank" rel="noopener">internal notifications to a contact owner include the contact's name, company, fit score, and last engagement detail</a>, so the rep does not have to dig through the timeline before reaching out. For a founder wearing the sales hat, this turns a generic check-in email into a specific, relevant follow up.</p>
+
+  <h2 id="decay" class="sec">Why does score decay matter for keeping the engagement score reliable?</h2>
+  <p class="lead-answer">Score decay reduces the scores of leads who go inactive, and capping point accumulation per activity type prevents casual browsers from outscoring genuinely engaged leads, which keeps every alert, email trigger, and routing rule trustworthy.</p>
+  <p>None of the four techniques work if the underlying score is stale or inflated. HubSpot's scoring system includes <a href="https://www.hubspot.com/products/marketing/lead-scoring" target="_blank" rel="noopener">score decay, so leads inactive for a while have their scores decreased</a>, keeping the team's view of who is actually engaged up to date.</p>
+  <p>Startups should also cap point accumulation per activity type using <a href="https://community.hubspot.com/t5/Lead-Capture-Tools/Best-Practices-when-using-Lead-Score-beta/m-p/1039840" target="_blank" rel="noopener">HubSpot's group limits</a>, since without a cap someone who casually browses a blog many times can outscore someone who submitted a genuine demo request, undermining trust in every alert, email trigger, and routing rule built on top of the score.</p>
+
+  <h2 id="rollout" class="sec">How should you sequence the rollout of these four techniques for revenue impact?</h2>
+  <p class="lead-answer">Roll out engagement scoring, alerts, email triggers, and routing over four weeks rather than all at once, since faster response to buyer intent is directly correlated with win rate in B2B sales.</p>
+  <p>Every one of these four applications compresses the time between a buyer signaling intent and a founder or rep responding, and response time is directly correlated with win rate because prospects are usually evaluating more than one vendor at once. A startup that leaves its engagement score passive in a CRM field is paying for behavioral data it never monetizes.</p>
+  <p>A practical rollout: in <strong>week one</strong>, turn on engagement-only scoring and set group limits and decay so the number is trustworthy; in <strong>week two</strong>, build one workflow that fires an alert to the lead owner only when a contact crosses the top engagement tier, including their most recent activity as context; in <strong>week three</strong>, build one automated email sequence tied to a mid tier engagement threshold; and in <strong>week four</strong>, add a routing rule that reassigns or surfaces high tier leads to whichever rep is available, so all four techniques are live and compounding by month's end.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>Should startups combine fit and engagement scores from the start?</h3>
+    <p>No, most startups should build engagement-only scoring first because they rarely have enough closed won data to define a reliable ideal customer profile, and can layer fit scoring on top once they have pattern data from real deals.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is a velocity based alert in HubSpot lead scoring?</h3>
+    <p>It is an alert triggered when a lead accumulates points rapidly, for example 30 points in 24 hours, rather than waiting for the lead to hit an absolute score ceiling, since fast accumulation signals stronger buying intent.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is the Black Hole of lead routing?</h3>
+    <p>It is when a lead sits untouched in a general queue or is assigned to an unavailable rep; modern routing avoids this by checking rep calendar availability before assigning a lead.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Why should internal alerts include more than just the score number?</h3>
+    <p>A number alone tells a rep little; including the contact's name, company, fit score, and last engagement detail lets the rep personalize their first outreach without digging through the CRM timeline.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is score decay and why is it necessary?</h3>
+    <p>Score decay automatically lowers the score of leads who have gone inactive, keeping the engagement score an accurate reflection of who is currently interested rather than who was interested months ago.</p>
+  </div>
+
+  <div class="related">
+    <h2>Related reading</h2>
+    <a href="what-is-engagement-score-hubspot.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">What Is an Engagement Score in HubSpot?</span>
+    </a>
+    <a href="how-to-use-fit-score-for-crm-cleaning.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">How Can You Use Fit Score for CRM Cleaning?</span>
+    </a>
+  </div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://community.hubspot.com/t5/Lead-Capture-Tools/Best-Practices-when-using-Lead-Score-beta/m-p/1039840" target="_blank" rel="noopener">HubSpot Community: Best Practices when using Lead Score (beta)</a></li>
+      <li><a href="https://www.hubspot.com/products/marketing/lead-scoring" target="_blank" rel="noopener">HubSpot Lead Scoring product page</a></li>
+      <li><a href="https://www.factors.ai/blog/hubspot-lead-scoring" target="_blank" rel="noopener">Factors.ai: HubSpot Lead Scoring</a></li>
+      <li><a href="https://www.default.com/post/hubspot-lead-scoring" target="_blank" rel="noopener">Default.com: HubSpot Lead Scoring</a></li>
+      <li><a href="https://thedigitalring.com/insights/how-to-implement-lead-scoring-in-hubspot-crm" target="_blank" rel="noopener">The Digital Ring: How to Implement Lead Scoring in HubSpot CRM</a></li>
+      <li><a href="https://www.anneomaly.com/new-blog/2026/3/27/hubspot-lead-scoring-101-a-practical-guide-to-fit-engagement-and-the-handoff" target="_blank" rel="noopener">AnneOmaly: HubSpot Lead Scoring 101</a></li>
+      <li><a href="https://www.xcellimark.com/blog/how-to-build-lead-scoring-in-hubspot-2025-update" target="_blank" rel="noopener">Xcellimark: How to Build Lead Scoring in HubSpot (2025 Update)</a></li>
+      <li><a href="https://crmswitch.com/crm-features/hubspot-lead-scoring/" target="_blank" rel="noopener">CRM Switch: HubSpot Lead Scoring</a></li>
+      <li><a href="https://community.hubspot.com/t5/Lists-Lead-Scoring-Workflows/Increase-Decrease-lead-score-using-workflows/m-p/356386" target="_blank" rel="noopener">HubSpot Community: Increase/Decrease lead score using workflows</a></li>
+      <li><a href="https://crmmagnetics.com/blog/hubspot-lead-management-achieving-sub-second-speed-to-lead" target="_blank" rel="noopener">CRM Magnetics: HubSpot Lead Management, Achieving Sub-Second Speed to Lead</a></li>
+      <li><a href="https://hamsterstack.com/how-to/hubspot/configure-predictive-lead-scoring/" target="_blank" rel="noopener">Hamsterstack: How to Configure Predictive Lead Scoring</a></li>
+    </ol>
+  </section>
+
+  <div class="article-cta">
+    <p>Want your engagement score wired into real alerts, emails, and routing instead of sitting in a CRM field?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">DB</div>
+    <div>
+      <div class="author-name">David Berrocal</div>
+      <div class="author-role">GTM Revenue Systems Architect</div>
+      <p class="author-bio">I build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+</footer>
+
+<script>
+(function(){
+  const bar = document.getElementById('readProgress');
+  const article = document.querySelector('article');
+  if(!bar || !article) return;
+  let ticking = false;
+  function update(){
+    const articleTop = article.offsetTop;
+    const scrollable = article.offsetHeight - window.innerHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+
+(function(){
+  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+  if(!dropdowns.length) return;
+  function closeAll(){
+    dropdowns.forEach(function(dd){
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+    });
+  }
+  dropdowns.forEach(function(dd){
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const wasOpen = dd.classList.contains('open');
+      closeAll();
+      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+    });
+  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+})();
+
+(function(){
+  if(window.matchMedia('(max-width: 700px)').matches){
+    var t = document.querySelector('details.qtoc');
+    if(t) t.removeAttribute('open');
+  }
+})();
+
+(function(){
+  var burger = document.querySelector('.nav-burger');
+  var nav = document.querySelector('nav');
+  if(!burger || !nav) return;
+  function close(){ nav.classList.remove('nav-open'); burger.setAttribute('aria-expanded','false'); burger.textContent='☰'; }
+  burger.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = nav.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', open?'true':'false');
+    burger.textContent = open?'✕':'☰';
+  });
+  document.addEventListener('click', function(e){ if(!nav.contains(e.target)) close(); });
+})();
+</script>
+</body>
+</html>

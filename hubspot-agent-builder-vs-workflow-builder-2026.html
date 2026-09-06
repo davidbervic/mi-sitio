@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Builder vs Workflow Builder: What's the Difference in HubSpot? · David Berrocal</title>
+<meta name="description" content="HubSpot's Agent Builder and Workflow Builder solve different problems: rules versus judgment. Here is what founders need to know about the 2026 launch.">
+<meta name="theme-color" content="#0B0E14">
+
+<link rel="canonical" href="https://davidbervic.com/hubspot-agent-builder-vs-workflow-builder-2026.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="What Is the Main Difference Between HubSpot's Agent Builder and Workflow Builder?">
+<meta property="og:description" content="Workflows follow fixed rules. Agents read CRM context and use judgment. What HubSpot's 2026 Agent Builder launch means for a lean startup team.">
+<meta property="og:url" content="https://davidbervic.com/hubspot-agent-builder-vs-workflow-builder-2026.html">
+<meta property="article:published_time" content="2026-07-23">
+<meta property="article:modified_time" content="2026-09-06">
+<meta property="article:author" content="David Berrocal">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Agent Builder vs Workflow Builder: What's the Difference in HubSpot?">
+<meta name="twitter:description" content="Workflows follow rules, agents use judgment, and HubSpot now lets you combine both. What founders need to know about Agent Builder's 2026 launch.">
+
+<link rel="icon" type="image/png" href="images/bervic-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Is the Main Difference Between HubSpot's Agent Builder and Workflow Builder?",
+  "author": {
+    "@type": "Person",
+    "name": "David Berrocal",
+    "jobTitle": "GTM Revenue Systems Architect",
+    "sameAs": ["https://www.linkedin.com/in/david-berrocal-vic/"]
+  },
+  "publisher": {"@type": "Person", "name": "David Berrocal"},
+  "datePublished": "2026-07-23",
+  "dateModified": "2026-09-06",
+  "mainEntityOfPage": "https://davidbervic.com/hubspot-agent-builder-vs-workflow-builder-2026.html",
+  "description": "HubSpot's Agent Builder and Workflow Builder solve different problems: rules versus judgment. Here is what founders need to know about the 2026 launch."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is the main difference between HubSpot Agent Builder and Workflow Builder?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Workflow Builder executes fixed if/then rules that never change regardless of context, while Agent Builder creates AI agents that read CRM context, exercise judgment, act, and hand off structured, repeatable steps to workflows when a rule-based process is all that's needed."}},
+    {"@type": "Question", "name": "When did HubSpot launch Agent Hub and Agent Builder?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Agent Hub and Agent Builder launched in public beta on July 23, 2026."}},
+    {"@type": "Question", "name": "Does Agent Builder require the HubSpot CRM to work?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No, Agent Builder is deeply integrated with the CRM but does not require it, meaning it can automate GTM tasks inside or outside the HubSpot CRM using triggers like Google Sheets rows, webhooks, or third-party intent signals."}},
+    {"@type": "Question", "name": "How much do custom agents cost in HubSpot?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Custom agents bill usage-based through HubSpot Credits when they complete a configured action, for example about 50 cents per resolved conversation, one dollar per recommended lead, and ten cents per data answer, with extra credits at $10 per 1,000."}},
+    {"@type": "Question", "name": "Do rule-based workflows cost anything under the new system?",
+     "acceptedAnswer": {"@type": "Answer", "text": "No, automations and workflows built inside Agent Builder that are fundamentally rule-based don't consume HubSpot Credits and remain included in your existing subscription."}},
+    {"@type": "Question", "name": "Can workflows and agents be used together in HubSpot?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Yes, HubSpot doesn't force a choice between the two; an agent can interpret a situation and then hand off the structured, repeatable action to a workflow, combining judgment and rule-based execution in one build."}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://davidbervic.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://davidbervic.com/resources.html"},
+    {"@type": "ListItem", "position": 3, "name": "What Is the Main Difference Between HubSpot's Agent Builder and Workflow Builder?", "item": "https://davidbervic.com/hubspot-agent-builder-vs-workflow-builder-2026.html"}
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo"><img src="images/logo-bervic.png" alt="David Bervic"></a>
+    <div class="nav-links">
+      <a href="index.html">GTM system</a>
+      <a href="about.html">About me</a>
+      <a href="customers.html">Customers</a>
+      <div class="nav-dropdown" id="resourcesDropdown">
+        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="resources.html">Blog</a>
+          <a href="downloads.html">Downloads</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav-ctas">
+      <a href="contact.html" class="nav-contact">Contact</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
+      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</nav>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">Automation</span>
+  <h1>What Is the Main Difference Between HubSpot's Agent Builder and Workflow Builder?</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">DB</span>
+    <span class="meta-chip">David Berrocal</span>
+    <span class="meta-chip">Published Jul 23, 2026</span>
+    <span class="meta-chip">Updated Sep 6, 2026</span>
+    <span class="meta-chip">7 min read</span>
+  </div>
+
+  <div class="article-hero">
+    <img src="images/hubspot-agent-builder-vs-workflow-builder-2026.jpg" alt="Workflow Builder following fixed rules next to Agent Builder reading CRM context and content to recommend a best next action">
+  </div>
+
+  <p class="direct-answer"><strong>Direct answer:</strong> HubSpot's Workflow Builder executes fixed if/then rules that never change, while Agent Builder, launched in public beta on July 23, 2026 alongside Agent Hub, creates AI agents that read CRM context, make judgment calls, and act, then hand off repeatable steps to workflows. Workflows handle predictable logic; agents handle interpretation. Startups can use both together.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li>Workflows follow predefined rules; Agent Builder lets AI agents interpret CRM context and make judgment calls before handing structured steps to workflows.</li>
+      <li>Agent Builder is deeply integrated with the CRM but does not require it, meaning triggers can fire from Google Sheets rows, webhooks, or third-party intent signals.</li>
+      <li>Agent Hub is the single console that unifies every deployed agent under four goals: building demand, winning deals, delighting customers, and scaling growth.</li>
+      <li>Workflow-based automation stays free inside your subscription, while custom agents bill per outcome through HubSpot Credits, so you pay only when the agent actually does work.</li>
+      <li>Approval steps let founders require human sign-off on agent actions at first, then loosen guardrails once the agent proves reliable.</li>
+    </ul>
+  </div>
+
+  <details class="qtoc">
+    <summary class="qtoc-label">Questions this article answers</summary>
+    <ol>
+      <li><a href="#why-built">Why did HubSpot build Agent Hub and Agent Builder?</a></li>
+      <li><a href="#agent-hub">What does Agent Hub actually do?</a></li>
+      <li><a href="#agent-builder">What makes Agent Builder different from classic workflows?</a></li>
+      <li><a href="#decide">How do you decide between using a workflow or an agent?</a></li>
+      <li><a href="#interface">How has the builder interface itself changed?</a></li>
+      <li><a href="#guardrails">What guardrails keep agent autonomy under control?</a></li>
+      <li><a href="#pricing">How does pricing differ between workflows and custom agents?</a></li>
+      <li><a href="#example">Is there a real example of Agent Builder saving time?</a></li>
+      <li><a href="#first-steps">What should a startup founder do first with these tools?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 6 FAQs answered below</a></li>
+    </ol>
+  </details>
+
+  <h2 id="why-built" class="sec">Why did HubSpot build Agent Hub and Agent Builder?</h2>
+  <p class="lead-answer">HubSpot built these tools because most go-to-market teams run AI agents that operate in silos, with no shared visibility into what each agent is doing or producing.</p>
+  <p>Most go-to-market teams running AI agents today share the same problem: the agents are scattered and disconnected. A sales team's prospecting agent might reach out to a customer the same week a service agent is handling that account's open complaint, with neither agent aware of the other. When leadership asks what the AI investment is producing, there is often no clean answer, according to <a href="https://enterprisedna.co/resources/news/hubspot-agent-hub-builder-public-beta-july-2026/" target="_blank" rel="noopener">Enterprise DNA</a>.</p>
+  <p>For a startup with two or three people wearing five hats each, this isn't a hypothetical edge case. It's what happens every week when nobody has time to manually check whether marketing, sales, and support tools share the same picture of the customer.</p>
+
+  <h2 id="agent-hub" class="sec">What does Agent Hub actually do?</h2>
+  <p class="lead-answer">Agent Hub is a single console that brings every HubSpot agent's live status, results, and performance into one screen, organized around four go-to-market goals.</p>
+  <p>Agent Hub brings every HubSpot agent into a single console with live status, recent results, and outcome-based organization mapped to four go-to-market goals: building demand, winning deals, delighting customers, and scaling growth, per <a href="https://www.cmswire.com/customer-experience/hubspot-debuts-agent-hub-to-unify-ai-agents/" target="_blank" rel="noopener">CMSWire</a>.</p>
+  <p>Rather than each agent operating in its own silo, Agent Hub forces agents to share context from HubSpot's Smart CRM, so coordination happens at the data layer instead of relying on manual handoffs between teams. Agent Hub also lets users identify agents that haven't yet been activated and turn them on, according to <a href="https://uptech-media.com/hubspot-launches-agent-hub-and-agent-builder-for-ai-agent-management/" target="_blank" rel="noopener">Uptech Media</a>.</p>
+
+  <h2 id="agent-builder" class="sec">What makes Agent Builder different from classic workflows?</h2>
+  <p class="lead-answer">Agent Builder is a no-code canvas where you describe an agent's job in plain language, and it connects to CRM data, workflows, and human escalation points, without requiring the CRM as a dependency.</p>
+  <p>Agent Builder is where the real difference from classic HubSpot Workflows is sharpest. Users describe what they want an agent to do in plain language, and the system draws on existing CRM data to configure the agent, connect it to workflows, and define when it should escalate to a human, per <a href="https://www.hubspot.com/company-news/meet-agent-hub-and-agent-builder" target="_blank" rel="noopener">HubSpot's own announcement</a>.</p>
+  <p>HubSpot's co-founder framed the structural shift directly: "HubSpot Workflows was tightly coupled with the CRM (because it was originally built to automate things involving CRM data). Agent Builder is deeply integrated to the CRM, but does not require it. Agent Builder helps you automate pretty much anything in GTM inside or outside the HubSpot CRM," as noted in his <a href="https://x.com/dharmesh/status/2080342941030039704" target="_blank" rel="noopener">post on X</a>.</p>
+  <p>That means triggers can fire based on things outside the CRM entirely, including a row added to a Google Sheet, an intent signal, or a webhook call. For a lean startup already stitching together spreadsheets, Slack, and point tools, that flexibility matters more than any single feature.</p>
+
+  <h2 id="decide" class="sec">How do you decide between using a workflow or an agent?</h2>
+  <p class="lead-answer">Use a workflow when the trigger and action are already known and predictable; use an agent when the task requires interpretation, such as reviewing a sales call and recommending a next step.</p>
+  <p>The clearest way to separate the two tools is by what kind of problem they solve. Workflow automation follows predefined rules, while agentic AI sets goals, reasons through multi-step tasks, adapts to feedback, and acts using CRM context, according to <a href="https://www.fastslowmotion.com/agentic-ai-vs-workflow-automation-hubspot/" target="_blank" rel="noopener">Fast Slow Motion</a>.</p>
+  <p>A workflow is deterministic: if a contact fills out a demo form, assign to a sales rep; if a deal stage changes, send an internal notification. An agent is built for the opposite kind of task, where the path isn't known in advance, such as reviewing the latest sales call, identifying the main concern, and recommending the best next step.</p>
+  <p>Crucially, HubSpot doesn't force founders to choose one or the other. In many cases they work together: an agent interprets the situation, and a workflow handles the structured action that follows.</p>
+
+  <h2 id="interface" class="sec">How has the builder interface itself changed?</h2>
+  <p class="lead-answer">HubSpot rebuilt the workflow experience into a canvas-based, agent-native interface where you drag blocks, talk to an assistant instead of clicking through menus, and drop agents directly into the flow.</p>
+  <p>For teams with limited engineering or ops bandwidth, the interface change matters almost as much as the underlying logic. HubSpot rebuilt the workflow experience into a canvas-based interface inside what it originally called Breeze Studio, per <a href="https://www.sidekickstrategies.com/blog/hubheroes-breeze-studio-workflows" target="_blank" rel="noopener">Sidekick Strategies</a>.</p>
+  <p>The new builder works like the Marketing Studio canvas, with a big open grid where you drop trigger, action, branch, agent, and delay blocks wherever you want them, according to <a href="https://vantagepoint.io/blog/hs/hubspot-2026-redesign-what-to-know" target="_blank" rel="noopener">Vantage Point</a>. Inside Agent Builder specifically, you're not switching between a workflow tool and a separate AI tool; triggers, actions, and agent hand-offs connect in one place.</p>
+
+  <h2 id="guardrails" class="sec">What guardrails keep agent autonomy under control?</h2>
+  <p class="lead-answer">Agent Builder includes approval steps requiring human sign-off before you trust an agent fully, and triggers now go beyond form submissions to include scheduled times, property changes, webhooks, and third-party integrations.</p>
+  <p>A legitimate fear for any small team is handing decision-making to software with no visibility into what it's doing. Agent Builder includes approval steps, so you can require a person to sign off on each action while building trust in what the agent does, then loosen the reins once you're comfortable it behaves as expected, per <a href="https://www.nbh.co/learn/hubspot-agent-hub-and-agent-builder-what-launched-and-why-it-matters" target="_blank" rel="noopener">NBH</a>.</p>
+  <p>Triggers are also broader than the old form-submission-only model: an agent can kick off from a scheduled time, a contact property changing, a webhook, or a third-party integration.</p>
+
+  <h2 id="pricing" class="sec">How does pricing differ between workflows and custom agents?</h2>
+  <p class="lead-answer">Automations built inside Agent Builder that are rule-based don't consume HubSpot Credits and stay included in your subscription, while custom agents bill per completed action through usage-based HubSpot Credits.</p>
+  <p>The cost structure reinforces the rules-versus-judgment split. Automations and workflows built inside Agent Builder don't consume HubSpot Credits; if what you're building is fundamentally rule-based, trigger, action, done, that's included in your subscription the same way workflows always have been, according to <a href="https://resolve247.ai/blog/hubspot-ai-agent-pricing/" target="_blank" rel="noopener">Resolve247</a>.</p>
+  <p>Custom agents consume HubSpot Credits when they complete a configured action, and this is usage-based, not a flat fee. HubSpot's named agents illustrate the model: agents bill per outcome, about 50 cents per resolved conversation, one dollar per recommended lead, ten cents per data answer, and extra credits run $10 per 1,000, per <a href="https://www.nbh.co/learn/what-hubspots-ai-agents-actually-cost-to-run" target="_blank" rel="noopener">NBH</a>.</p>
+  <p>This structure is genuinely favorable for cash-constrained startups because you pay when it works, not when it tries.</p>
+
+  <h2 id="example" class="sec">Is there a real example of Agent Builder saving time?</h2>
+  <p class="lead-answer">Yes, Ignite Reading built a custom agent that parses school district calendars in seconds instead of minutes and expects to reclaim roughly 350 hours per year.</p>
+  <p>HubSpot's own example makes the value concrete for a resource-strapped organization. HubSpot highlights Ignite Reading, which built a custom agent that parses school district calendars in seconds instead of minutes and expects to reclaim roughly 350 hours per year, according to <a href="https://www.hubspot.com/company-news/meet-agent-hub-and-agent-builder" target="_blank" rel="noopener">HubSpot's announcement</a>.</p>
+  <p>That is a small, nonprofit-style operation getting back the equivalent of nearly two months of full-time work annually, using a no-code agent rather than a custom engineering build.</p>
+
+  <h2 id="first-steps" class="sec">What should a startup founder do first with these tools?</h2>
+  <p class="lead-answer">Audit your GTM stack into rule-based decisions and judgment-based decisions, move the rule-based ones into the free workflow canvas, and pilot Agent Builder on one high-friction judgment task with approval guardrails.</p>
+  <p>Startup founders should audit their current GTM stack in two buckets: decisions that are truly rule-based (lead routing on form fill, task creation on deal-stage change, survey sends on ticket close) and decisions that require judgment (lead qualification nuance, account research, sentiment-based prioritization).</p>
+  <p>Move the first bucket into HubSpot's no-cost workflow automation inside the new canvas, then pilot Agent Builder, starting with approval-required guardrails, on a single high-friction judgment task such as inbound lead qualification. Measure hours reclaimed and credit spend for 30 days before scaling further.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>What is the main difference between HubSpot Agent Builder and Workflow Builder?</h3>
+    <p>Workflow Builder executes fixed if/then rules that never change regardless of context, while Agent Builder creates AI agents that read CRM context, exercise judgment, act, and hand off structured, repeatable steps to workflows when a rule-based process is all that's needed.</p>
+  </div>
+  <div class="faq-item">
+    <h3>When did HubSpot launch Agent Hub and Agent Builder?</h3>
+    <p>Agent Hub and Agent Builder launched in public beta on July 23, 2026.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does Agent Builder require the HubSpot CRM to work?</h3>
+    <p>No, Agent Builder is deeply integrated with the CRM but does not require it, meaning it can automate GTM tasks inside or outside the HubSpot CRM using triggers like Google Sheets rows, webhooks, or third-party intent signals.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How much do custom agents cost in HubSpot?</h3>
+    <p>Custom agents bill usage-based through HubSpot Credits when they complete a configured action, for example about 50 cents per resolved conversation, one dollar per recommended lead, and ten cents per data answer, with extra credits at $10 per 1,000.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Do rule-based workflows cost anything under the new system?</h3>
+    <p>No, automations and workflows built inside Agent Builder that are fundamentally rule-based don't consume HubSpot Credits and remain included in your existing subscription.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can workflows and agents be used together in HubSpot?</h3>
+    <p>Yes, HubSpot doesn't force a choice between the two; an agent can interpret a situation and then hand off the structured, repeatable action to a workflow, combining judgment and rule-based execution in one build.</p>
+  </div>
+
+  <div class="related">
+    <h2>Related reading</h2>
+    <a href="most-used-crms-hubspot-salesforce-dynamics-365.html" class="related-card">
+      <span class="rc-tag">CRM</span>
+      <span class="rc-title">What Are the Most Used CRMs: HubSpot, Salesforce, or Dynamics 365?</span>
+    </a>
+    <a href="4-ways-engagement-score-hubspot-lead-scoring.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">What Are the 4 Best Ways to Use Your HubSpot Engagement Score?</span>
+    </a>
+  </div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://enterprisedna.co/resources/news/hubspot-agent-hub-builder-public-beta-july-2026/" target="_blank" rel="noopener">Enterprise DNA</a></li>
+      <li><a href="https://www.cmswire.com/customer-experience/hubspot-debuts-agent-hub-to-unify-ai-agents/" target="_blank" rel="noopener">CMSWire</a></li>
+      <li><a href="https://www.martechnotes.com/hubspot-launches-agent-hub-and-agent-builder-in-public-beta-on-july-23-2026/" target="_blank" rel="noopener">MarTech Notes</a></li>
+      <li><a href="https://www.hubspot.com/company-news/meet-agent-hub-and-agent-builder" target="_blank" rel="noopener">HubSpot Company News</a></li>
+      <li><a href="https://vantagepoint.io/blog/hs/hubspot-agent-hub-agent-builder" target="_blank" rel="noopener">Vantage Point</a></li>
+      <li><a href="https://uptech-media.com/hubspot-launches-agent-hub-and-agent-builder-for-ai-agent-management/" target="_blank" rel="noopener">Uptech Media</a></li>
+      <li><a href="https://www.onemetric.io/blog/hubspot-agent-hub-explainer" target="_blank" rel="noopener">OneMetric</a></li>
+      <li><a href="https://www.hubspot.com/products/artificial-intelligence/ai-agents" target="_blank" rel="noopener">HubSpot AI Agents</a></li>
+      <li><a href="https://x.com/dharmesh/status/2080342941030039704" target="_blank" rel="noopener">Dharmesh Shah on X</a></li>
+      <li><a href="https://www.fastslowmotion.com/agentic-ai-vs-workflow-automation-hubspot/" target="_blank" rel="noopener">Fast Slow Motion (Agentic AI vs Workflow)</a></li>
+      <li><a href="https://conceptltd.com/blog/hubspots-agentic-automation-builder-bringing-ai-agents-and-crm-together?hs_amp=true" target="_blank" rel="noopener">Concept Ltd</a></li>
+      <li><a href="https://www.nbh.co/learn/hubspot-agent-hub-and-agent-builder-what-launched-and-why-it-matters" target="_blank" rel="noopener">NBH: Agent Hub and Agent Builder</a></li>
+      <li><a href="https://www.sidekickstrategies.com/blog/hubheroes-breeze-studio-workflows" target="_blank" rel="noopener">Sidekick Strategies Blog</a></li>
+      <li><a href="https://resolve247.ai/blog/hubspot-ai-agent-pricing/" target="_blank" rel="noopener">Resolve247</a></li>
+      <li><a href="https://www.fastslowmotion.com/how-much-does-agent-hub-cost-hubspot-credits/" target="_blank" rel="noopener">Fast Slow Motion (Agent Hub cost)</a></li>
+      <li><a href="https://www.usagepricing.com/blueprint/hubspot" target="_blank" rel="noopener">Usage Pricing</a></li>
+      <li><a href="https://www.hubjoy.co/hubspot/agent-hub" target="_blank" rel="noopener">HubJoy</a></li>
+      <li><a href="https://www.nbh.co/learn/what-hubspots-ai-agents-actually-cost-to-run" target="_blank" rel="noopener">NBH: What Agents Cost</a></li>
+      <li><a href="https://www.huboexperts.com/blog/hubspot-credits-pricing-changes-2026-guide" target="_blank" rel="noopener">Hubo Experts</a></li>
+      <li><a href="https://www.themarketingblog.co.uk/2026/08/hubspot-agent-hub-pricing-uk-2026-credits-costs-and-access/" target="_blank" rel="noopener">The Marketing Blog UK</a></li>
+      <li><a href="https://www.iv-lead.com/blog/hubspot-agents-credits-data-model" target="_blank" rel="noopener">IV Lead</a></li>
+      <li><a href="https://martech.org/hubspots-may-2026-updates-breeze-gets-serious-automation-gets-smarter-and-your-data-gets-cleaner/" target="_blank" rel="noopener">MarTech</a></li>
+      <li><a href="https://www.sidekickstrategies.com/podcast/hubheroes-breeze-studio-workflows" target="_blank" rel="noopener">Sidekick Strategies Podcast</a></li>
+      <li><a href="https://vantagepoint.io/blog/hs/hubspot-2026-redesign-what-to-know" target="_blank" rel="noopener">Vantage Point (2026 Redesign)</a></li>
+      <li><a href="https://www.usecarly.com/blog/how-to-create-workflow-in-hubspot/" target="_blank" rel="noopener">Use Carly</a></li>
+    </ol>
+  </section>
+
+  <div class="article-cta">
+    <p>Want to know which of your GTM tasks should be a workflow, and which should be an agent?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">DB</div>
+    <div>
+      <div class="author-name">David Berrocal</div>
+      <div class="author-role">GTM Revenue Systems Architect</div>
+      <p class="author-bio">I build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+</footer>
+
+<script>
+(function(){
+  const bar = document.getElementById('readProgress');
+  const article = document.querySelector('article');
+  if(!bar || !article) return;
+  let ticking = false;
+  function update(){
+    const articleTop = article.offsetTop;
+    const scrollable = article.offsetHeight - window.innerHeight;
+    const scrolled = window.scrollY - articleTop;
+    const pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+
+(function(){
+  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
+  if(!dropdowns.length) return;
+  function closeAll(){
+    dropdowns.forEach(function(dd){
+      dd.classList.remove('open');
+      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
+    });
+  }
+  dropdowns.forEach(function(dd){
+    const trigger = dd.querySelector('.nav-dropdown-trigger');
+    trigger.addEventListener('click', function(e){
+      e.stopPropagation();
+      const wasOpen = dd.classList.contains('open');
+      closeAll();
+      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
+    });
+  });
+  document.addEventListener('click', closeAll);
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+})();
+
+(function(){
+  if(window.matchMedia('(max-width: 700px)').matches){
+    var t = document.querySelector('details.qtoc');
+    if(t) t.removeAttribute('open');
+  }
+})();
+
+(function(){
+  var burger = document.querySelector('.nav-burger');
+  var nav = document.querySelector('nav');
+  if(!burger || !nav) return;
+  function close(){ nav.classList.remove('nav-open'); burger.setAttribute('aria-expanded','false'); burger.textContent='☰'; }
+  burger.addEventListener('click', function(e){
+    e.stopPropagation();
+    var open = nav.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', open?'true':'false');
+    burger.textContent = open?'✕':'☰';
+  });
+  document.addEventListener('click', function(e){ if(!nav.contains(e.target)) close(); });
+})();
+</script>
+</body>
+</html>
