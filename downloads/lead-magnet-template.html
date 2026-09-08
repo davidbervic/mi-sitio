@@ -1,0 +1,238 @@
+<!--
+  PLANTILLA DE LEAD MAGNET
+  ========================
+  Duplica este archivo por cada nuevo descargable. Puntos a cambiar,
+  marcados con [SWAP] en el HTML:
+
+  1. <title> y meta description
+  2. .lm-tag, h1, .lm-lede (el titular vende el RESULTADO, no el archivo)
+  3. .lm-shot (captura real del Excel/PDF; sin esto la gente no confía)
+  4. Los 4 bullets de "qué incluye"
+  5. name="form-name" del <form> y el value del input oculto (debe ser
+     unico por formulario para que Netlify los distinga en su panel)
+  6. La ruta real del archivo, hoy es un placeholder:
+     downloads/files/lead-scoring-fit-engagement-framework.xlsx
+  7. El nombre del evento en gtag/dataLayer si quieres separarlo por magnet
+
+  El contenido de este archivo (Lead Scoring Framework) es un EJEMPLO
+  basado en el item que ya estaba anunciado como "Coming soon" en
+  downloads.html. Reemplazalo por el lead magnet real antes de publicar.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- [SWAP] title + description -->
+<title>Free Lead Scoring Framework (Excel) · David Berrocal</title>
+<meta name="description" content="A fit-plus-engagement lead scoring matrix you can rebuild inside HubSpot in an afternoon. Free Excel template, delivered to your inbox.">
+<meta name="theme-color" content="#0B0E14">
+<link rel="icon" type="image/png" href="../images/bervic-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0E14; --panel:#161B27; --line:#232A3A; --line-soft:#1B2130;
+    --ink:#EEF1F7; --ink-dim:#D7DCE8; --ink-faint:#8994AA;
+    --violet:#2F8CFF; --violet-soft:#6EC1FF; --violet-deep:#10254A; --teal:#22D3EE;
+    --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--violet);color:#0B0E14}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:56px 56px;opacity:0.3;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%)}
+  .aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  .aurora-blob{position:absolute;width:56vw;max-width:600px;aspect-ratio:1;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.3;top:-20vw;left:50%;transform:translateX(-50%);background:radial-gradient(circle,#22D3EE,transparent 70%);animation:auroraDrift 24s ease-in-out infinite;will-change:transform}
+  @keyframes auroraDrift{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-46%) scale(1.08)}}
+
+  nav{position:relative;z-index:2;padding:24px 32px}
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px}
+  .logo img{height:26px;width:auto;display:block}
+  .back-link{font-family:var(--mono);font-size:13px;color:var(--ink-faint);transition:color .2s}
+  .back-link:hover{color:var(--ink)}
+
+  main{flex:1;position:relative;z-index:2;padding:36px 0 90px}
+
+  .lm-layout{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:start}
+  @media(max-width:900px){.lm-layout{grid-template-columns:1fr;gap:40px}}
+
+  .lm-tag{font-family:var(--mono);font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+  .lm-tag::before{content:"";width:26px;height:1px;background:var(--teal)}
+  h1{font-family:var(--disp);font-weight:600;font-size:clamp(30px,4.2vw,44px);letter-spacing:-0.02em;line-height:1.12;margin-bottom:20px}
+  .lm-lede{font-size:17px;color:var(--ink-dim);line-height:1.65;margin-bottom:32px;max-width:52ch}
+
+  .lm-bullets{list-style:none;display:flex;flex-direction:column;gap:16px;margin-bottom:8px}
+  .lm-bullets li{display:flex;gap:14px;align-items:flex-start;font-size:15px;color:var(--ink-dim);line-height:1.55}
+  .lm-check{flex:none;width:22px;height:22px;border-radius:6px;background:rgba(34,211,238,0.15);border:1px solid var(--teal);color:var(--teal);display:grid;place-items:center;font-size:12px;margin-top:2px}
+
+  .lm-author{margin-top:36px;padding-top:28px;border-top:1px solid var(--line-soft);display:flex;gap:14px;align-items:center}
+  .lm-avatar{width:42px;height:42px;border-radius:50%;background:var(--violet-deep);border:1px solid var(--violet);color:var(--violet-soft);display:grid;place-items:center;font-family:var(--mono);font-size:13px;font-weight:600;flex:none}
+  .lm-author p{font-size:13.5px;color:var(--ink-faint);line-height:1.5}
+  .lm-author strong{color:var(--ink-dim);font-weight:600}
+
+  /* mockup screenshot placeholder */
+  .lm-shot{
+    aspect-ratio:4/3;border-radius:16px;border:1px solid var(--line);
+    background:linear-gradient(160deg,var(--violet-deep) 0%,#0B0E14 65%);
+    position:relative;overflow:hidden;box-shadow:0 30px 70px -30px rgba(47,140,255,0.35);
+    display:flex;align-items:center;justify-content:center;margin-bottom:0;
+  }
+  .lm-shot::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:28px 28px;opacity:0.5}
+  .lm-shot-card{position:relative;z-index:1;width:82%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:0 20px 50px -20px rgba(0,0,0,0.6)}
+  .lm-shot-card .row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line-soft);font-family:var(--mono);font-size:11.5px}
+  .lm-shot-card .row:last-child{border-bottom:none}
+  .lm-shot-card .row span:first-child{color:var(--ink-faint)}
+  .lm-shot-card .pill{padding:3px 9px;border-radius:5px;font-size:10px;font-weight:600}
+  .pill.hot{background:rgba(34,211,238,0.15);color:var(--teal)}
+  .pill.warm{background:rgba(47,140,255,0.15);color:var(--violet-soft)}
+  .pill.cold{background:rgba(137,148,170,0.15);color:var(--ink-faint)}
+  .lm-shot-label{position:absolute;bottom:14px;left:14px;font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);background:rgba(11,14,20,0.7);padding:4px 9px;border-radius:6px;z-index:1}
+
+  /* form panel */
+  .lm-form-panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:28px 26px;margin-top:28px}
+  .lm-form-panel h2{font-family:var(--disp);font-size:19px;font-weight:600;margin-bottom:6px}
+  .lm-form-panel .sub{font-size:13.5px;color:var(--ink-faint);margin-bottom:20px}
+  .field{margin-bottom:14px}
+  input, select{
+    width:100%;background:var(--bg);border:1px solid var(--line);border-radius:10px;
+    padding:15px 16px;color:var(--ink);font-family:var(--body);font-size:15px;transition:border-color .2s;
+  }
+  input::placeholder{color:var(--ink-faint)}
+  input:focus, select:focus{outline:none;border-color:var(--violet)}
+  select{appearance:none;-webkit-appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238994AA' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;
+  }
+  select option{background:var(--panel);color:var(--ink)}
+  select:invalid{color:var(--ink-faint)}
+  .field-label{display:block;font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);margin-bottom:8px}
+  .field-optional{font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink-faint);opacity:.75}
+
+  .btn-primary{
+    width:100%;font-family:var(--mono);font-size:14.5px;font-weight:600;padding:16px 24px;border-radius:10px;
+    border:none;cursor:pointer;transition:all .2s;background:var(--violet);color:#0B0E14;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px var(--violet)}
+
+  .lm-privacy{font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-align:center;margin-top:14px;line-height:1.5}
+
+  footer{position:relative;z-index:2;padding:40px 0;border-top:1px solid var(--line-soft);text-align:center}
+  footer p{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);margin:0}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="grid-bg"></div>
+<div class="aurora"><div class="aurora-blob"></div></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><img src="../images/logo-bervic.png" alt="David Bervic"></a>
+    <a href="../downloads.html" class="back-link">← All downloads</a>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap">
+    <div class="lm-layout">
+
+      <div>
+        <!-- [SWAP] tag -->
+        <span class="lm-tag">Free Excel template</span>
+        <!-- [SWAP] headline: sell the outcome, not the file -->
+        <h1>Stop guessing which lead to call first.</h1>
+        <!-- [SWAP] lede -->
+        <p class="lm-lede">
+          The fit-plus-engagement scoring matrix I use with clients, in a spreadsheet
+          you can adapt to your own ICP in under an hour, then rebuild inside HubSpot
+          when you're ready.
+        </p>
+
+        <!-- [SWAP] 4 bullets, keep them concrete -->
+        <ul class="lm-bullets">
+          <li><span class="lm-check">✓</span> Fit score formula ready to copy into HubSpot's Lead Scoring tool</li>
+          <li><span class="lm-check">✓</span> Two-axis matrix (fit × engagement) with the four action quadrants already labeled</li>
+          <li><span class="lm-check">✓</span> Pre-loaded thresholds you adjust to your own ICP in minutes</li>
+          <li><span class="lm-check">✓</span> A worked example with 20 sample leads, so you see it scored before you touch your own data</li>
+        </ul>
+
+        <div class="lm-author">
+          <div class="lm-avatar">DB</div>
+          <p><strong>David Berrocal</strong> — GTM Revenue Systems Architect.<br>Built this after rebuilding the same matrix from scratch for the third client in a row.</p>
+        </div>
+      </div>
+
+      <div>
+        <!-- [SWAP] replace with a real screenshot of the actual file -->
+        <div class="lm-shot">
+          <div class="lm-shot-card">
+            <div class="row"><span>Acme Robotics</span><span class="pill hot">Hot</span></div>
+            <div class="row"><span>Nimbus Data</span><span class="pill hot">Hot</span></div>
+            <div class="row"><span>Fieldstone Co</span><span class="pill warm">Warm</span></div>
+            <div class="row"><span>Halide Systems</span><span class="pill warm">Warm</span></div>
+            <div class="row"><span>Quiet Harbor</span><span class="pill cold">Cold</span></div>
+          </div>
+          <span class="lm-shot-label">Preview — replace with real screenshot</span>
+        </div>
+
+        <div class="lm-form-panel">
+          <h2>Get the template</h2>
+          <p class="sub">We'll email it to you right away — also drops on the next screen.</p>
+
+          <!-- [SWAP] form name + hidden form-name value must be unique per lead magnet -->
+          <form name="lead-magnet-scoring-framework" method="POST" data-netlify="true"
+                data-netlify-honeypot="bot-field" action="gracias.html">
+            <input type="hidden" name="form-name" value="lead-magnet-scoring-framework">
+            <p style="position:absolute;left:-9999px">
+              <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+            </p>
+
+            <div class="field">
+              <input type="email" name="email" placeholder="Work email" required autocomplete="email">
+            </div>
+
+            <div class="field">
+              <label class="field-label">Team size <span class="field-optional">(optional, helps us tailor the follow-up)</span></label>
+              <select name="teamSize">
+                <option value="" selected>Select one</option>
+                <option value="1-10">1–10 people</option>
+                <option value="11-50">11–50 people</option>
+                <option value="51-200">51–200 people</option>
+                <option value="200+">200+ people</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-primary">Send me the template →</button>
+          </form>
+          <p class="lm-privacy">No spam. One follow-up email, then you can opt out anytime.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+</footer>
+
+</body>
+</html>

@@ -39,7 +39,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%);
   }
   .aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-  .aurora-blob{position:absolute;width:56vw;max-width:600px;aspect-ratio:1;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.3;top:-20vw;left:50%;transform:translateX(-50%);background:radial-gradient(circle,#22D3EE,transparent 70%);animation:auroraDrift 24s ease-in-out infinite}
+  .aurora-blob{position:absolute;width:56vw;max-width:600px;aspect-ratio:1;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.3;top:-20vw;left:50%;transform:translateX(-50%);background:radial-gradient(circle,#22D3EE,transparent 70%);animation:auroraDrift 24s ease-in-out infinite;will-change:transform}
   @keyframes auroraDrift{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-46%) scale(1.08)}}
 
   nav{position:relative;z-index:2;padding:24px 32px}

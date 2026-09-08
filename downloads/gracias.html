@@ -1,0 +1,129 @@
+<!--
+  PAGINA DE GRACIAS PARA LEAD MAGNETS
+  ====================================
+  Compartida por todos los lead magnets (no dupliques esta). Puntos [SWAP]:
+
+  1. El nombre del archivo mostrado y el href del boton de descarga
+  2. La ruta real del archivo en downloads/files/
+  3. El evento de dataLayer si quieres medir magnets por separado en GA4/GTM
+
+  Por que el boton de descarga esta aqui Y se promete el correo:
+  el correo es el canal principal (confirma que el email es real y da
+  un segundo touchpoint), pero si el envio de correo aun no esta
+  automatizado (falta el webhook Netlify -> n8n), el boton evita que
+  alguien se quede sin el archivo mientras se arma esa pieza.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check your inbox · David Berrocal</title>
+<meta name="description" content="Your download is on its way.">
+<meta name="theme-color" content="#0B0E14">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="../images/bervic-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0E14; --panel:#161B27; --line:#232A3A; --line-soft:#1B2130;
+    --ink:#EEF1F7; --ink-dim:#D7DCE8; --ink-faint:#8994AA;
+    --violet:#2F8CFF; --violet-soft:#6EC1FF; --violet-deep:#10254A; --teal:#22D3EE;
+    --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--violet);color:#0B0E14}
+
+  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:56px 56px;opacity:0.3;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%)}
+  .aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  .aurora-blob{position:absolute;width:56vw;max-width:600px;aspect-ratio:1;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.3;top:-20vw;left:50%;transform:translateX(-50%);background:radial-gradient(circle,#22D3EE,transparent 70%);animation:auroraDrift 24s ease-in-out infinite;will-change:transform}
+  @keyframes auroraDrift{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-46%) scale(1.08)}}
+
+  nav{position:relative;z-index:2;padding:24px 32px}
+  .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px}
+  .logo img{height:26px;width:auto;display:block}
+
+  main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;padding:20px 24px 60px}
+  .thanks-card{width:100%;max-width:460px;text-align:center}
+
+  .check{width:56px;height:56px;border-radius:50%;background:rgba(34,211,238,0.15);border:1px solid var(--teal);color:var(--teal);display:grid;place-items:center;font-size:26px;margin:0 auto 22px}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--violet-soft);display:block;margin-bottom:14px}
+  h1{font-family:var(--disp);font-weight:600;font-size:clamp(24px,4vw,32px);letter-spacing:-0.01em;margin-bottom:14px;line-height:1.25}
+  .lede{font-size:15.5px;color:var(--ink-dim);line-height:1.65;margin-bottom:6px}
+  .file-name{font-family:var(--mono);font-size:13px;color:var(--ink-faint);margin-bottom:30px}
+
+  .btn-primary{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-family:var(--mono);font-size:14.5px;font-weight:600;padding:16px 28px;border-radius:10px;
+    border:none;cursor:pointer;transition:all .2s;background:var(--violet);color:#0B0E14;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px var(--violet)}
+
+  .next{margin-top:40px;padding-top:28px;border-top:1px solid var(--line-soft)}
+  .next p{font-size:13.5px;color:var(--ink-faint);margin-bottom:14px}
+  .next a{font-family:var(--mono);font-size:13.5px;color:var(--violet-soft);transition:color .2s}
+  .next a:hover{color:var(--ink)}
+
+  footer{position:relative;z-index:2;padding:40px 0;border-top:1px solid var(--line-soft);text-align:center}
+  footer p{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);margin:0}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="grid-bg"></div>
+<div class="aurora"><div class="aurora-blob"></div></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="logo"><img src="../images/logo-bervic.png" alt="David Bervic"></a>
+  </div>
+</nav>
+
+<main>
+  <div class="thanks-card">
+    <div class="check">✓</div>
+    <span class="eyebrow">You're in</span>
+    <h1>Check your inbox in the next few minutes.</h1>
+    <p class="lede">We just sent the template to the email you gave us. Can't find it? Check spam, or grab it directly below.</p>
+    <!-- [SWAP] file name shown + real download href -->
+    <p class="file-name">lead-scoring-fit-engagement-framework.xlsx</p>
+
+    <!-- [SWAP] point this at the real file in downloads/files/ -->
+    <a class="btn-primary" href="files/lead-scoring-fit-engagement-framework.xlsx" download>Download now →</a>
+
+    <div class="next">
+      <p>While you're here</p>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener">Have a question about it? Message me on WhatsApp →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+</footer>
+
+<script>
+  // Evento propio de conversion, separado de "lead_submitted" (contacto).
+  // [SWAP] si quieres distinguir por magnet, agrega magnet_id al objeto.
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({ event: 'lead_magnet_downloaded', magnet_id: 'lead-scoring-fit-engagement-framework' });
+</script>
+</body>
+</html>
