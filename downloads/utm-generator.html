@@ -68,13 +68,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hero .sub{font-size:clamp(15px,2vw,18px);color:var(--ink-dim);max-width:600px;margin:0 auto}
 
   /* ---- generic placeholder cover (swap for a real screenshot later) ---- */
-  .cover{position:relative;width:100%;max-width:520px;margin:36px auto 0;aspect-ratio:16/10;border-radius:16px;border:1px solid var(--line);background:linear-gradient(135deg,var(--violet-deep),#12161f 60%);box-shadow:0 40px 90px -45px rgba(0,0,0,0.8);overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
-  .cover::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:38px 38px;opacity:.4;mask-image:radial-gradient(ellipse 70% 70% at 50% 45%,#000,transparent 80%)}
-  .cover .cover-mark{position:relative;z-index:1;width:52px;height:52px;border-radius:12px;background:var(--violet);display:grid;place-items:center;box-shadow:0 0 26px -4px var(--violet)}
-  .cover .cover-mark svg{width:28px;height:28px;stroke:#0B0E14;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
-  .cover .cover-title{position:relative;z-index:1;font-family:var(--disp);font-weight:600;font-size:20px;letter-spacing:-0.01em}
-  .cover .cover-sub{position:relative;z-index:1;font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-faint)}
-  .cover .cover-flag{position:absolute;top:14px;left:14px;z-index:1;font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);border:1px solid rgba(34,211,238,0.4);border-radius:20px;padding:4px 10px}
+  .cover{position:relative;width:100%;max-width:620px;margin:36px auto 0;aspect-ratio:16/9;border-radius:16px;border:1px solid var(--line);box-shadow:0 40px 90px -45px rgba(0,0,0,0.8);overflow:hidden}
+  .cover img{width:100%;height:100%;object-fit:cover;display:block}
 
   /* ---- form (reused progressive form) ---- */
   .form-wrap{width:100%;max-width:460px;margin:44px auto 0;padding:0 24px}
@@ -190,14 +185,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h1>Get your free <span class="accent">UTM Generator</span>, ready in under 30 seconds.</h1>
     <p class="sub">The spreadsheet I use to tag every campaign link the same way, so GA4 and HubSpot stop inventing traffic sources and your reporting actually reconciles.</p>
 
-    <!-- Generic placeholder cover. Swap for a real screenshot of the file when ready. -->
-    <div class="cover" role="img" aria-label="UTM Generator cover">
-      <span class="cover-flag">Preview</span>
-      <div class="cover-mark">
-        <svg viewBox="0 0 24 24"><path d="M9 15l6-6"/><path d="M8 8.5A3.5 3.5 0 0 1 11.5 5h1A3.5 3.5 0 0 1 16 8.5v0A3.5 3.5 0 0 1 12.5 12"/><path d="M16 15.5A3.5 3.5 0 0 1 12.5 19h-1A3.5 3.5 0 0 1 8 15.5v0A3.5 3.5 0 0 1 11.5 12"/></svg>
-      </div>
-      <div class="cover-title">UTM Generator</div>
-      <div class="cover-sub">Spreadsheet · davidbervic.com</div>
+    <div class="cover">
+      <img src="../images/utm-generator-cover.jpg" alt="UTM Generator: source, medium, campaign, and content tags feeding a link tagger that outputs a clean, tracked URL">
     </div>
   </section>
 
