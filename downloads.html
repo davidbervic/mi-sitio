@@ -1,3 +1,22 @@
+<!--
+  RECONSTRUCCION de Downloads (Munap), a partir del design handoff real
+  (design_handoff_munap_site/_extracted/downloads.html).
+
+  El contenido (titulos de plantillas/checklists/guias) no esta
+  fabricado, es generico y no atribuido a nadie ficticio, asi que se
+  mantiene casi textual.
+
+  Cambios reales:
+  1. Cada card tiene un "gate" de email (igual patron que utm-generator.html
+     y lead-magnet-template.html de mi-sitio): al hacer click en "Get it
+     free" se despliega un input de email que envia a Netlify Forms
+     (form compartido "munap-download-request" con un campo oculto que
+     identifica que recurso se pidio). Como los archivos reales todavia
+     no existen, esto es honesto: captura el lead para envio manual,
+     no promete una descarga automatica que no existe.
+  2. Filtro por categoria: JS plano en vez de React state.
+  3. WhatsApp/LinkedIn: mismo cambio que el resto del sitio.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,193 +29,373 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
 <!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Downloads · David Berrocal</title>
-<meta name="description" content="Templates, playbooks, and frameworks for GTM revenue systems. Coming soon.">
-<meta name="theme-color" content="#0B0E14">
-<link rel="icon" type="image/png" href="images/bervic-icon.png">
+<title>Downloads · Munap</title>
+<meta name="description" content="Templates, checklists and scripts pulled straight from client engagements.">
+<meta name="theme-color" content="#046cfc">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0B0E14; --panel:#161B27; --line:#232A3A; --line-soft:#1B2130;
-    --ink:#EEF1F7; --ink-dim:#D7DCE8; --ink-faint:#8994AA;
-    --violet:#2F8CFF; --violet-soft:#6EC1FF; --violet-deep:#10254A; --teal:#22D3EE;
-    --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+    --nx-ink:#050505; --nx-ink-soft:#141414;
+    --nx-paper:#ffffff; --nx-paper-dim:#f4f4f4;
+    --nx-blue:#046cfc;
+    --nx-mint:#44fcac; --nx-mint-pale:#c6fbe2;
+    --nx-cyan:#0af2fb; --nx-cyan-pale:#bdf6fa;
+    --nx-pink:#fc2c74; --nx-pink-soft:#fc74b4; --nx-pink-pale:#fbd0e2;
+    --nx-purple:#ac94fc; --nx-purple-pale:#e0d6fd;
+    --nx-yellow:#fcec48; --nx-yellow-pale:#fdf6c4;
+    --nx-grid-line:rgba(255,255,255,.18); --nx-grid-cell:64px; --nx-grid-width:2px;
+    --nx-radius-sm:10px; --nx-radius-md:16px; --nx-radius-lg:22px; --nx-radius-xl:30px; --nx-radius-pill:999px;
+    --nx-drop-sm:4px 4px 0 var(--nx-ink); --nx-drop-md:7px 7px 0 var(--nx-ink); --nx-drop-lg:11px 11px 0 var(--nx-ink);
+    --nx-font-display:'Archivo Black','Helvetica Neue',Arial,sans-serif;
+    --nx-font-text:'Archivo','Helvetica Neue',Arial,sans-serif;
+    --nx-font-mono:'JetBrains Mono',ui-monospace,monospace;
+    --nx-track-display:-.035em; --nx-track-tight:-.02em; --nx-track-label:.12em;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{font-family:var(--nx-font-text);color:var(--nx-ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
-  ::selection{background:var(--violet);color:#0B0E14}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+  img{display:block;max-width:100%}
+  button{font:inherit;border:none;background:none;cursor:pointer}
 
-  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:56px 56px;opacity:0.3;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%)}
-
-  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(22,27,39,0.8);box-shadow:0 8px 30px -12px rgba(0,0,0,0.6)}
-  nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,rgba(34,211,238,0.7),rgba(55,138,221,0.7),rgba(47,140,255,0.7))}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;z-index:2}
-  .logo{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px}
-  .logo img{height:26px;width:auto;display:block}
-  .logo .mark{width:9px;height:9px;background:var(--violet);border-radius:2px;box-shadow:0 0 10px var(--violet)}
-  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-dim);font-family:var(--mono)}
-  .nav-links a{transition:color .2s}
-  .nav-links a:hover, .nav-links a.active{color:var(--ink)}
-  .nav-dropdown{position:relative;display:flex;align-items:center}
-  .nav-dropdown-trigger{background:none;border:none;font:inherit;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:0;transition:color .2s}
-  .nav-dropdown-trigger .caret{font-size:10px;transition:transform .2s}
-  .nav-dropdown.open .caret{transform:rotate(180deg)}
-  .nav-dropdown-menu{
-    position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
-    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;
-    min-width:160px;display:none;flex-direction:column;gap:2px;
-    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60;
+  .nx-grid-bg{
+    background-color:var(--nx-blue);
+    background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),
+                      linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));
+    background-size:var(--nx-grid-cell) var(--nx-grid-cell);
   }
-  .nav-dropdown.open .nav-dropdown-menu{display:flex}
-  .nav-dropdown-menu a{padding:9px 12px;border-radius:6px;font-size:13px;color:var(--ink-dim);transition:all .15s}
-  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active{background:var(--violet-deep);color:var(--ink)}
-  .nav-ctas{display:flex;align-items:center;gap:10px}
-  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s}
-  .nav-contact{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--violet);background:var(--violet);color:#0B0E14;padding:10px 16px;border-radius:6px;transition:all .2s}
-  @media(max-width:860px){.nav-links{display:none}}
+  .placeholder-box{
+    background:var(--nx-paper-dim);border:1.5px dashed #ccc;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:#999;text-transform:uppercase;text-align:center;padding:12px;
+  }
 
-  main{flex:1;position:relative;z-index:2;padding:60px 0 30px}
-  .res-head{max-width:660px;margin-bottom:44px}
+  /* ---- nav ---- */
+  .top-band{padding:20px clamp(16px,4vw,44px) 0}
+  .site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0;position:sticky;top:16px;z-index:40}
+  .logo{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+  .logo span{font:900 24px/1 var(--nx-font-display);letter-spacing:-.03em;color:var(--nx-paper)}
+  .nav-right{flex:0 0 auto;display:flex;align-items:center;gap:10px}
+  .nav-burger{display:none;appearance:none;cursor:pointer;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:12px;width:44px;height:44px;align-items:center;justify-content:center;font-size:18px;line-height:1;flex-shrink:0}
+  .nav-links{display:flex;align-items:center;gap:22px;background:var(--nx-paper);border-radius:20px;padding:12px 22px}
+  .nav-link{font:700 15px/1 var(--nx-font-text);color:var(--nx-ink);white-space:nowrap}
+  .nav-link:hover{color:var(--nx-pink)}
+  .nav-link.is-current{border-bottom:2px solid var(--nx-ink)}
+  .resources-wrap{position:relative;padding-bottom:14px;margin-bottom:-14px}
+  .resources-menu{
+    position:absolute;top:100%;left:0;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:14px;
+    box-shadow:var(--nx-drop-sm);padding:8px;display:flex;flex-direction:column;gap:2px;min-width:170px;
+    opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s ease,transform .15s ease;pointer-events:none;z-index:20;
+  }
+  .resources-wrap:hover .resources-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+  .resources-menu a,.resources-menu span{display:block;padding:9px 10px;border-radius:8px;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink)}
+  .resources-menu a:hover{background:#f4f4f4}
+  .resources-menu span{color:#666;cursor:default}
+  .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center}
+  .btn-pink{background:var(--nx-pink);color:var(--nx-paper)}
+  .btn-purple{background:var(--nx-purple);color:var(--nx-ink)}
+  @media(max-width:860px){
+    .nav-burger{display:inline-flex}
+    .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:16px;right:16px;flex-direction:column;align-items:stretch;gap:2px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:16px;box-shadow:var(--nx-drop-md);padding:10px;z-index:60}
+    .site-nav.nav-open .nav-links{display:flex}
+    .nav-link{padding:12px 14px;border-radius:10px}
+    .nav-link:hover{background:var(--nx-paper-dim)}
+    .resources-wrap{padding-bottom:0;margin-bottom:0}
+    .resources-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 4px 14px;pointer-events:auto;min-width:0}
+  }
+  @media(max-width:420px){.site-nav{gap:8px}.nav-right{gap:6px}.btn-pink,.btn-purple{padding:10px 12px;font-size:12px}}
 
-  .dl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
-  .dl-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .2s}
-  .dl-card:hover{transform:translateY(-4px);border-color:var(--violet);box-shadow:0 24px 50px -28px rgba(47,140,255,0.5)}
-  .dl-thumb{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--violet-deep),rgba(34,211,238,0.1));border-bottom:1px solid var(--line)}
-  .dl-thumb svg{width:44px;height:44px;stroke:var(--violet-soft);stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
-  .dl-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
-  .dl-tag{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
-  .dl-card h3{font-family:var(--disp);font-size:18px;font-weight:600;line-height:1.3;margin-bottom:10px}
-  .dl-card p{font-size:14px;color:var(--ink-dim);line-height:1.6;margin-bottom:18px;flex:1}
-  .dl-cta{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--violet-soft);display:inline-flex;align-items:center;gap:7px;margin-top:auto;transition:gap .2s}
-  .dl-card:hover .dl-cta{gap:12px}
-  .dl-cta.soon{color:var(--ink-faint)}
-  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--violet-soft);display:inline-flex;align-items:center;gap:10px;margin-bottom:22px}
-  .eyebrow::before{content:"";width:26px;height:1px;background:var(--violet-soft)}
-  h1{font-family:var(--disp);font-weight:600;font-size:clamp(28px,4vw,38px);letter-spacing:-0.02em;margin-bottom:16px}
-  p{font-size:16px;color:var(--ink-dim);line-height:1.65;margin-bottom:28px}
-  .back{font-family:var(--mono);font-size:13px;color:var(--ink-faint);display:inline-flex;align-items:center;gap:6px}
-  .back:hover{color:var(--ink)}
+  /* ---- hero ---- */
+  .dl-hero{max-width:1200px;margin:0 auto;padding:clamp(40px,7vw,80px) 0 clamp(56px,8vw,96px);display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+  .dl-tabs{display:flex;gap:10px}
+  .dl-tab{display:inline-block;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:9px 18px;font:700 13px/1 var(--nx-font-text)}
+  .dl-hero h1{margin:0;color:var(--nx-paper);font:900 clamp(32px,4.4vw,50px)/1.05 var(--nx-font-display);letter-spacing:var(--nx-track-display);max-width:720px}
+  .dl-hero p{margin:0;color:rgba(255,255,255,.85);font:400 17px/1.5 var(--nx-font-text);max-width:560px}
 
-  footer{position:relative;z-index:2;padding:40px 0;border-top:1px solid var(--line-soft);text-align:center}
-  footer p{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);margin:0}
+  /* ---- main ---- */
+  .dl-main{background:var(--nx-paper);padding:clamp(48px,7vw,80px) clamp(16px,4vw,44px) clamp(64px,9vw,120px)}
+  .dl-main-wrap{max-width:1200px;margin:0 auto}
+  .dl-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
+  .dl-chip{appearance:none;cursor:pointer;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:9px 16px;font:700 13px/1 var(--nx-font-text);background:var(--nx-paper);color:var(--nx-ink)}
+  .dl-chip.is-active{box-shadow:var(--nx-drop-sm)}
+
+  .featured-dl{background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-xl);box-shadow:var(--nx-drop-lg);overflow:hidden;display:grid;grid-template-columns:.9fr 1.1fr;margin-bottom:40px}
+  .featured-dl-visual{width:100%;height:100%;min-height:260px}
+  .featured-dl-body{padding:32px;display:flex;flex-direction:column;gap:16px}
+  .format-tag{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;background:#f4f4f4;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:4px 12px;font:800 10px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:var(--nx-ink)}
+  .featured-dl-body h2{margin:0;color:var(--nx-ink);font:900 clamp(22px,2.6vw,28px)/1.2 var(--nx-font-display);letter-spacing:var(--nx-track-display);text-decoration:underline}
+  .featured-dl-body p{margin:0;color:var(--nx-ink-soft);font:400 15px/1.55 var(--nx-font-text)}
+  .mini-bullet{display:flex;align-items:flex-start;gap:8px;font:400 14px/1.4 var(--nx-font-text);color:var(--nx-ink)}
+  @media(max-width:760px){.featured-dl{grid-template-columns:1fr}}
+
+  .gate-btn{background:var(--nx-mint);color:var(--nx-ink);border-radius:var(--nx-radius-sm);padding:15px 26px;font:800 14px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm);align-self:flex-start}
+  .gate-form{display:flex;gap:10px;max-width:420px;width:100%}
+  .gate-input{flex:1;box-sizing:border-box;padding:11px 14px;border:1.5px solid var(--nx-ink);border-radius:10px;font:400 14px/1.2 var(--nx-font-text);color:var(--nx-ink);background:var(--nx-paper)}
+  .gate-submit{background:var(--nx-mint);color:var(--nx-ink);border-radius:var(--nx-radius-sm);padding:11px 18px;font:800 13px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm);white-space:nowrap}
+  .gate-done{display:flex;align-items:center;gap:8px;color:var(--nx-ink);font:700 14px/1 var(--nx-font-text)}
+  .card-gate-form{display:flex;flex-direction:column;gap:8px;width:100%}
+  .card-gate-input{width:100%;box-sizing:border-box;padding:11px 14px;border:1.5px solid var(--nx-ink);border-radius:10px;font:400 14px/1.2 var(--nx-font-text);color:var(--nx-ink);background:var(--nx-paper)}
+  .card-gate-submit{width:100%;text-align:center;border-radius:var(--nx-radius-sm);padding:11px;font:800 13px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm)}
+
+  .dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .dl-card{display:flex;flex-direction:column;min-width:0;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);box-shadow:var(--nx-drop-sm);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
+  .dl-card:hover{transform:translate(-2px,-2px);box-shadow:var(--nx-drop-md)}
+  .dl-card-visual{width:100%;aspect-ratio:16/9}
+  .dl-card-body{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .dl-card-body h3{margin:0;color:var(--nx-ink);font:900 18px/1.25 var(--nx-font-display);letter-spacing:var(--nx-track-display)}
+  .dl-card-body p{margin:0;flex:1;color:var(--nx-ink-soft);font:400 14px/1.5 var(--nx-font-text)}
+  .dl-get-btn{width:100%;text-align:center;border-radius:var(--nx-radius-sm);padding:12px;font:800 13px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm)}
+  @media(max-width:900px){.dl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:600px){.dl-grid{grid-template-columns:1fr}}
+
+  /* ---- newsletter ---- */
+  .newsletter-section{background:var(--nx-ink);padding:clamp(56px,8vw,96px) clamp(16px,4vw,44px)}
+  .newsletter-wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px}
+  .newsletter-wrap h2{margin:0;color:var(--nx-paper);font:900 clamp(24px,3vw,34px)/1.15 var(--nx-font-display);letter-spacing:var(--nx-track-display)}
+  .newsletter-wrap p{margin:0;color:rgba(255,255,255,.75);font:400 15px/1.5 var(--nx-font-text)}
+  .newsletter-form{display:flex;gap:10px;width:100%;max-width:420px}
+  .newsletter-input{flex:1;box-sizing:border-box;padding:13px 16px;border:1.5px solid var(--nx-paper);border-radius:10px;background:var(--nx-ink);color:var(--nx-paper);font:400 15px/1.2 var(--nx-font-text)}
+  .newsletter-btn{background:var(--nx-mint);color:var(--nx-ink);border-radius:var(--nx-radius-sm);padding:13px 22px;font:800 14px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm);white-space:nowrap}
+
+  /* ---- footer ---- */
+  footer{background:var(--nx-ink);padding:clamp(56px,7vw,80px) clamp(16px,4vw,44px) 32px}
+  .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .footer-brand p{margin:10px 0 0;max-width:280px;color:rgba(255,255,255,.6);font:400 14px/1.6 var(--nx-font-text)}
+  .footer-socials{display:flex;align-items:center;gap:10px;margin-top:14px}
+  .footer-socials a{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);border-radius:10px;color:var(--nx-paper)}
+  .footer-col{display:flex;flex-direction:column;gap:12px}
+  .footer-col-label{font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:rgba(255,255,255,.45);text-transform:uppercase}
+  .footer-col a{color:rgba(255,255,255,.85);font:400 14px/1 var(--nx-font-text)}
+  .footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .footer-bottom span{color:rgba(255,255,255,.45);font:400 13px/1 var(--nx-font-text)}
+  @media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
-<link rel="stylesheet" href="nav.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<div class="grid-bg"></div>
 
-<nav>
-  <div class="wrap nav-inner">
-    <a href="index.html" class="logo"><img src="images/logo-bervic.png" alt="David Bervic"></a>
-    <div class="nav-links">
-      <a href="index.html">GTM system</a>
-      <a href="about.html">About me</a>
-      <a href="customers.html">Customers</a>
-      <div class="nav-dropdown" id="resourcesDropdown">
-        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
-        <div class="nav-dropdown-menu">
-          <a href="resources.html">Blog</a>
-          <a href="downloads.html" class="active">Downloads</a>
+<!-- Hidden Netlify form declaration so the build detects it (fields are submitted via JS fetch below) -->
+<form name="munap-download-request" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+  <input type="email" name="email">
+  <input type="text" name="resource">
+</form>
+
+<div class="nx-grid-bg top-band" data-grid-parallax>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <span>Munap</span>
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="index.html#services">Services</a>
+        <a class="nav-link" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link is-current" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="downloads.html">Downloads</a>
+            <span title="Coming soon">Webinars</span>
+          </div>
         </div>
       </div>
+      <a href="contact.html" class="btn-pink">Contact me</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="DM me on WhatsApp" class="btn-purple">DM me</a>
     </div>
-    <div class="nav-ctas">
-      <a href="contact.html" class="nav-contact">Contact</a>
-      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
-      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+  </nav>
+
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+
+  <div class="dl-hero">
+    <div class="dl-tabs">
+      <a class="dl-tab" href="resources.html" style="background:var(--nx-paper);color:var(--nx-ink-soft)">Blog</a>
+      <span class="dl-tab" style="background:var(--nx-mint);color:var(--nx-ink)">Downloads</span>
+      <span class="dl-tab" style="background:var(--nx-paper);color:var(--nx-ink-soft);opacity:.6;cursor:default" title="Coming soon">Webinars</span>
+    </div>
+    <h1>Free templates and tools for GTM operators.</h1>
+    <p>Templates, checklists and scripts pulled straight from client engagements. No email newsletter spam, just the file.</p>
+  </div>
+</div>
+
+<div class="dl-main">
+  <div class="dl-main-wrap">
+    <div class="dl-chips" id="categoryChips"></div>
+    <div id="featuredSlot"></div>
+    <div class="dl-grid" id="dlGrid"></div>
+  </div>
+</div>
+
+<div class="newsletter-section">
+  <div class="newsletter-wrap">
+    <h2>New templates land here first.</h2>
+    <p>One email when a new download goes live. Nothing else.</p>
+    <div class="newsletter-form">
+      <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="jane@company.com">
+      <button class="newsletter-btn" id="newsletterBtn">Subscribe</button>
     </div>
   </div>
-</nav>
-
-<main>
-  <div class="wrap">
-    <header class="res-head">
-      <span class="eyebrow">Downloads</span>
-      <h1>Templates and playbooks for your revenue stack.</h1>
-      <p>Scoring frameworks, CRM audit checklists, and automation blueprints you can drop straight into your own stack.</p>
-    </header>
-
-    <div class="dl-grid">
-      <a class="dl-card is-live" href="downloads/utm-generator.html">
-        <div class="dl-thumb"><svg viewBox="0 0 24 24"><path d="M9 15l6-6"/><path d="M8 8.5A3.5 3.5 0 0 1 11.5 5h1A3.5 3.5 0 0 1 16 8.5v0A3.5 3.5 0 0 1 12.5 12"/><path d="M16 15.5A3.5 3.5 0 0 1 12.5 19h-1A3.5 3.5 0 0 1 8 15.5v0A3.5 3.5 0 0 1 11.5 12"/></svg></div>
-        <div class="dl-body">
-          <span class="dl-tag">Spreadsheet</span>
-          <h3>UTM Generator</h3>
-          <p>Build consistent, tagged campaign links in under 30 seconds and keep GA4 and HubSpot reporting clean.</p>
-          <span class="dl-cta">Get the generator →</span>
-        </div>
-      </a>
-
-      <article class="dl-card">
-        <div class="dl-thumb"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="0.6" fill="currentColor" stroke="none"/></svg></div>
-        <div class="dl-body">
-          <span class="dl-tag">Template</span>
-          <h3>Lead Scoring Framework</h3>
-          <p>A fit-plus-engagement model on a two-axis matrix, with thresholds and tiers you can rebuild inside HubSpot.</p>
-          <span class="dl-cta soon">Coming soon</span>
-        </div>
-      </article>
-
-      <article class="dl-card">
-        <div class="dl-thumb"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
-        <div class="dl-body">
-          <span class="dl-tag">Checklist</span>
-          <h3>CRM Audit Checklist</h3>
-          <p>The exact list I run to find broken lifecycle stages, dead automations, and silent data debt in a HubSpot portal.</p>
-          <span class="dl-cta soon">Coming soon</span>
-        </div>
-      </article>
-
-      <article class="dl-card">
-        <div class="dl-thumb"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="6" height="6" rx="1.4"/><rect x="15" y="14" width="6" height="6" rx="1.4"/><path d="M6 10v4a2 2 0 0 0 2 2h7"/></svg></div>
-        <div class="dl-body">
-          <span class="dl-tag">Playbook</span>
-          <h3>Automation Blueprint</h3>
-          <p>A map of the multi-agent content system: how research becomes articles and social posts, with the human gates marked.</p>
-          <span class="dl-cta soon">Coming soon</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</main>
+</div>
 
 <footer>
-  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span>Munap</span>
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
+        </a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Munap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
 </footer>
 
 <script>
-(function(){
-  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
-  if(!dropdowns.length) return;
-  function closeAll(){
-    dropdowns.forEach(function(dd){
-      dd.classList.remove('open');
-      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
-    });
+const CATEGORY_TONES = { Templates: 'var(--nx-mint)', Checklists: 'var(--nx-cyan)', Guides: 'var(--nx-pink)', Scripts: 'var(--nx-yellow)' };
+const CATEGORY_PALE = { Templates: 'var(--nx-mint-pale)', Checklists: 'var(--nx-cyan-pale)', Guides: 'var(--nx-pink-pale)', Scripts: 'var(--nx-yellow-pale)' };
+
+const DOWNLOADS = [
+  { id: 'f1', featured: true, category: 'Templates', format: 'Notion + PDF', title: 'The GTM Handoff SLA Template', desc: 'The exact doc marketing and sales sign to agree on lead definitions, routing and response time.', b1: 'Shared lead-status field definitions', b2: 'Response-time SLA by lead source' },
+  { id: 'd1', category: 'Checklists', format: 'PDF', title: '30-Day Lead Leakage Audit Checklist', desc: 'Twelve checks to run before you touch a single automation.' },
+  { id: 'd2', category: 'Templates', format: 'Spreadsheet', title: 'RevOps Automation Trigger Map', desc: 'Every trigger worth automating, mapped to the data field it depends on.' },
+  { id: 'd3', category: 'Scripts', format: 'Doc', title: 'Cold Outbound Sequence Scripts', desc: 'Twelve sequence templates, organized by trigger event.' },
+  { id: 'd4', category: 'Checklists', format: 'Spreadsheet', title: 'CRM Field Health Scorecard', desc: 'Score your CRM on the ten fields that actually predict pipeline risk.' },
+  { id: 'd5', category: 'Guides', format: 'PDF', title: 'Tool Stack Consolidation Guide', desc: 'How to cut martech spend without losing coverage.' },
+  { id: 'd6', category: 'Scripts', format: 'Doc', title: 'Discovery Call Question Bank', desc: 'Forty questions organized by deal stage and buyer type.' },
+];
+
+let activeCategory = 'All';
+const gateState = {}; // id -> 'button' | 'form' | 'done'
+
+function gateStage(id) { return gateState[id] || 'button'; }
+
+function submitGate(id, title, email) {
+  gateState[id] = 'done';
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({ 'form-name': 'munap-download-request', email, resource: title }).toString(),
+  }).catch(() => {});
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'lead_magnet_downloaded', lead_source: 'munap_downloads', resource: title });
+  render();
+}
+
+function categoryChips() {
+  const cats = ['All', 'Templates', 'Checklists', 'Guides', 'Scripts'];
+  document.getElementById('categoryChips').innerHTML = cats.map(name => `
+    <button class="dl-chip${activeCategory === name ? ' is-active' : ''}" data-cat="${name}" style="${activeCategory === name ? `background:${CATEGORY_TONES[name] || 'var(--nx-paper)'}` : ''}">${name}</button>
+  `).join('');
+  document.querySelectorAll('[data-cat]').forEach(b => b.addEventListener('click', () => { activeCategory = b.dataset.cat; render(); }));
+}
+
+function gateHtml(d, variant) {
+  const stage = gateStage(d.id);
+  if (stage === 'done') return `<div class="gate-done">Sent. Check your inbox.</div>`;
+  if (stage === 'form') {
+    return variant === 'featured' ? `
+      <div class="gate-form">
+        <input class="gate-input" type="email" id="gate-input-${d.id}" placeholder="jane@company.com">
+        <button class="gate-submit" data-submit="${d.id}">Send it</button>
+      </div>
+    ` : `
+      <div class="card-gate-form">
+        <input class="card-gate-input" type="email" id="gate-input-${d.id}" placeholder="jane@company.com">
+        <button class="card-gate-submit" style="background:${CATEGORY_TONES[d.category]}" data-submit="${d.id}">Send it</button>
+      </div>
+    `;
   }
-  dropdowns.forEach(function(dd){
-    const trigger = dd.querySelector('.nav-dropdown-trigger');
-    trigger.addEventListener('click', function(e){
-      e.stopPropagation();
-      const wasOpen = dd.classList.contains('open');
-      closeAll();
-      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
-    });
-  });
-  document.addEventListener('click', closeAll);
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
-})();
+  return variant === 'featured'
+    ? `<button class="gate-btn" data-open="${d.id}">Get it free</button>`
+    : `<button class="dl-get-btn" style="background:${CATEGORY_TONES[d.category]}" data-open="${d.id}">Get it free</button>`;
+}
+
+function render() {
+  categoryChips();
+  const noFilter = activeCategory === 'All';
+  const featured = DOWNLOADS.find(d => d.featured);
+  const pool = DOWNLOADS.filter(d => !d.featured && (noFilter || d.category === activeCategory));
+
+  document.getElementById('featuredSlot').innerHTML = noFilter ? `
+    <div class="featured-dl">
+      <div class="placeholder-box featured-dl-visual" style="background:${CATEGORY_PALE[featured.category]};border-radius:0">Handoff SLA template preview</div>
+      <div class="featured-dl-body">
+        <span class="format-tag">${featured.format}</span>
+        <h2>${featured.title}</h2>
+        <p>${featured.desc}</p>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div class="mini-bullet"><span style="color:var(--nx-mint)">●</span>${featured.b1}</div>
+          <div class="mini-bullet"><span style="color:var(--nx-cyan)">●</span>${featured.b2}</div>
+        </div>
+        ${gateHtml(featured, 'featured')}
+      </div>
+    </div>
+  ` : '';
+
+  document.getElementById('dlGrid').innerHTML = pool.map(d => `
+    <div class="dl-card">
+      <div class="placeholder-box dl-card-visual" style="background:${CATEGORY_PALE[d.category]};border-radius:0">${d.category} preview</div>
+      <div class="dl-card-body">
+        <span class="format-tag">${d.format}</span>
+        <h3>${d.title}</h3>
+        <p>${d.desc}</p>
+        ${gateHtml(d, 'card')}
+      </div>
+    </div>
+  `).join('');
+
+  document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => { gateState[b.dataset.open] = 'form'; render(); }));
+  document.querySelectorAll('[data-submit]').forEach(b => b.addEventListener('click', () => {
+    const id = b.dataset.submit;
+    const input = document.getElementById(`gate-input-${id}`);
+    if (!input.checkValidity()) { input.reportValidity(); return; }
+    const d = DOWNLOADS.find(x => x.id === id);
+    submitGate(id, d.title, input.value);
+  }));
+}
+render();
+
+// Newsletter (visual only, no ESP wired up yet)
+document.getElementById('newsletterBtn').addEventListener('click', () => {
+  document.getElementById('newsletterBtn').textContent = 'Subscribed';
+});
 </script>
-<script src="nav.js"></script>
+<script src="assets/interactions.js" defer></script>
 </body>
 </html>

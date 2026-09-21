@@ -1,3 +1,9 @@
+<!--
+  MIGRADO desde mi-sitio (how-to-score-leads-hubspot.html), contenido real e investigado
+  (con fuentes citadas), sin cambios de fondo. Solo se reviste con los
+  estilos de Munap (article.css) y se reemplaza la marca personal por
+  "Munap" en la firma de autor, igual que el resto del sitio reconstruido.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,24 +16,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
 <!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How Do You Calculate a Lead Score in HubSpot? · David Berrocal</title>
+<title>How Do You Calculate a Lead Score in HubSpot? · Munap</title>
 <meta name="description" content="A HubSpot lead score combines a fit score and an engage score into one number reps can act on. Here's the exact formula, step by step.">
-<meta name="theme-color" content="#0B0E14">
-<link rel="icon" type="image/png" href="images/bervic-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "How Do You Calculate a Lead Score in HubSpot?",
-  "author": {"@type": "Person", "name": "David Berrocal", "jobTitle": "GTM Revenue Systems Architect"},
-  "datePublished": "2026-08-03T09:00:00-05:00",
-  "dateModified": "2026-08-03T09:00:00-05:00",
-  "description": "A HubSpot lead score combines a fit score and an engage score into one number reps can act on."
-}
-</script>
+<meta name="theme-color" content="#046cfc">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -44,115 +35,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ]
 }
 </script>
-<style>
-  :root{
-    --bg:#0B0E14; --bg-soft:#11151F; --panel:#161B27; --line:#232A3A; --line-soft:#1B2130;
-    --ink:#EEF1F7; --ink-dim:#D7DCE8; --ink-faint:#8994AA;
-    --violet:#2F8CFF; --violet-soft:#6EC1FF; --violet-deep:#10254A; --teal:#22D3EE; --amber:#F0A93B;
-    --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  a{color:var(--violet-soft);text-decoration:underline;text-decoration-color:rgba(167,158,246,0.35);text-underline-offset:2px}
-  a:hover{text-decoration-color:var(--violet-soft)}
-  ::selection{background:var(--violet);color:#0B0E14}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
-
-  .progress-bar{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--teal),#378ADD,var(--violet));z-index:60;box-shadow:0 0 10px 1px rgba(47,140,255,0.5)}
-
-  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(22,27,39,0.8);box-shadow:0 8px 30px -12px rgba(0,0,0,0.6)}
-  nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,rgba(34,211,238,0.7),rgba(55,138,221,0.7),rgba(47,140,255,0.7))}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;z-index:2}
-  .logo{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px;text-decoration:none}
-  .logo img{height:26px;width:auto;display:block}
-  .logo .mark{width:9px;height:9px;background:var(--violet);border-radius:2px;box-shadow:0 0 10px var(--violet)}
-  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-dim);font-family:var(--mono)}
-  .nav-links a{transition:color .2s;text-decoration:none;color:inherit}
-  .nav-links a:hover{color:var(--ink)}
-  .nav-dropdown{position:relative;display:flex;align-items:center}
-  .nav-dropdown-trigger{background:none;border:none;font:inherit;color:var(--ink-dim);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:0;transition:color .2s}
-  .nav-dropdown-trigger:hover, .nav-dropdown.open .nav-dropdown-trigger{color:var(--ink)}
-  .nav-dropdown-trigger .caret{font-size:10px;transition:transform .2s}
-  .nav-dropdown.open .caret{transform:rotate(180deg)}
-  .nav-dropdown-menu{
-    position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
-    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;
-    min-width:160px;display:none;flex-direction:column;gap:2px;
-    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60;
-  }
-  .nav-dropdown.open .nav-dropdown-menu{display:flex}
-  .nav-dropdown-menu a{padding:9px 12px;border-radius:6px;font-size:13px;color:var(--ink-dim);transition:all .15s;display:block}
-  .nav-dropdown-menu a:hover{background:var(--violet-deep);color:var(--ink)}
-  .nav-ctas{display:flex;align-items:center;gap:10px}
-  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s;text-decoration:none}
-  .nav-contact{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--violet);background:var(--violet);color:#0B0E14;padding:10px 16px;border-radius:6px;transition:all .2s;text-decoration:none}
-  @media(max-width:860px){.nav-links{display:none}}
-
-  article{position:relative;z-index:2;max-width:720px;margin:0 auto;padding:56px 32px 100px}
-  .back-link{display:inline-block;font-family:var(--mono);font-size:13px;color:var(--ink-faint);text-decoration:none;margin-bottom:28px}
-  .back-link:hover{color:var(--ink)}
-  .article-tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--teal);border:1px solid #22D3EE40;background:#22D3EE12;padding:5px 12px;border-radius:6px;margin-bottom:20px}
-  h1{font-family:var(--disp);font-weight:600;font-size:clamp(28px,4.5vw,42px);letter-spacing:-0.02em;line-height:1.15;margin-bottom:18px}
-  .article-meta{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);margin-bottom:36px;display:flex;gap:8px;flex-wrap:wrap}
-
-  .article-hero{
-    width:100%;aspect-ratio:16/9;border-radius:16px;overflow:hidden;margin-bottom:32px;
-    border:1px solid var(--line);background:linear-gradient(135deg,var(--violet-deep),#0B0E14 70%);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
-  }
-  .article-hero img{width:100%;height:100%;object-fit:cover;display:block}
-  .article-hero .ph-icon{width:46px;height:46px;border-radius:12px;background:var(--violet-deep);border:1px solid rgba(47,140,255,0.35);display:grid;place-items:center}
-  .article-hero .ph-icon svg{width:22px;height:22px;stroke:var(--violet-soft);stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
-  .article-hero .ph-label{font-family:var(--mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-faint)}
-
-  .direct-answer{
-    font-size:17px;color:var(--ink-dim);line-height:1.7;background:var(--panel);
-    border-left:3px solid var(--violet);border-radius:0 10px 10px 0;padding:18px 22px;margin-bottom:36px;
-  }
-  .direct-answer strong{color:var(--ink);font-weight:600}
-
-  .toc{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--line-soft);line-height:2}
-  .toc-label{display:block;color:var(--ink);margin-bottom:8px;font-weight:500}
-  .toc a{color:var(--ink-faint);text-decoration:none;margin-right:16px}
-  .toc a:hover{color:var(--violet-soft)}
-
-  h2{font-family:var(--disp);font-weight:600;font-size:clamp(21px,3vw,26px);letter-spacing:-0.01em;margin:44px 0 16px;scroll-margin-top:90px}
-  h3{font-family:var(--disp);font-weight:600;font-size:17px;margin:26px 0 8px}
-  p{font-size:16px;color:var(--ink-dim);margin-bottom:16px}
-  p strong{color:var(--ink);font-weight:600}
-  ul, ol{margin:0 0 20px 22px;color:var(--ink-dim);font-size:16px}
-  li{margin-bottom:8px}
-  li strong{color:var(--ink)}
-
-  .callout{background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;padding:20px 22px;margin:28px 0;font-size:15px;color:var(--ink-dim)}
-  .callout .cl-label{font-family:var(--mono);font-size:11px;letter-spacing:0.05em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:8px}
-
-  table{width:100%;border-collapse:collapse;margin:20px 0 28px;font-size:14px}
-  th, td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line-soft)}
-  th{font-family:var(--mono);font-size:11.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.04em}
-  td{color:var(--ink-dim)}
-
-  .faq-item{border-bottom:1px solid var(--line-soft);padding:20px 0}
-  .faq-item:last-child{border-bottom:none}
-  .faq-item h3{margin:0 0 8px}
-  .faq-item p{margin-bottom:0}
-
-  .article-cta{margin-top:56px;padding:28px;background:var(--panel);border:1px solid var(--line);border-radius:14px;text-align:center}
-  .article-cta p{color:var(--ink);font-size:16px;margin-bottom:16px}
-  .article-cta .btn-primary{font-family:var(--mono);font-size:14px;font-weight:500;background:var(--violet);color:#0B0E14;padding:13px 22px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;text-decoration:none}
-
-  .author-box{margin-top:48px;padding-top:28px;border-top:1px solid var(--line-soft);display:flex;align-items:center;gap:14px}
-  .author-avatar{width:44px;height:44px;border-radius:50%;background:var(--violet-deep);border:1px solid var(--violet);color:var(--violet-soft);display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:14px;flex-shrink:0}
-  .author-name{font-family:var(--disp);font-weight:600;font-size:15px}
-  .author-role{font-family:var(--mono);font-size:12px;color:var(--ink-faint)}
-
-  footer{position:relative;z-index:2;padding:40px 0;border-top:1px solid var(--line-soft);text-align:center}
-  footer p{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
-
-  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
-<link rel="stylesheet" href="nav.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Do You Calculate a Lead Score in HubSpot?",
+  "description": "A HubSpot lead score combines a fit score and an engage score into one number reps can act on. Here's the exact formula, step by step.",
+  "image": "images/hero-1.webp",
+  "datePublished": "2026-08-03",
+  "dateModified": "2026-08-03",
+  "author": {"@type": "Organization", "name": "Munap", "url": "index.html"},
+  "publisher": {"@type": "Organization", "name": "Munap"}
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="article.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -161,40 +60,45 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div class="progress-bar" id="readProgress"></div>
 
-<nav>
-  <div class="wrap nav-inner">
-    <a href="index.html" class="logo"><img src="images/logo-bervic.png" alt="David Bervic"></a>
-    <div class="nav-links">
-      <a href="index.html">GTM system</a>
-      <a href="about.html">About me</a>
-      <a href="customers.html">Customers</a>
-      <div class="nav-dropdown" id="resourcesDropdown">
-        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
-        <div class="nav-dropdown-menu">
-          <a href="resources.html">Blog</a>
-          <a href="downloads.html">Downloads</a>
+<div class="nx-grid-bg top-band" data-grid-parallax>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <span>Munap</span>
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="index.html#services">Services</a>
+        <a class="nav-link" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link is-current" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="downloads.html">Downloads</a>
+            <span title="Coming soon">Webinars</span>
+          </div>
         </div>
       </div>
+      <a href="contact.html" class="btn-pink">Contact me</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="DM me on WhatsApp" class="btn-purple">DM me</a>
     </div>
-    <div class="nav-ctas">
-      <a href="contact.html" class="nav-contact">Contact</a>
-      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
-      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
-    </div>
-  </div>
-</nav>
+  </nav>
+
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+</div>
 
 <article>
   <a href="resources.html" class="back-link">← All resources</a>
   <span class="article-tag">Lead Scoring</span>
   <h1>How Do You Calculate a Lead Score in HubSpot?</h1>
   <div class="article-meta">
-    <span>David Berrocal</span><span>·</span><span>Aug 3, 2026</span><span>·</span><span>6 min read</span>
+    <span class="meta-chip">Munap</span><span class="meta-chip">Aug 3, 2026</span><span class="meta-chip">6 min read</span>
   </div>
 
-  <div class="article-hero">
-    <div class="ph-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10.5" r="1.5"/><path d="M21 15l-5-5-9 9"/></svg></div>
-    <span class="ph-label">Featured image</span>
+  <div class="placeholder-box article-hero">Article key visual</div>
+<span class="ph-label">Featured image</span>
   </div>
 
   <p class="direct-answer"><strong>Direct answer:</strong> A HubSpot lead score combines a <strong>fit score</strong> (how closely the contact matches your ICP: industry, company size, role) and an <strong>engage score</strong> (how actively they interact: email opens, page visits, form fills), each built as a custom score property with weighted rules. Plot both on a two-axis matrix to decide the next action: call now, nurture, review, or discard.</p>
@@ -265,35 +169,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>Review scoring rules quarterly against actual closed-won and closed-lost data. Scoring models built once and never revisited drift out of sync with how your ICP or buying behavior actually evolves.</p>
   </div>
 
+  <div class="related">
+    <h2>Related reading</h2>
+    <a href="what-is-lead-scoring.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">What Is Lead Scoring and How Does It Help Sales Teams Prioritize Leads?</span>
+    </a>
+    <a href="how-to-design-a-fit-score-in-hubspot.html" class="related-card">
+      <span class="rc-tag">Lead Scoring</span>
+      <span class="rc-title">How Do You Design a Fit Score in HubSpot Step by Step?</span>
+    </a>
+  </div>
+
   <div class="article-cta">
     <p>Want this built for your own CRM?</p>
     <a href="contact.html" class="btn-primary">Contact →</a>
   </div>
 
   <div class="author-box">
-    <div class="author-avatar">DB</div>
+    <div class="author-avatar">M</div>
     <div>
-      <div class="author-name">David Berrocal</div>
-      <div class="author-role">GTM Revenue Systems Architect</div>
+      <div class="author-name">Munap</div>
+      <div class="author-role">GTM & RevOps systems</div>
     </div>
   </div>
 </article>
 
 <footer>
-  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span>Munap</span>
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
+        </a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Munap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
 </footer>
 
 <script>
 (function(){
-  const bar = document.getElementById('readProgress');
-  const article = document.querySelector('article');
+  var bar = document.getElementById('readProgress');
+  var article = document.querySelector('article');
   if(!bar || !article) return;
-  let ticking = false;
+  var ticking = false;
   function update(){
-    const articleTop = article.offsetTop;
-    const scrollable = article.offsetHeight - window.innerHeight;
-    const scrolled = window.scrollY - articleTop;
-    const pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    var articleTop = article.offsetTop;
+    var scrollable = article.offsetHeight - window.innerHeight;
+    var scrolled = window.scrollY - articleTop;
+    var pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
     bar.style.width = pct + '%';
     ticking = false;
   }
@@ -302,29 +256,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }, {passive:true});
   update();
 })();
-
-(function(){
-  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
-  if(!dropdowns.length) return;
-  function closeAll(){
-    dropdowns.forEach(function(dd){
-      dd.classList.remove('open');
-      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
-    });
-  }
-  dropdowns.forEach(function(dd){
-    const trigger = dd.querySelector('.nav-dropdown-trigger');
-    trigger.addEventListener('click', function(e){
-      e.stopPropagation();
-      const wasOpen = dd.classList.contains('open');
-      closeAll();
-      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
-    });
-  });
-  document.addEventListener('click', closeAll);
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
-})();
 </script>
-<script src="nav.js"></script>
+
+<script src="assets/interactions.js" defer></script>
 </body>
 </html>

@@ -1,3 +1,21 @@
+<!--
+  RECONSTRUCCION de Contact (Munap), a partir del design handoff real
+  (design_handoff_munap_site/_extracted/contact.html).
+
+  Cambios respecto al mockup original, y por que:
+  1. La quote destacada ("First dashboard finance has actually trusted
+     without asking us to rebuild it." (Priya Nair, CFO | Halden Co)) y
+     las 3 estadisticas (<24h respuesta, 40+ sistemas, 98% renuevan)
+     eran inventadas, mismo patron que el resto del sitio. Reemplazadas
+     por placeholders honestos (decision del usuario, 2026-09-21).
+  2. El formulario de 3 pasos (info / empresa+tamano / objetivo+timeline)
+     se reimplemento en JS plano con el mismo patron Netlify Forms que
+     ya usa contact.html de mi-sitio y el book-a-call de index.html:
+     fetch a "/" con form-urlencoded, mas un honeypot.
+  3. WhatsApp/LinkedIn: mismo cambio que el resto del sitio.
+  4. Preguntas "Before you reach out" (FAQ) se mantienen: son genericas,
+     no atribuidas a nadie ficticio, sin problema de integridad.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,335 +28,445 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
 <!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Let's talk · David Berrocal</title>
-<meta name="description" content="Tell me a bit about yourself and I'll get back to you within a business day.">
-<meta name="theme-color" content="#0B0E14">
-<link rel="icon" type="image/png" href="images/bervic-icon.png">
+<title>Contact · Munap</title>
+<meta name="description" content="Tell us where your GTM system is breaking. We reply within one business day with next steps, not a sales deck.">
+<meta name="theme-color" content="#046cfc">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0B0E14; --panel:#161B27; --line:#232A3A; --line-soft:#1B2130;
-    --ink:#EEF1F7; --ink-dim:#D7DCE8; --ink-faint:#8994AA;
-    --violet:#2F8CFF; --violet-soft:#6EC1FF; --violet-deep:#10254A; --teal:#22D3EE;
-    --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+    --nx-ink:#050505; --nx-ink-soft:#141414;
+    --nx-paper:#ffffff; --nx-paper-dim:#f4f4f4;
+    --nx-blue:#046cfc;
+    --nx-mint:#44fcac; --nx-mint-pale:#c6fbe2;
+    --nx-cyan:#0af2fb; --nx-cyan-pale:#bdf6fa;
+    --nx-pink:#fc2c74; --nx-pink-soft:#fc74b4; --nx-pink-pale:#fbd0e2;
+    --nx-purple:#ac94fc; --nx-purple-pale:#e0d6fd;
+    --nx-yellow:#fcec48; --nx-yellow-pale:#fdf6c4;
+    --nx-grid-line:rgba(255,255,255,.18); --nx-grid-cell:64px; --nx-grid-width:2px;
+    --nx-radius-sm:10px; --nx-radius-md:16px; --nx-radius-lg:22px; --nx-radius-xl:30px; --nx-radius-pill:999px;
+    --nx-drop-sm:4px 4px 0 var(--nx-ink); --nx-drop-md:7px 7px 0 var(--nx-ink); --nx-drop-lg:11px 11px 0 var(--nx-ink);
+    --nx-font-display:'Archivo Black','Helvetica Neue',Arial,sans-serif;
+    --nx-font-text:'Archivo','Helvetica Neue',Arial,sans-serif;
+    --nx-font-mono:'JetBrains Mono',ui-monospace,monospace;
+    --nx-track-display:-.035em; --nx-track-tight:-.02em; --nx-track-label:.12em;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{
-    background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;
-    min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased;overflow-x:hidden;
-  }
+  body{font-family:var(--nx-font-text);color:var(--nx-ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
-  ::selection{background:var(--violet);color:#0B0E14}
+  img{display:block;max-width:100%}
+  button{font:inherit;border:none;background:none;cursor:pointer}
 
-  .grid-bg{
-    position:fixed;inset:0;z-index:0;pointer-events:none;
-    background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
-    background-size:56px 56px;opacity:0.3;
-    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%);
+  .nx-grid-bg{
+    background-color:var(--nx-blue);
+    background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),
+                      linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));
+    background-size:var(--nx-grid-cell) var(--nx-grid-cell);
   }
-  .aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-  .aurora-blob{position:absolute;width:56vw;max-width:600px;aspect-ratio:1;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.3;top:-20vw;left:50%;transform:translateX(-50%);background:radial-gradient(circle,#22D3EE,transparent 70%);animation:auroraDrift 24s ease-in-out infinite;will-change:transform}
-  @keyframes auroraDrift{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-46%) scale(1.08)}}
-
-  nav{position:relative;z-index:2;padding:24px 32px}
-  .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-  .logo{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px}
-  .logo img{height:26px;width:auto;display:block}
-  .logo .mark{width:9px;height:9px;background:var(--violet);border-radius:2px;box-shadow:0 0 10px var(--violet)}
-  .back-link{font-family:var(--mono);font-size:13px;color:var(--ink-faint);transition:color .2s}
-  .back-link:hover{color:var(--ink)}
-  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-dim);font-family:var(--mono)}
-  .nav-links a{transition:color .2s}
-  .nav-links a:hover{color:var(--ink)}
-  .nav-dropdown{position:relative;display:flex;align-items:center}
-  .nav-dropdown-trigger{background:none;border:none;font:inherit;color:var(--ink-dim);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:0;transition:color .2s}
-  .nav-dropdown-trigger:hover, .nav-dropdown.open .nav-dropdown-trigger{color:var(--ink)}
-  .nav-dropdown-trigger .caret{font-size:10px;transition:transform .2s}
-  .nav-dropdown.open .caret{transform:rotate(180deg)}
-  .nav-dropdown-menu{
-    position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
-    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;
-    min-width:160px;display:none;flex-direction:column;gap:2px;
-    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60;
+  .eyebrow-pill{
+    display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);
+    padding:6px 14px;font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:var(--nx-ink);
   }
-  .nav-dropdown.open .nav-dropdown-menu{display:flex}
-  .nav-dropdown-menu a{padding:9px 12px;border-radius:6px;font-size:13px;color:var(--ink-dim);transition:all .15s;display:block}
-  .nav-dropdown-menu a:hover{background:var(--violet-deep);color:var(--ink)}
-  .nav-ctas{display:flex;align-items:center;gap:10px}
-  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s}
-  .nav-cta:hover{background:#4FE0FF;border-color:#4FE0FF;transform:translateY(-2px)}
-  @media(max-width:900px){.nav-links{display:none}}
 
-  main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;padding:20px 24px 60px}
-  .contact-card{width:100%;max-width:480px}
-
-  .progress{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:36px}
-  .progress .dot{width:28px;height:3px;border-radius:2px;background:var(--line);transition:all .3s}
-  .progress .dot.on{background:var(--violet);width:36px}
-  .progress .dot.done{background:var(--teal);width:28px}
-
-  .step{display:none;animation:stepIn .4s cubic-bezier(.2,.7,.3,1)}
-  .step.active{display:block}
-  @keyframes stepIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-
-  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--violet-soft);margin-bottom:14px;display:block}
-  h2{font-family:var(--disp);font-weight:600;font-size:clamp(24px,4vw,32px);letter-spacing:-0.01em;margin-bottom:24px;line-height:1.2}
-  .field{margin-bottom:14px}
-  input, select{
-    width:100%;background:var(--panel);border:1px solid var(--line);border-radius:10px;
-    padding:15px 16px;color:var(--ink);font-family:var(--body);font-size:15px;transition:border-color .2s;
+  /* ---- nav ---- */
+  .top-band{padding:20px clamp(16px,4vw,44px) 0}
+  .site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0;position:sticky;top:16px;z-index:40}
+  .logo{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+  .logo span{font:900 24px/1 var(--nx-font-display);letter-spacing:-.03em;color:var(--nx-paper)}
+  .nav-right{flex:0 0 auto;display:flex;align-items:center;gap:10px}
+  .nav-burger{display:none;appearance:none;cursor:pointer;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:12px;width:44px;height:44px;align-items:center;justify-content:center;font-size:18px;line-height:1;flex-shrink:0}
+  .nav-links{display:flex;align-items:center;gap:22px;background:var(--nx-paper);border-radius:20px;padding:12px 22px}
+  .nav-link{font:700 15px/1 var(--nx-font-text);color:var(--nx-ink);white-space:nowrap}
+  .nav-link:hover{color:var(--nx-pink)}
+  .resources-wrap{position:relative;padding-bottom:14px;margin-bottom:-14px}
+  .resources-menu{
+    position:absolute;top:100%;left:0;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:14px;
+    box-shadow:var(--nx-drop-sm);padding:8px;display:flex;flex-direction:column;gap:2px;min-width:170px;
+    opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s ease,transform .15s ease;pointer-events:none;z-index:20;
   }
-  input::placeholder{color:var(--ink-faint)}
-  input:focus, select:focus{outline:none;border-color:var(--violet)}
-  select{appearance:none;-webkit-appearance:none;cursor:pointer;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238994AA' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-    background-repeat:no-repeat;background-position:right 16px center;padding-right:40px;
+  .resources-wrap:hover .resources-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+  .resources-menu a,.resources-menu span{display:block;padding:9px 10px;border-radius:8px;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink)}
+  .resources-menu a:hover{background:#f4f4f4}
+  .resources-menu span{color:#666;cursor:default}
+  .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center;cursor:pointer;border:none}
+  .btn-pink{background:var(--nx-pink);color:var(--nx-paper)}
+  .btn-purple{background:var(--nx-purple);color:var(--nx-ink)}
+  @media(max-width:860px){
+    .nav-burger{display:inline-flex}
+    .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:16px;right:16px;flex-direction:column;align-items:stretch;gap:2px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:16px;box-shadow:var(--nx-drop-md);padding:10px;z-index:60}
+    .site-nav.nav-open .nav-links{display:flex}
+    .nav-link{padding:12px 14px;border-radius:10px}
+    .nav-link:hover{background:var(--nx-paper-dim)}
+    .resources-wrap{padding-bottom:0;margin-bottom:0}
+    .resources-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 4px 14px;pointer-events:auto;min-width:0}
   }
-  select option{background:var(--panel);color:var(--ink)}
-  select:invalid{color:var(--ink-faint)}
+  @media(max-width:420px){.site-nav{gap:8px}.nav-right{gap:6px}.btn-pink,.btn-purple{padding:10px 12px;font-size:12px}}
 
-  .field-label{display:block;font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-bottom:10px}
-  .chip-select{display:flex;gap:10px;flex-wrap:wrap}
-  .chip-option{position:relative}
-  .chip-option input{position:absolute;opacity:0;width:1px;height:1px}
-  .chip-option span{
-    display:inline-flex;align-items:center;font-family:var(--mono);font-size:13.5px;
-    padding:11px 18px;border-radius:8px;border:1px solid var(--line);background:var(--panel);
-    color:var(--ink-dim);cursor:pointer;transition:all .2s;user-select:none;
-  }
-  .chip-option:hover span{border-color:var(--violet-soft);color:var(--ink)}
-  .chip-option input:checked + span{border-color:var(--violet);background:var(--violet-deep);color:var(--violet-soft)}
-  .chip-option input:focus-visible + span{outline:2px solid var(--violet-soft);outline-offset:2px}
+  /* ---- hero ---- */
+  .contact-hero{max-width:1200px;margin:0 auto;padding:clamp(40px,7vw,80px) 0 clamp(56px,8vw,96px);display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+  .contact-hero h1{margin:0;color:var(--nx-paper);font:900 clamp(32px,4.4vw,48px)/1.08 var(--nx-font-display);letter-spacing:var(--nx-track-display);max-width:680px}
+  .contact-hero p{margin:0;color:rgba(255,255,255,.85);font:400 17px/1.5 var(--nx-font-text);max-width:520px}
+  .contact-hero .wa-line{color:rgba(255,255,255,.7);font:400 14px/1 var(--nx-font-text)}
+  .contact-hero .wa-line a{color:var(--nx-paper);text-decoration:underline}
 
-  .step-actions{display:flex;gap:12px;margin-top:26px;align-items:center}
-  .btn-primary, .btn-back{
-    font-family:var(--mono);font-size:14px;font-weight:500;padding:14px 24px;border-radius:8px;
-    border:none;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;
-  }
-  .btn-primary{background:var(--violet);color:#0B0E14;box-shadow:0 0 0 0 var(--violet)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px -6px var(--violet)}
-  .btn-primary:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:none}
-  .btn-back{background:transparent;color:var(--ink-faint);padding:14px 10px}
-  .btn-back:hover{color:var(--ink)}
+  /* ---- main grid ---- */
+  .contact-main{background:var(--nx-paper);padding:clamp(56px,8vw,100px) clamp(16px,4vw,44px)}
+  .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start;max-width:1160px;margin:0 auto}
+  @media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
 
-  .hint{font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-top:18px}
-  .thanks p{color:var(--ink-dim);font-size:16px;margin-top:4px}
-  .thanks .check{width:52px;height:52px;border-radius:50%;background:rgba(34,211,238,0.15);border:1px solid var(--teal);color:var(--teal);display:grid;place-items:center;font-size:24px;margin-bottom:22px}
+  .steps-label{font:800 12px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:var(--nx-ink-soft);text-transform:uppercase}
+  .next-steps{display:flex;flex-direction:column;gap:20px}
+  .next-step{display:flex;align-items:flex-start;gap:14px}
+  .next-step-num{width:32px;height:32px;flex:0 0 auto;border-radius:50%;border:1.5px solid var(--nx-ink);display:flex;align-items:center;justify-content:center;font:800 14px/1 var(--nx-font-display)}
+  .next-step span:last-child{color:var(--nx-ink);font:400 15px/1.4 var(--nx-font-text)}
 
-  .error{color:#E24B4A;font-family:var(--mono);font-size:12.5px;margin-top:14px;display:none}
-  .error.show{display:block}
+  .quote-box{display:flex;flex-direction:column;gap:12px;padding:24px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);background:#f4f4f4}
+  .quote-box p{margin:0;color:#999;font:400 16px/1.5 var(--nx-font-text);font-style:italic}
+  .quote-box span{color:var(--nx-ink-soft);font:400 13px/1.2 var(--nx-font-text)}
+
+  .stats-row{display:flex;gap:24px}
+  .stat-value{font:900 26px/1 var(--nx-font-display);color:var(--nx-ink)}
+  .stat-label{color:var(--nx-ink-soft);font:400 13px/1.3 var(--nx-font-text)}
+  .stats-note{margin:0;color:var(--nx-ink-soft);font:400 13px/1.4 var(--nx-font-text)}
+  .stat-value.nx-skeleton{width:48px;height:.85em}
+  .quote-box.is-soon p{color:#999}
+
+  /* ---- form card ---- */
+  .form-card{background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-xl);box-shadow:var(--nx-drop-lg);padding:32px;min-height:380px;display:flex;flex-direction:column}
+  .form-dots{display:flex;gap:8px;margin-bottom:26px}
+  .form-dot{flex:1;height:5px;border-radius:3px;background:var(--nx-paper-dim);transition:background .25s ease}
+  .form-dot.is-done{background:var(--nx-cyan)}
+  .form-step{flex:1;display:none}
+  .form-step.is-active{display:block}
+  .form-step-label{display:block;margin:0 0 18px;font:800 12px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:var(--nx-ink-soft);text-transform:uppercase}
+  .form-field{margin:0 0 16px}
+  .form-label{display:block;margin:0 0 6px;font:700 13px/1 var(--nx-font-text);color:var(--nx-ink)}
+  .form-input{width:100%;box-sizing:border-box;padding:13px 14px;border:1.5px solid var(--nx-ink);border-radius:10px;font:400 15px/1.3 var(--nx-font-text);color:var(--nx-ink);background:var(--nx-paper)}
+  .choice-row{display:flex;gap:8px;flex-wrap:wrap}
+  .choice-btn{appearance:none;cursor:pointer;border:1.5px solid var(--nx-ink);border-radius:10px;padding:10px 14px;font:700 13px/1 var(--nx-font-text);background:var(--nx-paper);color:var(--nx-ink)}
+  .choice-btn.is-selected{background:var(--nx-mint)}
+  .form-nav{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+  .form-back{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;background:var(--nx-paper);border:3px solid var(--nx-ink);border-radius:14px;visibility:hidden}
+  .form-back.show{visibility:visible}
+  .form-next{background:var(--nx-cyan);color:var(--nx-ink);border-radius:var(--nx-radius-sm);padding:13px 26px;font:800 14px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm)}
+  .form-done{display:none;flex:1;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px}
+  .form-done.show{display:flex}
+  .form-done h3{margin:0;color:var(--nx-ink);font:900 24px/1.1 var(--nx-font-display)}
+  .form-done p{margin:0;color:var(--nx-ink-soft);font:400 15px/1.5 var(--nx-font-text)}
+
+  /* ---- faq ---- */
+  .faq-section{background-color:var(--nx-blue);padding:clamp(56px,8vw,96px) clamp(16px,4vw,44px);background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));background-size:var(--nx-grid-cell) var(--nx-grid-cell)}
+  .faq-wrap{max-width:720px;margin:0 auto}
+  .faq-wrap h2{margin:0 0 24px;color:var(--nx-paper);font:900 clamp(22px,2.8vw,28px)/1.15 var(--nx-font-display);letter-spacing:var(--nx-track-display);text-align:center}
+  .faq-item{border:1.5px solid var(--nx-ink);border-radius:14px;margin-bottom:12px;overflow:hidden;background:var(--nx-paper)}
+  .faq-q{appearance:none;cursor:pointer;width:100%;text-align:left;background:none;border:none;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;font:700 16px/1.3 var(--nx-font-text);color:var(--nx-ink)}
+  .faq-a{padding:0 20px 18px;color:var(--nx-ink-soft);font:400 15px/1.55 var(--nx-font-text);display:none}
+  .faq-item.is-open .faq-a{display:block}
+
+  /* ---- footer ---- */
+  footer{background:var(--nx-ink);padding:clamp(56px,7vw,80px) clamp(16px,4vw,44px) 32px}
+  .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .footer-brand p{margin:10px 0 0;max-width:280px;color:rgba(255,255,255,.6);font:400 14px/1.6 var(--nx-font-text)}
+  .footer-socials{display:flex;align-items:center;gap:10px;margin-top:14px}
+  .footer-socials a{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);border-radius:10px;color:var(--nx-paper)}
+  .footer-col{display:flex;flex-direction:column;gap:12px}
+  .footer-col-label{font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:rgba(255,255,255,.45);text-transform:uppercase}
+  .footer-col a{color:rgba(255,255,255,.85);font:400 14px/1 var(--nx-font-text)}
+  .footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .footer-bottom span{color:rgba(255,255,255,.45);font:400 13px/1 var(--nx-font-text)}
+  @media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
+
+  .reveal{opacity:0;transform:translateY(28px)}
+  .reveal.is-visible{animation:nx-reveal .7s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes nx-reveal{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
-<link rel="stylesheet" href="nav.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<div class="grid-bg"></div>
-<div class="aurora"><div class="aurora-blob"></div></div>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="logo"><img src="images/logo-bervic.png" alt="David Bervic"></a>
-    <div class="nav-links">
-      <a href="index.html">GTM system</a>
-      <a href="about.html">About me</a>
-      <a href="customers.html">Customers</a>
-      <div class="nav-dropdown" id="resourcesDropdown">
-        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
-        <div class="nav-dropdown-menu">
-          <a href="resources.html">Blog</a>
-          <a href="downloads.html">Downloads</a>
-        </div>
-      </div>
-    </div>
-    <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
-      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
-  </div>
-</nav>
-
-<main>
-  <div class="contact-card">
-    <div class="progress" id="progress">
-      <span class="dot on" data-dot="1"></span>
-      <span class="dot" data-dot="2"></span>
-      <span class="dot" data-dot="3"></span>
-    </div>
-
-    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="contactForm" novalidate>
-      <input type="hidden" name="form-name" value="contact">
-      <p style="position:absolute;left:-9999px">
-        <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
-      </p>
-
-      <div class="step active" data-step="1">
-        <span class="eyebrow">Step 1 of 3</span>
-        <h2>What's your name?</h2>
-        <div class="field"><input type="text" name="firstName" id="firstName" placeholder="First name" required autocomplete="given-name"></div>
-        <div class="field"><input type="text" name="lastName" id="lastName" placeholder="Last name" required autocomplete="family-name"></div>
-        <div class="step-actions">
-          <button type="button" class="btn-primary" data-next>Next →</button>
-        </div>
-      </div>
-
-      <div class="step" data-step="2">
-        <span class="eyebrow">Step 2 of 3</span>
-        <h2>How do you identify?</h2>
-        <div class="field">
-          <select name="role" id="role" required>
-            <option value="" selected disabled>Select one</option>
-            <option value="Founder / CEO">Founder / CEO</option>
-            <option value="Marketing Leader">Marketing Leader</option>
-            <option value="Sales Leader">Sales Leader</option>
-            <option value="RevOps / Systems Leader">RevOps / Systems Leader</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div class="step-actions">
-          <button type="button" class="btn-back" data-back>← Back</button>
-          <button type="button" class="btn-primary" data-next>Next →</button>
-        </div>
-      </div>
-
-      <div class="step" data-step="3">
-        <span class="eyebrow">Step 3 of 3</span>
-        <h2>Where can we reach you?</h2>
-        <div class="field"><input type="email" name="email" id="email" placeholder="Work email" required autocomplete="email"></div>
-        <div class="field"><input type="tel" name="phone" id="phone" placeholder="Phone number" required autocomplete="tel"></div>
-        <div class="field">
-          <label class="field-label">Preferred contact method</label>
-          <div class="chip-select" role="radiogroup">
-            <label class="chip-option">
-              <input type="radio" name="preferredChannel" value="Email" required>
-              <span>Email</span>
-            </label>
-            <label class="chip-option">
-              <input type="radio" name="preferredChannel" value="Call" required>
-              <span>Call</span>
-            </label>
-            <label class="chip-option">
-              <input type="radio" name="preferredChannel" value="WhatsApp" required>
-              <span>WhatsApp</span>
-            </label>
+<div class="nx-grid-bg top-band" data-grid-parallax>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <span>Munap</span>
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="index.html#services">Services</a>
+        <a class="nav-link" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="downloads.html">Downloads</a>
+            <span title="Coming soon">Webinars</span>
           </div>
         </div>
-        <div class="step-actions">
-          <button type="button" class="btn-back" data-back>← Back</button>
-          <button type="submit" class="btn-primary" id="submitBtn">Send →</button>
+      </div>
+      <button class="btn-pink" data-magnetic="0.12" id="scrollToFormBtn">Contact me</button>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="DM me on WhatsApp" class="btn-purple" data-magnetic="0.12">DM me</a>
+    </div>
+  </nav>
+
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+
+  <div class="contact-hero">
+    <span class="eyebrow-pill" style="background:var(--nx-cyan)">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>CONTACT
+    </span>
+    <h1>Let's talk about your GTM system.</h1>
+    <p>Tell us where it's breaking. We reply within one business day with next steps, not a sales deck.</p>
+    <span class="wa-line">Prefer WhatsApp? <a href="https://wa.me/51981785475" target="_blank" rel="noopener">Message us</a></span>
+  </div>
+</div>
+
+<div class="contact-main">
+  <div class="contact-grid">
+
+    <div class="reveal" style="display:flex;flex-direction:column;gap:36px">
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span class="steps-label">What happens next</span>
+        <div class="next-steps">
+          <div class="next-step"><span class="next-step-num" style="background:var(--nx-mint)">1</span><span>We read what you send: no forwarding to a generic inbox.</span></div>
+          <div class="next-step"><span class="next-step-num" style="background:var(--nx-cyan)">2</span><span>You get a reply within one business day, with a real answer or a next step.</span></div>
+          <div class="next-step"><span class="next-step-num" style="background:var(--nx-pink)">3</span><span>If it's a fit, we book a 30-minute call. If it's not, we'll tell you that too.</span></div>
         </div>
-        <div class="error" id="formError">Something went wrong. Try again, or email davidbervic@gmail.com directly.</div>
       </div>
 
-      <div class="step thanks" data-step="thanks">
-        <div class="check">✓</div>
-        <h2 id="thanksHeading">Thanks!</h2>
-        <p>I'll get back to you within a business day.</p>
+      <div class="quote-box is-soon">
+        <p>"Real client quote landing here soon."</p>
+        <span>Want to be the first? Let's work together.</span>
       </div>
-    </form>
+
+      <div>
+        <div class="stats-row">
+          <div><div class="stat-value nx-skeleton is-dark" aria-label="Number coming soon"></div><div class="stat-label">Avg. response time</div></div>
+          <div><div class="stat-value nx-skeleton is-dark" aria-label="Number coming soon"></div><div class="stat-label">Systems shipped</div></div>
+          <div><div class="stat-value nx-skeleton is-dark" aria-label="Number coming soon"></div><div class="stat-label">Clients who renew</div></div>
+        </div>
+        <p class="stats-note" style="margin-top:10px">This is the shape of the dashboard. Real figures land as the first engagements close.</p>
+      </div>
+    </div>
+
+    <div id="contact-form-card" class="reveal form-card">
+      <div class="form-dots" id="formDots">
+        <span class="form-dot"></span><span class="form-dot"></span><span class="form-dot"></span>
+      </div>
+
+      <form name="munap-contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" id="contactForm" novalidate style="flex:1;display:flex;flex-direction:column">
+        <input type="hidden" name="form-name" value="munap-contact">
+        <input type="hidden" name="teamSize" id="teamSizeField">
+        <input type="hidden" name="timeline" id="timelineField">
+        <p style="position:absolute;left:-9999px"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+        <div class="form-step is-active" data-step="0">
+          <span class="form-step-label">Step 1 of 3: Your info</span>
+          <div class="form-field"><label class="form-label">Name</label><input class="form-input" type="text" name="name" placeholder="Jane Cooper" required></div>
+          <div class="form-field"><label class="form-label">Work email</label><input class="form-input" type="email" name="email" placeholder="jane@company.com" required></div>
+        </div>
+
+        <div class="form-step" data-step="1">
+          <span class="form-step-label">Step 2 of 3: Your company</span>
+          <div class="form-field"><label class="form-label">Company</label><input class="form-input" type="text" name="company" placeholder="Acme Inc."></div>
+          <div class="form-field">
+            <label class="form-label">Team size</label>
+            <div class="choice-row" id="teamSizeChoices"></div>
+          </div>
+        </div>
+
+        <div class="form-step" data-step="2">
+          <span class="form-step-label">Step 3 of 3: What's the problem</span>
+          <div class="form-field"><label class="form-label">What are you hoping to solve?</label><textarea class="form-input" name="goal" rows="3" placeholder="Leads dropping between marketing and sales."></textarea></div>
+          <div class="form-field">
+            <label class="form-label">Timeline</label>
+            <div class="choice-row" id="timelineChoices"></div>
+          </div>
+        </div>
+
+        <div class="form-nav" id="formNav">
+          <button type="button" class="form-back" id="formBack" aria-label="Back">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="var(--nx-ink)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <button type="button" class="form-next" data-magnetic="0.15" id="formNext">Next</button>
+        </div>
+      </form>
+
+      <div class="form-done" id="formDone">
+        <h3>Message sent.</h3>
+        <p id="formDoneMsg">We'll reply within one business day.</p>
+      </div>
+    </div>
   </div>
-</main>
+</div>
+
+<div class="reveal faq-section" data-grid-parallax>
+  <div class="faq-wrap">
+    <h2>Before you reach out.</h2>
+    <div id="faqContainer"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span>Munap</span>
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
+        </a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Munap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
+</footer>
 
 <script>
-(function(){
-  const form = document.getElementById('contactForm');
-  const steps = Array.from(form.querySelectorAll('.step'));
-  const dots = Array.from(document.querySelectorAll('.progress .dot'));
-  const errorBox = document.getElementById('formError');
-  const submitBtn = document.getElementById('submitBtn');
-  let current = 1;
+document.getElementById('scrollToFormBtn').addEventListener('click', () => {
+  const el = document.getElementById('contact-form-card');
+  const y = el.getBoundingClientRect().top + window.scrollY - 20;
+  window.scrollTo({ top: y, behavior: 'smooth' });
+});
 
-  function fieldsFor(stepNum){
-    return Array.from(steps.find(s => s.dataset.step === String(stepNum)).querySelectorAll('input, select'))
-      .filter(el => el.name !== 'bot-field');
+// FAQ (generic, no fabricated attribution)
+const FAQS = [
+  { q: 'How fast do you actually respond?', a: 'Within one business day, usually sooner. If a message comes in on a weekend, expect Monday.' },
+  { q: 'Do you work with early-stage startups?', a: "Yes, as long as there's a real funnel already running; pre-revenue idea validation isn't a fit." },
+  { q: "What's the typical engagement length?", a: 'Audits run one to two weeks. Implementation is usually four to eight weeks depending on scope.' },
+  { q: 'Do you sign NDAs?', a: 'Yes, happy to sign one before you share anything sensitive.' },
+];
+document.getElementById('faqContainer').innerHTML = FAQS.map((f, i) => `
+  <div class="faq-item" data-faq="${i}">
+    <button class="faq-q">${f.q}<span class="faq-icon">+</span></button>
+    <div class="faq-a">${f.a}</div>
+  </div>
+`).join('');
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const wasOpen = item.classList.contains('is-open');
+    document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('is-open'); i.querySelector('.faq-icon').textContent = '+'; });
+    if (!wasOpen) { item.classList.add('is-open'); item.querySelector('.faq-icon').textContent = '−'; }
+  });
+});
+
+// Reveal-on-scroll
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach((el) => {
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('is-visible');
+  else revealObserver.observe(el);
+});
+
+// 3-step contact form (Netlify Forms, matches index.html's book-a-call pattern)
+(function () {
+  const TEAM_SIZES = ['1-10', '11-50', '51-200', '200+'];
+  const TIMELINES = ['ASAP', 'This quarter', 'Just exploring'];
+  let teamSize = '';
+  let timeline = '';
+
+  const teamSizeChoices = document.getElementById('teamSizeChoices');
+  const timelineChoices = document.getElementById('timelineChoices');
+  const teamSizeField = document.getElementById('teamSizeField');
+  const timelineField = document.getElementById('timelineField');
+
+  function renderChoices() {
+    teamSizeChoices.innerHTML = TEAM_SIZES.map(t => `<button type="button" class="choice-btn${teamSize === t ? ' is-selected' : ''}" data-team="${t}">${t}</button>`).join('');
+    timelineChoices.innerHTML = TIMELINES.map(t => `<button type="button" class="choice-btn${timeline === t ? ' is-selected' : ''}" data-timeline="${t}">${t}</button>`).join('');
+    teamSizeChoices.querySelectorAll('[data-team]').forEach(b => b.addEventListener('click', () => { teamSize = b.dataset.team; teamSizeField.value = teamSize; renderChoices(); }));
+    timelineChoices.querySelectorAll('[data-timeline]').forEach(b => b.addEventListener('click', () => { timeline = b.dataset.timeline; timelineField.value = timeline; renderChoices(); }));
   }
+  renderChoices();
 
-  function validateStep(stepNum){
-    const fields = fieldsFor(stepNum);
-    for(const f of fields){
-      if(!f.checkValidity()){ f.reportValidity(); return false; }
-    }
+  const form = document.getElementById('contactForm');
+
+  // Prefill from a service CTA (index.html links here as ?service=GTM%20Audit)
+  const svc = new URLSearchParams(window.location.search).get('service');
+  if (svc) {
+    const goalField = form.querySelector('[name="goal"]');
+    if (goalField) goalField.placeholder = `${svc}: tell us more about what you need.`;
+  }
+  const steps = Array.from(form.querySelectorAll('.form-step'));
+  const dots = Array.from(document.getElementById('formDots').children);
+  const backBtn = document.getElementById('formBack');
+  const nextBtn = document.getElementById('formNext');
+  const doneEl = document.getElementById('formDone');
+  const doneMsg = document.getElementById('formDoneMsg');
+  let step = 0;
+
+  function fieldsFor(i) {
+    return Array.from(steps[i].querySelectorAll('input[required], textarea[required]'));
+  }
+  function validate(i) {
+    for (const f of fieldsFor(i)) { if (!f.checkValidity()) { f.reportValidity(); return false; } }
     return true;
   }
-
-  function goTo(stepNum){
-    steps.forEach(s => s.classList.toggle('active', s.dataset.step === String(stepNum)));
-    dots.forEach(d => {
-      const n = parseInt(d.dataset.dot, 10);
-      d.classList.toggle('on', n === stepNum);
-      d.classList.toggle('done', typeof stepNum === 'number' && n < stepNum);
-    });
-    current = stepNum;
+  function render() {
+    steps.forEach((s, i) => s.classList.toggle('is-active', i === step));
+    dots.forEach((d, i) => d.classList.toggle('is-done', i <= step));
+    backBtn.classList.toggle('show', step > 0);
+    nextBtn.textContent = step === steps.length - 1 ? 'Send message' : 'Next';
   }
-
-  form.querySelectorAll('[data-next]').forEach(btn => {
-    btn.addEventListener('click', function(){
-      if(!validateStep(current)) return;
-      goTo(current + 1);
-    });
-  });
-
-  form.querySelectorAll('[data-back]').forEach(btn => {
-    btn.addEventListener('click', function(){ goTo(current - 1); });
-  });
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    if(!validateStep(3)) return;
-    errorBox.classList.remove('show');
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-
+  backBtn.addEventListener('click', () => { step = Math.max(0, step - 1); render(); });
+  nextBtn.addEventListener('click', () => {
+    if (!validate(step)) return;
+    if (step < steps.length - 1) { step += 1; render(); return; }
+    const emailField = form.querySelector('[name="email"]');
     const data = new FormData(form);
-    fetch('/', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(data).toString()
-    }).then(function(){
-      const name = document.getElementById('firstName').value.trim();
-      document.getElementById('thanksHeading').textContent = name ? ('Thanks, ' + name + '!') : 'Thanks!';
-      dots.forEach(d => d.classList.add('done'));
-      goTo('thanks');
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'lead_submitted',
-        lead_role: (form.role && form.role.value) || '',
-        preferred_channel: (form.preferredChannel && form.preferredChannel.value) || ''
-      });
-    }).catch(function(){
-      errorBox.classList.add('show');
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send →';
-    });
+    nextBtn.disabled = true;
+    nextBtn.textContent = 'Sending…';
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
+      .then(() => {
+        doneMsg.textContent = `We'll reply to ${emailField.value} within one business day.`;
+        form.style.display = 'none';
+        doneEl.classList.add('show');
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'lead_submitted', lead_source: 'munap_contact_form' });
+      })
+      .catch(() => { nextBtn.disabled = false; render(); });
   });
-})();
-
-(function(){
-  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
-  if(!dropdowns.length) return;
-  function closeAll(){
-    dropdowns.forEach(function(dd){
-      dd.classList.remove('open');
-      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
-    });
-  }
-  dropdowns.forEach(function(dd){
-    const trigger = dd.querySelector('.nav-dropdown-trigger');
-    trigger.addEventListener('click', function(e){
-      e.stopPropagation();
-      const wasOpen = dd.classList.contains('open');
-      closeAll();
-      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
-    });
-  });
-  document.addEventListener('click', closeAll);
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+  render();
 })();
 </script>
-<script src="nav.js"></script>
+<script src="assets/interactions.js" defer></script>
 </body>
 </html>

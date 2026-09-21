@@ -1,3 +1,20 @@
+<!--
+  RECONSTRUCCION de Case Studies index (Munap), a partir del design handoff
+  real (design_handoff_munap_site/_extracted/customers.html).
+
+  Cambios respecto al mockup original, y por que:
+  1. Las 3 case cards (Northline/Fenway/Halden Co) traian resultados
+     inventados ("Cut lead response time by 61%", "$2.4M Pipeline
+     recovered", etc.) atribuidos a clientes ficticios con nombres que
+     suenan reales. Reemplazadas por placeholders honestos genericos
+     (Client A/B/C), mismo criterio que el resto del sitio (decision del
+     usuario, 2026-09-21).
+  2. "Wall of love" (6 quotes con nombres y cargos inventados: Sara
+     Bennett, Marcus Oduya, etc.): reemplazado por placeholders honestos.
+  3. WhatsApp/LinkedIn: mismo cambio que las paginas anteriores.
+  4. Los links a cada case card siguen apuntando a case-study.html?case=1
+     |2|3, que tambien fue reconstruido con placeholders honestos.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,193 +27,289 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
 <!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Customers · David Berrocal</title>
-<meta name="description" content="Modern GTM systems for promising companies. Case studies on lead scoring, CRM architecture, and revenue automation built for lean teams.">
-<meta name="theme-color" content="#0B0E14">
-<link rel="icon" type="image/png" href="images/bervic-icon.png">
+<title>Case studies · Munap</title>
+<meta name="description" content="Real audits, builds and rollouts across sales and marketing teams.">
+<meta name="theme-color" content="#046cfc">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0B0E14; --bg-soft:#11151F; --panel:#161B27; --line:#232A3A; --line-soft:#1B2130;
-    --ink:#EEF1F7; --ink-dim:#D7DCE8; --ink-faint:#8994AA;
-    --violet:#2F8CFF; --violet-soft:#6EC1FF; --violet-deep:#10254A; --teal:#22D3EE;
-    --amber:#F0A93B; --coral:#F0997B; --blue:#378ADD; --green:#4FBF8B; --base:#8A93A8;
-    --disp:'Space Grotesk',sans-serif; --body:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+    --nx-ink:#050505; --nx-ink-soft:#141414;
+    --nx-paper:#ffffff; --nx-paper-dim:#f4f4f4;
+    --nx-blue:#046cfc;
+    --nx-mint:#44fcac; --nx-mint-pale:#c6fbe2;
+    --nx-cyan:#0af2fb; --nx-cyan-pale:#bdf6fa;
+    --nx-pink:#fc2c74; --nx-pink-soft:#fc74b4; --nx-pink-pale:#fbd0e2;
+    --nx-purple:#ac94fc; --nx-purple-pale:#e0d6fd;
+    --nx-yellow:#fcec48; --nx-yellow-pale:#fdf6c4;
+    --nx-grid-line:rgba(255,255,255,.18); --nx-grid-cell:64px; --nx-grid-width:2px;
+    --nx-radius-sm:10px; --nx-radius-md:16px; --nx-radius-lg:22px; --nx-radius-xl:30px; --nx-radius-pill:999px;
+    --nx-drop-sm:4px 4px 0 var(--nx-ink); --nx-drop-md:7px 7px 0 var(--nx-ink); --nx-drop-lg:11px 11px 0 var(--nx-ink);
+    --nx-font-display:'Archivo Black','Helvetica Neue',Arial,sans-serif;
+    --nx-font-text:'Archivo','Helvetica Neue',Arial,sans-serif;
+    --nx-font-mono:'JetBrains Mono',ui-monospace,monospace;
+    --nx-track-display:-.035em; --nx-track-tight:-.02em; --nx-track-label:.12em;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{font-family:var(--nx-font-text);color:var(--nx-ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
-  ::selection{background:var(--violet);color:#0B0E14}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+  img{display:block;max-width:100%}
+  button{font:inherit;border:none;background:none;cursor:pointer}
 
-  .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);background-size:56px 56px;opacity:0.3;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 20%,transparent 75%)}
-  .aurora{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-  .aurora-blob{position:absolute;width:56vw;max-width:600px;aspect-ratio:1;border-radius:50%;filter:blur(90px);mix-blend-mode:screen;opacity:0.3;top:-20vw;left:50%;transform:translateX(-50%);background:radial-gradient(circle,#22D3EE,transparent 70%);animation:auroraDrift 24s ease-in-out infinite;will-change:transform}
-  @keyframes auroraDrift{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-46%) scale(1.08)}}
-
-  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(22,27,39,0.8);box-shadow:0 8px 30px -12px rgba(0,0,0,0.6)}
-  nav::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,rgba(34,211,238,0.7),rgba(55,138,221,0.7),rgba(47,140,255,0.7))}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;position:relative;z-index:2}
-  .logo{font-family:var(--mono);font-size:14px;font-weight:500;display:flex;align-items:center;gap:9px}
-  .logo img{height:26px;width:auto;display:block}
-  .nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-dim);font-family:var(--mono)}
-  .nav-links a{transition:color .2s}
-  .nav-links a:hover, .nav-links a.active{color:var(--ink)}
-  .nav-dropdown{position:relative;display:flex;align-items:center}
-  .nav-dropdown-trigger{background:none;border:none;font:inherit;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:0;transition:color .2s}
-  .nav-dropdown-trigger .caret{font-size:10px;transition:transform .2s}
-  .nav-dropdown.open .caret{transform:rotate(180deg)}
-  .nav-dropdown-menu{
-    position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);
-    background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px;
-    min-width:160px;display:none;flex-direction:column;gap:2px;
-    box-shadow:0 20px 50px -20px rgba(0,0,0,0.6);z-index:60;
+  .nx-grid-bg{
+    background-color:var(--nx-blue);
+    background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),
+                      linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));
+    background-size:var(--nx-grid-cell) var(--nx-grid-cell);
   }
-  .nav-dropdown.open .nav-dropdown-menu{display:flex}
-  .nav-dropdown-menu a{padding:9px 12px;border-radius:6px;font-size:13px;color:var(--ink-dim);transition:all .15s}
-  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active{background:var(--violet-deep);color:var(--ink)}
-  .nav-ctas{display:flex;align-items:center;gap:10px}
-  .nav-cta{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--teal);background:var(--teal);color:var(--ink);padding:10px 16px;border-radius:6px;transition:all .2s;box-shadow:0 0 16px -4px rgba(34,211,238,0.6)}
-  .nav-cta:hover{background:#4FE0FF;border-color:#4FE0FF;transform:translateY(-2px)}
-  .nav-contact{font-family:var(--mono);font-size:13px;font-weight:600;border:1px solid var(--violet);background:var(--violet);color:#0B0E14;padding:10px 16px;border-radius:6px;transition:all .2s;box-shadow:0 0 16px -4px rgba(47,140,255,0.6)}
-  .nav-contact:hover{background:var(--violet-soft);border-color:var(--violet-soft);transform:translateY(-2px)}
-  @media(max-width:860px){.nav-links{display:none}}
-
-  .cust-hero{position:relative;z-index:2;padding:80px 0 50px;text-align:center}
-  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--violet-soft);display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
-  .eyebrow::before{content:"";width:26px;height:1px;background:var(--violet-soft)}
-  .cust-hero h1{font-family:var(--disp);font-weight:600;font-size:clamp(32px,5vw,52px);letter-spacing:-0.02em;line-height:1.08;max-width:18ch;margin:0 auto 18px}
-  .cust-hero .lede{font-size:17px;color:var(--ink-dim);max-width:56ch;line-height:1.65;margin:0 auto}
-
-  .cust-grid-section{position:relative;z-index:2;padding-bottom:100px}
-  .customer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
-  .customer-card{
-    display:block;position:relative;background:linear-gradient(160deg,var(--violet-deep),var(--panel) 65%);
-    border:1px solid var(--line);border-radius:20px;padding:32px;min-height:320px;
-    transition:all .25s;overflow:hidden;
+  .eyebrow-pill{
+    display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);
+    padding:6px 14px;font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:var(--nx-ink);
   }
-  a.customer-card:hover{transform:translateY(-4px);border-color:var(--violet);box-shadow:0 24px 60px -28px rgba(47,140,255,0.5)}
-  .cc-tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--violet-soft);border:1px solid rgba(47,140,255,0.35);border-radius:20px;padding:5px 12px;margin-bottom:28px}
-  .cc-quote{font-family:var(--disp);font-size:19px;font-weight:500;font-style:italic;line-height:1.45;color:var(--ink-dim);margin-bottom:56px;max-width:38ch}
-  .cc-person{display:flex;align-items:center;gap:12px;position:absolute;left:32px;bottom:32px;right:88px}
-  .cc-avatar{width:42px;height:42px;border-radius:50%;background:var(--bg-soft);border:1px dashed var(--line);display:grid;place-items:center;font-family:var(--mono);font-size:13px;color:var(--ink-faint);flex-shrink:0}
-  .cc-name{display:block;font-family:var(--disp);font-size:14px;font-weight:600;color:var(--ink-dim)}
-  .cc-role{display:block;font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.05em}
-  .cc-arrow{position:absolute;right:32px;bottom:32px;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-faint);font-size:16px;transition:all .2s}
-  a.customer-card:hover .cc-arrow{border-color:var(--violet);color:var(--violet-soft);transform:translate(2px,-2px)}
+  .placeholder-box{
+    background:var(--nx-paper-dim);border:1.5px dashed #ccc;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:#999;text-transform:uppercase;text-align:center;padding:12px;
+  }
 
-  footer{position:relative;z-index:2;padding:40px 0;border-top:1px solid var(--line-soft);text-align:center}
-  footer p{font-family:var(--mono);font-size:12.5px;color:var(--ink-faint)}
+  /* ---- nav ---- */
+  .top-band{padding:20px clamp(16px,4vw,44px) 0}
+  .site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0;position:sticky;top:16px;z-index:40}
+  .logo{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+  .logo span{font:900 24px/1 var(--nx-font-display);letter-spacing:-.03em;color:var(--nx-paper)}
+  .nav-right{flex:0 0 auto;display:flex;align-items:center;gap:10px}
+  .nav-burger{display:none;appearance:none;cursor:pointer;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:12px;width:44px;height:44px;align-items:center;justify-content:center;font-size:18px;line-height:1;flex-shrink:0}
+  .nav-links{display:flex;align-items:center;gap:22px;background:var(--nx-paper);border-radius:20px;padding:12px 22px}
+  .nav-link{font:700 15px/1 var(--nx-font-text);color:var(--nx-ink);white-space:nowrap}
+  .nav-link:hover{color:var(--nx-pink)}
+  .nav-link.is-current{border-bottom:2px solid var(--nx-ink)}
+  .resources-wrap{position:relative;padding-bottom:14px;margin-bottom:-14px}
+  .resources-menu{
+    position:absolute;top:100%;left:0;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:14px;
+    box-shadow:var(--nx-drop-sm);padding:8px;display:flex;flex-direction:column;gap:2px;min-width:170px;
+    opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s ease,transform .15s ease;pointer-events:none;z-index:20;
+  }
+  .resources-wrap:hover .resources-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+  .resources-menu a,.resources-menu span{display:block;padding:9px 10px;border-radius:8px;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink)}
+  .resources-menu a:hover{background:#f4f4f4}
+  .resources-menu span{color:#666;cursor:default}
+  .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center}
+  .btn-pink{background:var(--nx-pink);color:var(--nx-paper)}
+  .btn-purple{background:var(--nx-purple);color:var(--nx-ink)}
+  @media(max-width:860px){
+    .nav-burger{display:inline-flex}
+    .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:16px;right:16px;flex-direction:column;align-items:stretch;gap:2px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:16px;box-shadow:var(--nx-drop-md);padding:10px;z-index:60}
+    .site-nav.nav-open .nav-links{display:flex}
+    .nav-link{padding:12px 14px;border-radius:10px}
+    .nav-link:hover{background:var(--nx-paper-dim)}
+    .resources-wrap{padding-bottom:0;margin-bottom:0}
+    .resources-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 4px 14px;pointer-events:auto;min-width:0}
+  }
+  @media(max-width:420px){.site-nav{gap:8px}.nav-right{gap:6px}.btn-pink,.btn-purple{padding:10px 12px;font-size:12px}}
+
+  /* ---- hero ---- */
+  .cases-hero{max-width:900px;margin:0 auto;text-align:center;padding:clamp(48px,7vw,88px) 0 clamp(56px,8vw,96px)}
+  .cases-hero .eyebrow-pill{margin:0 auto 22px}
+  .cases-hero h1{margin:0 0 16px;color:var(--nx-paper);font:900 clamp(32px,4.4vw,52px)/1.05 var(--nx-font-display);letter-spacing:var(--nx-track-display)}
+  .cases-hero p{margin:0;color:rgba(255,255,255,.85);font:400 17px/1.6 var(--nx-font-text)}
+
+  /* ---- cases grid ---- */
+  .cases-section{background:var(--nx-paper);padding:clamp(64px,9vw,120px) clamp(16px,4vw,44px)}
+  .cases-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;max-width:1200px;margin:0 auto}
+  .case-card{display:flex;flex-direction:column;gap:20px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-xl);box-shadow:var(--nx-drop-sm);padding:28px;transition:transform .18s ease,box-shadow .18s ease}
+  .case-card:hover{transform:translate(-2px,-2px);box-shadow:var(--nx-drop-md)}
+  .case-visual{width:100%;aspect-ratio:16/10}
+  .case-meta{display:flex;align-items:center;gap:10px}
+  .case-badge{width:36px;height:36px;flex:0 0 auto;border-radius:50%;border:1.5px solid var(--nx-ink);display:flex;align-items:center;justify-content:center;font:800 13px/1 var(--nx-font-display);color:var(--nx-ink)}
+  .case-company{font:700 16px/1.2 var(--nx-font-text);color:var(--nx-ink)}
+  .case-headline{color:var(--nx-ink);font:900 26px/1.15 var(--nx-font-display);letter-spacing:var(--nx-track-display)}
+  .case-summary{margin:0;flex:1;color:var(--nx-ink-soft);font:400 15px/1.5 var(--nx-font-text)}
+  .case-link{display:inline-flex;align-items:center;gap:8px;color:var(--nx-ink);font:800 14px/1 var(--nx-font-display)}
+  @media(max-width:860px){.cases-grid{grid-template-columns:1fr}}
+
+  /* ---- wall of love ---- */
+  .love-section{background-color:var(--nx-blue);padding:clamp(64px,9vw,120px) clamp(16px,4vw,44px);background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));background-size:var(--nx-grid-cell) var(--nx-grid-cell)}
+  .love-head{text-align:center;max-width:640px;margin:0 auto 48px}
+  .love-head .eyebrow-pill{margin:0 auto 22px}
+  .love-head h2{margin:0;color:var(--nx-paper);font:900 clamp(28px,3.6vw,38px)/1.1 var(--nx-font-display);letter-spacing:var(--nx-track-display)}
+  .love-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1200px;margin:0 auto}
+  .love-card{background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);padding:22px;display:flex;flex-direction:column;gap:14px}
+  .love-quote{margin:0;color:#999;font:400 16px/1.4 var(--nx-font-text);font-style:italic}
+  .love-attribution{color:var(--nx-ink-soft);font:400 13px/1.2 var(--nx-font-text)}
+  @media(max-width:860px){.love-grid{grid-template-columns:1fr}}
+
+  /* ---- footer ---- */
+  footer{background:var(--nx-ink);padding:clamp(56px,7vw,80px) clamp(16px,4vw,44px) 32px}
+  .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .footer-brand p{margin:10px 0 0;max-width:280px;color:rgba(255,255,255,.6);font:400 14px/1.6 var(--nx-font-text)}
+  .footer-socials{display:flex;align-items:center;gap:10px;margin-top:14px}
+  .footer-socials a{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);border-radius:10px;color:var(--nx-paper)}
+  .footer-col{display:flex;flex-direction:column;gap:12px}
+  .footer-col-label{font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:rgba(255,255,255,.45);text-transform:uppercase}
+  .footer-col a{color:rgba(255,255,255,.85);font:400 14px/1 var(--nx-font-text)}
+  .footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .footer-bottom span{color:rgba(255,255,255,.45);font:400 13px/1 var(--nx-font-text)}
+  @media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
+
+  .reveal{opacity:0;transform:translateY(28px)}
+  .reveal.is-visible{animation:nx-reveal .7s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes nx-reveal{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  /* ---- case cards: designed "coming soon" state instead of bracket text ---- */
+  .case-visual{border-radius:var(--nx-radius-md);border:1.5px solid var(--nx-ink);display:flex;align-items:center;justify-content:center}
+  .case-soon-badge{display:inline-flex;align-self:flex-start;align-items:center;gap:6px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:4px 10px;font:800 10px/1 var(--nx-font-display);letter-spacing:.08em;text-transform:uppercase;color:var(--nx-ink-soft);background:var(--nx-paper-dim)}
+  .case-headline.is-soon,.case-summary.is-soon{color:#999;font-weight:400;font-style:italic}
+
+  /* ---- wall of love: one honest panel instead of six empty quote cards ---- */
+  .love-coming{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-xl);box-shadow:var(--nx-drop-sm);padding:44px 32px}
+  .love-coming p{margin:0;max-width:460px;color:var(--nx-ink-soft);font:400 16px/1.5 var(--nx-font-text)}
 </style>
-<link rel="stylesheet" href="nav.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<div class="grid-bg"></div>
-<div class="aurora"><div class="aurora-blob"></div></div>
 
-<nav>
-  <div class="wrap nav-inner">
-    <a href="index.html" class="logo"><img src="images/logo-bervic.png" alt="David Bervic"></a>
-    <div class="nav-links">
-      <a href="index.html">GTM system</a>
-      <a href="about.html">About me</a>
-      <a href="customers.html" class="active">Customers</a>
-      <div class="nav-dropdown" id="resourcesDropdown">
-        <button class="nav-dropdown-trigger" type="button" aria-expanded="false" aria-haspopup="true">Resources <span class="caret">▾</span></button>
-        <div class="nav-dropdown-menu">
-          <a href="resources.html">Blog</a>
-          <a href="downloads.html">Downloads</a>
+<div class="nx-grid-bg top-band" data-grid-parallax>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
+      <span>Munap</span>
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="index.html#services">Services</a>
+        <a class="nav-link is-current" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="downloads.html">Downloads</a>
+            <span title="Coming soon">Webinars</span>
+          </div>
         </div>
       </div>
+      <a href="contact.html" class="btn-pink" data-magnetic="0.12">Contact me</a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="DM me on WhatsApp" class="btn-purple" data-magnetic="0.12">DM me</a>
     </div>
-    <div class="nav-ctas">
-      <a href="contact.html" class="nav-contact">Contact</a>
-      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="nav-cta">Chat with me</a>
-      <button class="nav-burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
-    </div>
+  </nav>
+
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+
+  <div class="cases-hero">
+    <span class="eyebrow-pill" style="background:var(--nx-mint);display:inline-flex">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>CASE STUDIES
+    </span>
+    <h1>Teams that fixed their GTM system with us.</h1>
+    <p>Case studies are being written up as engagements complete. The cards below show the format; details are placeholders until real client work is published here.</p>
   </div>
-</nav>
+</div>
 
-<main>
-  <section class="cust-hero">
-    <div class="wrap">
-      <span class="eyebrow">Customers</span>
-      <h1>Modern GTM systems for promising companies.</h1>
-      <p class="lede">A few of the teams I've built lead scoring, CRM architecture, and revenue automation for. Case studies below, more added as they ship.</p>
-    </div>
-  </section>
+<div class="cases-section">
+  <div class="reveal cases-grid" id="casesGrid"></div>
+</div>
 
-  <section class="cust-grid-section">
-    <div class="wrap">
-      <div class="customer-grid">
-        <!-- Case study preview 1. Placeholder: swap tag, quote, avatar, name/role, and href for the real case study. -->
-        <a class="customer-card" href="#">
-          <span class="cc-tag">Case study 01</span>
-          <p class="cc-quote">"Replace this with the client's own quote about the result this system produced."</p>
-          <div class="cc-person">
-            <span class="cc-avatar">?</span>
-            <div>
-              <span class="cc-name">Client name</span>
-              <span class="cc-role">Role, Company</span>
-            </div>
-          </div>
-          <span class="cc-arrow">↗</span>
+<div class="love-section" data-grid-parallax>
+  <div class="love-head">
+    <span class="eyebrow-pill" style="background:var(--nx-cyan);display:inline-flex">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>WALL OF LOVE
+    </span>
+    <h2>What clients say, in their own words.</h2>
+  </div>
+  <div class="reveal love-grid" id="loveGrid"></div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span>Munap</span>
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
         </a>
-
-        <!-- Case study preview 2. Same placeholder pattern. -->
-        <a class="customer-card" href="#">
-          <span class="cc-tag">Case study 02</span>
-          <p class="cc-quote">"Replace this with the client's own quote about the result this system produced."</p>
-          <div class="cc-person">
-            <span class="cc-avatar">?</span>
-            <div>
-              <span class="cc-name">Client name</span>
-              <span class="cc-role">Role, Company</span>
-            </div>
-          </div>
-          <span class="cc-arrow">↗</span>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
         </a>
       </div>
     </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap"><p>© 2026 David Berrocal · built as a system, not a page.</p></div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Munap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
 </footer>
 
 <script>
-(function(){
-  const dropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
-  if(!dropdowns.length) return;
-  function closeAll(){
-    dropdowns.forEach(function(dd){
-      dd.classList.remove('open');
-      dd.querySelector('.nav-dropdown-trigger').setAttribute('aria-expanded','false');
-    });
-  }
-  dropdowns.forEach(function(dd){
-    const trigger = dd.querySelector('.nav-dropdown-trigger');
-    trigger.addEventListener('click', function(e){
-      e.stopPropagation();
-      const wasOpen = dd.classList.contains('open');
-      closeAll();
-      if(!wasOpen){ dd.classList.add('open'); trigger.setAttribute('aria-expanded','true'); }
-    });
+// Honest placeholder cases: real client work will replace these as
+// engagements are completed and cleared for publishing.
+const CASES = [
+  { slug: '1', initial: 'A', tone: 'var(--nx-mint)', tonePale: 'var(--nx-mint-pale)' },
+  { slug: '2', initial: 'B', tone: 'var(--nx-cyan)', tonePale: 'var(--nx-cyan-pale)' },
+  { slug: '3', initial: 'C', tone: 'var(--nx-pink)', tonePale: 'var(--nx-pink-pale)' },
+];
+document.getElementById('casesGrid').innerHTML = CASES.map(c => `
+  <a href="case-study.html?case=${c.slug}" class="case-card">
+    <div class="case-visual nx-skeleton is-dark" style="background:${c.tonePale}"></div>
+    <div class="case-meta">
+      <span class="case-badge" style="background:${c.tone}">${c.initial}</span>
+      <span class="case-soon-badge">In progress</span>
+    </div>
+    <span class="case-headline is-soon">Result headline coming soon</span>
+    <p class="case-summary is-soon">This case study is being written up as the engagement wraps.</p>
+    <span class="case-link">Read case study<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </a>
+`).join('');
+
+// One honest, well-designed panel instead of six empty quote cards.
+document.getElementById('loveGrid').innerHTML = `
+  <div class="love-coming">
+    <svg width="34" height="26" viewBox="0 0 34 26" fill="none" aria-hidden="true"><path d="M0 26V15.6C0 6.2 5.9 1 14.6 0l1.1 4.4C10 5.6 6.9 8.7 6.5 13.4h7.3V26H0zm18.4 0V15.6C18.4 6.2 24.3 1 33 0l1.1 4.4c-5.7 1.2-8.8 4.3-9.2 9h7.3V26H18.4z" fill="var(--nx-ink)"/></svg>
+    <h3 style="margin:0;font:900 22px/1.2 var(--nx-font-display)">This wall is empty on purpose, for now.</h3>
+    <p>Real quotes replace this the moment the first clients sign off on them. No invented names, no stock photos.</p>
+    <a href="contact.html" class="btn-pink" data-magnetic="0.15">Be the first</a>
+  </div>
+`;
+
+// Reveal-on-scroll
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); }
   });
-  document.addEventListener('click', closeAll);
-  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
-})();
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach((el) => {
+  const r = el.getBoundingClientRect();
+  if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('is-visible');
+  else revealObserver.observe(el);
+});
 </script>
-<script src="nav.js"></script>
+<script src="assets/interactions.js" defer></script>
 </body>
 </html>
