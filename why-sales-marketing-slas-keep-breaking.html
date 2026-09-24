@@ -1,0 +1,324 @@
+<!--
+  Migrado desde el pipeline n8n (Content Library -> Claude -> AEO article JSON).
+  Slug: why-sales-marketing-slas-keep-breaking
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Do Sales and Marketing SLAs Keep Breaking? · Muvap</title>
+<meta name="description" content="Sales blames bad leads. Marketing blames lazy reps. Both miss the real problem. Discover the four hidden layers that break sales and marketing SLAs and how to fix the infrastructure behind them.">
+<meta name="theme-color" content="#046cfc">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What percentage of B2B companies have a formal sales and marketing SLA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only 43% of B2B companies have any formal SLA in place between sales and marketing, and just 8% describe their alignment as strong."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Sales Accepted Lead and why does it matter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Sales Accepted Lead is a funnel stage that sits between MQL and SQL where sales formally accepts or rejects a lead and records the reason. Without it, rejections happen with no data attached and teams cannot diagnose why pipeline is leaking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is lead volume a bad primary metric for marketing in a RevOps model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When marketing is measured on lead volume, it optimizes for form fills rather than pipeline quality. Only 44% of MQLs are ever accepted by sales, meaning the majority of marketing spend generates leads that never convert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between lead scoring and intent data?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lead scoring tracks engagement with your own brand, such as opens, clicks, and downloads. Intent data tracks whether a buyer is actively engaging with the broader category across third-party sources. Lead scoring tells you someone engaged with you; intent data tells you whether they are in an active buying cycle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should a sales and marketing SLA be governed to stay effective?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Operational metrics like SLA compliance and speed-to-touch should be monitored weekly, outcome metrics reviewed monthly, and the full SLA recalibrated quarterly or after any major go-to-market change such as an ICP update or new product motion."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What shared metric can replace separate lead volume and revenue targets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pipeline created is the joint metric that works. Marketing owns pipeline sourced, sales owns pipeline worked and converted, and both share accountability for pipeline created, giving both teams an incentive to make the handoff succeed."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why Do Sales and Marketing SLAs Keep Breaking?",
+  "description": "Sales blames bad leads. Marketing blames lazy reps. Both miss the real problem. Discover the four hidden layers that break sales and marketing SLAs and how to fix the infrastructure behind them.",
+  "image": "images/cover-sales-marketing-slas.png",
+  "datePublished": "2026-09-24",
+  "dateModified": "2026-09-24",
+  "author": {
+    "@type": "Organization",
+    "name": "Muvap",
+    "url": "index.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Muvap"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="article.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<div class="nx-grid-bg top-band" data-grid-parallax>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <img src="images/muvap-logo.webp" alt="Muvap" style="height:50px;width:auto;display:block">
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="index.html#services">Services</a>
+        <a class="nav-link" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link is-current" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="downloads.html">Downloads</a>
+            <span title="Coming soon">Webinars</span>
+          </div>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+    </div>
+  </nav>
+
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+</div>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">GTM Systems</span>
+  <h1>Why Do Sales and Marketing SLAs Keep Breaking?</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">M</span>
+    <span class="meta-chip">Muvap</span>
+    <span class="meta-chip">Published Sep 24, 2026</span>
+    <span class="meta-chip">7 min read</span>
+  </div>
+
+  <div class="article-hero"><img src="images/cover-sales-marketing-slas.png" alt="Why Do Sales and Marketing SLAs Keep Breaking?" loading="eager"></div>
+  <p class="direct-answer"><strong>Direct answer:</strong> Sales and marketing SLAs break not because of bad leads or unmotivated reps, but because of missing infrastructure: no shared funnel definitions, no feedback loop on rejected leads, lead scoring that tracks engagement instead of buying intent, and incentive metrics that structurally prevent both teams from caring about the same outcome.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li>Only 43% of B2B companies have a formal sales and marketing SLA in place, and just 8% describe their alignment as strong.</li>
+      <li>Lead scoring models collapse fit, intent, and readiness into one number, producing scores that track engagement rather than purchase probability.</li>
+      <li>Without a Sales Accepted Lead stage, MQL rejections happen silently and no one learns why pipeline is leaking.</li>
+      <li>Misaligned teams can lose up to 60% of leads at handoff, costing 10% or more of annual revenue.</li>
+      <li>Aligned teams with behavioral scoring achieve MQL-to-SQL conversion rates of 39 to 40%, three times the industry average, without increasing spend.</li>
+    </ul>
+  </div>
+
+  <details class="qtoc">
+    <summary class="qtoc-label">Questions this article answers</summary>
+    <ol>
+      <li><a href="#blame-cycle">What does the surface-level blame cycle between sales and marketing actually reveal?</a></li>
+      <li><a href="#mql-ownership">Why does marketing owning the MQL definition create a structural conflict?</a></li>
+      <li><a href="#engagement-vs-intent">How does conflating engagement with buying intent break lead scoring?</a></li>
+      <li><a href="#missing-sal-stage">Why does skipping the Sales Accepted Lead stage cause pipeline to leak silently?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 6 FAQs answered below</a></li>
+    </ol>
+  </details>
+
+  <h2 id="blame-cycle" class="sec">What does the surface-level blame cycle between sales and marketing actually reveal?</h2>
+  <p class="lead-answer">The visible symptom of misalignment is a collapsing MQL-to-SQL conversion rate and a recurring blame cycle, but the root causes sit beneath the surface in the wiring between both teams.</p>
+  <p>The average B2B MQL-to-SQL conversion rate sits at roughly 13%. For every 10,000 website visitors, B2B companies generate approximately 230 leads, 71 MQLs, and only 9 SQLs, meaning 87 out of 100 MQLs will never become an SQL.</p>
+  <p>When that rate collapses, both teams notice immediately and finger-pointing begins. Sales says the leads are garbage. Marketing says sales never works them. Both complaints are partly right.</p>
+  <p>Most companies respond by drafting an SLA document, but without a written contract that specifies what marketing delivers and what sales commits to in return, the document sits in a shared folder and alignment stays aspirational. <a href="https://davidbervic.com" target="_blank" rel="noopener">Only about 8% of B2B companies describe their sales and marketing alignment as strong, and just 43% have any formal SLA in place at all.</a></p>
+
+  <h2 id="mql-ownership" class="sec">Why does marketing owning the MQL definition create a structural conflict?</h2>
+  <p class="lead-answer">When marketing controls the MQL definition and is measured on lead volume, it optimizes for form fills rather than pipeline quality, producing leads that sales consistently rejects.</p>
+  <p>The MQL definition is set by marketing, governed by marketing, and measured by marketing. Marketing sets the scoring model and decides which behaviors trigger MQL status. When the incentive is lead volume, budget flows toward channels that generate the most form fills, not the channels that generate the most SQLs.</p>
+  <p>The downstream result is predictable:</p>
+  <ul><li><strong>68% of B2B organizations</strong> lack clearly defined, shared funnel stage definitions.</li><li><strong>Only 44% of MQLs</strong> are ever accepted by sales.</li></ul>
+  <p>Every rejected MQL represents real invested budget: paid media, content production, nurture sequences, and SDR time. The definition of a qualified lead cannot be owned by the team that is measured on generating as many of them as possible.</p>
+
+  <h2 id="engagement-vs-intent" class="sec">How does conflating engagement with buying intent break lead scoring?</h2>
+  <p class="lead-answer">Most lead scoring models award points for opens, clicks, and downloads, producing high scores for contacts who are researching but have no urgency to buy, which wastes rep time and distorts pipeline forecasts.</p>
+  <p>Fit, intent, and readiness are three separate signals. Collapsing them into one number produces scores that track engagement, not purchase probability.</p>
+  <p><strong>What marketing sees:</strong> behavior, interaction, and engagement with your content.</p>
+  <p><strong>What sales needs:</strong> urgency, internal decision-making authority, budget, and timing.</p>
+  <p>Those perspectives are rarely in sync. A contact can stack up enough webinar attendances and whitepaper downloads to climb the priority queue, get called by a rep, and say they are just researching.</p>
+  <p>The problem is compounded by the reactivity of first-party scoring. Traditional models only see activity that touches your brand directly. Yet buyers conduct significant research anonymously before ever visiting a vendor website, reading third-party content, comparing competitors, and consulting peers long before completing a form.</p>
+  <p><strong>Lead scoring tells you someone engaged with you. Intent data tells you whether someone is engaging with the category itself.</strong> By the time a contact appears in the CRM, the decision-making process may already be well underway.</p>
+
+  <h2 id="missing-sal-stage" class="sec">Why does skipping the Sales Accepted Lead stage cause pipeline to leak silently?</h2>
+  <p class="lead-answer">Without a SAL stage, MQL rejections happen with no data attached, so teams measure a conversion drop they cannot diagnose and never learn what the actual qualification gap is.</p>
+  <p>The SAL stage is where the qualification SLA actually lives. It defines:</p>
+  <ul><li>How fast sales must respond to an MQL</li><li>What criteria reps are evaluating</li><li>What happens when they reject a lead and why</li></ul>
+  <p>Remove that stage and you remove accountability. The rejection happens silently, with no structured reason recorded in the CRM.</p>
+  <p>The mechanics of rejection matter as much as the rejection itself. Recording structured rejection reasons turns them into data that sharpens the MQL definition over time. Unrecorded rejections are simply leads that disappear without anyone learning from them.</p>
+  <p>MQL criteria set by marketing and what sales actually wants are often different things. The SAL stage is where that gap becomes visible instead of invisible.</p>
+
+  <h2 id="shared-metrics" class="sec">How do separate accountability metrics structurally prevent alignment?</h2>
+  <p class="lead-answer">When marketing is measured on lead volume and sales is measured on revenue, neither team has an incentive to make the other's job easier, and the SLA fails regardless of how well it is written.</p>
+  <p>The root cause of SLA failure is not a bad document. It is separate accountability metrics.</p>
+  <p>The cost of misalignment is significant:</p>
+  <ul><li>Misaligned B2B teams can <strong>lose up to 60% of leads</strong> in the handoff process, costing <strong>10% or more of annual revenue</strong>.</li><li>Aligned teams achieve <strong>24% faster revenue growth</strong> and <strong>36% higher customer retention</strong>.</li><li>Companies with strong alignment and behavioral scoring reach <strong>MQL-to-SQL conversion rates of 39 to 40%</strong>, three times the industry average, without increasing marketing spend.</li></ul>
+  <p>The structural fix requires a shared metric. Marketing owns pipeline sourced. Sales owns pipeline worked and converted. Both share accountability for pipeline created, a joint metric that requires both functions to perform.</p>
+  <p>Beyond the shared metric, the SLA must be governed with discipline:</p>
+  <ul><li><strong>Weekly:</strong> SLA compliance, speed-to-touch, MQL volume</li><li><strong>Monthly:</strong> outcome metrics and conversion rate trends</li><li><strong>Quarterly:</strong> full SLA recalibration, including ICP updates, new product motions, or segment shifts</li></ul>
+  <p>A quarterly review with sales, marketing, RevOps, and SDR leaders evaluates attainment, conversion rates, and rep feedback, then adjusts lead definitions and routing logic accordingly.</p>
+  <p>The MQL-to-SQL handoff does not fail because of bad leads or unmotivated reps. It fails because of missing infrastructure. Lead lifecycle definitions, routing logic, and SLAs configured in the stack fix it. Workshops do not.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>What percentage of B2B companies have a formal sales and marketing SLA?</h3>
+    <p>Only 43% of B2B companies have any formal SLA in place between sales and marketing, and just 8% describe their alignment as strong.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is a Sales Accepted Lead and why does it matter?</h3>
+    <p>A Sales Accepted Lead is a funnel stage that sits between MQL and SQL where sales formally accepts or rejects a lead and records the reason. Without it, rejections happen with no data attached and teams cannot diagnose why pipeline is leaking.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Why is lead volume a bad primary metric for marketing in a RevOps model?</h3>
+    <p>When marketing is measured on lead volume, it optimizes for form fills rather than pipeline quality. Only 44% of MQLs are ever accepted by sales, meaning the majority of marketing spend generates leads that never convert.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is the difference between lead scoring and intent data?</h3>
+    <p>Lead scoring tracks engagement with your own brand, such as opens, clicks, and downloads. Intent data tracks whether a buyer is actively engaging with the broader category across third-party sources. Lead scoring tells you someone engaged with you; intent data tells you whether they are in an active buying cycle.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How should a sales and marketing SLA be governed to stay effective?</h3>
+    <p>Operational metrics like SLA compliance and speed-to-touch should be monitored weekly, outcome metrics reviewed monthly, and the full SLA recalibrated quarterly or after any major go-to-market change such as an ICP update or new product motion.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What shared metric can replace separate lead volume and revenue targets?</h3>
+    <p>Pipeline created is the joint metric that works. Marketing owns pipeline sourced, sales owns pipeline worked and converted, and both share accountability for pipeline created, giving both teams an incentive to make the handoff succeed.</p>
+  </div>
+
+  <div class="related" id="relatedSlot"></div>
+
+  <div class="article-cta">
+    <p>Want an SLA and lead lifecycle model built into your own stack?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Muvap</div>
+      <div class="author-role">GTM & RevOps systems</div>
+      <p class="author-bio">We build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <img src="images/muvap-logo.webp" alt="Muvap" style="height:24px;width:auto;display:block">
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
+        </a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Muvap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar = document.getElementById('readProgress');
+  var article = document.querySelector('article');
+  if(!bar || !article) return;
+  var ticking = false;
+  function update(){
+    var articleTop = article.offsetTop;
+    var scrollable = article.offsetHeight - window.innerHeight;
+    var scrolled = window.scrollY - articleTop;
+    var pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+</script>
+
+<script src="assets/related-articles.js" defer></script>
+<script src="assets/interactions.js" defer></script>
+</body>
+</html>
