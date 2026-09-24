@@ -1,0 +1,341 @@
+<!--
+  Migrado desde el pipeline n8n (Content Library -> Claude -> AEO article JSON).
+  Slug: zapier-vs-n8n-workflow-automation-comparison
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zapier vs n8n: Which Workflow Automation Tool Should You Choose? · Muvap</title>
+<meta name="description" content="Zapier and n8n compared across pricing, self-hosting, error handling, and integrations. Find out which automation platform fits your team, budget, and technical setup.">
+<meta name="theme-color" content="#046cfc">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is n8n really free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The n8n Community Edition is free to self-host under its fair-code license. You only pay for the underlying server infrastructure, which typically costs $10 to $50 per month. n8n Cloud is a paid managed option starting at roughly 20 euros per month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Zapier offer a self-hosted or on-premise version?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Zapier is a fully cloud-hosted platform. There is no self-host option, no data-residency control, and no on-premise deployment path. All Zaps run on Zapier's managed servers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which platform is better for GDPR compliance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "n8n is the stronger choice for GDPR compliance. Self-hosted deployments keep all data on your own infrastructure. n8n Cloud also runs on Azure in Frankfurt, providing EU data residency. Zapier offers no data-residency control."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can non-technical users set up n8n workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "n8n has a visual canvas interface that many non-technical users can navigate, but it has a steeper learning curve than Zapier's form-based guided setup. Zapier is the faster option for teams with no technical operator. n8n becomes more accessible once a technical operator sets up the initial infrastructure."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "At what point does switching from Zapier to n8n make financial sense?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A useful rule of thumb from the comparison: if your Zapier bill exceeds $200 per month, you are likely overpaying. At 10,000 monthly executions across multi-step workflows, Zapier can cost $250 to $400+ per month while the same workload on n8n Pro Cloud runs around $50 per month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does n8n support AI agent workflows?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. n8n supports AI-agent workflows that require memory, tool use, and local model execution. This makes it the more capable option between the two platforms for teams building LLM-powered automation pipelines."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Zapier vs n8n: Which Workflow Automation Tool Should You Choose?",
+  "description": "Zapier and n8n compared across pricing, self-hosting, error handling, and integrations. Find out which automation platform fits your team, budget, and technical setup.",
+  "image": "images/cover-zapier-vs-n8n.png",
+  "datePublished": "2026-09-24",
+  "dateModified": "2026-09-24",
+  "author": {
+    "@type": "Organization",
+    "name": "Muvap",
+    "url": "index.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Muvap"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="article.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<div class="nx-grid-bg top-band" data-grid-parallax>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <img src="images/muvap-logo.webp" alt="Muvap" style="height:50px;width:auto;display:block">
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="index.html#services">Services</a>
+        <a class="nav-link" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link is-current" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="downloads.html">Downloads</a>
+            <span title="Coming soon">Webinars</span>
+          </div>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+    </div>
+  </nav>
+
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+</div>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">Automation</span>
+  <h1>Zapier vs n8n: Which Workflow Automation Tool Should You Choose?</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">M</span>
+    <span class="meta-chip">Muvap</span>
+    <span class="meta-chip">Published Sep 24, 2026</span>
+    <span class="meta-chip">5 min read</span>
+  </div>
+
+  <div class="article-hero"><img src="images/cover-zapier-vs-n8n.png" alt="Zapier vs n8n: Which Workflow Automation Tool Should You Choose?" loading="eager"></div>
+  <p class="direct-answer"><strong>Direct answer:</strong> Zapier and n8n are both workflow automation platforms built for different users and budgets. Zapier charges per task and suits non-technical teams needing fast SaaS integrations. n8n charges per execution, supports self-hosting, and wins on cost and flexibility at scale. The choice is less about features and more about who owns your infrastructure.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li>Zapier charges per action step, n8n charges per full workflow run, making n8n dramatically cheaper at volume.</li>
+      <li>n8n can be self-hosted for free under its fair-code license, giving full data residency control that Zapier cannot offer.</li>
+      <li>Zapier has 8,000+ pre-built connectors, but n8n's HTTP Request node makes its effective integration ceiling unlimited.</li>
+      <li>If your Zapier bill exceeds $200 per month, you are likely overpaying and n8n is worth evaluating immediately.</li>
+      <li>n8n ships built-in error workflows and manual execution replay, giving teams far more debugging control than Zapier provides.</li>
+    </ul>
+  </div>
+
+  <details class="qtoc">
+    <summary class="qtoc-label">Questions this article answers</summary>
+    <ol>
+      <li><a href="#pricing-at-scale">How do Zapier and n8n differ on pricing and cost at scale?</a></li>
+      <li><a href="#self-hosting-privacy">Can you self-host n8n, and what does that mean for data privacy?</a></li>
+      <li><a href="#error-handling">Which platform gives teams better error handling and debugging tools?</a></li>
+      <li><a href="#integration-library">How do Zapier and n8n compare on integration libraries and API flexibility?</a></li>
+      <li><a href="#complex-logic">Which platform handles complex workflow logic and custom code better?</a></li>
+      <li><a href="#when-to-choose">When should you actually choose Zapier, and when should you switch to n8n?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 6 FAQs answered below</a></li>
+    </ol>
+  </details>
+
+  <h2 id="pricing-at-scale" class="sec">How do Zapier and n8n differ on pricing and cost at scale?</h2>
+  <p class="lead-answer">Zapier bills per individual action step, while n8n bills per full workflow execution regardless of step count. At volume, n8n is almost always the cheaper option.</p>
+  <p>The structural pricing gap is the most important thing to understand before choosing either platform.</p>
+  <p><strong>Zapier's model:</strong> Every action step inside a Zap counts as one billable task. A 5-step Zap running 1,000 times consumes 5,000 tasks. The entry Pro plan starts at $19.99/month for 750 tasks. At 10,000 monthly executions across 8-step workflows, Zapier bills can reach $250 to $400+ per month in task bundles.</p>
+  <p><strong>n8n's model:</strong> The entire workflow run counts as one execution, no matter how many nodes it passes through. A 20-step workflow running 1,000 times costs 1,000 executions. n8n Cloud starts at roughly 20 euros per month for 2,500 executions, and that same 10,000-execution scenario lands around $50/month on the n8n Pro cloud plan.</p>
+  <p>At meaningful volume, the math almost always favours n8n.</p>
+
+  <h2 id="self-hosting-privacy" class="sec">Can you self-host n8n, and what does that mean for data privacy?</h2>
+  <p class="lead-answer">n8n can be self-hosted on a VPS, Docker, or Kubernetes under its free fair-code Community Edition. Zapier is cloud-only with no self-host option and no data-residency control.</p>
+  <p><strong>Zapier</strong> runs every Zap on its own managed servers. The upside is zero operational overhead, but you have no control over where your data lives or who can access it.</p>
+  <p><strong>n8n</strong> supports deployment on virtually any infrastructure:</p>
+  <ul><li>VPS or dedicated server</li><li>Docker containers</li><li>Heroku</li><li>Private cloud or Kubernetes</li></ul>
+  <p>The Community Edition is free under its fair-code license. Typical infrastructure cost runs $10 to $50 per month all-in. For teams that prefer a managed experience, n8n Cloud runs on Azure in Frankfurt, providing EU data residency for GDPR compliance.</p>
+  <p>Self-hosting means your workflow data, execution logs, and API credentials never leave your own infrastructure. That is the deciding factor for teams handling sensitive or regulated data.</p>
+
+  <h2 id="error-handling" class="sec">Which platform gives teams better error handling and debugging tools?</h2>
+  <p class="lead-answer">n8n offers significantly more control, including built-in error workflows, configurable retries, dedicated error branches, and manual execution replay. Zapier provides auto-retry and email notifications but limited branching on failure.</p>
+  <p><strong>Zapier error handling:</strong></p>
+  <ul><li>Automatic retry on temporary failures</li><li>Email notifications when a Zap fails</li><li>Limited control beyond re-running a Zap manually</li><li>No native branching logic on error paths</li></ul>
+  <p><strong>n8n error handling:</strong></p>
+  <ul><li>Built-in error workflows that keep runs resilient instead of stopping mid-run</li><li>Automatic retries with configurable delays</li><li>Dedicated error branches inside workflows</li><li>Manual execution replay: inspect the exact input and output at every node when something breaks</li><li>On self-hosted instances, integration with external monitoring tools like Datadog or Prometheus for enterprise-grade observability</li></ul>
+  <p>For production workflows where a silent failure costs money or compliance risk, n8n's debugging tools are meaningfully superior.</p>
+
+  <h2 id="integration-library" class="sec">How do Zapier and n8n compare on integration libraries and API flexibility?</h2>
+  <p class="lead-answer">Zapier leads with 8,000+ pre-built connectors maintained by its team. n8n has around 1,000+ integrations, but its HTTP Request node makes the effective ceiling unlimited for any REST API.</p>
+  <p><strong>Zapier</strong> has 8,000+ pre-built app connectors as of 2026. This is the broadest marketplace in the automation space, covering virtually every mainstream SaaS tool with plug-and-play connectors maintained by Zapier's team.</p>
+  <p><strong>n8n</strong> offers approximately 400 native core nodes plus 600+ community packages, totaling 1,000+ pre-built integrations. The gap narrows in practice because:</p>
+  <ul><li>The HTTP Request node connects to any REST API without needing a dedicated connector</li><li>Community packages extend coverage to niche tools</li><li>Custom nodes can be built and imported on self-hosted instances</li></ul>
+  <p><strong>Where each wins:</strong></p>
+  <ul><li><strong>Mainstream tools</strong> like Slack, HubSpot, Salesforce, Gmail, Notion, and Airtable: both platforms have solid native support</li><li><strong>Niche or legacy apps</strong> with no public API wrapper: Zapier wins on ready-made connectors</li><li><strong>Custom APIs, internal tools, or anything with a REST endpoint:</strong> n8n wins on flexibility</li></ul>
+
+  <h2 id="complex-logic" class="sec">Which platform handles complex workflow logic and custom code better?</h2>
+  <p class="lead-answer">n8n is built for complexity. Full JavaScript and Python nodes, loop nodes, sub-workflows, and IF/Switch branching are available on every plan including the free self-hosted tier. Zapier locks conditional branching behind a paid plan and restricts custom code.</p>
+  <p><strong>Zapier's approach to code and logic:</strong></p>
+  <ul><li>Guided, form-based UI designed for non-technical operators</li><li>Most users are productive within an hour</li><li>"Code by Zapier" allows Python or JavaScript but with restrictions that make it unsuitable for production custom logic</li><li>Conditional branching via Paths is locked behind the $49/month Professional plan</li></ul>
+  <p><strong>n8n's approach to code and logic:</strong></p>
+  <ul><li>Visual canvas that is also code-ready</li><li>Full JavaScript and Python Function nodes available on all plans</li><li>Loop nodes, sub-workflows, and parallel execution supported natively</li><li>IF/Switch branching available on every plan, including self-hosted free</li><li>On self-hosted instances, npm packages can be imported directly inside workflows</li></ul>
+  <p>For teams building AI-agent workflows that require memory, tool use, and local model execution, n8n is the only realistic option between the two.</p>
+
+  <h2 id="when-to-choose" class="sec">When should you actually choose Zapier, and when should you switch to n8n?</h2>
+  <p class="lead-answer">Zapier wins for non-technical teams running under roughly 5,000 tasks per month on standard SaaS stacks. n8n wins when costs scale, data must stay on your own infrastructure, or workflows require complex branching and custom logic.</p>
+  <p><strong>Choose Zapier when:</strong></p>
+  <ul><li>Your team has no technical operator and needs automation running in under an hour</li><li>Monthly usage stays below roughly 5,000 tasks</li><li>Your stack is entirely mainstream: HubSpot, Slack, Gmail, Stripe, Calendly</li><li>Setup speed and a massive ready-made connector library matter more than cost control</li></ul>
+  <p><strong>Choose n8n when:</strong></p>
+  <ul><li>Your Zapier bill is already over $200 per month (at that point you are almost certainly overpaying)</li><li>Workflows touch sensitive, regulated, or proprietary data that cannot live on third-party servers</li><li>You need GDPR or CCPA compliance with verifiable data residency</li><li>Workflows require multi-branch logic, custom API calls, or code that goes beyond simple transformations</li><li>You are building AI-agent workflows with memory, tool use, or local model execution</li></ul>
+  <p>The decision is less a feature comparison and more a philosophical one: do you pay for convenience, or do you own your infrastructure?</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>Is n8n really free to use?</h3>
+    <p>The n8n Community Edition is free to self-host under its fair-code license. You only pay for the underlying server infrastructure, which typically costs $10 to $50 per month. n8n Cloud is a paid managed option starting at roughly 20 euros per month.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does Zapier offer a self-hosted or on-premise version?</h3>
+    <p>No. Zapier is a fully cloud-hosted platform. There is no self-host option, no data-residency control, and no on-premise deployment path. All Zaps run on Zapier's managed servers.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Which platform is better for GDPR compliance?</h3>
+    <p>n8n is the stronger choice for GDPR compliance. Self-hosted deployments keep all data on your own infrastructure. n8n Cloud also runs on Azure in Frankfurt, providing EU data residency. Zapier offers no data-residency control.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can non-technical users set up n8n workflows?</h3>
+    <p>n8n has a visual canvas interface that many non-technical users can navigate, but it has a steeper learning curve than Zapier's form-based guided setup. Zapier is the faster option for teams with no technical operator. n8n becomes more accessible once a technical operator sets up the initial infrastructure.</p>
+  </div>
+  <div class="faq-item">
+    <h3>At what point does switching from Zapier to n8n make financial sense?</h3>
+    <p>A useful rule of thumb from the comparison: if your Zapier bill exceeds $200 per month, you are likely overpaying. At 10,000 monthly executions across multi-step workflows, Zapier can cost $250 to $400+ per month while the same workload on n8n Pro Cloud runs around $50 per month.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does n8n support AI agent workflows?</h3>
+    <p>Yes. n8n supports AI-agent workflows that require memory, tool use, and local model execution. This makes it the more capable option between the two platforms for teams building LLM-powered automation pipelines.</p>
+  </div>
+
+  <div class="related" id="relatedSlot"></div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://zapier.com/pricing" target="_blank" rel="noopener">Zapier Pricing</a></li>
+      <li><a href="https://n8n.io/pricing" target="_blank" rel="noopener">n8n Pricing</a></li>
+      <li><a href="https://docs.n8n.io/hosting/" target="_blank" rel="noopener">n8n Self-Hosting Documentation</a></li>
+    </ol>
+  </section>
+
+  <div class="article-cta">
+    <p>Choosing between Zapier and n8n for your own GTM stack?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Muvap</div>
+      <div class="author-role">GTM & RevOps systems</div>
+      <p class="author-bio">We build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <img src="images/muvap-logo.webp" alt="Muvap" style="height:24px;width:auto;display:block">
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
+        </a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Muvap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar = document.getElementById('readProgress');
+  var article = document.querySelector('article');
+  if(!bar || !article) return;
+  var ticking = false;
+  function update(){
+    var articleTop = article.offsetTop;
+    var scrollable = article.offsetHeight - window.innerHeight;
+    var scrolled = window.scrollY - articleTop;
+    var pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+</script>
+
+<script src="assets/related-articles.js" defer></script>
+<script src="assets/interactions.js" defer></script>
+</body>
+</html>

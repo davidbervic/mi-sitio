@@ -16,6 +16,7 @@
     { href: 'api-integration-mistake-breaks-every-migration.html', title: 'What Is the API Integration Mistake That Breaks Every GTM Migration?', category: 'GTM Systems', tags: ['api-integration', 'abstraction-layer', 'migration', 'architecture', 'ipaas'] },
     { href: 'clearbit-vs-zoominfo-vs-apollo-enrichment-provider-comparison.html', title: 'Clearbit vs ZoomInfo vs Apollo: Which Enrichment Provider Should Anchor Your Data Stack?', category: 'Data & Reporting', tags: ['enrichment', 'data-vendor-comparison', 'waterfall', 'crm-integration', 'zoominfo', 'apollo', 'clearbit', 'vendor-comparison'] },
     { href: 'why-sales-marketing-slas-keep-breaking.html', title: 'Why Do Sales and Marketing SLAs Keep Breaking?', category: 'GTM Systems', tags: ['sla', 'sales-marketing-alignment', 'lead-scoring', 'mql', 'sal', 'revops'] },
+    { href: 'zapier-vs-n8n-workflow-automation-comparison.html', title: 'Zapier vs n8n: Which Workflow Automation Tool Should You Choose?', category: 'Automation', tags: ['zapier', 'n8n', 'automation', 'self-hosting', 'workflow', 'no-code'] },
   ];
 
   window.MUVAP_ARTICLES = ARTICLES;
