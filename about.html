@@ -273,8 +273,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
 
   <div class="about-hero-grid">
-    <div class="monogram-photo nx-grid-bg about-hero-photo">
-      <img src="images/about-hero-photo.webp" alt="David Berrocal with the teams at MEDLIFE and CloudTask" style="width:100%;height:100%;object-fit:cover;display:block">
+    <div class="about-hero-photo" style="display:flex;align-items:center;justify-content:center">
+      <img src="images/about-hero-photo.webp" alt="David Berrocal with the teams at MEDLIFE and CloudTask" style="width:100%;height:100%;object-fit:contain;display:block;background:transparent">
     </div>
     <div class="about-hero-copy">
       <span class="eyebrow-pill" style="background:var(--nx-mint)">
