@@ -1,0 +1,34 @@
+# Muvap
+
+> Muvap is David Berrocal's independent RevOps and GTM systems consultancy. Muvap designs and builds the revenue operations infrastructure that connects sales, marketing and data: lead scoring, CRM architecture, lifecycle stages, automation, AI agents and reporting, mainly on HubSpot.
+
+## Company
+
+- [About](https://davidbervic.com/about.html): Who Muvap is, real client engagements (MEDLIFE, CloudTask), martech stack.
+- [Services](https://davidbervic.com/index.html#services): GTM audit, implementation, and ongoing retainer.
+- [Contact](https://davidbervic.com/contact.html): Book a call or message directly.
+
+## Case studies
+
+- [How MEDLIFE built its first reliable revenue funnel on HubSpot](https://davidbervic.com/case-study.html?case=1): Lifecycle unification, lead scoring, CRM governance and AI agents for a global nonprofit.
+- [How CloudTask turned HubSpot into the revenue engine of a two sided talent marketplace](https://davidbervic.com/case-study.html?case=2): Pipeline architecture, custom objects, multichannel outbound and answer engine optimization for a B2B RevOps marketplace.
+
+## Guides
+
+- [What Is Lead Scoring and How Does It Help Sales Teams Prioritize Leads?](https://davidbervic.com/what-is-lead-scoring.html)
+- [How Do You Calculate a Lead Score in HubSpot?](https://davidbervic.com/how-to-score-leads-hubspot.html)
+- [How Do You Design a Fit Score in HubSpot Step by Step?](https://davidbervic.com/how-to-design-a-fit-score-in-hubspot.html)
+- [How Can You Use Fit Score for CRM Cleaning?](https://davidbervic.com/how-to-use-fit-score-for-crm-cleaning.html)
+- [What Is an Engagement Score in HubSpot? A Founder's Guide](https://davidbervic.com/what-is-engagement-score-hubspot.html)
+- [What Are the 4 Best Ways to Use Your HubSpot Engagement Score?](https://davidbervic.com/4-ways-engagement-score-hubspot-lead-scoring.html)
+- [What Are Lifecycle Stages in HubSpot?](https://davidbervic.com/what-are-lifecycle-stages-in-hubspot.html)
+- [Why Do You Need a CRM in the Early Stages of a Startup?](https://davidbervic.com/why-do-you-need-a-crm-early-stage-startup.html)
+- [What Are the Most Used CRMs: HubSpot, Salesforce, or Dynamics 365?](https://davidbervic.com/most-used-crms-hubspot-salesforce-dynamics-365.html)
+- [Agent Builder vs Workflow Builder: What's the Difference in HubSpot?](https://davidbervic.com/hubspot-agent-builder-vs-workflow-builder-2026.html)
+- [What Is the API Integration Mistake That Breaks Every GTM Migration?](https://davidbervic.com/api-integration-mistake-breaks-every-migration.html)
+- [Clearbit vs ZoomInfo vs Apollo: Which Enrichment Provider Should Anchor Your Data Stack?](https://davidbervic.com/clearbit-vs-zoominfo-vs-apollo-enrichment-provider-comparison.html)
+
+## Resources
+
+- [Blog index](https://davidbervic.com/resources.html): Full, searchable list of guides above.
+- [Free downloads](https://davidbervic.com/downloads.html): Templates and checklists for GTM/RevOps teams.

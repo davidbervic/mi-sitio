@@ -1,5 +1,5 @@
 <!--
-  RECONSTRUCCION de About de Munap, a partir del design handoff real
+  RECONSTRUCCION de About de Muvap, a partir del design handoff real
   (design_handoff_munap_site/_extracted/about.html).
 
   Cambios respecto al mockup original, y por que:
@@ -38,14 +38,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
 <!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About · Munap</title>
+<title>About · Muvap</title>
 <meta name="description" content="I'm an independent RevOps and GTM consultant. Before that, I built and ran the revenue operations function inside venture-backed companies.">
 <meta name="theme-color" content="#046cfc">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  "name": "Munap",
+  "name": "Muvap",
   "description": "Independent RevOps and GTM consultant: lead scoring, CRM implementation, automation and reporting for revenue teams.",
   "url": "about.html",
   "sameAs": ["https://www.linkedin.com/in/david-berrocal-vic/"],
@@ -118,7 +120,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .resources-menu span{color:#666;cursor:default}
   .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center}
   .btn-pink{background:var(--nx-pink);color:var(--nx-paper)}
-  .btn-purple{background:var(--nx-purple);color:var(--nx-ink)}
+  .btn-purple{background:#25D366;color:#ffffff}
   @media(max-width:860px){
     .nav-burger{display:inline-flex}
     .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:16px;right:16px;flex-direction:column;align-items:stretch;gap:2px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:16px;box-shadow:var(--nx-drop-md);padding:10px;z-index:60}
@@ -246,8 +248,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="nx-grid-bg top-band" data-grid-parallax>
   <nav class="site-nav">
     <a href="index.html" class="logo">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
-      <span>Munap</span>
+      <img src="images/muvap-logo.webp" alt="Muvap" style="height:42px;width:auto;display:block">
     </a>
     <div class="nav-right">
       <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
@@ -297,7 +298,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="bio-section is-dim">
   <div class="reveal timeline-wrap">
     <h2>Where I've worked.</h2>
-    <p class="timeline-sub">Employment history, real version coming soon.</p>
+    <p class="timeline-sub">Real client engagements, most recent first.</p>
     <div id="timelineList"></div>
   </div>
 </div>
@@ -334,8 +335,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html" class="logo">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
-        <span>Munap</span>
+        <img src="images/muvap-logo.webp" alt="Muvap" style="height:24px;width:auto;display:block">
       </a>
       <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
       <div class="footer-socials">
@@ -367,7 +367,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Munap. All rights reserved.</span>
+    <span>© 2026 Muvap. All rights reserved.</span>
     <span>Built with GTM systems that work.</span>
   </div>
 </footer>
@@ -385,9 +385,28 @@ document.getElementById('metricsRow').innerHTML = METRICS.map((m, i) => `
   <div class="metric"><span class="metric-value nx-skeleton" aria-label="Number coming soon"></span><span class="metric-label">${m.label}</span></div>
 `).join('');
 
-// Career timeline: fill CAREER in with the real roles and this section is done.
-// Each entry: { dates, role, company, companyDesc, desc, logo (optional image path) }
-const CAREER = [];
+// Career timeline: real client engagements, most recent first.
+// Each entry: { dates, role, company, companyDesc, desc, tone, initial, logo (optional image path) }
+const CAREER = [
+  {
+    dates: 'Feb 2026 – Present',
+    role: 'Revenue Operations Specialist & GTM Engineer',
+    company: 'CloudTask',
+    tone: 'var(--nx-cyan)',
+    initial: 'C',
+    companyDesc: 'A RevOps focused marketplace matching B2B and SaaS companies with vetted sales, marketing, customer success and support talent.',
+    desc: 'Rebuilt pipeline architecture, shipped a custom talent-matching object syncing both sides of the marketplace, consolidated intake from 7 lead sources, and layered AI agents and answer engine optimization on top of HubSpot.',
+  },
+  {
+    dates: 'Feb 2025 – Feb 2026',
+    role: 'Revenue & Martech Operations Specialist',
+    company: 'MEDLIFE',
+    tone: 'var(--nx-mint)',
+    initial: 'M',
+    companyDesc: 'A global nonprofit movement delivering mobile clinics, education and community development across Latin America and Africa.',
+    desc: 'Unified lifecycle and lead stages across marketing, sales and service, built scoring and routing on top of a defined ICP, rolled out CRM data governance, and deployed AI agents and automation across research and content.',
+  },
+];
 const timelineList = document.getElementById('timelineList');
 if (CAREER.length) {
   timelineList.innerHTML = CAREER.map(c => `
@@ -395,7 +414,7 @@ if (CAREER.length) {
       <span class="timeline-date">${c.dates}</span>
       <div>
         <div class="timeline-head">
-          ${c.logo ? `<img class="timeline-logo" src="${c.logo}" alt="${c.company} logo">` : `<div class="timeline-logo nx-skeleton is-dark"></div>`}
+          ${c.logo ? `<img class="timeline-logo" src="${c.logo}" alt="${c.company} logo">` : `<div class="timeline-logo" style="background:${c.tone};display:flex;align-items:center;justify-content:center;font:800 15px/1 var(--nx-font-display);color:var(--nx-ink)">${c.initial}</div>`}
           <div class="timeline-role">${c.role}, ${c.company}</div>
         </div>
         <p class="timeline-what">${c.companyDesc}</p>

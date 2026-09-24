@@ -1,5 +1,5 @@
 <!--
-  RECONSTRUCCION de Resources/Blog index (Munap), a partir del design
+  RECONSTRUCCION de Resources/Blog index (Muvap), a partir del design
   handoff real (design_handoff_munap_site/_extracted/resources.html).
 
   A diferencia de about.html/customers.html/case-study.html, el contenido
@@ -31,9 +31,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
 <!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resources · Munap</title>
+<title>Resources · Muvap</title>
 <meta name="description" content="Straight answers to the questions GTM and RevOps operators actually ask, no fluff.">
 <meta name="theme-color" content="#046cfc">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -95,7 +97,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .resources-menu span{color:#666;cursor:default}
   .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center}
   .btn-pink{background:var(--nx-pink);color:var(--nx-paper)}
-  .btn-purple{background:var(--nx-purple);color:var(--nx-ink)}
+  .btn-purple{background:#25D366;color:#ffffff}
   @media(max-width:860px){
     .nav-burger{display:inline-flex}
     .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:16px;right:16px;flex-direction:column;align-items:stretch;gap:2px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:16px;box-shadow:var(--nx-drop-md);padding:10px;z-index:60}
@@ -204,8 +206,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="nx-grid-bg top-band" data-grid-parallax>
   <nav class="site-nav">
     <a href="index.html" class="logo">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
-      <span>Munap</span>
+      <img src="images/muvap-logo.webp" alt="Muvap" style="height:42px;width:auto;display:block">
     </a>
     <div class="nav-right">
       <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
@@ -284,8 +285,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html" class="logo">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
-        <span>Munap</span>
+        <img src="images/muvap-logo.webp" alt="Muvap" style="height:24px;width:auto;display:block">
       </a>
       <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
       <div class="footer-socials">
@@ -317,7 +317,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Munap. All rights reserved.</span>
+    <span>© 2026 Muvap. All rights reserved.</span>
     <span>Built with GTM systems that work.</span>
   </div>
 </footer>
@@ -347,18 +347,18 @@ function featuredVisualHtml(article) {
 }
 
 const ARTICLES = [
-  { id: 'f1', featured: true, category: 'Automation', href: '4-ways-engagement-score-hubspot-lead-scoring.html', title: "What Are the 4 Best Ways to Use Your HubSpot Engagement Score?", quick: "Startup founders can turn a HubSpot engagement score into a revenue driver: real-time SDR alerts, conversion-focused emails, automated routing, and behavioral context for reps.", bullets: ['Alert SDRs based on velocity, not just total score.', 'Score decay keeps every alert and routing rule trustworthy.'], author: 'Munap', date: 'May 8, 2026', readTime: '7 min read', img: 'images/cover-4-ways-engagement-score.webp' },
-  { id: 'a1', category: 'Data & Reporting', href: 'what-is-lead-scoring.html', title: "What Is Lead Scoring and How Does It Help Sales Teams Prioritize Leads?", quick: "Learn what lead scoring is, how it works with explicit and implicit data, and how resource-constrained startups can use HubSpot to prioritize the right leads.", author: 'Munap', date: 'May 8, 2026', readTime: '8 min read', img: 'images/cover-what-is-lead-scoring.webp' },
-  { id: 'a2', category: 'Data & Reporting', href: 'how-to-score-leads-hubspot.html', title: "How Do You Calculate a Lead Score in HubSpot?", quick: "A HubSpot lead score combines a fit score and an engage score into one number reps can act on. Here's the exact formula, step by step.", author: 'Munap', date: 'Aug 3, 2026', readTime: '6 min read' },
-  { id: 'a3', category: 'Data & Reporting', href: 'how-to-design-a-fit-score-in-hubspot.html', title: "How Do You Design a Fit Score in HubSpot Step by Step?", quick: "Learn how to design a fit score in HubSpot in 5 steps: define your ICP, build the score object, set weighted rules, test thresholds, and automate routing.", author: 'Munap', date: 'May 8, 2026', readTime: '7 min read' },
-  { id: 'a4', category: 'Data & Reporting', href: 'how-to-use-fit-score-for-crm-cleaning.html', title: "How Can You Use Fit Score for CRM Cleaning?", quick: "Learn how a HubSpot fit score identifies disqualified leads automatically, turning CRM cleaning from an open-ended manual audit into a mechanical filtering exercise.", author: 'Munap', date: 'May 8, 2026', readTime: '8 min read' },
-  { id: 'a5', category: 'Data & Reporting', href: 'what-is-engagement-score-hubspot.html', title: "What Is an Engagement Score in HubSpot? A Founder's Guide", quick: "An engagement score in HubSpot rates how actively a contact interacts with you: site visits, email clicks, form fills, so a lean team calls the warmest leads first.", author: 'Munap', date: 'Aug 6, 2026', readTime: '7 min read' },
-  { id: 'a6', category: 'GTM Systems', href: 'what-are-lifecycle-stages-in-hubspot.html', title: "What Are Lifecycle Stages in HubSpot?", quick: "Lifecycle stage is a native HubSpot property that tracks a contact's journey from subscriber to customer. Learn why it matters for startup CRM success.", author: 'Munap', date: 'May 8, 2026', readTime: '8 min read', img: 'images/cover-lifecycle-stages.webp' },
-  { id: 'a7', category: 'GTM Systems', href: 'why-do-you-need-a-crm-early-stage-startup.html', title: "Why Do You Need a CRM in the Early Stages of a Startup?", quick: "Early-stage founders often can't measure their revenue activities or customer relationships. Learn how a CRM fixes that blind spot and prevents startup failure.", author: 'Munap', date: 'May 8, 2026', readTime: '7 min read' },
-  { id: 'a8', category: 'Tooling', href: 'most-used-crms-hubspot-salesforce-dynamics-365.html', title: "What Are the Most Used CRMs: HubSpot, Salesforce, or Dynamics 365?", quick: "A breakdown of the three most used CRM platforms, focused on which one fits a resource-constrained startup's budget, speed, and admin capacity.", author: 'Munap', date: 'Apr 1, 2026', readTime: '8 min read', img: 'images/cover-most-used-crms.webp' },
-  { id: 'a9', category: 'Tooling', href: 'hubspot-agent-builder-vs-workflow-builder-2026.html', title: "Agent Builder vs Workflow Builder: What's the Difference in HubSpot?", quick: "HubSpot's Agent Builder and Workflow Builder solve different problems: rules versus judgment. Here is what founders need to know about the 2026 launch.", author: 'Munap', date: 'Jul 23, 2026', readTime: '7 min read' },
-  { id: 'a10', category: 'GTM Systems', href: 'api-integration-mistake-breaks-every-migration.html', title: "What Is the API Integration Mistake That Breaks Every GTM Migration?", quick: "Most GTM migrations fail not because of bad testing, but because of point-to-point API integrations built without abstraction layers. Learn the architectural fix.", author: 'Munap', date: 'Sep 21, 2026', readTime: '5 min read', img: 'images/cover-api-integration-mistake.webp' },
-  { id: 'a11', category: 'Data & Reporting', href: 'clearbit-vs-zoominfo-vs-apollo-enrichment-provider-comparison.html', title: "Clearbit vs ZoomInfo vs Apollo: Which Enrichment Provider Should Anchor Your Data Stack?", quick: "Clearbit, ZoomInfo, and Apollo compared on database size, accuracy, pricing, and CRM integrations so you can design a waterfall enrichment stack that improves match rates without overspending.", author: 'Munap', date: 'Sep 21, 2026', readTime: '6 min read', img: 'images/cover-clearbit-zoominfo-apollo.webp' },
+  { id: 'f1', featured: true, category: 'Automation', href: '4-ways-engagement-score-hubspot-lead-scoring.html', title: "What Are the 4 Best Ways to Use Your HubSpot Engagement Score?", quick: "Startup founders can turn a HubSpot engagement score into a revenue driver: real-time SDR alerts, conversion-focused emails, automated routing, and behavioral context for reps.", bullets: ['Alert SDRs based on velocity, not just total score.', 'Score decay keeps every alert and routing rule trustworthy.'], author: 'Muvap', date: 'May 8, 2026', readTime: '7 min read', img: 'images/cover-4-ways-engagement-score.webp' },
+  { id: 'a1', category: 'Data & Reporting', href: 'what-is-lead-scoring.html', title: "What Is Lead Scoring and How Does It Help Sales Teams Prioritize Leads?", quick: "Learn what lead scoring is, how it works with explicit and implicit data, and how resource-constrained startups can use HubSpot to prioritize the right leads.", author: 'Muvap', date: 'May 8, 2026', readTime: '8 min read', img: 'images/cover-what-is-lead-scoring.webp' },
+  { id: 'a2', category: 'Data & Reporting', href: 'how-to-score-leads-hubspot.html', title: "How Do You Calculate a Lead Score in HubSpot?", quick: "A HubSpot lead score combines a fit score and an engage score into one number reps can act on. Here's the exact formula, step by step.", author: 'Muvap', date: 'Aug 3, 2026', readTime: '6 min read' },
+  { id: 'a3', category: 'Data & Reporting', href: 'how-to-design-a-fit-score-in-hubspot.html', title: "How Do You Design a Fit Score in HubSpot Step by Step?", quick: "Learn how to design a fit score in HubSpot in 5 steps: define your ICP, build the score object, set weighted rules, test thresholds, and automate routing.", author: 'Muvap', date: 'May 8, 2026', readTime: '7 min read' },
+  { id: 'a4', category: 'Data & Reporting', href: 'how-to-use-fit-score-for-crm-cleaning.html', title: "How Can You Use Fit Score for CRM Cleaning?", quick: "Learn how a HubSpot fit score identifies disqualified leads automatically, turning CRM cleaning from an open-ended manual audit into a mechanical filtering exercise.", author: 'Muvap', date: 'May 8, 2026', readTime: '8 min read' },
+  { id: 'a5', category: 'Data & Reporting', href: 'what-is-engagement-score-hubspot.html', title: "What Is an Engagement Score in HubSpot? A Founder's Guide", quick: "An engagement score in HubSpot rates how actively a contact interacts with you: site visits, email clicks, form fills, so a lean team calls the warmest leads first.", author: 'Muvap', date: 'Aug 6, 2026', readTime: '7 min read' },
+  { id: 'a6', category: 'GTM Systems', href: 'what-are-lifecycle-stages-in-hubspot.html', title: "What Are Lifecycle Stages in HubSpot?", quick: "Lifecycle stage is a native HubSpot property that tracks a contact's journey from subscriber to customer. Learn why it matters for startup CRM success.", author: 'Muvap', date: 'May 8, 2026', readTime: '8 min read', img: 'images/cover-lifecycle-stages.webp' },
+  { id: 'a7', category: 'GTM Systems', href: 'why-do-you-need-a-crm-early-stage-startup.html', title: "Why Do You Need a CRM in the Early Stages of a Startup?", quick: "Early-stage founders often can't measure their revenue activities or customer relationships. Learn how a CRM fixes that blind spot and prevents startup failure.", author: 'Muvap', date: 'May 8, 2026', readTime: '7 min read' },
+  { id: 'a8', category: 'Tooling', href: 'most-used-crms-hubspot-salesforce-dynamics-365.html', title: "What Are the Most Used CRMs: HubSpot, Salesforce, or Dynamics 365?", quick: "A breakdown of the three most used CRM platforms, focused on which one fits a resource-constrained startup's budget, speed, and admin capacity.", author: 'Muvap', date: 'Apr 1, 2026', readTime: '8 min read', img: 'images/cover-most-used-crms.webp' },
+  { id: 'a9', category: 'Tooling', href: 'hubspot-agent-builder-vs-workflow-builder-2026.html', title: "Agent Builder vs Workflow Builder: What's the Difference in HubSpot?", quick: "HubSpot's Agent Builder and Workflow Builder solve different problems: rules versus judgment. Here is what founders need to know about the 2026 launch.", author: 'Muvap', date: 'Jul 23, 2026', readTime: '7 min read' },
+  { id: 'a10', category: 'GTM Systems', href: 'api-integration-mistake-breaks-every-migration.html', title: "What Is the API Integration Mistake That Breaks Every GTM Migration?", quick: "Most GTM migrations fail not because of bad testing, but because of point-to-point API integrations built without abstraction layers. Learn the architectural fix.", author: 'Muvap', date: 'Sep 21, 2026', readTime: '5 min read', img: 'images/cover-api-integration-mistake.webp' },
+  { id: 'a11', category: 'Data & Reporting', href: 'clearbit-vs-zoominfo-vs-apollo-enrichment-provider-comparison.html', title: "Clearbit vs ZoomInfo vs Apollo: Which Enrichment Provider Should Anchor Your Data Stack?", quick: "Clearbit, ZoomInfo, and Apollo compared on database size, accuracy, pricing, and CRM integrations so you can design a waterfall enrichment stack that improves match rates without overspending.", author: 'Muvap', date: 'Sep 21, 2026', readTime: '6 min read', img: 'images/cover-clearbit-zoominfo-apollo.webp' },
 ];
 
 const POPULAR = [
@@ -388,9 +388,10 @@ function matches(a) {
 
 function render() {
   const noFilter = activeCategory === 'All' && searchQuery.trim() === '';
-  const featured = ARTICLES.find(a => a.featured);
+  const newestFirst = [...ARTICLES].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const featured = newestFirst[0];
   const showFeatured = noFilter;
-  const pool = showFeatured ? ARTICLES.filter(a => !a.featured) : ARTICLES.filter(a => !a.featured || matches(a));
+  const pool = showFeatured ? newestFirst.filter(a => a !== featured) : newestFirst.filter(a => a !== featured || matches(a));
   const gridArticles = pool.filter(matches);
 
   categoryChips.innerHTML = CATS.map(name => `

@@ -1,8 +1,8 @@
 /* ============================================================
-   article.css — shared stylesheet for Munap blog articles
+   article.css — shared stylesheet for Muvap blog articles
    migrated from mi-sitio (davidbervic.com). Reuses the exact
    HTML structure/classes of the proven AEO article template
-   (mi-sitio/blog.css), reskinned with Munap's design tokens
+   (mi-sitio/blog.css), reskinned with Muvap's design tokens
    (Archivo/Archivo Black, hard-offset shadows, brand blue/mint/
    cyan/pink) instead of the dark violet/teal theme.
    ============================================================ */
@@ -37,7 +37,7 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 /* ---- reading progress bar ---- */
 .progress-bar{position:fixed;top:0;left:0;height:4px;width:0%;background:var(--nx-cyan);z-index:60}
 
-/* ---- nav (Munap standard) ---- */
+/* ---- nav (Muvap standard) ---- */
 .nx-grid-bg{
   background-color:var(--nx-blue);
   background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),
@@ -66,7 +66,7 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 .resources-menu span{color:#666;cursor:default}
 .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center;text-decoration:none}
 .btn-pink{background:var(--nx-pink);color:var(--nx-paper)}
-.btn-purple{background:var(--nx-purple);color:var(--nx-ink)}
+.btn-purple{background:#25D366;color:#ffffff}
 @media(max-width:860px){
   .nav-burger{display:inline-flex}
   .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:16px;right:16px;flex-direction:column;align-items:stretch;gap:2px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:16px;box-shadow:var(--nx-drop-md);padding:10px;z-index:60}

@@ -1,5 +1,5 @@
 <!--
-  RECONSTRUCCION de Case Study template (Munap), a partir del design
+  RECONSTRUCCION de Case Study template (Muvap), a partir del design
   handoff real (design_handoff_munap_site/_extracted/case-study.html).
 
   Cambios respecto al mockup original, y por que:
@@ -31,10 +31,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
 <!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Case study · Munap</title>
-<meta name="description" content="How we work with clients on their GTM system.">
-<meta name="robots" content="noindex,follow">
+<title>Case study · Muvap</title>
+<meta name="description" content="How we work with clients on their GTM system." id="metaDescription">
 <meta name="theme-color" content="#046cfc">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -100,7 +101,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .resources-menu span{color:#666;cursor:default}
   .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center}
   .btn-pink{background:var(--nx-pink);color:var(--nx-paper)}
-  .btn-purple{background:var(--nx-purple);color:var(--nx-ink)}
+  .btn-purple{background:#25D366;color:#ffffff}
   @media(max-width:860px){
     .nav-burger{display:inline-flex}
     .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:16px;right:16px;flex-direction:column;align-items:stretch;gap:2px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:16px;box-shadow:var(--nx-drop-md);padding:10px;z-index:60}
@@ -129,43 +130,73 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .case-impact-label{display:block;margin-top:4px;color:var(--nx-ink-soft);font:400 13px/1.3 var(--nx-font-text)}
   @media(max-width:860px){.case-hero-grid{grid-template-columns:1fr}}
 
-  /* ---- sticky sidebar + content shell (Clay-style case template) ---- */
-  .case-shell{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:56px;padding:clamp(48px,7vw,80px) clamp(16px,4vw,44px) clamp(64px,9vw,110px)}
-  .case-sidebar{position:sticky;top:100px;align-self:start;display:flex;flex-direction:column;gap:8px}
+  /* ---- sticky sidebar + content shell (Clay-style case template) ----
+     Two independent sticky columns, matching the reference
+     (clay.com/customers/...): the outer sidebar (thumbnail + on-page
+     nav) stays sticky the whole page, including through use cases.
+     The company card is a SECOND, nested sticky column that's only
+     bounded by the "at a glance" + impact-highlights region, so it
+     releases naturally once the use cases start. ---- */
+  .case-shell{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;gap:56px;padding:clamp(48px,7vw,80px) clamp(16px,4vw,44px) clamp(64px,9vw,110px)}
+  .case-sidebar-inner{position:sticky;top:100px;display:flex;flex-direction:column;gap:16px}
+  .case-sidebar-visual{width:100%;aspect-ratio:4/3;border-radius:var(--nx-radius-lg);border:1.5px solid var(--nx-ink);box-shadow:var(--nx-drop-sm);display:flex;align-items:center;justify-content:center}
   .case-toc-label{font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:var(--nx-ink-soft);text-transform:uppercase;margin-bottom:6px}
   .case-toc{display:flex;flex-direction:column;gap:2px}
   .case-toc a{display:block;padding:9px 12px;border-radius:10px;font:700 14px/1.3 var(--nx-font-text);color:var(--nx-ink-soft);transition:background .15s ease,color .15s ease}
   .case-toc a.is-active{background:var(--nx-paper-dim);color:var(--nx-ink)}
   .case-toc a:hover{color:var(--nx-ink)}
-  @media(max-width:960px){.case-shell{grid-template-columns:1fr}.case-sidebar{position:static}.case-toc{flex-direction:row;flex-wrap:wrap;gap:6px}}
+  @media(max-width:960px){.case-shell{grid-template-columns:1fr}.case-sidebar-inner{position:static}.case-toc{flex-direction:row;flex-wrap:wrap;gap:6px}.case-sidebar-visual{display:none}}
 
-  .case-body{display:flex;flex-direction:column;gap:56px;min-width:0}
+  .case-main{display:flex;flex-direction:column;gap:56px;min-width:0}
+  .case-main #caseUseCases{display:contents}
+  .case-glance-grid{display:grid;grid-template-columns:300px 1fr;gap:40px;align-items:start}
+  .company-card-col{position:sticky;top:100px}
+  .glance-content{min-width:0}
+  @media(max-width:760px){.case-glance-grid{grid-template-columns:1fr}.company-card-col{position:static}}
+
+  .impact-highlights{margin-top:26px}
+  .impact-highlights-label{display:block;margin:0 0 12px;font:900 15px/1.2 var(--nx-font-display);color:var(--nx-ink)}
   .case-block{scroll-margin-top:100px}
   .case-block-label{display:block;margin:0 0 14px;font:800 12px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:var(--nx-ink-soft);text-transform:uppercase}
 
   /* company card */
-  .company-card{display:flex;flex-direction:column;gap:14px;background:var(--nx-paper-dim);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);padding:26px}
-  .company-card p{margin:0;color:var(--nx-ink-soft);font:400 15px/1.6 var(--nx-font-text)}
+  .company-card{display:flex;flex-direction:column;background:var(--nx-paper-dim);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);padding:26px}
+  .company-card p{margin:0 0 14px;color:var(--nx-ink-soft);font:400 15px/1.6 var(--nx-font-text)}
   .company-visit{display:inline-flex;align-items:center;gap:6px;color:var(--nx-ink);font:800 13px/1 var(--nx-font-display);align-self:flex-start}
-  .glance-facts{display:flex;flex-wrap:wrap;gap:28px;margin-top:18px}
-  .glance-fact{display:flex;flex-direction:column;gap:4px}
+  .glance-facts{display:flex;flex-direction:column;margin-top:16px}
+  .glance-fact{display:flex;flex-direction:column;gap:4px;padding:14px 0;border-top:1px solid #e2e2e2}
   .glance-fact-label{font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:var(--nx-ink-soft);text-transform:uppercase}
   .glance-fact-value{font:700 15px/1.3 var(--nx-font-text);color:var(--nx-ink)}
+  .glance-fact-value.is-pending{color:#999;font-style:italic;font-weight:400}
 
-  /* pull quote */
-  .case-pullquote{margin:0;padding-left:22px;border-left:4px solid var(--nx-ink);color:var(--nx-ink);font:900 clamp(20px,2.4vw,26px)/1.35 var(--nx-font-display);letter-spacing:var(--nx-track-tight)}
+  /* pull quote: card with quote icon, Clay-template style */
+  .pullquote-card{display:flex;gap:18px;align-items:flex-start;margin-top:26px}
+  .pullquote-icon{flex:0 0 auto;width:40px;height:40px;border-radius:12px;background:var(--nx-blue);display:flex;align-items:center;justify-content:center}
+  .pullquote-body{flex:1;background:var(--nx-blue);border-radius:var(--nx-radius-lg);padding:22px 26px}
+  .case-pullquote{margin:0;color:var(--nx-paper);font:800 clamp(18px,2.2vw,22px)/1.45 var(--nx-font-text)}
+  .case-pullquote.is-pending{color:rgba(255,255,255,.75);font-weight:400;font-style:italic}
+  .pullquote-attribution{margin:12px 0 0;color:rgba(255,255,255,.75);font:400 13px/1.3 var(--nx-font-text)}
 
   /* problem + use cases */
-  .problem-block p{margin:0;color:var(--nx-ink-soft);font:400 17px/1.6 var(--nx-font-text)}
-  .usecase{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
-  .usecase:nth-child(even){grid-template-columns:1.1fr .9fr}
-  .usecase:nth-child(even) .usecase-visual{order:2}
+  .problem-block p{margin:0 0 14px;color:var(--nx-ink-soft);font:400 17px/1.6 var(--nx-font-text)}
+  .problem-block p:last-child{margin-bottom:0}
+  .usecase{display:flex;flex-direction:column;gap:24px}
+  .usecase-visual{order:-1;width:100%;aspect-ratio:16/9;overflow:hidden}
+  .usecase-visual img{width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit}
+  .case-photo{width:100%;aspect-ratio:16/9;border-radius:var(--nx-radius-lg);border:1.5px solid var(--nx-ink);box-shadow:var(--nx-drop-md);overflow:hidden}
+  .case-photo img{width:100%;height:100%;object-fit:cover;display:block}
   .usecase-tag{font:800 12px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase}
   .usecase h3{margin:10px 0 12px;color:var(--nx-ink);font:900 clamp(20px,2.4vw,26px)/1.2 var(--nx-font-display);letter-spacing:var(--nx-track-display)}
   .usecase-body{margin:0 0 14px;color:var(--nx-ink-soft);font:400 16px/1.6 var(--nx-font-text)}
   .usecase-quote{margin:0;padding-left:16px;color:var(--nx-ink);font:700 15px/1.5 var(--nx-font-text)}
-  .usecase-visual{min-width:0;aspect-ratio:4/3}
-  @media(max-width:860px){.usecase,.usecase:nth-child(even){grid-template-columns:1fr}.usecase-visual{order:-1!important}}
+  .usecase-quote.is-pending{color:#999;font-weight:400;font-style:italic}
+  @media(max-width:640px){.usecase-visual{aspect-ratio:4/3}}
+
+  /* impact list */
+  .impact-body p{margin:0 0 12px;color:var(--nx-ink-soft);font:400 16px/1.6 var(--nx-font-text)}
+  .impact-list{margin:0 0 16px;padding-left:20px;color:var(--nx-ink-soft);font:400 16px/1.6 var(--nx-font-text)}
+  .impact-list li{margin-bottom:10px}
+  .impact-list li strong{color:var(--nx-ink)}
 
   /* ---- results cta ---- */
   .results-section{background-color:var(--nx-blue);padding:clamp(56px,8vw,96px) clamp(16px,4vw,44px);background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));background-size:var(--nx-grid-cell) var(--nx-grid-cell)}
@@ -201,8 +232,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="nx-grid-bg top-band" data-grid-parallax>
   <nav class="site-nav">
     <a href="index.html" class="logo">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
-      <span>Munap</span>
+      <img src="images/muvap-logo.webp" alt="Muvap" style="height:42px;width:auto;display:block">
     </a>
     <div class="nav-right">
       <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
@@ -249,36 +279,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="case-shell">
   <div class="case-sidebar">
-    <span class="case-toc-label">On this page</span>
-    <div class="case-toc" id="caseToc"></div>
+    <div class="case-sidebar-inner">
+      <div class="case-sidebar-visual" id="caseSidebarVisual"></div>
+      <span class="case-toc-label">On this page</span>
+      <div class="case-toc" id="caseToc"></div>
+    </div>
   </div>
 
-  <div class="case-body">
-    <div class="case-block" id="section-glance">
-      <span class="case-block-label">At a glance</span>
-      <div class="company-card">
-        <p id="caseCompanyDesc"></p>
-        <a class="company-visit" id="caseVisit" target="_blank" rel="noopener">Visit company<svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <div class="glance-facts">
-          <div class="glance-fact"><span class="glance-fact-label">Industry</span><span class="glance-fact-value" id="caseIndustry"></span></div>
-          <div class="glance-fact"><span class="glance-fact-label">Headquarters</span><span class="glance-fact-value" id="caseHq"></span></div>
-          <div class="glance-fact"><span class="glance-fact-label">Engagement</span><span class="glance-fact-value" id="caseEngagement"></span></div>
+  <div class="case-main">
+    <div class="case-glance-grid">
+      <div class="company-card-col">
+        <div class="company-card">
+          <p id="caseCompanyDesc"></p>
+          <a class="company-visit" id="caseVisit" target="_blank" rel="noopener">Visit company<svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="glance-facts">
+            <div class="glance-fact"><span class="glance-fact-label">Industry</span><span class="glance-fact-value" id="caseIndustry"></span></div>
+            <div class="glance-fact"><span class="glance-fact-label">Headquarters</span><span class="glance-fact-value" id="caseHq"></span></div>
+            <div class="glance-fact"><span class="glance-fact-label">Engagement</span><span class="glance-fact-value" id="caseEngagement"></span></div>
+          </div>
         </div>
       </div>
-      <p class="case-pullquote" id="casePullQuote" style="margin-top:26px"></p>
+
+      <div class="glance-content case-block" id="section-glance">
+        <span class="case-block-label">At a glance</span>
+        <div class="pullquote-card">
+          <div class="pullquote-icon">
+            <svg width="18" height="18" viewBox="0 0 34 26" fill="none" aria-hidden="true"><path d="M0 26V15.6C0 6.2 5.9 1 14.6 0l1.1 4.4C10 5.6 6.9 8.7 6.5 13.4h7.3V26H0zm18.4 0V15.6C18.4 6.2 24.3 1 33 0l1.1 4.4c-5.7 1.2-8.8 4.3-9.2 9h7.3V26H18.4z" fill="var(--nx-paper)"/></svg>
+          </div>
+          <div class="pullquote-body">
+            <p class="case-pullquote" id="casePullQuote"></p>
+            <p class="pullquote-attribution" id="casePullQuoteAttribution"></p>
+          </div>
+        </div>
+        <div class="impact-highlights" id="caseImpactHighlights"></div>
+        <div id="caseImpactVisual"></div>
+      </div>
     </div>
 
     <div class="case-block problem-block" id="section-problem">
       <span class="case-block-label">The problem</span>
-      <p id="caseProblem"></p>
+      <div id="caseProblem"></div>
     </div>
+
+    <div id="caseTeamVisual"></div>
 
     <div id="caseUseCases"></div>
 
     <div class="case-block" id="section-impact">
       <span class="case-block-label">Impact</span>
       <h2 id="caseImpactHeadline" style="margin:0 0 12px;font:900 clamp(22px,2.8vw,30px)/1.2 var(--nx-font-display)"></h2>
-      <p id="caseImpactBody" style="margin:0;color:var(--nx-ink-soft);font:400 16px/1.6 var(--nx-font-text)"></p>
+      <div class="impact-body" id="caseImpactBody"></div>
     </div>
   </div>
 </div>
@@ -298,8 +348,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="footer-grid">
     <div class="footer-brand">
       <a href="index.html" class="logo">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#ffffff" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-cyan)" stroke-width="2.5" stroke-linecap="round"/></svg>
-        <span>Munap</span>
+        <img src="images/muvap-logo.webp" alt="Muvap" style="height:24px;width:auto;display:block">
       </a>
       <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
       <div class="footer-socials">
@@ -331,7 +380,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Munap. All rights reserved.</span>
+    <span>© 2026 Muvap. All rights reserved.</span>
     <span>Built with GTM systems that work.</span>
   </div>
 </footer>
@@ -346,10 +395,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 // card with description + visit link, pull quote, problem, use cases, impact.
 function pendingCase(letter, tone, tonePale) {
   return {
+    pending: true,
     company: `Client ${letter}`, initial: letter, tone, tonePale,
-    headline: 'How this client used Munap to fix their GTM system.',
-    pullQuote: 'The pull quote lands here once the engagement wraps and the client signs off.',
-    companyDesc: 'A short description of the company, what they do and why they came to Munap, goes here once this case study is published.',
+    headline: 'How this client used Muvap to fix their GTM system.',
+    pullQuotePending: true,
+    companyDescPending: true,
     website: '',
     industry: 'Coming soon', hq: 'Coming soon', engagement: 'Coming soon',
     problem: 'This section will describe the situation before the engagement started: the stack, the gap, the cost of leaving it unfixed.',
@@ -359,19 +409,133 @@ function pendingCase(letter, tone, tonePale) {
       { label: 'Metric 3', tone: 'var(--nx-pink)' },
     ],
     useCases: [
-      { n: '01', tone: 'var(--nx-mint)', tonePale: 'var(--nx-mint-pale)', title: 'Use case 1, coming soon', body: 'A walkthrough of what was built and why.', quote: 'Client quote coming soon' },
-      { n: '02', tone: 'var(--nx-cyan)', tonePale: 'var(--nx-cyan-pale)', title: 'Use case 2, coming soon', body: 'A walkthrough of what was built and why.', quote: 'Client quote coming soon' },
-      { n: '03', tone: 'var(--nx-pink)', tonePale: 'var(--nx-pink-pale)', title: 'Use case 3, coming soon', body: 'A walkthrough of what was built and why.', quote: 'Client quote coming soon' },
+      { n: '01', tone: 'var(--nx-mint)', tonePale: 'var(--nx-mint-pale)', title: 'Use case 1, coming soon', body: 'A walkthrough of what was built and why.', quotePending: true },
+      { n: '02', tone: 'var(--nx-cyan)', tonePale: 'var(--nx-cyan-pale)', title: 'Use case 2, coming soon', body: 'A walkthrough of what was built and why.', quotePending: true },
+      { n: '03', tone: 'var(--nx-pink)', tonePale: 'var(--nx-pink-pale)', title: 'Use case 3, coming soon', body: 'A walkthrough of what was built and why.', quotePending: true },
     ],
     impactHeadline: 'The impact, once we can share it.',
     impactBody: 'This section will describe the outcome in the client\'s own numbers, once the case study is published with their sign-off.',
   };
 }
 
+const MEDLIFE = {
+  pending: false,
+  company: 'MEDLIFE', initial: 'M', tone: 'var(--nx-mint)', tonePale: 'var(--nx-mint-pale)',
+  headline: "How MEDLIFE built its first reliable revenue funnel on HubSpot",
+  pullQuotePending: true,
+  companyDescPending: false,
+  companyDesc: 'MEDLIFE is a global movement with more than two decades on the ground in Latin America and Africa, delivering mobile clinics, education and community development to the people who need it most. Its network spans 400+ chapters at universities and high schools across the US, Canada, Puerto Rico and beyond, mobilizing an army of 20,000+ students behind the mission.',
+  website: 'https://www.medlifemovement.org/',
+  heroImg: 'images/medlife-hero-kids.webp',
+  sidebarImg: 'images/medlife-sidebar-logo.webp',
+  teamImg: 'images/medlife-chapters-banner.webp',
+  impactImg: 'images/medlife-team-visual.webp',
+  badgeImg: 'images/medlife-badge-mini.webp',
+  industry: 'Nonprofit · Global Health & Education', hq: 'Zephyrhills, FL',
+  engagement: 'CRM architecture, lead scoring and routing, data governance, revenue reporting, automation and AI agents',
+  problem: [
+    "MEDLIFE had the tools but not the structure. Lifecycle and lead stages meant different things depending on who you asked, so marketing, sales and customer service each produced numbers that told a different story. Leadership could see activity, but not how leads actually moved from first touch to revenue.",
+    "Sales worked every lead the same way, regardless of fit or intent, which meant the best opportunities waited in the same queue as the weakest ones. Meanwhile the CRM kept growing without rules: new properties appeared whenever someone needed one, duplicates piled up, and reporting became harder to defend with every quarter.",
+    "On top of that, research, CRM maintenance and content production were fully manual, eating hours that the team needed for higher leverage work.",
+  ],
+  metrics: [
+    { value: 95, suffix: '%', label: 'fewer duplicate and stale CRM fields', tone: 'var(--nx-mint)' },
+    { value: 6, suffix: ' headcount', label: 'worth of work absorbed by AI agents', tone: 'var(--nx-cyan)' },
+    { value: 23, suffix: '%', label: 'lift in sales conversion from lead scoring', tone: 'var(--nx-pink)' },
+  ],
+  useCases: [
+    { n: '01', tone: 'var(--nx-mint)', tonePale: 'var(--nx-mint-pale)', img: 'images/medlife-uc1-lifecycle.webp', title: 'One lifecycle model for marketing, sales and service', body: [
+        "I led the redesign of lifecycle and lead stages and aligned leadership on a single shared definition of each one. Stage progression was automated through workflows, so records moved based on real behavior instead of manual updates. I also standardized UTM governance company wide, which meant every source feeding the funnel was tagged the same way from day one.",
+        "For the first time, marketing, sales and service were measuring the same journey, and leadership got funnel dashboards that simply had not existed before.",
+      ], quotePending: true },
+    { n: '02', tone: 'var(--nx-cyan)', tonePale: 'var(--nx-cyan-pale)', img: 'images/medlife-uc2-scoring.webp', title: 'Turning the ICP into scoring, segments and routing', body: [
+        "I defined MEDLIFE's ideal customer profile with the team and translated it into working systems: strategic HubSpot segments that drove list building, campaign targeting and retargeting from one shared definition of who was worth pursuing.",
+        "On top of those segments I built engagement and fit based lead scoring with medium, high and critical priority tiers. Scoring reordered the sales work queue, fed segmented nurturing programs and triggered automated outreach and follow up designed together with sales leadership. Routing rules then assigned each record to the right rep the moment it entered the CRM, so no lead sat unowned.",
+        "The result was a 23% lift in sales conversion, driven by reps spending their time on the right opportunities.",
+      ] },
+    { n: '03', tone: 'var(--nx-pink)', tonePale: 'var(--nx-pink-pale)', img: 'images/medlife-uc3-governance.webp', title: 'Data governance that actually stuck', body: [
+        "I authored and rolled out a data governance plan that defined which properties matter, who owns them, who can create new ones and how they get approved. Weekly data audits kept the plan alive after launch instead of letting it become a document nobody read.",
+        "Duplicate and stale fields dropped by 95%, and reporting became something the team could defend in a leadership meeting.",
+      ] },
+    { n: '04', tone: 'var(--nx-purple)', tonePale: 'var(--nx-purple-pale)', img: 'images/medlife-uc4-reporting.webp', title: 'Revenue reporting beyond the CRM', body: [
+        "HubSpot showed what happened inside the CRM, but not what happened before a lead got there. I audited, planned and built end to end revenue reporting across Google Analytics, Looker Studio and Power BI, extending visibility into web and cross channel performance.",
+        "With lifecycle stages and campaigns properly structured, I activated HubSpot marketing attribution, giving marketing its first clear view of which channels actually sourced revenue and a basis to reallocate budget.",
+      ] },
+    { n: '05', tone: 'var(--nx-yellow)', tonePale: 'var(--nx-yellow-pale)', img: 'images/medlife-uc5-ai-agents.webp', title: 'AI agents and automation', body: [
+        "I built AI agents for research, CRM auditing and content production across the website and social channels, absorbing work equivalent to 6 headcount. Alongside them, I shipped n8n automations connecting DocuSign, Stripe, Claude and ChatGPT to contracting, billing and revenue workflows, and set up webhook enrichment through Clay and Databar so reps had firmographic context before their first touch.",
+      ], quotePending: true },
+  ],
+  impactHeadline: "Impact on MEDLIFE's revenue operations",
+  impactIntro: "The rebuild delivered three core benefits:",
+  impactList: [
+    "A funnel leadership could trust: one lifecycle model, consistent UTMs and attribution meant every team reported on the same journey.",
+    "Sales focused on the right leads: scoring and routing lifted conversion by 23% and removed the guesswork from prioritization.",
+    "Capacity without new hires: governance, automation and AI agents took over work equivalent to 6 headcount.",
+  ],
+  impactClosing: "Just as important, I translated a large and feature dense HubSpot instance into business language through enablement material and direct conversations, so the people making decisions about the CRM understood the tradeoffs. That is what made the new standards stick after the project ended.",
+};
+
+const CLOUDTASK = {
+  pending: false,
+  company: 'CloudTask', initial: 'C', tone: 'var(--nx-cyan)', tonePale: 'var(--nx-cyan-pale)',
+  headline: "How CloudTask turned HubSpot into the revenue engine of a two sided talent marketplace",
+  pullQuotePending: true,
+  companyDescPending: false,
+  companyDesc: 'CloudTask has spent over a decade placing top GTM talent inside B2B and SaaS companies across the US, matching them with vetted sales, marketing, customer success and support specialists. Built without outside investors, it now runs a delivery footprint spanning Latin America, London and the Philippines, backed by high ratings on G2 and TrustRadius.',
+  website: 'https://www.cloudtask.com/',
+  heroImg: 'images/cloudtask-hero.webp',
+  sidebarImg: 'images/cloudtask-sidebar-logo.webp',
+  teamImg: 'images/cloudtask-team-visual.webp',
+  impactImg: 'images/cloudtask-impact-visual.webp',
+  badgeImg: 'images/cloudtask-badge-mini.webp',
+  industry: 'B2B RevOps Talent Marketplace', hq: 'Miami Beach, FL',
+  engagement: 'Pipeline architecture, custom objects, integrations, lead intake and enrichment, outbound, AI agents, reporting and answer engine optimization',
+  problem: [
+    "Sales was working cold leads inside deal records. Because every lead entered the deal pipeline directly, pipeline numbers were inflated, top of funnel reporting was unreliable, and reps had no real prospecting workspace.",
+    "Lead intake was just as messy. Seven inbound and outbound sources each sent a different data payload, so records arrived incomplete and inconsistent. Candidate profiles, the other half of the business, were created in the marketplace backend and never reached the CRM without someone typing them in by hand.",
+    "And a meaningful share of pipeline showed up as \"direct traffic,\" a channel nobody could explain or influence.",
+  ],
+  metrics: [
+    { value: 350, suffix: '%', label: 'more scheduled meetings from outbound', tone: 'var(--nx-mint)' },
+    { value: 35, suffix: '%', label: 'lift in outbound conversion from buying signals', tone: 'var(--nx-cyan)' },
+    { value: 100000, suffix: '+', label: 'legacy leads unstuck and reorganized', tone: 'var(--nx-pink)' },
+  ],
+  useCases: [
+    { n: '01', tone: 'var(--nx-mint)', tonePale: 'var(--nx-mint-pale)', img: 'images/cloudtask-uc1-pipeline.webp', title: 'A pipeline architecture built for how CloudTask sells', body: [
+        "I built the lead object from scratch and separated prospecting from deal management, giving sales a pipeline they could actually use. Over 100,000 legacy leads were reviewed, reclassified and moved into the new structure. Lifecycle stages were redesigned with leadership and stage progression was automated, enabling reliable top of funnel reporting for the first time.",
+      ] },
+    { n: '02', tone: 'var(--nx-cyan)', tonePale: 'var(--nx-cyan-pale)', img: 'images/cloudtask-uc2-crm.webp', title: 'One CRM for both sides of the marketplace', body: [
+        "To bring candidates into HubSpot, I designed a custom talent matching object with its own pipelines, stages, scoring, automation and dashboards. Then I built an API and webhook integration between the marketplace backend and HubSpot that created and synced each candidate record on signup and profile update, in real time.",
+        "That removed manual entry of 2,500+ records per month and turned HubSpot into a measurable recruiting engine alongside the revenue one.",
+      ], quotePending: true },
+    { n: '03', tone: 'var(--nx-pink)', tonePale: 'var(--nx-pink-pale)', img: 'images/cloudtask-uc3-intake.webp', title: 'Clean intake from seven sources', body: [
+        "Leads came from Meta Ads, Google Ads, Smartlead, Amplemarket, Clay, Aimfox and Apollo, each with its own format. I consolidated all of them through cleansing and classification workflows applied at the point of entry, and deployed 15+ normalization automations that kept records complete as volume grew. I also audited and maintained every integration in the stack to protect data integrity over time.",
+      ] },
+    { n: '04', tone: 'var(--nx-purple)', tonePale: 'var(--nx-purple-pale)', img: 'images/cloudtask-uc4-outbound.webp', title: 'Outbound powered by segments and buying signals', body: [
+        "I defined the ICP and made segmentation the backbone of outbound: the same criteria fed Clay and Amplemarket list building, lead scoring and reporting, so prospecting, nurturing and pipeline analysis all measured the same audience.",
+        "On top of that I layered buying signals that alerted sales the moment a client account opened a new role, the highest intent trigger in a talent marketplace. Signals lifted outbound conversion by 35%, and multichannel outbound across Clay, Amplemarket, Apollo, Smartlead and Aimfox increased scheduled meetings by 350%.",
+      ] },
+    { n: '05', tone: 'var(--nx-yellow)', tonePale: 'var(--nx-yellow-pale)', img: 'images/cloudtask-uc5-ai-agents.webp', title: 'AI agents for speed to lead', body: [
+        "I deployed a HubSpot AI customer agent across WhatsApp, live chat and email that holds natural language conversations, qualifies prospects and books meetings autonomously. Speed to lead improved substantially (exact figures pending), and a 3 person SDR team could cover hundreds of daily leads that were previously going untouched. AI sales assistants pushed lead summaries to Slack, so reps had full context before every call.",
+      ] },
+    { n: '06', tone: 'var(--nx-mint)', tonePale: 'var(--nx-mint-pale)', img: 'images/cloudtask-uc6-reporting.webp', title: 'Reporting and answer engine optimization', body: [
+        "I designed 80+ reports and 15 dashboards covering CRM health and performance across marketing, sales, customer service and recruiting, which became the single source of truth for leadership revenue reviews.",
+        "While analyzing attribution, I traced 30% of pipeline labeled as direct traffic back to ChatGPT and Perplexity. Buyers asking which GTM talent marketplace was best were being served CloudTask thanks to its topical authority. After certifying in HubSpot AEO Fundamentals and Implementation, I built the company's first answer engine strategy, turning an invisible channel into a tracked and deliberately shaped one.",
+      ] },
+  ],
+  impactHeadline: "Impact on CloudTask's GTM operations",
+  impactList: [
+    "A pipeline that reflects reality: separating leads from deals and cleaning 100,000+ legacy records made reporting accurate from the top of the funnel down.",
+    "Both sides of the marketplace in one system: the custom object and backend sync put candidates and clients in the same CRM with no manual entry.",
+    "More pipeline from the same team: segments, signals and AI agents produced 350% more meetings and a 35% lift in outbound conversion.",
+  ],
+  impactClosing: "CloudTask now runs prospecting, recruiting and revenue reporting from HubSpot, with data the team trusts and channels, including AI answer engines, that it can measure and grow.",
+};
+
 const DATA = {
-  '1': pendingCase('A', 'var(--nx-mint)', 'var(--nx-mint-pale)'),
-  '2': pendingCase('B', 'var(--nx-cyan)', 'var(--nx-cyan-pale)'),
-  '3': pendingCase('C', 'var(--nx-pink)', 'var(--nx-pink-pale)'),
+  '1': MEDLIFE,
+  '2': CLOUDTASK,
+  '3': pendingCase('X', 'var(--nx-pink)', 'var(--nx-pink-pale)'),
 };
 
 function getSlug() {
@@ -381,50 +545,145 @@ function getSlug() {
 
 const data = DATA[getSlug()] || DATA['1'];
 
-document.title = `${data.company} case study · Munap`;
-document.getElementById('caseBadge').textContent = data.initial;
-document.getElementById('caseBadge').style.background = data.tone;
+function paragraphs(val) {
+  const arr = Array.isArray(val) ? val : [val];
+  return arr.map(p => `<p>${p}</p>`).join('');
+}
+
+document.title = `${data.company} case study · Muvap`;
+if (data.badgeImg) {
+  document.getElementById('caseBadge').innerHTML = `<img src="${data.badgeImg}" alt="${data.company} logo" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`;
+  document.getElementById('caseBadge').style.background = 'var(--nx-paper)';
+} else {
+  document.getElementById('caseBadge').textContent = data.initial;
+  document.getElementById('caseBadge').style.background = data.tone;
+}
 document.getElementById('caseCompany').textContent = data.company;
 document.getElementById('caseTitle').textContent = data.headline;
-document.getElementById('casePullQuote').textContent = `"${data.pullQuote}"`;
-document.getElementById('caseCompanyDesc').textContent = data.companyDesc;
+
+const pullQuoteEl = document.getElementById('casePullQuote');
+if (data.pullQuotePending) {
+  pullQuoteEl.textContent = 'Client quote pending — landing here once the engagement wraps and the client signs off.';
+  pullQuoteEl.classList.add('is-pending');
+} else {
+  pullQuoteEl.textContent = `"${data.pullQuote}"`;
+  pullQuoteEl.classList.remove('is-pending');
+}
+document.getElementById('casePullQuoteAttribution').textContent = (!data.pullQuotePending && data.pullQuoteAttribution) ? data.pullQuoteAttribution : '';
+
+const highlightsEl = document.getElementById('caseImpactHighlights');
+if (data.impactList) {
+  highlightsEl.innerHTML = `<span class="impact-highlights-label">Impact highlights:</span><ul class="impact-list">${data.impactList.map(li => `<li>${li}</li>`).join('')}</ul>`;
+}
+
+const companyDescEl = document.getElementById('caseCompanyDesc');
+if (data.companyDescPending) {
+  companyDescEl.textContent = 'Company description pending.';
+} else {
+  companyDescEl.textContent = data.companyDesc;
+}
+
 document.getElementById('caseIndustry').textContent = data.industry;
 document.getElementById('caseHq').textContent = data.hq;
 document.getElementById('caseEngagement').textContent = data.engagement;
-document.getElementById('caseProblem').textContent = data.problem;
+document.getElementById('caseProblem').innerHTML = paragraphs(data.problem);
 
 const visitLink = document.getElementById('caseVisit');
 if (data.website) { visitLink.href = data.website; } else { visitLink.style.display = 'none'; }
 
-document.getElementById('caseHeroVisual').innerHTML = `
+document.getElementById('caseHeroVisual').innerHTML = data.heroImg ? `
+  <img src="${data.heroImg}" alt="${data.company}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">
+` : `
   <div style="width:100%;height:100%;border-radius:inherit;background:${data.tonePale};display:flex;align-items:center;justify-content:center">
     <svg width="64" height="64" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="${data.tone}" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-ink)" stroke-width="2.5" stroke-linecap="round"/></svg>
   </div>
 `;
+document.getElementById('caseSidebarVisual').innerHTML = data.sidebarImg ? `
+  <div style="width:100%;height:100%;border-radius:inherit;overflow:hidden">
+    <img src="${data.sidebarImg}" alt="${data.company} logo" style="width:100%;height:100%;object-fit:cover;display:block">
+  </div>
+` : `
+  <div style="width:100%;height:100%;border-radius:inherit;background:${data.tonePale};display:flex;align-items:center;justify-content:center">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="${data.tone}" stroke-width="2.5"/><path d="M12 3a9 9 0 0 1 0 18" stroke="var(--nx-ink)" stroke-width="2.5" stroke-linecap="round"/></svg>
+  </div>
+`;
+
+document.getElementById('caseTeamVisual').innerHTML = data.teamImg
+  ? `<div class="case-photo"><img src="${data.teamImg}" alt="${data.company} team" loading="lazy"></div>`
+  : '';
+
+document.getElementById('caseImpactVisual').innerHTML = data.impactImg
+  ? `<div class="case-photo" style="margin-top:22px"><img src="${data.impactImg}" alt="${data.company}" loading="lazy"></div>`
+  : '';
 
 document.getElementById('caseMetrics').innerHTML = data.metrics.map(m => `
   <div class="case-impact-tile">
-    <span class="case-impact-value nx-skeleton is-dark" style="display:inline-block;width:56px;height:.85em" aria-label="Number coming soon"></span>
+    ${typeof m.value === 'number'
+      ? `<span class="case-impact-value" data-count-to="${m.value}" data-count-suffix="${m.suffix || ''}"></span>`
+      : `<span class="case-impact-value nx-skeleton is-dark" style="display:inline-block;width:56px;height:.85em" aria-label="Number coming soon"></span>`}
     <span class="case-impact-label">${m.label}</span>
   </div>
 `).join('');
 
-document.getElementById('caseUseCases').innerHTML = data.useCases.map((u, i) => `
+document.getElementById('caseUseCases').innerHTML = data.useCases.map((u, i) => {
+  let quoteHtml = '';
+  if (u.quotePending) {
+    quoteHtml = `<p class="usecase-quote is-pending" style="border-left:3px solid #ccc">Client quote pending.</p>`;
+  } else if (u.quote) {
+    quoteHtml = `<p class="usecase-quote" style="border-left:3px solid ${u.tone}">"${u.quote}"</p>`;
+  }
+  return `
   <div class="case-block usecase" id="section-usecase-${i}">
     <div>
       <span class="usecase-tag" style="color:${u.tone}">Use case ${u.n}</span>
       <h3>${u.title}</h3>
-      <p class="usecase-body">${u.body}</p>
-      <p class="usecase-quote" style="border-left:3px solid ${u.tone}">"${u.quote}"</p>
+      <div class="usecase-body">${paragraphs(u.body)}</div>
+      ${quoteHtml}
     </div>
     <div class="usecase-visual" style="background:${u.tonePale};border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-md);display:flex;align-items:center;justify-content:center">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5z" stroke="${u.tone}" stroke-width="2" stroke-linejoin="round"/><path d="M3 13l9 5 9-5" stroke="${u.tone}" stroke-width="2" stroke-linejoin="round" fill="none"/></svg>
+      ${u.img
+        ? `<img src="${u.img}" alt="${u.title}" loading="lazy">`
+        : `<svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5z" stroke="${u.tone}" stroke-width="2" stroke-linejoin="round"/><path d="M3 13l9 5 9-5" stroke="${u.tone}" stroke-width="2" stroke-linejoin="round" fill="none"/></svg>`}
     </div>
   </div>
-`).join('');
+`;
+}).join('');
 
 document.getElementById('caseImpactHeadline').textContent = data.impactHeadline;
-document.getElementById('caseImpactBody').textContent = data.impactBody;
+if (data.impactList) {
+  document.getElementById('caseImpactBody').innerHTML =
+    (data.impactIntro ? `<p>${data.impactIntro}</p>` : '') +
+    `<ol class="impact-list">${data.impactList.map(li => `<li>${li}</li>`).join('')}</ol>` +
+    (data.impactClosing ? `<p>${data.impactClosing}</p>` : '');
+} else {
+  document.getElementById('caseImpactBody').innerHTML = `<p>${data.impactBody}</p>`;
+}
+
+// Real cases are indexable; placeholder slots stay noindex so Google
+// never sees three near-duplicate "coming soon" pages.
+if (data.pending) {
+  const robotsMeta = document.createElement('meta');
+  robotsMeta.setAttribute('name', 'robots');
+  robotsMeta.setAttribute('content', 'noindex,follow');
+  document.head.appendChild(robotsMeta);
+} else {
+  document.getElementById('metaDescription').setAttribute('content', data.headline);
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: data.headline,
+    description: data.headline,
+    about: { '@type': 'Organization', name: data.company, ...(data.website ? { url: data.website } : {}) },
+    author: { '@type': 'Organization', name: 'Muvap', url: 'https://davidbervic.com/' },
+    publisher: { '@type': 'Organization', name: 'Muvap', url: 'https://davidbervic.com/' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': window.location.href },
+  };
+  const schemaTag = document.createElement('script');
+  schemaTag.type = 'application/ld+json';
+  schemaTag.textContent = JSON.stringify(schema);
+  document.head.appendChild(schemaTag);
+}
 
 // Sticky table of contents with scrollspy, Clay-template style.
 const tocSections = [

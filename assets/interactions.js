@@ -1,4 +1,4 @@
-/* Munap shared "wow" interaction layer.
+/* Muvap shared "wow" interaction layer.
    Loaded on every page via <script src="assets/interactions.js" defer></script>.
    Injects shared skeleton/shimmer styles once, then wires up magnetic buttons
    and a subtle grid-parallax on blue/grid sections. Safe no-ops if the page
@@ -81,14 +81,14 @@
         var el = entry.target;
         var to = parseFloat(el.getAttribute('data-count-to'));
         var suffix = el.getAttribute('data-count-suffix') || '';
-        if (reduceMotion) { el.textContent = to + suffix; return; }
+        if (reduceMotion) { el.textContent = to.toLocaleString('en-US') + suffix; return; }
         var start = null;
         var duration = 1200;
         function step(ts) {
           if (!start) start = ts;
           var progress = Math.min(1, (ts - start) / duration);
           var eased = 1 - Math.pow(1 - progress, 3);
-          el.textContent = Math.round(eased * to) + suffix;
+          el.textContent = Math.round(eased * to).toLocaleString('en-US') + suffix;
           if (progress < 1) requestAnimationFrame(step);
         }
         requestAnimationFrame(step);

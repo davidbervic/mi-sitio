@@ -17,7 +17,7 @@
     { href: 'clearbit-vs-zoominfo-vs-apollo-enrichment-provider-comparison.html', title: 'Clearbit vs ZoomInfo vs Apollo: Which Enrichment Provider Should Anchor Your Data Stack?', category: 'Data & Reporting', tags: ['enrichment', 'data-vendor-comparison', 'waterfall', 'crm-integration', 'zoominfo', 'apollo', 'clearbit', 'vendor-comparison'] },
   ];
 
-  window.MUNAP_ARTICLES = ARTICLES;
+  window.MUVAP_ARTICLES = ARTICLES;
 
   function currentSlug() {
     var path = window.location.pathname.split('/').pop();
