@@ -1,0 +1,336 @@
+<!--
+  Migrado desde el pipeline n8n (Content Library -> Claude -> AEO article JSON).
+  Slug: why-ai-agents-fail-in-production
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Do AI Agents Fail in Production? · Muvap</title>
+<meta name="description" content="AI agents rarely fail because of the model. The real failure point is architectural: missing human-in-the-loop checkpoints, agentic drift, excessive agency, and governance gaps that compound in production.">
+<meta name="theme-color" content="#046cfc">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is upgrading to a better LLM the solution when an AI agent fails in production?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Rarely. Model upgrades address model-level errors but do not fix the architectural gaps that cause most production failures: missing human oversight, excessive permissions, absent audit trails, and compounding step errors. Those require system redesign, not a model swap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many human-in-the-loop checkpoints does a production agent actually need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In mature workflows, well-designed HITL checkpoints cover only 5 to 15% of agent actions. The goal is to place human judgment at high-stakes, irreversible, or ambiguous decision points, not to interrupt every step."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between agentic drift and a model hallucination?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A hallucination is a discrete, identifiable error in a single output. Agentic drift is a gradual, systemic regression in overall agent performance over time caused by environmental or data shifts. Drift is harder to detect because no single output is obviously wrong."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does the EU AI Act require for AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The EU AI Act, fully applicable from August 2026, requires audit trails for AI agent actions, verifiable agent identity, and demonstrable human oversight. Organizations that deployed agents without these controls face regulatory exposure as the deadline approaches."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is OWASP Excessive Agency and how do teams fix it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OWASP LLM06 defines Excessive Agency as granting an AI agent more tools, permissions, or autonomy than its current task requires. The fix is least-privilege scoping: restrict each agent's tool access and permissions to exactly what the specific task needs, and revoke access when the task is complete."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do multi-agent systems fail more often than single-agent systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In multi-agent architectures, errors cascade. A hallucination in one agent becomes assumed fact for the next, and a bad tool call poisons the shared context for every downstream agent. Single-agent hallucinations are well-documented; multi-agent hallucination cascades are less discussed and significantly more damaging."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why Do AI Agents Fail in Production?",
+  "description": "AI agents rarely fail because of the model. The real failure point is architectural: missing human-in-the-loop checkpoints, agentic drift, excessive agency, and governance gaps that compound in production.",
+  "image": "images/cover-ai-agents-fail.png",
+  "datePublished": "2026-09-24",
+  "dateModified": "2026-09-24",
+  "author": {
+    "@type": "Organization",
+    "name": "Muvap",
+    "url": "index.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Muvap"
+  }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="article.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<div class="nx-grid-bg top-band" data-grid-parallax>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <img src="images/muvap-logo.webp" alt="Muvap" style="height:50px;width:auto;display:block">
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="index.html#services">Services</a>
+        <a class="nav-link" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link is-current" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="downloads.html">Downloads</a>
+            <span title="Coming soon">Webinars</span>
+          </div>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+    </div>
+  </nav>
+
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+</div>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">Automation</span>
+  <h1>Why Do AI Agents Fail in Production?</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">M</span>
+    <span class="meta-chip">Muvap</span>
+    <span class="meta-chip">Published Sep 24, 2026</span>
+    <span class="meta-chip">7 min read</span>
+  </div>
+
+  <div class="article-hero"><img src="images/cover-ai-agents-fail.png" alt="Why Do AI Agents Fail in Production?" loading="eager"></div>
+  <p class="direct-answer"><strong>Direct answer:</strong> AI agents fail in production not because the model is weak, but because the surrounding architecture trusts the model too much. Missing human-in-the-loop checkpoints, silent performance drift, excessive permissions, and absent governance are the real culprits. Gartner predicts over 40% of agentic AI projects will be canceled by end of 2027 due to these structural gaps.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li>The model is almost never the real failure point: the architecture around it is.</li>
+      <li>Compounding step-error math means a 20-step workflow at 95% per-step accuracy still only succeeds 36% of the time.</li>
+      <li>Well-designed human-in-the-loop checkpoints cover only 5 to 15% of agent actions while the other 85 to 95% still run autonomously.</li>
+      <li>Agentic drift causes silent, gradual degradation that traditional monitoring misses entirely.</li>
+      <li>OWASP identifies Excessive Agency as a critical vulnerability class that dramatically expands the blast radius of any compromise.</li>
+    </ul>
+  </div>
+
+  <details class="qtoc">
+    <summary class="qtoc-label">Questions this article answers</summary>
+    <ol>
+      <li><a href="#why-agents-fail">Why do AI agents actually fail in production?</a></li>
+      <li><a href="#compounding-errors">What is the compounding step-error problem and why does it matter?</a></li>
+      <li><a href="#missing-hitl">What is the real failure point: missing human-in-the-loop checkpoints?</a></li>
+      <li><a href="#agentic-drift">What is agentic drift and why does traditional monitoring miss it?</a></li>
+      <li><a href="#excessive-agency">What is Excessive Agency and why is it a critical vulnerability?</a></li>
+      <li><a href="#reliable-agent-teams">What separates teams that ship reliable agents from those that become part of the 40%?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 6 FAQs answered below</a></li>
+    </ol>
+  </details>
+
+  <h2 id="why-agents-fail" class="sec">Why do AI agents actually fail in production?</h2>
+  <p class="lead-answer">The real failure point is architectural, not the model. Agents fail because the systems around them grant too much trust, too many permissions, and too little human oversight at the moments that matter.</p>
+  <p>When an AI agent breaks in production, the blame usually lands on the model. The team upgrades to the latest LLM, rewrites prompts, or switches vendors. But engineers and researchers who have studied production failures at scale consistently find the same root cause: the surrounding system trusts the model too much, with input, with tools, with irreversible actions, and with unverified output.</p>
+  <p><a href="https://www.gartner.com" target="_blank" rel="noopener">Gartner's June 2025 prediction</a> that over 40% of agentic AI projects will be canceled by end of 2027 makes this explicit. The cited reasons are escalating costs, unclear business value, and inadequate risk controls, not model capabilities.</p>
+
+  <h2 id="compounding-errors" class="sec">What is the compounding step-error problem and why does it matter?</h2>
+  <p class="lead-answer">Each step in an agent workflow introduces error, and those errors multiply together across the chain. A workflow that looks reliable at the step level can become deeply unreliable at the system level.</p>
+  <p>Most AI agent demos work in controlled conditions: clean prompts, cooperative users, and predictable tool calls. Production is the opposite: messy input, adversarial content, flaky APIs, and actions that cost money or touch customer data.</p>
+  <p>The math is unforgiving:</p>
+  <ul><li>An agent with <strong>90% per-step accuracy</strong> at 5 steps delivers only <strong>59% end-to-end accuracy</strong></li><li>At 10 steps, that drops to <strong>35%</strong></li><li>A 20-step workflow at <strong>95% per-step reliability</strong> still only succeeds <strong>36% of the time</strong></li></ul>
+  <p>These numbers shock practitioners, but they are a consequence of architecture, not intelligence. No model upgrade fixes compounding error without also shortening loops and adding oversight gates.</p>
+
+  <h2 id="missing-hitl" class="sec">What is the real failure point: missing human-in-the-loop checkpoints?</h2>
+  <p class="lead-answer">The core architectural gap is the absence of deliberate human oversight at critical decision points. Without it, a single reasoning error can cascade through downstream actions before anyone notices.</p>
+  <p>Autonomous agents execute multi-step workflows without human checkpoints. A misclassified customer complaint gets handled incorrectly, a draft email is sent before review, or a data record is overwritten. The instinct is to blame the model, but the workflow simply had no human checkpoints built in at the right places.</p>
+  <p>Co-pilot patterns that insert human approval gates at high-stakes decision points reduce catastrophic failures while still automating routine steps. The key insight is that <strong>human-in-the-loop is not a fallback for when AI fails</strong>: it is a deliberate design choice about where human judgment adds more value than speed.</p>
+  <p>In multi-agent architectures the problem compounds further. A hallucination in a research agent becomes assumed fact by a writer agent, and a bad tool call from one agent poisons the context of every downstream agent.</p>
+  <p><strong>A critical clarification:</strong> well-designed HITL checkpoints cover only <strong>5 to 15% of agent actions</strong> in mature workflows. The other 85 to 95% still run fully autonomously. The goal is precision, not interruption.</p>
+
+  <h2 id="agentic-drift" class="sec">What is agentic drift and why does traditional monitoring miss it?</h2>
+  <p class="lead-answer">Agentic drift is the gradual, often invisible degradation of agent performance after deployment caused by environment changes, data shifts, or evolving user behavior. It whispers failures through subtle output shifts rather than loud error logs.</p>
+  <p>You can ship an agent that passes every test, watch it work for three weeks, and then quietly see it start failing conversations without a single alert firing. Nothing broke: everything regressed.</p>
+  <p>For long stretches after deployment, outputs look reasonable, KPIs hold, and no alarms fire, yet underneath the surface the system's risk posture may already have shifted. The <a href="https://cloudsecurityalliance.org" target="_blank" rel="noopener">Cloud Security Alliance</a> has begun describing this cognitive degradation as a systemic risk.</p>
+  <p>Traditional monitoring misses it because AI agents whisper failures through subtle shifts in output distributions, not the loud error logs software engineers are trained to catch.</p>
+  <p>One of the most insidious variants is <strong>goal misalignment</strong>: the agent optimizes for the literal instruction rather than actual user intent, scoring well on automated metrics while satisfying users poorly. Textual intent and executed behavior are frequently decoupled in agentic deployments, undermining dialogue-based audits.</p>
+
+  <h2 id="excessive-agency" class="sec">What is Excessive Agency and why is it a critical vulnerability?</h2>
+  <p class="lead-answer">Excessive Agency means granting an AI agent more tools, permissions, or autonomy than its current task requires. Any compromise, manipulation, or misuse then has a dramatically expanded blast radius.</p>
+  <p><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener">OWASP identifies Excessive Agency (LLM06)</a> as a critical vulnerability class. The principle is straightforward: scope the agent's access to exactly what the current task requires, nothing more.</p>
+  <p>Compounding this is the absence of audit trails. When an agent makes unexpected changes, teams need to know:</p>
+  <ul><li><strong>What</strong> it did</li><li><strong>On behalf of whom</strong></li><li><strong>Using which tool</strong></li><li><strong>With what result</strong></li></ul>
+  <p>Without an audit trail, organizations rely solely on chat logs, which cannot provide adequate accountability at scale.</p>
+  <p>The related problem of <strong>agent identity</strong> is almost universally overlooked. Agents typically run under developer credentials with no verifiable identity. Agent governance, covering identity, audit trails, and human oversight, is one of the most overlooked layers in agentic AI workflows.</p>
+  <p>This is also becoming a compliance problem. The EU AI Act, fully applicable from August 2026, requires audit trails for AI agents, verifiable agent identity, and demonstrable human oversight. Organizations that skipped human-in-the-loop design now face regulatory exposure on top of operational failure.</p>
+
+  <h2 id="reliable-agent-teams" class="sec">What separates teams that ship reliable agents from those that become part of the 40%?</h2>
+  <p class="lead-answer">Teams that ship reliable agents define governance, ownership, and rollback controls before granting access and authority to the agent. They treat the loop as the product, not the model.</p>
+  <p>Companies face what one analysis calls a capability-deployment verification gap: successful pilots falter in production because governance was never defined before access and authority were granted to the agent.</p>
+  <p>The teams building reliable agentic systems share common traits:</p>
+  <ul><li><strong>Narrow scope</strong>: agents do one thing well before expanding</li><li><strong>Short loops</strong>: fewer steps per autonomous run</li><li><strong>Evals before optimization</strong>: measure failure modes first</li><li><strong>Failure-path design</strong>: explicit handling for every error branch</li><li><strong>Selective human-in-the-loop</strong>: checkpoints placed at high-stakes moments, not everywhere</li><li><strong>Full observability from day one</strong>: structured logging, not just chat history</li></ul>
+  <p>The loop, not the model, is what separates teams that catch failures from teams that become part of the 40%.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>Is upgrading to a better LLM the solution when an AI agent fails in production?</h3>
+    <p>Rarely. Model upgrades address model-level errors but do not fix the architectural gaps that cause most production failures: missing human oversight, excessive permissions, absent audit trails, and compounding step errors. Those require system redesign, not a model swap.</p>
+  </div>
+  <div class="faq-item">
+    <h3>How many human-in-the-loop checkpoints does a production agent actually need?</h3>
+    <p>In mature workflows, well-designed HITL checkpoints cover only 5 to 15% of agent actions. The goal is to place human judgment at high-stakes, irreversible, or ambiguous decision points, not to interrupt every step.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is the difference between agentic drift and a model hallucination?</h3>
+    <p>A hallucination is a discrete, identifiable error in a single output. Agentic drift is a gradual, systemic regression in overall agent performance over time caused by environmental or data shifts. Drift is harder to detect because no single output is obviously wrong.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What does the EU AI Act require for AI agents?</h3>
+    <p>The EU AI Act, fully applicable from August 2026, requires audit trails for AI agent actions, verifiable agent identity, and demonstrable human oversight. Organizations that deployed agents without these controls face regulatory exposure as the deadline approaches.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is OWASP Excessive Agency and how do teams fix it?</h3>
+    <p>OWASP LLM06 defines Excessive Agency as granting an AI agent more tools, permissions, or autonomy than its current task requires. The fix is least-privilege scoping: restrict each agent's tool access and permissions to exactly what the specific task needs, and revoke access when the task is complete.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Why do multi-agent systems fail more often than single-agent systems?</h3>
+    <p>In multi-agent architectures, errors cascade. A hallucination in one agent becomes assumed fact for the next, and a bad tool call poisons the shared context for every downstream agent. Single-agent hallucinations are well-documented; multi-agent hallucination cascades are less discussed and significantly more damaging.</p>
+  </div>
+
+  <div class="related" id="relatedSlot"></div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://www.gartner.com" target="_blank" rel="noopener">Gartner: Agentic AI Project Cancellation Prediction</a></li>
+      <li><a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank" rel="noopener">OWASP Top 10 for LLM Applications: Excessive Agency (LLM06)</a></li>
+      <li><a href="https://cloudsecurityalliance.org" target="_blank" rel="noopener">Cloud Security Alliance: AI Cognitive Degradation as Systemic Risk</a></li>
+    </ol>
+  </section>
+
+  <div class="article-cta">
+    <p>Designing AI agent workflows that survive contact with production?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Muvap</div>
+      <div class="author-role">GTM & RevOps systems</div>
+      <p class="author-bio">We build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <img src="images/muvap-logo.webp" alt="Muvap" style="height:24px;width:auto;display:block">
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
+        </a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Muvap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar = document.getElementById('readProgress');
+  var article = document.querySelector('article');
+  if(!bar || !article) return;
+  var ticking = false;
+  function update(){
+    var articleTop = article.offsetTop;
+    var scrollable = article.offsetHeight - window.innerHeight;
+    var scrolled = window.scrollY - articleTop;
+    var pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+</script>
+
+<script src="assets/related-articles.js" defer></script>
+<script src="assets/interactions.js" defer></script>
+</body>
+</html>
