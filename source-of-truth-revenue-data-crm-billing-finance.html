@@ -1,0 +1,441 @@
+<!--
+  Convertido a HTML desde un borrador en Markdown (source of truth for revenue data).
+  Slug: source-of-truth-revenue-data-crm-billing-finance
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Source of Truth for Revenue Data: Who Owns What? · Muvap</title>
+<meta name="description" content="No single system is the source of truth for revenue. Assign ownership per element and metric across CRM, billing and finance, with a register.">
+<meta name="theme-color" content="#046cfc">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the data warehouse the source of truth for revenue?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not by itself. Sources disagree on the label: some name the warehouse or BI layer the source of truth, others treat the term as a synonym for system of record. A warehouse or semantic layer suits cross-system interpretation, such as ARR under a finance-approved definition, but it inherits upstream data quality and does not own invoices or recognized revenue. Capture, interpretation and reporting are three separate jobs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the CRM be the source of truth for revenue at an early-stage company?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, as a working source, when no billing system or ERP exists. This is a conditional recommendation: require validated fields at closed-won (signature, billing frequency, start and end dates) and reconcile to bank or accounting records on a regular schedule. Once billing and a ledger exist, move invoices and recognized revenue to them and keep the CRM for commitment data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a mismatch between CRM and finance mean someone made an error?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often not. The CRM, billing and finance each measure a different point in the revenue lifecycle, so each can be correct for its own layer. Check definitions and timing first: close date versus service start, amendments after close, and missing billing dates. A deal that cannot be traced across CRM, billing and cash records is different; treat it as a control gap."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who should approve the revenue number that goes to the board?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Finance owns the final revenue value and the board report. RevOps contributes definitions for operating metrics such as ARR, and finance signs off on them. Each number sent to the board needs a named approver and a written definition. ARR is a non-GAAP metric the company defines itself, so the approval step protects consistency over time."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Source of Truth for Revenue Data: Who Owns What Across CRM, Billing and Finance",
+  "description": "No single system is the source of truth for revenue. Assign ownership per element and metric across CRM, billing and finance, with a register.",
+  "image": "images/cover-source-of-truth-revenue-data.webp",
+  "datePublished": "2026-10-05",
+  "dateModified": "2026-10-05",
+  "author": {
+    "@type": "Organization",
+    "name": "Muvap",
+    "url": "index.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Muvap"
+  },
+  "keywords": [
+    "source of truth revenue data",
+    "system of record vs source of truth",
+    "CRM billing ERP ownership",
+    "ARR source of truth",
+    "revenue data ownership register",
+    "HubSpot Salesforce sync rules",
+    "CRM billing reconciliation",
+    "RevOps data governance"
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="article.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<div class="nx-grid-bg top-band" data-grid-parallax>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <img src="images/muvap-logo.webp" alt="Muvap" style="height:50px;width:auto;display:block">
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="index.html#services">Services</a>
+        <a class="nav-link" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link is-current" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="downloads.html">Downloads</a>
+            <span title="Coming soon">Webinars</span>
+          </div>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+    </div>
+  </nav>
+
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+</div>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">Data Governance</span>
+  <h1>Source of Truth for Revenue Data: Who Owns What Across CRM, Billing and Finance</h1>
+  <div class="article-meta">
+  <span class="meta-avatar">M</span>
+  <span class="meta-chip">Muvap</span>
+  <span class="meta-chip">Published Oct 5, 2026</span>
+  <span class="meta-chip">Updated Oct 5, 2026</span>
+  <span class="meta-chip">14 min read</span>
+  </div>
+  <div class="article-hero"><img src="images/cover-source-of-truth-revenue-data.webp" alt="Illustration of a Source of Truth binder for revenue data, assigning fields to CRM, Billing and Finance owners" loading="eager"></div>
+  <p class="direct-answer"><strong>Direct answer:</strong> No single system should be the source of truth for revenue, because bookings, billings, recognized revenue and ARR are different numbers. Ownership has to be assigned per data element and per metric: the CRM owns commitment and pipeline data, billing owns terms, subscription amounts and invoices, and finance owns recognized and board-reported revenue. This article gives the definitions, a default ownership map, a register template and the controls that enforce it.</p>
+  <div class="takeaways">
+  <span class="tk-label">Key takeaways</span>
+  <ul>
+  <li><strong>Assign ownership per element.</strong> Each revenue field and metric needs one accountable owner and one authoritative system, not one system for everything.</li>
+  <li><strong>Separate capture from reporting.</strong> Capture, interpretation and reporting are different jobs, and each revenue question maps to one of them.</li>
+  <li><strong>Sync rules enforce ownership.</strong> Sync direction carries out an ownership decision; it cannot make that decision for you.</li>
+  <li><strong>Reconcile on a schedule.</strong> A recurring CRM-to-billing-to-cash check separates definition differences from real control gaps.</li>
+  </ul>
+  </div>
+  <details class="qtoc">
+  <summary class="qtoc-label">Questions this article answers</summary>
+  <ol>
+  <li><a href="#what">What should be the source of truth for revenue data?</a></li>
+  <li><a href="#record">What is the difference between a system of record and a source of truth?</a></li>
+  <li><a href="#differ">Why do CRM, billing and finance report different revenue for the same deal?</a></li>
+  <li><a href="#each">What is each system best at, and what does each get wrong as the source?</a></li>
+  <li><a href="#decide">How do you decide which system owns each revenue element?</a></li>
+  <li><a href="#arr">Who owns ARR and the board revenue number?</a></li>
+  <li><a href="#owners">How do you assign owners and document the ownership model?</a></li>
+  <li><a href="#enforce">How do you enforce ownership with sync rules, stage gates and permissions?</a></li>
+  <li><a href="#failures">What are the common failure modes, and how do you reconcile them?</a></li>
+  <li><a href="#connect">How does source-of-truth ownership connect to field governance, validation and duplicates?</a></li>
+  <li><a href="#first">What should you do first?</a></li>
+  <li><a href="#faq" class="qtoc-faq">Plus 4 FAQs answered below</a></li>
+  </ol>
+  </details>
+  <h2 id="what" class="sec">What should be the source of truth for revenue data?</h2>
+  <p class="lead-answer">Do not name one system the source of truth for revenue; name one accountable owner and one authoritative system for each revenue element and metric.</p>
+  <p>A practitioner source recommends that the CRM be the workflow system for sales while finance still owns the final revenue value (<a href="https://resources.rework.com/libraries/revenue-operations/revenue-operations-system-of-record" target="_blank" rel="noopener">Rework</a>). Our default map extends that logic to every element. It is our recommendation, a synthesis of sourced practices, and not a published standard.</p>
+  <div class="table-wrap">
+  <table>
+  <tr><th>Data category</th><th>Authoritative layer</th><th>Why</th></tr>
+  <tr><td>Pipeline and commitment data</td><td>CRM</td><td>Sales creates and works these records</td></tr>
+  <tr><td>Contract and subscription terms</td><td>Contract or billing system</td><td>Terms define what is owed</td></tr>
+  <tr><td>Invoices and subscription amounts</td><td>Billing</td><td>Billing records what customers are charged</td></tr>
+  <tr><td>Recognized and board revenue</td><td>Finance/ERP</td><td>Recognition follows accounting rules finance owns</td></tr>
+  <tr><td>ARR and cross-system metrics</td><td>Governed derived layer</td><td>One definition, with finance sign-off</td></tr>
+  </table>
+  </div>
+  <p>The sources we reviewed point the same way on five points: revenue is several different numbers; the CRM captures commercial intent while billing captures what is charged and finance owns recognition; authority is assigned per field and metric rather than per tool; integrations need explicit direction and conflict rules; and metric definitions should be defined once, centrally (<a href="https://resources.rework.com/libraries/revenue-operations/revenue-operations-system-of-record" target="_blank" rel="noopener">Rework</a>, <a href="https://discern.io/blog/crm-vs-billing-arr-source-of-truth/" target="_blank" rel="noopener">Discern</a>, <a href="https://vantagepoint.io/blog/sf/integrations/hubspot-salesforce-sync-rules-field-mappings" target="_blank" rel="noopener">Vantage Point</a>, <a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs" target="_blank" rel="noopener">dbt Labs</a>).</p>
+  <h2 id="record" class="sec">What is the difference between a system of record and a source of truth?</h2>
+  <p class="lead-answer">Here, a system of record is the application that creates and controls a data element; a source-of-truth model is the rulebook for which system wins each question.</p>
+  <p>Sources use these terms inconsistently. One guide puts the warehouse or BI layer in the source-of-truth role and keeps operational systems such as the CRM and ERP as systems of record for capture and control (<a href="https://www.digna.ai/system-of-record-vs-source-of-truth" target="_blank" rel="noopener">Digna</a>). Others treat the terms as synonyms. A practitioner model keeps them apart: the system of record is where data lives, and the source-of-truth model states which system wins per business question (<a href="https://resources.rework.com/libraries/revenue-operations/revenue-operations-system-of-record" target="_blank" rel="noopener">Rework</a>). Designating a system of record is an organizational agreement about which version counts when systems disagree, not a property of a tool (<a href="https://outsales.ai/knowledge-hub/system-of-record" target="_blank" rel="noopener">Outsales.ai</a>). We use the split and never treat the terms as interchangeable.</p>
+  <ul>
+  <li><strong>System of record:</strong> the application where a data element is created and controlled. Example: opportunity owner lives in the CRM.</li>
+  <li><strong>Source-of-truth model:</strong> the rulebook stating which system wins for a given question. Example: current subscription amount comes from the billing record, even if the CRM amount differs.</li>
+  <li><strong>Finance-approved report:</strong> the output leadership reads. Example: the board revenue number.</li>
+  </ul>
+  <p>These definitions imply three separate jobs: capture belongs to the system of record, interpretation belongs to a derived or semantic layer that applies approved definitions, and reporting belongs to a finance-approved report. We also recommend documenting, for each revenue question, the workflow system (where people work), the truth system (which value wins) and the reporting layer (where leadership reads), as the same practitioner source suggests. Property-level definitions are covered in Property and field governance.</p>
+  <h2 id="differ" class="sec">Why do CRM, billing and finance report different revenue for the same deal?</h2>
+  <p class="lead-answer">Bookings, billings, recognized revenue and ARR measure different points in the revenue lifecycle, so each system can be correct for its own layer.</p>
+  <p>CRM and finance numbers diverge mainly because they measure different points: closed-won commitment, invoiced amount and recognized revenue (<a href="https://mxmrevenue.com/insights/crm-to-bank-reconciliation-b2b-saas/" target="_blank" rel="noopener">MXM Revenue</a>). Contract amendments after close, a close date that differs from service start, and CRM records missing billing frequency or term dates widen the gap. Recognized revenue follows the FASB ASC 606 core principle: revenue is recognized to depict the transfer of promised goods or services in the amount the entity expects to be entitled to, through a five-step model (<a href="https://storage.fasb.org/Post-Implementation%20Review%E2%80%94Revenue%20from%20Contracts%20with%20Customers%20(Topic%20606).pdf" target="_blank" rel="noopener">FASB</a>, <a href="https://www.grantthornton.com/content/dam/grantthornton/website/assets/content-page-files/audit/pdfs/2022/revenue-from-contracts-with-customers-updated-220124.pdf" target="_blank" rel="noopener">Grant Thornton</a>). That is an accounting event, not a CRM stage change.</p>
+  <p>The figures below are source illustrations, not company data. The first three rows use a $12,000 prepaid annual subscription (<a href="https://eightx.co/blog/what-is-bookings-billings-revenue" target="_blank" rel="noopener">EightX</a>); the last two use a $300K three-year deal (<a href="https://www.withorb.com/blog/asc-606-for-saas-companies" target="_blank" rel="noopener">Orb</a>).</p>
+  <div class="table-wrap">
+  <table>
+  <tr><th>Layer</th><th>What it records</th><th>Source example</th></tr>
+  <tr><td>Bookings (CRM)</td><td>Signed contract value</td><td>$12,000 at signing</td></tr>
+  <tr><td>Billings (billing system)</td><td>Invoiced amount</td><td>$12,000 at signing</td></tr>
+  <tr><td>Recognized revenue (ledger)</td><td>Value earned under ASC 606</td><td>$1,000 per month</td></tr>
+  <tr><td>TCV bookings (CRM)</td><td>Total signed value, multi-year</td><td>$300K</td></tr>
+  <tr><td>ARR (derived layer)</td><td>Annualized recurring run-rate</td><td>$100K</td></tr>
+  </table>
+  </div>
+  <p>ARR is MRR x 12. It is not revenue or billings, and a one-time setup fee does not belong in it (<a href="https://www.withorb.com/blog/asc-606-for-saas-companies" target="_blank" rel="noopener">Orb</a>). ARR and MRR are non-GAAP operating metrics, so the company must define them itself.</p>
+  <p>Accounting treatment belongs to finance and auditors. RevOps should not redefine recognized revenue in the CRM, and when a CRM figure disagrees with finance, check definition and timing before looking for an error.</p>
+  <h2 id="each" class="sec">What is each system best at, and what does each get wrong as the source?</h2>
+  <p class="lead-answer">The CRM is best at commitment and pipeline data, billing at actual charges, ERP or the general ledger at recognized revenue, and the warehouse at cross-system interpretation.</p>
+  <p>Each system fails when asked to do another's job. The CRM usually captures the intended commercial agreement, while the billing system captures what customers are actually charged, and neither is automatically correct for ARR. Incomplete CRM records let ARR drift, and billing data alone can absorb credits, cancellations and one-time adjustments (<a href="https://discern.io/blog/crm-vs-billing-arr-source-of-truth/" target="_blank" rel="noopener">Discern</a>). The warehouse needs separate care. One source assigns the warehouse or BI layer the cross-system source-of-truth role (<a href="https://www.digna.ai/system-of-record-vs-source-of-truth" target="_blank" rel="noopener">Digna</a>), but a warehouse inherits the quality of the systems feeding it. It helps only after definitions and ownership are decided upstream.</p>
+  <div class="table-wrap">
+  <table>
+  <tr><th>System</th><th>Best at</th><th>Wrong as "the" source</th><th>Role in the model</th></tr>
+  <tr><td>CRM</td><td>Intended agreement and pipeline</td><td>Drifts when terms or dates are missing</td><td>Owns commitment data</td></tr>
+  <tr><td>Billing</td><td>What customers are charged</td><td>Absorbs credits and one-time adjustments</td><td>Owns terms, amounts, invoices</td></tr>
+  <tr><td>ERP/GL</td><td>Recognized revenue</td><td>Lacks pipeline and commercial context</td><td>Owns recognized and board revenue</td></tr>
+  <tr><td>Warehouse</td><td>Joining data across systems</td><td>Inherits upstream quality</td><td>Hosts governed derived metrics</td></tr>
+  </table>
+  </div>
+  <p>The table describes system categories, not specific products, and we do not rank them. Each owns different questions.</p>
+  <h2 id="decide" class="sec">How do you decide which system owns each revenue element?</h2>
+  <p class="lead-answer">Give authority to the system closest to the event that creates the fact and equipped with controls to validate it; downstream systems consume rather than re-enter.</p>
+  <p>This rule is our interpretation, a synthesis of sourced practices, and no source states it as a standard. It follows from how facts originate: sales creates the opportunity, the billing system creates the invoice, and the ledger creates the recognition entry. The system closest to the event holds the freshest context and can reject bad input when validation is configured. Downstream systems should consume the value rather than re-enter or reinterpret it, because re-entry creates a second version that someone must reconcile.</p>
+  <div class="callout">
+  <span class="cl-label">Rule (our recommendation)</span>
+  Authority goes to the system closest to the event that creates the fact and equipped with controls to validate it. Downstream systems consume; they do not re-enter.
+  </div>
+  <div class="table-wrap">
+  <table>
+  <tr><th>Element</th><th>Authoritative system</th><th>Reason</th></tr>
+  <tr><td>Opportunity amount</td><td>CRM</td><td>Records the commitment, validated at closed-won</td></tr>
+  <tr><td>Opportunity owner</td><td>CRM</td><td>Sales assigns and works the deal</td></tr>
+  <tr><td>Lead source</td><td>CRM</td><td>Captured in the commercial record at first touch</td></tr>
+  <tr><td>Contract terms</td><td>Contract or billing system</td><td>Terms define what is owed</td></tr>
+  <tr><td>Subscription amount</td><td>Billing</td><td>Reflects what customers are charged</td></tr>
+  <tr><td>Invoice</td><td>Billing</td><td>Billing creates the invoice</td></tr>
+  <tr><td>Recognized revenue</td><td>Finance/ERP</td><td>The ledger creates the recognition entry</td></tr>
+  </table>
+  </div>
+  <p>The CRM can serve as the working revenue source when no billing system or ERP exists. This is a conditional recommendation: it needs validation gates at closed-won and a periodic reconcile to bank or accounting records, a check <a href="https://mxmrevenue.com/insights/crm-to-bank-reconciliation-b2b-saas/" target="_blank" rel="noopener">MXM Revenue</a> describes for B2B SaaS. Without those two controls, the CRM holds intentions rather than revenue.</p>
+  <h2 id="arr" class="sec">Who owns ARR and the board revenue number?</h2>
+  <p class="lead-answer">ARR usually belongs in a governed derived layer whose definition finance approves, while the board number comes from a finance-approved report and finance owns the final revenue value.</p>
+  <p>ARR belongs in a derived layer because it combines inputs from several systems under one definition. We recommend finance approve that definition, since ARR is a non-GAAP metric the company defines itself (<a href="https://www.withorb.com/blog/asc-606-for-saas-companies" target="_blank" rel="noopener">Orb</a>). The inputs can come from the CRM or from billing, and neither is automatically correct (<a href="https://discern.io/blog/crm-vs-billing-arr-source-of-truth/" target="_blank" rel="noopener">Discern</a>). Sources list common ARR errors: recurring and one-time revenue not separated, missing or unreliable contract dates, pricing changes not preserved, overlapping inconsistent CRM and billing records, and undefined treatment of renewals, win-backs, free periods and usage. Settle each in the definition before choosing the feed.</p>
+  <p>Choose the ARR feed by answering these in order. The tree is our recommendation, built on the Discern analysis:</p>
+  <ol>
+  <li><strong>Contract structure:</strong> Are contracts structured with reliable start and end dates, or usage-based and often amended?</li>
+  <li><strong>Pricing stability:</strong> Are prices relatively stable, or do they change mid-term?</li>
+  <li><strong>Data discipline:</strong> Does the GTM team maintain contract and opportunity data to a standard finance accepts?</li>
+  <li><strong>Source:</strong> Structured contracts, stable pricing and disciplined data support a CRM-fed ARR. Usage-based or amendment-heavy pricing supports a billing-fed ARR, with credits and one-time adjustments separated out.</li>
+  </ol>
+  <p>A hypothetical company selling fixed-term annual contracts at stable prices lands on the CRM branch. A hypothetical company with usage-based pricing and frequent mid-term amendments lands on the billing branch.</p>
+  <p>The board and investor number comes from a finance-approved report, and the CRM stays the sales workflow system (<a href="https://resources.rework.com/libraries/revenue-operations/revenue-operations-system-of-record" target="_blank" rel="noopener">Rework</a>). Every board figure needs a named approver and a stated definition. Validation rules for the inputs are covered in Data validation and standardization.</p>
+  <h2 id="owners" class="sec">How do you assign owners and document the ownership model?</h2>
+  <p class="lead-answer">Name one accountable owner and one steward for each element and metric, and record them in a register with an authoritative system, allowed writers, sync rule and reconciliation check.</p>
+  <p>Under DAMA-DMBOK-style governance, as secondary sources summarize it, the data owner is accountable for a domain (policy, approvals, outcome), while the data steward handles day-to-day quality, definitions and issue resolution (<a href="https://soda.io/blog/data-steward-vs-data-owner" target="_blank" rel="noopener">Soda</a>, <a href="https://www.ovaledge.com/blog/dama-dmbok-data-governance-framework" target="_blank" rel="noopener">OvalEdge</a>). A governance council resolves cross-domain conflicts. Blurring owner and steward is cited as a common reason governance programs stall. Revenue questions cross sales, billing and finance, so we recommend one named owner per row and titles that fit your organization.</p>
+  <p>The register has eight fields: element or metric, definition, authoritative system, owner, steward, allowed writers, sync direction and rule, and reconciliation check. Two hypothetical entries show the shape:</p>
+  <ul>
+  <li><strong>ARR (hypothetical):</strong> definition is annualized recurring contract value excluding one-time fees, approved by finance. System: governed derived layer. Owner: RevOps lead. Steward: analytics owner. Writers: none, computed from inputs. Sync: read-only downstream. Check: compare against invoiced recurring amounts.</li>
+  <li><strong>Opportunity owner (hypothetical):</strong> definition is the sales user accountable for the deal. System: CRM. Owner: sales operations lead. Steward: CRM administrator. Writers: sales managers and admins. Sync: one-way out of the CRM. Check: scan for closed-won deals without an owner.</li>
+  </ul>
+  <p>Store each metric definition once. A semantic layer such as dbt's lets teams define metrics centrally and serve them to any integrated analytics tool so answers stay consistent (<a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs" target="_blank" rel="noopener">dbt Labs</a>). It is an option, not a requirement; a finance-approved report can also hold the definition. We recommend change control either way: finance approves the change, the definition carries a version note, and every consumer, including dashboards and AI agents, is told.</p>
+  <h2 id="enforce" class="sec">How do you enforce ownership with sync rules, stage gates and permissions?</h2>
+  <p class="lead-answer">Decide which system is authoritative for each field first, then set sync direction and conflict rules to match, because sync direction enforces ownership but does not decide it.</p>
+  <p>Integration practitioners advise choosing an authoritative system per field before turning sync on, reserving two-way sync for fields both teams genuinely maintain, and naming a tiebreaker (<a href="https://vantagepoint.io/blog/sf/integrations/hubspot-salesforce-sync-rules-field-mappings" target="_blank" rel="noopener">Vantage Point</a>). HubSpot's official Salesforce integration offers four rules per mapped property: Prefer Salesforce unless blank, Always use Salesforce, Two-way (most recent value overwrites), and Don't sync (<a href="https://knowledge.hubspot.com/salesforce/map-hubspot-properties-to-salesforce-fields" target="_blank" rel="noopener">HubSpot</a>). These rules are time-sensitive, so check current HubSpot documentation. We make no claims about other CRMs or billing tools.</p>
+  <div class="table-wrap">
+  <table>
+  <tr><th>Ownership scenario</th><th>Sync rule</th><th>Companion control</th></tr>
+  <tr><td>Salesforce governs the field; HubSpot only reads</td><td>Always use Salesforce</td><td>Restrict edit rights in HubSpot</td></tr>
+  <tr><td>Both teams genuinely maintain the field</td><td>Two-way, with named tiebreaker</td><td>Monitor conflicts and loops</td></tr>
+  <tr><td>Authority shifts during the lifecycle</td><td>Avoid Prefer unless blank</td><td>Stage gate and billing handoff trigger</td></tr>
+  </table>
+  </div>
+  <p>Under Prefer Salesforce unless blank, HubSpot passes a value only when Salesforce has none, and an existing Salesforce value overwrites HubSpot (<a href="https://knowledge.hubspot.com/salesforce/map-hubspot-properties-to-salesforce-fields" target="_blank" rel="noopener">HubSpot</a>). In our reading, an existing Salesforce value always wins, which is wrong for fields whose authority moves to another system during the lifecycle. Two-way sync lets the most recent value win, and deletions propagate under the first three rules. Setting "Always use" on a field the system does not govern hardcodes the wrong owner.</p>
+  <p>Consider a hypothetical billing frequency field that sales proposes during negotiation and billing governs after signature. A rule that lets an existing Salesforce value overwrite HubSpot would keep the negotiation-stage entry if sales entered it there. We recommend this closed-won gate before a deal counts as booked:</p>
+  <ul class="checklist">
+  <li>☐ Signature recorded</li>
+  <li>☐ Billing frequency set</li>
+  <li>☐ Start and end dates present</li>
+  <li>☐ Contracting entity identified</li>
+  </ul>
+  <h2 id="failures" class="sec">What are the common failure modes, and how do you reconcile them?</h2>
+  <p class="lead-answer">Common failures are closed-won before signature, missing contract dates, sync overwrites, manual rekeying and duplicate definitions, and a recurring CRM-to-billing-to-cash reconciliation exposes them.</p>
+  <p>Each failure violates an ownership rule, which is why we pair them below. Reconciliation works as a standing control, not a one-time cleanup. One source describes any deal that cannot be traced across CRM, billing and cash records as a control gap rather than a reporting problem, and lists common causes: unsigned deals marked won, delayed billing starts, discount drift, post-close credits and collection lag (<a href="https://mxmrevenue.com/insights/crm-to-bank-reconciliation-b2b-saas/" target="_blank" rel="noopener">MXM Revenue</a>). We do not cite a failure frequency, because the research does not measure one.</p>
+  <ul>
+  <li><strong>Closed-won before signature:</strong> breaks the rule that the CRM owns validated commitments. Fix: gate the stage on a recorded signature.</li>
+  <li><strong>Missing contract dates:</strong> leaves ARR and billing starts undefined (<a href="https://discern.io/blog/crm-vs-billing-arr-source-of-truth/" target="_blank" rel="noopener">Discern</a>). Fix: require dates at closed-won.</li>
+  <li><strong>Sync overwrites:</strong> a non-owning system changes a governed field. Fix: match sync direction to the register.</li>
+  <li><strong>Manual rekeying:</strong> downstream users re-enter values they should consume. Fix: automate the handoff and remove write access.</li>
+  <li><strong>Duplicate definitions:</strong> two reports define ARR differently. Fix: one approved definition, versioned.</li>
+  </ul>
+  <p>Run the reconciliation generically:</p>
+  <ol>
+  <li>Pull the deals closed in the review period from the CRM.</li>
+  <li>Match each to billing on signature date, billing start and invoice amount, then to first cash receipt.</li>
+  <li>Classify each difference as a documented timing or definition difference, or as a control gap because the deal cannot be traced.</li>
+  <li>Route every gap to the owner named in the register.</li>
+  <li>Fix the cause at the source system, not in the report.</li>
+  </ol>
+  <p>Set the cadence and tolerance to fit your billing cycle; they are our judgment, not a sourced standard.</p>
+  <h2 id="connect" class="sec">How does source-of-truth ownership connect to field governance, validation and duplicates?</h2>
+  <p class="lead-answer">Ownership decides who wins; field governance defines each property, validation enforces correctness at entry, and duplicate prevention stops records from competing; all three depend on the ownership register.</p>
+  <p>Without a named owner per field, nobody can say who approves a property definition, which values are valid, or which of two duplicate records survives. That is why we recommend building in dependency order. Ownership comes first because the other three practices take their rules from it. Field governance then writes the definitions, naming and edit rights that the register implies. Validation turns those definitions into required fields and formats at stage gates. Duplicate prevention comes last because one record per entity is what makes any ownership assignment unambiguous.</p>
+  <ul>
+  <li><strong>Property and field governance:</strong> covers property definitions, naming and edit rights, which follow the owners and writers in your register.</li>
+  <li><strong>Data validation and standardization:</strong> covers required fields and formats at stage gates, which enforce the closed-won rules above.</li>
+  <li><strong>Duplicate prevention:</strong> covers keeping one record per entity, so ownership attaches to a single record.</li>
+  </ul>
+  <h2 id="first" class="sec">What should you do first?</h2>
+  <p class="lead-answer">Adopt one decision rule: authority belongs to the system closest to the event that creates the fact, with one named owner per element and metric.</p>
+  <p>Treat the model in this article as a recommendation to adapt to your contract structure, not a standard. Companies with usage-based pricing, multiple entities or frequent amendments will assign some rows differently. Accounting treatment belongs to finance and auditors, and ARR and MRR remain non-GAAP metrics your company defines. Start with the controls that remove the most ambiguity at the lowest cost, in this order:</p>
+  <ul class="checklist">
+  <li>☐ Agree written definitions of bookings, billings, recognized revenue and ARR with finance</li>
+  <li>☐ List every revenue element and metric, then assign an authoritative system, owner and steward</li>
+  <li>☐ Add the closed-won validation gate</li>
+  <li>☐ Set sync direction per field to match the register, and recheck HubSpot documentation if you use it</li>
+  <li>☐ Schedule the recurring CRM-to-billing-to-cash reconciliation</li>
+  <li>☐ Name the approver of the board number and set change control for metric definitions</li>
+  </ul>
+  <p>If you already have a register and sync rules and want them checked against this model, Muvap's CRM architecture and data governance work covers that. To continue, read Property and field governance, then Data validation and standardization, then Duplicate prevention.</p>
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+  <h3>Is the data warehouse the source of truth for revenue?</h3>
+  <p>Not by itself. Sources disagree on the label: some name the warehouse or BI layer the source of truth, others treat the term as a synonym for system of record. A warehouse or semantic layer suits cross-system interpretation, such as ARR under a finance-approved definition, but it inherits upstream data quality and does not own invoices or recognized revenue. Capture, interpretation and reporting are three separate jobs.</p>
+  </div>
+  <div class="faq-item">
+  <h3>Can the CRM be the source of truth for revenue at an early-stage company?</h3>
+  <p>Yes, as a working source, when no billing system or ERP exists. This is a conditional recommendation: require validated fields at closed-won (signature, billing frequency, start and end dates) and reconcile to bank or accounting records on a regular schedule. Once billing and a ledger exist, move invoices and recognized revenue to them and keep the CRM for commitment data.</p>
+  </div>
+  <div class="faq-item">
+  <h3>Does a mismatch between CRM and finance mean someone made an error?</h3>
+  <p>Often not. The CRM, billing and finance each measure a different point in the revenue lifecycle, so each can be correct for its own layer. Check definitions and timing first: close date versus service start, amendments after close, and missing billing dates. A deal that cannot be traced across CRM, billing and cash records is different; treat it as a control gap.</p>
+  </div>
+  <div class="faq-item">
+  <h3>Who should approve the revenue number that goes to the board?</h3>
+  <p>Finance owns the final revenue value and the board report. RevOps contributes definitions for operating metrics such as ARR, and finance signs off on them. Each number sent to the board needs a named approver and a written definition. ARR is a non-GAAP metric the company defines itself, so the approval step protects consistency over time.</p>
+  </div>
+  <div class="related" id="relatedSlot"></div>
+  <section class="sources">
+  <h2>Sources</h2>
+  <ol>
+  <li><a href="https://resources.rework.com/libraries/revenue-operations/revenue-operations-system-of-record" target="_blank" rel="noopener">Rework: Revenue Operations System of Record</a></li>
+  <li><a href="https://www.digna.ai/system-of-record-vs-source-of-truth" target="_blank" rel="noopener">Digna: System of Record vs Source of Truth, A Practical Guide</a></li>
+  <li><a href="https://outsales.ai/knowledge-hub/system-of-record" target="_blank" rel="noopener">Outsales.ai: System of Record, Definition and vs System of Action</a></li>
+  <li><a href="https://discern.io/blog/crm-vs-billing-arr-source-of-truth/" target="_blank" rel="noopener">Discern: CRM vs Billing System for ARR</a></li>
+  <li><a href="https://soda.io/blog/data-steward-vs-data-owner" target="_blank" rel="noopener">Soda: Data Steward vs Data Owner</a></li>
+  <li><a href="https://www.ovaledge.com/blog/dama-dmbok-data-governance-framework" target="_blank" rel="noopener">OvalEdge: The DAMA-DMBOK Data Governance Framework in 6 Steps</a></li>
+  <li><a href="https://knowledge.hubspot.com/salesforce/map-hubspot-properties-to-salesforce-fields" target="_blank" rel="noopener">HubSpot Knowledge Base: Map HubSpot properties to Salesforce fields</a></li>
+  <li><a href="https://vantagepoint.io/blog/sf/integrations/hubspot-salesforce-sync-rules-field-mappings" target="_blank" rel="noopener">Vantage Point: HubSpot-Salesforce Integration, Sync Rules, Directions, and Field Mappings</a></li>
+  <li><a href="https://eightx.co/blog/what-is-bookings-billings-revenue" target="_blank" rel="noopener">EightX: Bookings vs billings vs revenue on a prepaid subscription</a></li>
+  <li><a href="https://storage.fasb.org/Post-Implementation%20Review%E2%80%94Revenue%20from%20Contracts%20with%20Customers%20(Topic%20606).pdf" target="_blank" rel="noopener">FASB: Post-Implementation Review, Revenue from Contracts with Customers (Topic 606)</a></li>
+  <li><a href="https://www.grantthornton.com/content/dam/grantthornton/website/assets/content-page-files/audit/pdfs/2022/revenue-from-contracts-with-customers-updated-220124.pdf" target="_blank" rel="noopener">Grant Thornton: Revenue from Contracts with Customers, ASC 606 Updated</a></li>
+  <li><a href="https://mxmrevenue.com/insights/crm-to-bank-reconciliation-b2b-saas/" target="_blank" rel="noopener">MXM Revenue: CRM-to-Bank Reconciliation for B2B SaaS Revenue</a></li>
+  <li><a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs" target="_blank" rel="noopener">dbt Labs: dbt Semantic Layer FAQs</a></li>
+  <li><a href="https://www.withorb.com/blog/asc-606-for-saas-companies" target="_blank" rel="noopener">Orb: SaaS revenue recognition, ASC 606 for SaaS companies</a></li>
+  </ol>
+  </section>
+  <div class="article-cta">
+  <p>Want your revenue data ownership mapped and enforced across your CRM, billing and finance stack?</p>
+  <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+
+  <div class="author-box">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Muvap</div>
+      <div class="author-role">GTM & RevOps systems</div>
+      <p class="author-bio">We build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <img src="images/muvap-logo.webp" alt="Muvap" style="height:24px;width:auto;display:block">
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
+        </a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Muvap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar = document.getElementById('readProgress');
+  var article = document.querySelector('article');
+  if(!bar || !article) return;
+  var ticking = false;
+  function update(){
+    var articleTop = article.offsetTop;
+    var scrollable = article.offsetHeight - window.innerHeight;
+    var scrolled = window.scrollY - articleTop;
+    var pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+</script>
+
+<script src="assets/related-articles.js" defer></script>
+<script src="assets/interactions.js" defer></script>
+</body>
+</html>

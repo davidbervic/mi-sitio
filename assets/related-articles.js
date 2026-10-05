@@ -18,6 +18,7 @@
     { href: 'why-sales-marketing-slas-keep-breaking.html', title: 'Why Do Sales and Marketing SLAs Keep Breaking?', category: 'GTM Systems', tags: ['sla', 'sales-marketing-alignment', 'lead-scoring', 'mql', 'sal', 'revops'] },
     { href: 'zapier-vs-n8n-workflow-automation-comparison.html', title: 'Zapier vs n8n: Which Workflow Automation Tool Should You Choose?', category: 'Automation', tags: ['zapier', 'n8n', 'automation', 'self-hosting', 'workflow', 'no-code'] },
     { href: 'why-ai-agents-fail-in-production.html', title: 'Why Do AI Agents Fail in Production?', category: 'Automation', tags: ['ai-agents', 'human-in-the-loop', 'agentic-drift', 'governance', 'llm', 'production-reliability'] },
+    { href: 'source-of-truth-revenue-data-crm-billing-finance.html', title: 'Source of Truth for Revenue Data: Who Owns What Across CRM, Billing and Finance', category: 'GTM Systems', tags: ['source-of-truth', 'data-governance', 'revenue-data', 'crm', 'arr', 'reconciliation', 'hubspot', 'revops'] },
   ];
 
   window.MUVAP_ARTICLES = ARTICLES;
