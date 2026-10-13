@@ -172,7 +172,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .martech-tab{border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:9px 16px;font:700 13.5px/1 var(--nx-font-text);background:var(--nx-paper);color:var(--nx-ink);transition:all .15s ease}
   .martech-tab.is-active{box-shadow:var(--nx-drop-sm)}
   .martech-tools{display:flex;flex-wrap:wrap;gap:10px;min-height:36px}
-  .martech-tool{border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-sm);padding:8px 14px;font:700 13px/1 var(--nx-font-text);background:var(--nx-paper-dim)}
+  .martech-tool{display:flex;align-items:center;gap:8px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-sm);padding:7px 14px;font:700 13px/1 var(--nx-font-text);background:var(--nx-paper-dim)}
+  .martech-tool-logo{width:20px;height:20px;border-radius:4px;object-fit:contain;flex:0 0 auto}
   @media(max-width:860px){.about-grid{grid-template-columns:1fr}}
 
   /* ---- stages (sticky scroll) ---- */
@@ -566,12 +567,36 @@ const METRICS = [
 ];
 
 const MARTECH_CATEGORIES = [
-  { name: 'CRM', tools: ['HubSpot', 'Salesforce', 'Attio'], tone: 'var(--nx-mint)', text: 'var(--nx-ink)' },
-  { name: 'Analytics', tools: ['Google Analytics', 'Amplitude', 'Looker'], tone: 'var(--nx-cyan)', text: 'var(--nx-ink)' },
-  { name: 'Automation', tools: ['n8n', 'Zapier', 'Make'], tone: 'var(--nx-pink)', text: 'var(--nx-paper)' },
-  { name: 'Enrichment', tools: ['Clay', 'Apollo', 'ZoomInfo'], tone: 'var(--nx-purple)', text: 'var(--nx-ink)' },
-  { name: 'Outbound', tools: ['Instantly', 'Smartlead', 'Apollo'], tone: 'var(--nx-yellow)', text: 'var(--nx-ink)' },
-  { name: 'Advertising', tools: ['Google Ads', 'LinkedIn Ads', 'Meta Ads'], tone: 'var(--nx-blue)', text: 'var(--nx-paper)' },
+  { name: 'CRM', tools: [
+    {n:'HubSpot',    logo:'images/logos/logo-hubspot.png'},
+    {n:'Salesforce', logo:'images/logos/logo-salesforce.png'},
+    {n:'Attio',      logo:'images/logos/logo-attio.png'},
+  ], tone: 'var(--nx-mint)', text: 'var(--nx-ink)' },
+  { name: 'Analytics', tools: [
+    {n:'Google Analytics', logo:'images/logos/logo-google-analytics.png'},
+    {n:'Amplitude',        logo:null},
+    {n:'Looker',           logo:'images/logos/logo-looker-studio.png'},
+  ], tone: 'var(--nx-cyan)', text: 'var(--nx-ink)' },
+  { name: 'Automation', tools: [
+    {n:'n8n',    logo:'images/logos/logo-n8n.png'},
+    {n:'Zapier', logo:'images/logos/logo-zapier.png'},
+    {n:'Make',   logo:'images/logos/logo-make.png'},
+  ], tone: 'var(--nx-pink)', text: 'var(--nx-paper)' },
+  { name: 'Enrichment', tools: [
+    {n:'Clay',     logo:'images/logos/logo-clay.png'},
+    {n:'Apollo',   logo:'images/logos/logo-apollo.png'},
+    {n:'ZoomInfo', logo:null},
+  ], tone: 'var(--nx-purple)', text: 'var(--nx-ink)' },
+  { name: 'Outbound', tools: [
+    {n:'Instantly',  logo:'images/logos/logo-instantly.png'},
+    {n:'Smartlead',  logo:'images/logos/logo-smartlead.png'},
+    {n:'Apollo',     logo:'images/logos/logo-apollo.png'},
+  ], tone: 'var(--nx-yellow)', text: 'var(--nx-ink)' },
+  { name: 'Advertising', tools: [
+    {n:'Google Ads',   logo:'images/logos/logo-google-ads.png'},
+    {n:'LinkedIn Ads', logo:'images/logos/logo-linkedin.png'},
+    {n:'Meta Ads',     logo:'images/logos/logo-meta.png'},
+  ], tone: 'var(--nx-blue)', text: 'var(--nx-paper)' },
 ];
 
 const STAGES = [
@@ -676,7 +701,7 @@ function renderMartech() {
     `<button class="martech-tab${i === martechActive ? ' is-active' : ''}" data-cat="${i}"${i === martechActive ? ` style="background:${c.tone};color:${c.text}"` : ''}>${c.name}</button>`
   ).join('');
   martechToolsEl.innerHTML = MARTECH_CATEGORIES[martechActive].tools.map(t =>
-    `<span class="martech-tool">${t}</span>`
+    `<span class="martech-tool">${t.logo ? `<img class="martech-tool-logo" src="${t.logo}" alt="${t.n}">` : ''}<span>${t.n}</span></span>`
   ).join('');
   martechTabsEl.querySelectorAll('[data-cat]').forEach(b =>
     b.addEventListener('click', () => { martechActive = parseInt(b.dataset.cat, 10); renderMartech(); })

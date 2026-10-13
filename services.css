@@ -184,11 +184,13 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 /* ---- supported platforms / tools ---- */
 .sv-platforms{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .sv-platform{background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-md);box-shadow:var(--nx-drop-sm);padding:22px;display:flex;flex-direction:column;gap:12px}
-.sv-platform h3{font:900 20px/1.1 var(--nx-font-display);letter-spacing:var(--nx-track-tight)}
+.sv-platform h3{display:flex;align-items:center;gap:10px;font:900 20px/1.1 var(--nx-font-display);letter-spacing:var(--nx-track-tight)}
+.sv-platform-logo{width:28px;height:28px;border-radius:6px;object-fit:contain;flex:0 0 auto}
 .sv-platform p{font:400 14px/1.5 var(--nx-font-text);color:#444}
 .sv-pills{display:flex;flex-wrap:wrap;gap:6px}
-.sv-pill{border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:5px 11px;font:700 12.5px/1.1 var(--nx-font-text);background:var(--nx-paper)}
+.sv-pill{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:5px 11px;font:700 12.5px/1.1 var(--nx-font-text);background:var(--nx-paper)}
 .sv-pill.is-acc{background:var(--acc-pale)}
+.sv-pill-logo{width:18px;height:18px;border-radius:4px;object-fit:contain;flex:0 0 auto}
 .sv-toolgroups{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:18px}
 .sv-toolgroup{background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-md);padding:18px 20px;display:flex;flex-direction:column;gap:12px}
 .sv-toolgroup-label{font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:#666}
