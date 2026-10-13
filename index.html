@@ -110,7 +110,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s ease,transform .15s ease;pointer-events:none;z-index:20;
   }
   .resources-wrap:hover .resources-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
-  .resources-menu a,.resources-menu span{display:block;padding:9px 10px;border-radius:8px;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink)}
+  .resources-menu a,.resources-menu span{display:block;white-space:nowrap;padding:9px 10px;border-radius:8px;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink)}
   .resources-menu a:hover{background:#f4f4f4}
   .resources-menu span{color:#666;cursor:default}
   .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center}
@@ -233,11 +233,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ---- services ---- */
   .services-section{background:var(--nx-paper);padding:clamp(64px,9vw,120px) clamp(16px,4vw,44px)}
   .services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1200px;margin:0 auto}
-  .service-card{display:flex;flex-direction:column;gap:16px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);box-shadow:var(--nx-drop-sm);padding:24px}
+  .service-card{color:inherit;transition:transform .12s ease,box-shadow .12s ease;display:flex;flex-direction:column;gap:16px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);box-shadow:var(--nx-drop-sm);padding:24px}
   .service-thumb{width:100%;aspect-ratio:16/10}
   .service-card h3{margin:0;color:var(--nx-ink);opacity:.55;font:900 21px/1.15 var(--nx-font-display);letter-spacing:var(--nx-track-display)}
   .service-card p{margin:0;flex:1;color:var(--nx-ink-soft);font:400 15px/1.5 var(--nx-font-text)}
   .service-btn{border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-sm);padding:12px 20px;font:800 13px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm);width:100%;text-align:center;opacity:.6}
+  .service-card:hover{transform:translate(-2px,-2px);box-shadow:var(--nx-drop-md)}
   @media(max-width:860px){.services-grid{grid-template-columns:1fr}}
 
   /* ---- book a call ---- */
@@ -331,7 +332,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
       <div class="nav-links">
         <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="index.html#services">Services</a>
+        <div class="resources-wrap">
+          <a class="nav-link" href="index.html#programs" style="display:inline-flex;align-items:center;gap:4px">Services<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="gtm-architecture-evolution.html">GTM Architecture Evolution</a>
+            <a href="gtm-outbound-evolution.html">GTM Outbound Evolution</a>
+            <a href="gtm-intelligence-evolution.html">GTM Intelligence Evolution</a>
+            <a href="gtm-workforce-evolution.html">GTM Workforce Evolution</a>
+            <a href="gtm-total-glowap.html">GTM Total Glowap!</a>
+          </div>
+        </div>
         <a class="nav-link" href="customers.html">Case studies</a>
         <div class="resources-wrap">
           <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -414,13 +424,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<div class="services-section">
+<div class="services-section" id="programs">
   <div class="reveal">
     <div class="section-head">
       <span class="eyebrow-pill" style="background:var(--nx-purple);margin-bottom:18px">
         <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>SERVICES
       </span>
       <h2>Pick where you need help.</h2>
+      <p>Five programs, each with three tiers. Not sure which one fits? Start with GTM Total Glowap!</p>
     </div>
     <div class="services-grid" id="servicesGrid"></div>
   </div>
@@ -510,7 +521,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="footer-col-label">Site</span>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="index.html#services">Services</a>
+      <a href="index.html#programs">Services</a>
       <a href="contact.html">Contact</a>
     </div>
     <div class="footer-col">
@@ -584,10 +595,13 @@ const TESTIMONIALS = [
   { pending: true },
 ];
 
+// The 5 Muvap programs, each with its own page (see services.css).
 const SERVICES = [
-  { name: 'GTM Audit', desc: 'A full map of your current stack and where it leaks.', cta: 'Book audit' },
-  { name: 'Implementation', desc: 'The RevOps workflow and automations, built and shipped.', cta: 'Start build' },
-  { name: 'Retainer', desc: 'Ongoing tuning as your funnel and team change.', cta: 'Talk retainer' },
+  { name: 'GTM Architecture Evolution', tag: 'Program 1', color: 'var(--nx-ink)', pale: 'var(--nx-paper-dim)', text: 'var(--nx-paper)', href: 'gtm-architecture-evolution.html', desc: 'Lifecycle stages, lead scoring and enrichment: a CRM that works as a revenue engine, not a contact database.' },
+  { name: 'GTM Outbound Evolution', tag: 'Program 2', color: 'var(--nx-mint)', pale: 'var(--nx-mint-pale)', href: 'gtm-outbound-evolution.html', desc: 'Deliverability, Clay enrichment and AI personalization that book meetings consistently.' },
+  { name: 'GTM Intelligence Evolution', tag: 'Program 3', color: 'var(--nx-purple)', pale: 'var(--nx-purple-pale)', href: 'gtm-intelligence-evolution.html', desc: 'GA4, BigQuery and multi-touch attribution that connect marketing spend to closed revenue.' },
+  { name: 'GTM Workforce Evolution', tag: 'Program 4', color: 'var(--nx-yellow)', pale: 'var(--nx-yellow-pale)', href: 'gtm-workforce-evolution.html', desc: 'Automate 5 to 10 hours a week of manual GTM work: enrichment, call notes, briefs and content.' },
+  { name: 'GTM Total Glowap!', tag: 'Program 5', color: 'var(--nx-pink)', pale: 'var(--nx-pink-pale)', href: 'gtm-total-glowap.html', desc: 'Not sure where to start? A full audit and prioritized roadmap across your entire GTM stack.' },
 ];
 
 // ---------------------------------------------------------------------
@@ -724,21 +738,24 @@ document.getElementById('testiGrid').innerHTML = `
   </div>
 `;
 
-// Services — real links into the booking flow, icon visual instead of an empty box
+// Services: one card per program, linking to its page
 const SERVICE_ICONS = {
-  'GTM Audit': '<path d="M11 4a7 7 0 1 0 4.6 12.3l4.5 4.5 1.4-1.4-4.5-4.5A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/>',
-  'Implementation': '<path d="M12 2l1.8 4.6L18.5 8l-4.6 1.8L12 14l-1.8-4.2L5.5 8l4.6-1.4zM19 14l1 2.5L22.5 17.5 20 18.5 19 21l-1-2.5L15.5 17.5 18 16.5z"/>',
-  'Retainer': '<path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 5v5.4l4 2.4-.8 1.4-4.7-2.8V7z"/>',
+  'GTM Architecture Evolution': '<path d="M12 3C7 3 4 4.6 4 6.5v11C4 19.4 7 21 12 21s8-1.6 8-3.5v-11C20 4.6 17 3 12 3zm0 2c3.9 0 6 1.1 6 1.5S15.9 8 12 8 6 6.9 6 6.5 8.1 5 12 5zM6 9.2C7.5 9.8 9.6 10 12 10s4.5-.2 6-.8V12c0 .4-2.1 1.5-6 1.5S6 12.4 6 12zm0 5.5c1.5.6 3.6.8 6 .8s4.5-.2 6-.8v2.8c0 .4-2.1 1.5-6 1.5s-6-1.1-6-1.5z"/>',
+  'GTM Outbound Evolution': '<path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm0 2.9V17h16V9.9l-8 5z"/>',
+  'GTM Intelligence Evolution': '<path d="M4 20V10h3v10zm6.5 0V4h3v16zM17 20v-7h3v7z"/>',
+  'GTM Workforce Evolution': '<path d="M12 2l1.8 4.6L18.5 8l-4.6 1.8L12 14l-1.8-4.2L5.5 8l4.6-1.4zM19 14l1 2.5L22.5 17.5 20 18.5 19 21l-1-2.5L15.5 17.5 18 16.5z"/>',
+  'GTM Total Glowap!': '<path d="M11 4a7 7 0 1 0 4.6 12.3l4.5 4.5 1.4-1.4-4.5-4.5A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/>',
 };
-document.getElementById('servicesGrid').innerHTML = SERVICES.map((sv, i) => `
-  <div class="service-card">
-    <div class="service-visual" style="background:${['var(--nx-mint-pale)', 'var(--nx-cyan-pale)', 'var(--nx-pink-pale)'][i % 3]}">
+document.getElementById('servicesGrid').innerHTML = SERVICES.map(sv => `
+  <a class="service-card" href="${sv.href}">
+    <div class="service-visual" style="background:${sv.pale}">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="var(--nx-ink)" aria-hidden="true">${SERVICE_ICONS[sv.name] || ''}</svg>
     </div>
-    <h3 style="opacity:1">${sv.name}</h3>
+    <span class="eyebrow-pill" style="background:${sv.color};color:${sv.text || 'var(--nx-ink)'};align-self:flex-start">${sv.tag}</span>
+    <h3 style="opacity:1">${sv.name.replace('&', '&amp;')}</h3>
     <p>${sv.desc}</p>
-    <a class="service-btn-link" data-magnetic="0.1" href="contact.html?service=${encodeURIComponent(sv.name)}">${sv.cta}</a>
-  </div>
+    <span class="service-btn-link" style="background:${sv.color};color:${sv.text || 'var(--nx-ink)'}">Explore program →</span>
+  </a>
 `).join('');
 
 // Reveal-on-scroll
