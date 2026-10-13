@@ -2,8 +2,8 @@
    services.css: shared stylesheet for the 5 Muvap program pages
    (revenue-architecture, modern-outbound, digital-analytics,
    ai-gtm-automation, gtm-systems-reset). Same tokens, nav and
-   footer as index.html. Each page sets its own program accent
-   with --acc on <body>.
+   footer as index.html. Each page sets its program color with
+   --acc and --acc-pale on <body>, always from the home palette.
    ============================================================ */
 
 :root{
@@ -22,10 +22,10 @@
   --nx-font-text:'Archivo','Helvetica Neue',Arial,sans-serif;
   --nx-font-mono:'JetBrains Mono',ui-monospace,monospace;
   --nx-track-display:-.035em; --nx-track-tight:-.02em; --nx-track-label:.12em;
-  /* program colors, used for related-program badges */
-  --p1:#0EA5E9; --p2:#10B981; --p3:#8B5CF6; --p4:#F59E0B; --p5:#EF4444;
+  /* program colors: each program reuses one brand color from the home palette */
+  --p1:var(--nx-cyan); --p2:var(--nx-mint); --p3:var(--nx-purple); --p4:var(--nx-yellow); --p5:var(--nx-pink);
 }
-body{--acc:var(--nx-blue);--acc-pale:color-mix(in srgb,var(--acc) 14%,#fff);--acc-soft:color-mix(in srgb,var(--acc) 32%,#fff)}
+body{--acc:var(--nx-cyan);--acc-pale:var(--nx-cyan-pale)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:var(--nx-font-text);color:var(--nx-ink);background:var(--nx-paper);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -109,8 +109,8 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 .sv-snapshot-label{font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:#666}
 .sv-snapshot-dot{width:12px;height:12px;border-radius:50%;background:var(--acc);border:1.5px solid var(--nx-ink)}
 .sv-snapshot-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1.5px solid var(--nx-ink);border-radius:14px;padding:14px 16px}
-.sv-snapshot-row:nth-child(2){background:var(--acc-pale)}
-.sv-snapshot-row:nth-child(3){background:var(--acc-soft)}
+.sv-snapshot-row:nth-child(2){background:var(--nx-paper)}
+.sv-snapshot-row:nth-child(3){background:var(--acc-pale)}
 .sv-snapshot-row:nth-child(4){background:var(--acc)}
 .sv-snapshot-tier{display:flex;flex-direction:column;gap:4px;min-width:0}
 .sv-snapshot-tier small{font:800 10px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;opacity:.7}
@@ -121,7 +121,7 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 
 /* ---- positioning notice (P4) ---- */
 .sv-notice-wrap{padding:clamp(40px,6vw,64px) clamp(16px,4vw,44px) 0}
-.sv-notice{max-width:960px;margin:0 auto;background:color-mix(in srgb,var(--acc) 10%,#fff);border:1.5px solid var(--nx-ink);border-left:8px solid var(--acc);border-radius:var(--nx-radius-md);box-shadow:var(--nx-drop-sm);padding:26px 28px;display:flex;gap:18px;align-items:flex-start}
+.sv-notice{max-width:960px;margin:0 auto;background:var(--acc-pale);border:1.5px solid var(--nx-ink);border-left:8px solid var(--acc);border-radius:var(--nx-radius-md);box-shadow:var(--nx-drop-sm);padding:26px 28px;display:flex;gap:18px;align-items:flex-start}
 .sv-notice-icon{flex:0 0 auto;width:38px;height:38px;border-radius:50%;background:var(--acc);border:1.5px solid var(--nx-ink);display:flex;align-items:center;justify-content:center;font:900 18px/1 var(--nx-font-display)}
 .sv-notice h2{font:900 20px/1.2 var(--nx-font-display);letter-spacing:var(--nx-track-tight);margin:0 0 8px}
 .sv-notice p{font:400 16px/1.6 var(--nx-font-text);color:var(--nx-ink-soft)}
@@ -136,8 +136,8 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 .sv-tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:stretch}
 .sv-tier{display:flex;flex-direction:column;gap:18px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);box-shadow:var(--nx-drop-md);padding:26px}
 .sv-tier-badge{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:7px 14px;font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase}
-.sv-tier:nth-child(1) .sv-tier-badge{background:var(--acc-pale)}
-.sv-tier:nth-child(2) .sv-tier-badge{background:var(--acc-soft)}
+.sv-tier:nth-child(1) .sv-tier-badge{background:var(--nx-paper)}
+.sv-tier:nth-child(2) .sv-tier-badge{background:var(--acc-pale)}
 .sv-tier:nth-child(3) .sv-tier-badge{background:var(--acc)}
 .sv-tier h3{font:900 26px/1.05 var(--nx-font-display);letter-spacing:var(--nx-track-display)}
 .sv-tier-label{display:block;font:800 10.5px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:#666;margin-bottom:8px}

@@ -597,11 +597,11 @@ const TESTIMONIALS = [
 
 // The 5 Muvap programs, each with its own page (see services.css).
 const SERVICES = [
-  { name: 'GTM Architecture Evolution', tag: 'Program 1', color: '#0EA5E9', href: 'gtm-architecture-evolution.html', desc: 'Lifecycle stages, lead scoring and enrichment: a CRM that works as a revenue engine, not a contact database.' },
-  { name: 'GTM Outbound Evolution', tag: 'Program 2', color: '#10B981', href: 'gtm-outbound-evolution.html', desc: 'Deliverability, Clay enrichment and AI personalization that book meetings consistently.' },
-  { name: 'GTM Intelligence Evolution', tag: 'Program 3', color: '#8B5CF6', href: 'gtm-intelligence-evolution.html', desc: 'GA4, BigQuery and multi-touch attribution that connect marketing spend to closed revenue.' },
-  { name: 'GTM Workforce Evolution', tag: 'Program 4', color: '#F59E0B', href: 'gtm-workforce-evolution.html', desc: 'Automate 5 to 10 hours a week of manual GTM work: enrichment, call notes, briefs and content.' },
-  { name: 'GTM Total Glowap!', tag: 'Program 5', color: '#EF4444', href: 'gtm-total-glowap.html', desc: 'Not sure where to start? A full audit and prioritized roadmap across your entire GTM stack.' },
+  { name: 'GTM Architecture Evolution', tag: 'Program 1', color: 'var(--nx-cyan)', pale: 'var(--nx-cyan-pale)', href: 'gtm-architecture-evolution.html', desc: 'Lifecycle stages, lead scoring and enrichment: a CRM that works as a revenue engine, not a contact database.' },
+  { name: 'GTM Outbound Evolution', tag: 'Program 2', color: 'var(--nx-mint)', pale: 'var(--nx-mint-pale)', href: 'gtm-outbound-evolution.html', desc: 'Deliverability, Clay enrichment and AI personalization that book meetings consistently.' },
+  { name: 'GTM Intelligence Evolution', tag: 'Program 3', color: 'var(--nx-purple)', pale: 'var(--nx-purple-pale)', href: 'gtm-intelligence-evolution.html', desc: 'GA4, BigQuery and multi-touch attribution that connect marketing spend to closed revenue.' },
+  { name: 'GTM Workforce Evolution', tag: 'Program 4', color: 'var(--nx-yellow)', pale: 'var(--nx-yellow-pale)', href: 'gtm-workforce-evolution.html', desc: 'Automate 5 to 10 hours a week of manual GTM work: enrichment, call notes, briefs and content.' },
+  { name: 'GTM Total Glowap!', tag: 'Program 5', color: 'var(--nx-pink)', pale: 'var(--nx-pink-pale)', href: 'gtm-total-glowap.html', desc: 'Not sure where to start? A full audit and prioritized roadmap across your entire GTM stack.' },
 ];
 
 // ---------------------------------------------------------------------
@@ -748,7 +748,7 @@ const SERVICE_ICONS = {
 };
 document.getElementById('servicesGrid').innerHTML = SERVICES.map(sv => `
   <a class="service-card" href="${sv.href}">
-    <div class="service-visual" style="background:color-mix(in srgb, ${sv.color} 16%, #fff)">
+    <div class="service-visual" style="background:${sv.pale}">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="var(--nx-ink)" aria-hidden="true">${SERVICE_ICONS[sv.name] || ''}</svg>
     </div>
     <span class="eyebrow-pill" style="background:${sv.color};align-self:flex-start">${sv.tag}</span>
