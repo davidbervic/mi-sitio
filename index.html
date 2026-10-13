@@ -597,7 +597,7 @@ const TESTIMONIALS = [
 
 // The 5 Muvap programs, each with its own page (see services.css).
 const SERVICES = [
-  { name: 'GTM Architecture Evolution', tag: 'Program 1', color: 'var(--nx-cyan)', pale: 'var(--nx-cyan-pale)', href: 'gtm-architecture-evolution.html', desc: 'Lifecycle stages, lead scoring and enrichment: a CRM that works as a revenue engine, not a contact database.' },
+  { name: 'GTM Architecture Evolution', tag: 'Program 1', color: 'var(--nx-ink)', pale: 'var(--nx-paper-dim)', text: 'var(--nx-paper)', href: 'gtm-architecture-evolution.html', desc: 'Lifecycle stages, lead scoring and enrichment: a CRM that works as a revenue engine, not a contact database.' },
   { name: 'GTM Outbound Evolution', tag: 'Program 2', color: 'var(--nx-mint)', pale: 'var(--nx-mint-pale)', href: 'gtm-outbound-evolution.html', desc: 'Deliverability, Clay enrichment and AI personalization that book meetings consistently.' },
   { name: 'GTM Intelligence Evolution', tag: 'Program 3', color: 'var(--nx-purple)', pale: 'var(--nx-purple-pale)', href: 'gtm-intelligence-evolution.html', desc: 'GA4, BigQuery and multi-touch attribution that connect marketing spend to closed revenue.' },
   { name: 'GTM Workforce Evolution', tag: 'Program 4', color: 'var(--nx-yellow)', pale: 'var(--nx-yellow-pale)', href: 'gtm-workforce-evolution.html', desc: 'Automate 5 to 10 hours a week of manual GTM work: enrichment, call notes, briefs and content.' },
@@ -751,10 +751,10 @@ document.getElementById('servicesGrid').innerHTML = SERVICES.map(sv => `
     <div class="service-visual" style="background:${sv.pale}">
       <svg width="34" height="34" viewBox="0 0 24 24" fill="var(--nx-ink)" aria-hidden="true">${SERVICE_ICONS[sv.name] || ''}</svg>
     </div>
-    <span class="eyebrow-pill" style="background:${sv.color};align-self:flex-start">${sv.tag}</span>
+    <span class="eyebrow-pill" style="background:${sv.color};color:${sv.text || 'var(--nx-ink)'};align-self:flex-start">${sv.tag}</span>
     <h3 style="opacity:1">${sv.name.replace('&', '&amp;')}</h3>
     <p>${sv.desc}</p>
-    <span class="service-btn-link" style="background:${sv.color}">Explore program →</span>
+    <span class="service-btn-link" style="background:${sv.color};color:${sv.text || 'var(--nx-ink)'}">Explore program →</span>
   </a>
 `).join('');
 
