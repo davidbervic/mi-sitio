@@ -88,7 +88,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s ease,transform .15s ease;pointer-events:none;z-index:20;
   }
   .resources-wrap:hover .resources-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
-  .resources-menu a,.resources-menu span{display:block;padding:9px 10px;border-radius:8px;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink)}
+  .resources-menu a,.resources-menu span{display:block;white-space:nowrap;padding:9px 10px;border-radius:8px;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink)}
   .resources-menu a:hover{background:#f4f4f4}
   .resources-menu span{color:#666;cursor:default}
   .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center;cursor:pointer;border:none}
@@ -202,7 +202,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
       <div class="nav-links">
         <a class="nav-link" href="about.html">About</a>
-        <a class="nav-link" href="index.html#services">Services</a>
+        <div class="resources-wrap">
+          <a class="nav-link" href="index.html#programs" style="display:inline-flex;align-items:center;gap:4px">Services<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="revenue-architecture.html">Revenue Architecture</a>
+            <a href="modern-outbound.html">Modern Outbound</a>
+            <a href="digital-analytics.html">Digital Analytics</a>
+            <a href="ai-gtm-automation.html">AI &amp; GTM Automation</a>
+            <a href="gtm-systems-reset.html">GTM Systems Reset</a>
+          </div>
+        </div>
         <a class="nav-link" href="customers.html">Case studies</a>
         <div class="resources-wrap">
           <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -267,6 +276,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <input type="hidden" name="form-name" value="muvap-contact">
         <input type="hidden" name="teamSize" id="teamSizeField">
         <input type="hidden" name="timeline" id="timelineField">
+        <input type="hidden" name="service" id="serviceField">
         <p style="position:absolute;left:-9999px"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
         <div class="form-step is-active" data-step="0">
@@ -336,7 +346,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="footer-col-label">Site</span>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="index.html#services">Services</a>
+      <a href="index.html#programs">Services</a>
       <a href="contact.html">Contact</a>
     </div>
     <div class="footer-col">
@@ -419,9 +429,10 @@ document.querySelectorAll('.reveal').forEach((el) => {
 
   const form = document.getElementById('contactForm');
 
-  // Prefill from a service CTA (index.html links here as ?service=GTM%20Audit)
+  // Prefill from a program CTA (program pages link here as ?service=Revenue%20Architecture%20%C2%B7%20Scale)
   const svc = new URLSearchParams(window.location.search).get('service');
   if (svc) {
+    document.getElementById('serviceField').value = svc;
     const goalField = form.querySelector('[name="goal"]');
     if (goalField) goalField.placeholder = `${svc}: tell us more about what you need.`;
   }
