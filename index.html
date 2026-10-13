@@ -335,11 +335,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="resources-wrap">
           <a class="nav-link" href="index.html#programs" style="display:inline-flex;align-items:center;gap:4px">Services<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="resources-menu">
-            <a href="revenue-architecture.html">Revenue Architecture</a>
-            <a href="modern-outbound.html">Modern Outbound</a>
-            <a href="digital-analytics.html">Digital Analytics</a>
-            <a href="ai-gtm-automation.html">AI &amp; GTM Automation</a>
-            <a href="gtm-systems-reset.html">GTM Systems Reset</a>
+            <a href="gtm-architecture-evolution.html">GTM Architecture Evolution</a>
+            <a href="gtm-outbound-evolution.html">GTM Outbound Evolution</a>
+            <a href="gtm-intelligence-evolution.html">GTM Intelligence Evolution</a>
+            <a href="gtm-workforce-evolution.html">GTM Workforce Evolution</a>
+            <a href="gtm-total-glowap.html">GTM Total Glowap!</a>
           </div>
         </div>
         <a class="nav-link" href="customers.html">Case studies</a>
@@ -431,7 +431,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>SERVICES
       </span>
       <h2>Pick where you need help.</h2>
-      <p>Five programs, each with three tiers. Not sure which one fits? Start with the GTM Systems Reset.</p>
+      <p>Five programs, each with three tiers. Not sure which one fits? Start with GTM Total Glowap!</p>
     </div>
     <div class="services-grid" id="servicesGrid"></div>
   </div>
@@ -597,11 +597,11 @@ const TESTIMONIALS = [
 
 // The 5 Muvap programs, each with its own page (see services.css).
 const SERVICES = [
-  { name: 'Revenue Architecture', tag: 'Program 1', color: '#0EA5E9', href: 'revenue-architecture.html', desc: 'Lifecycle stages, lead scoring and enrichment: a CRM that works as a revenue engine, not a contact database.' },
-  { name: 'Modern Outbound', tag: 'Program 2', color: '#10B981', href: 'modern-outbound.html', desc: 'Deliverability, Clay enrichment and AI personalization that book meetings consistently.' },
-  { name: 'Digital Analytics', tag: 'Program 3', color: '#8B5CF6', href: 'digital-analytics.html', desc: 'GA4, BigQuery and multi-touch attribution that connect marketing spend to closed revenue.' },
-  { name: 'AI & GTM Automation', tag: 'Program 4', color: '#F59E0B', href: 'ai-gtm-automation.html', desc: 'Automate 5 to 10 hours a week of manual GTM work: enrichment, call notes, briefs and content.' },
-  { name: 'GTM Systems Reset', tag: 'Program 5', color: '#EF4444', href: 'gtm-systems-reset.html', desc: 'Not sure where to start? A full audit and prioritized roadmap across your entire GTM stack.' },
+  { name: 'GTM Architecture Evolution', tag: 'Program 1', color: '#0EA5E9', href: 'gtm-architecture-evolution.html', desc: 'Lifecycle stages, lead scoring and enrichment: a CRM that works as a revenue engine, not a contact database.' },
+  { name: 'GTM Outbound Evolution', tag: 'Program 2', color: '#10B981', href: 'gtm-outbound-evolution.html', desc: 'Deliverability, Clay enrichment and AI personalization that book meetings consistently.' },
+  { name: 'GTM Intelligence Evolution', tag: 'Program 3', color: '#8B5CF6', href: 'gtm-intelligence-evolution.html', desc: 'GA4, BigQuery and multi-touch attribution that connect marketing spend to closed revenue.' },
+  { name: 'GTM Workforce Evolution', tag: 'Program 4', color: '#F59E0B', href: 'gtm-workforce-evolution.html', desc: 'Automate 5 to 10 hours a week of manual GTM work: enrichment, call notes, briefs and content.' },
+  { name: 'GTM Total Glowap!', tag: 'Program 5', color: '#EF4444', href: 'gtm-total-glowap.html', desc: 'Not sure where to start? A full audit and prioritized roadmap across your entire GTM stack.' },
 ];
 
 // ---------------------------------------------------------------------
@@ -740,11 +740,11 @@ document.getElementById('testiGrid').innerHTML = `
 
 // Services: one card per program, linking to its page
 const SERVICE_ICONS = {
-  'Revenue Architecture': '<path d="M12 3C7 3 4 4.6 4 6.5v11C4 19.4 7 21 12 21s8-1.6 8-3.5v-11C20 4.6 17 3 12 3zm0 2c3.9 0 6 1.1 6 1.5S15.9 8 12 8 6 6.9 6 6.5 8.1 5 12 5zM6 9.2C7.5 9.8 9.6 10 12 10s4.5-.2 6-.8V12c0 .4-2.1 1.5-6 1.5S6 12.4 6 12zm0 5.5c1.5.6 3.6.8 6 .8s4.5-.2 6-.8v2.8c0 .4-2.1 1.5-6 1.5s-6-1.1-6-1.5z"/>',
-  'Modern Outbound': '<path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm0 2.9V17h16V9.9l-8 5z"/>',
-  'Digital Analytics': '<path d="M4 20V10h3v10zm6.5 0V4h3v16zM17 20v-7h3v7z"/>',
-  'AI & GTM Automation': '<path d="M12 2l1.8 4.6L18.5 8l-4.6 1.8L12 14l-1.8-4.2L5.5 8l4.6-1.4zM19 14l1 2.5L22.5 17.5 20 18.5 19 21l-1-2.5L15.5 17.5 18 16.5z"/>',
-  'GTM Systems Reset': '<path d="M11 4a7 7 0 1 0 4.6 12.3l4.5 4.5 1.4-1.4-4.5-4.5A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/>',
+  'GTM Architecture Evolution': '<path d="M12 3C7 3 4 4.6 4 6.5v11C4 19.4 7 21 12 21s8-1.6 8-3.5v-11C20 4.6 17 3 12 3zm0 2c3.9 0 6 1.1 6 1.5S15.9 8 12 8 6 6.9 6 6.5 8.1 5 12 5zM6 9.2C7.5 9.8 9.6 10 12 10s4.5-.2 6-.8V12c0 .4-2.1 1.5-6 1.5S6 12.4 6 12zm0 5.5c1.5.6 3.6.8 6 .8s4.5-.2 6-.8v2.8c0 .4-2.1 1.5-6 1.5s-6-1.1-6-1.5z"/>',
+  'GTM Outbound Evolution': '<path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm0 2.9V17h16V9.9l-8 5z"/>',
+  'GTM Intelligence Evolution': '<path d="M4 20V10h3v10zm6.5 0V4h3v16zM17 20v-7h3v7z"/>',
+  'GTM Workforce Evolution': '<path d="M12 2l1.8 4.6L18.5 8l-4.6 1.8L12 14l-1.8-4.2L5.5 8l4.6-1.4zM19 14l1 2.5L22.5 17.5 20 18.5 19 21l-1-2.5L15.5 17.5 18 16.5z"/>',
+  'GTM Total Glowap!': '<path d="M11 4a7 7 0 1 0 4.6 12.3l4.5 4.5 1.4-1.4-4.5-4.5A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/>',
 };
 document.getElementById('servicesGrid').innerHTML = SERVICES.map(sv => `
   <a class="service-card" href="${sv.href}">

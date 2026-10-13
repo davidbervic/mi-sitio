@@ -12,11 +12,11 @@
 
 Every program has three tiers with published Muvap fees (one time) and estimated monthly tool costs paid directly to vendors, a 6-phase delivery process (Discovery Call, Map, Architect, Deploy, Activate + Measure, Evolution Partner) and an optional Evolution Partner retainer ($1,500 to $3,000/mo).
 
-- [Revenue Architecture](https://davidbervic.com/revenue-architecture.html): CRM redesign, lifecycle stages, lead scoring, Clay + Apollo enrichment, and a CRM queried in natural language via Claude (MCP). Tiers: Foundation ($3,000 to $4,000), Scale ($5,700), Intelligence ($8,000 to $12,000). HubSpot, Salesforce, Zoho, GoHighLevel.
-- [Modern Outbound](https://davidbervic.com/modern-outbound.html): Email deliverability (SPF, DKIM, DMARC), ICP definition, Clay enrichment, AI-personalized multichannel sequences and intent signals. Tiers: Foundation ($3,000 to $4,500), Scale ($5,700), Intelligence ($8,000 to $12,000).
-- [Digital Analytics](https://davidbervic.com/digital-analytics.html): GA4, Looker Studio, BigQuery, multi-touch attribution and AI-written weekly briefs. Tiers: Foundation ($3,000 to $4,000), Integration ($5,700), Intelligence ($8,000 to $12,000).
-- [AI & GTM Automation](https://davidbervic.com/ai-gtm-automation.html): n8n + Claude automations that save 5 to 10 hours of manual GTM work per week (efficiency, not lead generation). Tiers: Foundation ($3,000 to $4,500), Operational ($5,700), Advanced ($8,000 to $15,000).
-- [GTM Systems Reset](https://davidbervic.com/gtm-systems-reset.html): Full audit and prioritized roadmap across CRM, outbound, analytics and tool stack. Diagnostic ($1,500, one week), Architecture Sprint ($5,700 to $8,000), Full Evolution ($15,000 to $30,000 over 3 to 6 months).
+- [GTM Architecture Evolution](https://davidbervic.com/gtm-architecture-evolution.html): CRM redesign, lifecycle stages, lead scoring, Clay + Apollo enrichment, and a CRM queried in natural language via Claude (MCP). Tiers: Foundation ($3,000 to $4,000), Scale ($5,700), Intelligence ($8,000 to $12,000). HubSpot, Salesforce, Zoho, GoHighLevel.
+- [GTM Outbound Evolution](https://davidbervic.com/gtm-outbound-evolution.html): Email deliverability (SPF, DKIM, DMARC), ICP definition, Clay enrichment, AI-personalized multichannel sequences and intent signals. Tiers: Foundation ($3,000 to $4,500), Scale ($5,700), Intelligence ($8,000 to $12,000).
+- [GTM Intelligence Evolution](https://davidbervic.com/gtm-intelligence-evolution.html): GA4, Looker Studio, BigQuery, multi-touch attribution and AI-written weekly briefs. Tiers: Foundation ($3,000 to $4,000), Integration ($5,700), Intelligence ($8,000 to $12,000).
+- [GTM Workforce Evolution](https://davidbervic.com/gtm-workforce-evolution.html): n8n + Claude automations that save 5 to 10 hours of manual GTM work per week (efficiency, not lead generation). Tiers: Foundation ($3,000 to $4,500), Operational ($5,700), Advanced ($8,000 to $15,000).
+- [GTM Total Glowap!](https://davidbervic.com/gtm-total-glowap.html): Full audit and prioritized roadmap across CRM, outbound, analytics and tool stack. Diagnostic ($1,500, one week), Architecture Sprint ($5,700 to $8,000), Full Evolution ($15,000 to $30,000 over 3 to 6 months).
 
 ## Case studies
 
