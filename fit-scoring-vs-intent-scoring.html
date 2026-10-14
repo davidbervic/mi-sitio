@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fit Scoring vs Intent Scoring: What Each Measures and Why to Keep Them Separate · Muvap</title>
+<meta name="description" content="Fit scoring shows who the buyer is; intent scoring shows who is active now. Compare inputs, decay and platform names, and build a routing matrix.">
+<meta name="theme-color" content="#0574fd">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Fit Scoring vs Intent Scoring: What Each Measures and Why to Keep Them Separate",
+    "description": "Fit scoring shows who the buyer is; intent scoring shows who is active now. Compare inputs, decay and platform names, and build a routing matrix.",
+    "image": "images/cover-fit-scoring-vs-intent-scoring.webp",
+    "datePublished": "2026-10-14",
+    "dateModified": "2026-10-14",
+    "author": {"@type": "Organization", "name": "Muvap", "url": "index.html"},
+    "publisher": {"@type": "Organization", "name": "Muvap"},
+    "keywords": ["fit scoring","intent scoring","fit vs intent","lead scoring","fit and intent matrix","score decay","lead routing","ICP scoring"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Should fit scores decay over time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Fit does not need a time-decay curve. Re-evaluate it when firmographic or enrichment data changes, such as a new job title or company size. Decay belongs to intent. HubSpot applies decay to engagement and combined event groups, not to fit criteria, and practitioners warn that building recency into fit creates a confused composite (Checkpoint GTM)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I keep one total score and still separate fit and intent?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, if the component scores and the qualification reason are stored as separate fields. HubSpot's combined score works this way: it creates a total plus engagement-only and fit-only properties. The risk is information loss, not the total itself, so keep the components available for routing and analysis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I do with a low-fit, high-intent lead?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Do not auto-discard it. Qualify the lead lightly, route it to self-serve or a partner if those motions exist, or check whether your ICP definition is wrong. Hold it back from sales by default, since Clearbit's guidance makes fit, not intent, the main gatekeeper for sales attention."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are email opens a reliable intent signal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Mailchimp states that with Apple Mail Privacy Protection enabled, Apple Mail preloads tracking pixels even when the email was not opened, so open metrics are unreliable, while click activity is still reported. We treat opens as a weak input and weight clicks, replies, meetings and key-page visits higher."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does third-party intent data replace lead scoring?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Third-party intent is aggregated off-site research, usually at account level. It offers earlier and broader reach at lower precision, so it works as one input on the intent side, alongside a fit score that says whether the account matches the ICP."
+        }
+      }
+    ]
+  }
+]
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="article.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<div class="nx-grid-bg top-band" data-grid-parallax>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <img src="images/muvap-logo.webp" alt="Muvap" style="height:72px;width:auto;display:block">
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <div class="resources-wrap">
+          <a class="nav-link" href="index.html#programs" style="display:inline-flex;align-items:center;gap:4px">Services<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="gtm-architecture-evolution.html">GTM Architecture Evolution</a>
+            <a href="gtm-outbound-evolution.html">GTM Outbound Evolution</a>
+            <a href="gtm-intelligence-evolution.html">GTM Intelligence Evolution</a>
+            <a href="gtm-workforce-evolution.html">GTM Workforce Evolution</a>
+            <a href="gtm-total-glowap.html">GTM Total Glowap!</a>
+          </div>
+        </div>
+        <a class="nav-link" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link is-current" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="downloads.html">Downloads</a>
+            <span title="Coming soon">Webinars</span>
+          </div>
+        </div>
+      </div>
+      <a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+    </div>
+  </nav>
+
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+</div>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">Lead Scoring</span>
+  <h1>Fit Scoring vs Intent Scoring: What Each Measures and Why to Keep Them Separate</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">M</span>
+    <span class="meta-chip">Muvap</span>
+    <span class="meta-chip">Published Oct 14, 2026</span>
+    <span class="meta-chip">Updated Oct 14, 2026</span>
+    <span class="meta-chip">10 min read</span>
+  </div>
+
+  <div class="article-hero"><img src="images/cover-fit-scoring-vs-intent-scoring.webp" alt="Fit Scoring vs Intent Scoring: two separate dashboards showing who the buyer is versus what they are doing" loading="eager"></div>
+
+  <p class="direct-answer"><strong>Direct answer:</strong> Fit scoring measures how closely a lead or account matches the ideal customer profile, using slow-changing firmographic, demographic and technographic attributes. Intent scoring measures how actively that lead is showing buying interest now, using perishable behavioral signals that should decay. Fit is the "who" and intent is the "when." Platforms name the pair differently, but the separation matters regardless of tool.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li><strong>Fit answers who:</strong> It compares a lead or account to your ICP using attributes that change slowly, so it should be re-scored on data change, not on a time curve.</li>
+      <li><strong>Intent answers when:</strong> It reads recent behavior, so it needs weights and decay, and its inputs differ widely in reliability.</li>
+      <li><strong>Two scores beat one:</strong> A single summed number hides which dimension drove the result; we recommend separate fields combined through a matrix or gate.</li>
+      <li><strong>Fit gates sales attention:</strong> High intent from a poor-fit lead should be qualified or redirected, not routed straight to sales.</li>
+      <li><strong>Every cell needs an owner:</strong> Each fit and intent combination should define an action, an owner and a lifecycle change.</li>
+    </ul>
+  </div>
+
+  <details class="qtoc">
+    <summary class="qtoc-label">Questions this article answers</summary>
+    <ol>
+      <li><a href="#difference">What is the difference between fit and intent scoring, and what do platforms call them?</a></li>
+      <li><a href="#inputs">What goes into a fit score and what goes into an intent score?</a></li>
+      <li><a href="#compare">How do fit and intent scoring compare side by side?</a></li>
+      <li><a href="#blended">Why does one blended score fail, and when is a combined score fine?</a></li>
+      <li><a href="#matrix">What should each cell of a fit × intent matrix trigger?</a></li>
+      <li><a href="#calibrate">How do you calibrate thresholds, and when is predictive scoring warranted?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 5 FAQs answered below</a></li>
+    </ol>
+  </details>
+
+  <h2 id="difference" class="sec">What is the difference between fit and intent scoring, and what do platforms call them?</h2>
+  <p class="lead-answer">Fit asks whether this is the right kind of buyer, intent asks whether that buyer is active now, and platforms name the same split differently.</p>
+  <p>Fit scoring measures how closely a lead or account matches the ideal customer profile using attributes such as industry, company size, job title, location and tech stack. Intent scoring measures what a lead does: page views, form submissions, email clicks, demo requests, meetings and pricing-page visits (<a href="https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" target="_blank" rel="noopener">HubSpot</a>). The first question is about identity. The second is about timing.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Platform</th><th>Fit-side name</th><th>Intent-side name</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><a href="https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" target="_blank" rel="noopener">HubSpot</a></td><td>Fit score</td><td>Engagement score</td></tr>
+        <tr><td><a href="https://help.salesforce.com/s/articleView?id=mktg.pardot_basics_glossary.htm&language=en_US&type=5" target="_blank" rel="noopener">Salesforce Account Engagement</a></td><td>Grade (letters A to F)</td><td>Score (activity-based)</td></tr>
+        <tr><td><a href="https://4thoughtmarketing.com/articles/marketo-lead-scoring-overview/" target="_blank" rel="noopener">Marketo practice</a></td><td>Demographic score</td><td>Behavior score</td></tr>
+        <tr><td><a href="https://support.madkudu.com/hc/en-us/articles/360036535232-Introduction-to-MadKudu" target="_blank" rel="noopener">MadKudu</a></td><td>Customer Fit</td><td>Likelihood to Buy</td></tr>
+        <tr><td><a href="https://clearbit.com/resources/books/lead-qualification/lead-scoring-basics" target="_blank" rel="noopener">Clearbit</a></td><td>Fit</td><td>Intent</td></tr>
+        <tr><td><a href="https://6sense.com/guides/account-prioritization/" target="_blank" rel="noopener">6sense</a></td><td>Account profile fit</td><td>Intent and buying stage</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Terminology is not standardized, and intent and engagement are not identical. First-party intent is behavior on your own properties; third-party intent is aggregated off-site research (<a href="https://pipeline.zoominfo.com/sales/intent-data-for-sales" target="_blank" rel="noopener">ZoomInfo</a>). From here on we use "fit," "intent (engagement)" for behavior on your own properties, and "third-party intent" when we mean off-site research.</p>
+
+  <h2 id="inputs" class="sec">What goes into a fit score and what goes into an intent score?</h2>
+  <p class="lead-answer">Fit uses attributes of who the buyer is, while intent uses signals of what the buyer is doing, either on your own properties or from third-party research.</p>
+  <p>Separating inputs by source keeps each score interpretable. Fit inputs describe the company and the person, change rarely and live in CRM or enrichment data. Intent inputs describe behavior, change constantly and vary in reliability depending on where they were captured. Mixing both in one rule list makes it hard to tell whether a score reflects who the buyer is or what the buyer did recently. We recommend assigning an owner and a refresh logic to each input group before assigning any weight.</p>
+
+  <div class="compare">
+    <div class="compare-card accent-a">
+      <div class="cc-label">Fit inputs</div>
+      <div class="cc-title">Who they are</div>
+      <p><strong>Firmographic:</strong> industry, company size, location.<br><strong>Demographic:</strong> job title and role.<br><strong>Technographic:</strong> the tech stack the company uses.<br><strong>Negative criteria:</strong> job seekers, students, competitors, existing customers and excluded regions. Treat these as a separate disqualification layer so they never look sales-ready (<a href="https://automationstrategists.com/blog/hubspot-lead-scoring-best-practices/" target="_blank" rel="noopener">Automation Strategists</a>).</p>
+    </div>
+    <div class="compare-card accent-b">
+      <div class="cc-label">Intent inputs</div>
+      <div class="cc-title">What they are doing</div>
+      <p><strong>Engagement:</strong> content views, form fills and email clicks on your own properties.<br><strong>High-intent first-party actions:</strong> demo requests, pricing-page visits and meetings. Weight these above generic content views.<br><strong>Third-party intent:</strong> aggregated off-site research, usually at account level, so it still needs a fit score to qualify the account.</p>
+    </div>
+  </div>
+
+  <p>Signal reliability matters inside intent. Mailchimp states that with Apple Mail Privacy Protection enabled, Apple Mail preloads tracking pixels even if the email was not opened, so open metrics are unreliable, while click activity is still reported (<a href="https://mailchimp.com/help/apple-privacy-faq/" target="_blank" rel="noopener">Mailchimp</a>). Consider a hypothetical lead who opens many emails but never clicks or visits the pricing page. After Mail Privacy Protection, those opens may be automated preloads, making this a weak intent profile. Clicks, replies, meetings and key-page visits are stronger.</p>
+
+  <h2 id="compare" class="sec">How do fit and intent scoring compare side by side?</h2>
+  <p class="lead-answer">Fit and intent differ in question answered, inputs, stability, decay, failure mode and routing role: fit is a stable qualifier, intent a perishable timing signal.</p>
+  <p>Fit changes when firmographic or enrichment data changes: a company's headcount is updated or a contact changes title. We re-score fit on data change, not on a time curve, and practitioner sources warn that building recency into fit turns it into a confused composite (<a href="https://checkpointgtm.com/insights/2026-W07-fit-vs-engagement-scoring/" target="_blank" rel="noopener">Checkpoint GTM</a>, <a href="https://artemisgtm.ai/resources/lead-scoring/" target="_blank" rel="noopener">Artemis GTM</a>). Intent works the opposite way: behavior loses meaning as it ages, so it needs weights and decay.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Attribute</th><th>Fit score</th><th>Intent score</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Question answered</td><td>Is this the right kind of buyer?</td><td>Is this buyer active now?</td></tr>
+        <tr><td>Name and aliases</td><td>Fit, grade, demographic score, Customer Fit</td><td>Intent, engagement, score, behavior score, Likelihood to Buy</td></tr>
+        <tr><td>Time behavior</td><td>Stable; re-score when data changes</td><td>Perishable; decays as events age</td></tr>
+        <tr><td>Data source</td><td>CRM and enrichment attributes</td><td>Web, form, email-click and meeting events; third-party feeds</td></tr>
+        <tr><td>Key limitation</td><td>Misses high-intent buyers outside the stated ICP</td><td>Floods sales with unqualified browsers if used alone</td></tr>
+        <tr><td>Routing role</td><td>Gate for sales attention</td><td>Timing trigger</td></tr>
+        <tr><td>Decay applies?</td><td>No (<a href="https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" target="_blank" rel="noopener">HubSpot</a>: decay does not apply to fit criteria)</td><td>Yes (<a href="https://help.madkudu.com/docs/how-is-the-likelihood-to-buy-score-calculated" target="_blank" rel="noopener">MadKudu</a>: last 90 days, weighted, decayed)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Our recommendation is to store them separately, re-score fit on data change, decay only intent, and use fit for "who" and intent for "when." The key-limitation row reflects practitioner analysis that <a href="https://artemisgtm.ai/resources/lead-scoring/" target="_blank" rel="noopener">Artemis GTM</a> presents as directional, not a controlled study.</p>
+
+  <h2 id="blended" class="sec">Why does one blended score fail, and when is a combined score fine?</h2>
+  <p class="lead-answer">A summed number hides which dimension drove it, so a poor-fit lead with heavy activity can match a good-fit lead with little activity; the problem is lost information, not summation itself.</p>
+  <p>The mechanism is arithmetic, not tooling. Behaviors compound: every visit, click and form fill can add points, while firmographic attributes are a small fixed set that tops out quickly. Intent points therefore accumulate faster than fit points, and a long activity trail can outweigh a poor match. Clearbit quotes a MadKudu example in which a combined letter grade hides a very active but poorly fitting lead (<a href="https://clearbit.com/resources/books/lead-qualification/lead-scoring-basics" target="_blank" rel="noopener">Clearbit</a>).</p>
+  <p>Consider a hypothetical pair. Lead A works at a well-matched company and downloaded one guide. Lead B is a poor-fit contact who requested a demo. A summed score can treat them alike, yet the right actions differ: nurture Lead A, and qualify Lead B before sales spends time.</p>
+  <p>Four ways to combine the scores, with the trade-off of each:</p>
+  <ul>
+    <li><strong>Two separate fields:</strong> the simplest and most explainable option, but routing needs a rule that reads both. Clearbit describes a letter for fit and a number for intent, so the fit letter stays stable while intent moves.</li>
+    <li><strong>Matrix lookup:</strong> maps each fit band and intent band to an action, but requires defined bands for both scores.</li>
+    <li><strong>Gate or cap intent behind a fit floor:</strong> stops activity from outranking fit, but requires you to choose the floor.</li>
+    <li><strong>Multiplying fit by intent:</strong> argued to avoid additive masking, though this is a practitioner argument rather than a tested result.</li>
+  </ul>
+  <p>A combined total is acceptable when fit, behavior and qualification reason stay stored separately. HubSpot's combined score does this by creating three properties: total, engagement-only and fit-only (<a href="https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" target="_blank" rel="noopener">HubSpot</a>).</p>
+
+  <h2 id="matrix" class="sec">What should each cell of a fit × intent matrix trigger?</h2>
+  <p class="lead-answer">High fit with high intent routes to sales, high fit with low intent is nurtured, low fit with high intent is lightly qualified, and low fit with low intent is suppressed.</p>
+  <p>The matrix works because the two scores play different roles. Fit decides who deserves sales attention, and intent decides when that attention should arrive. Clearbit's guidance makes fit the main gatekeeper, because high-intent companies with an "okay" fit are tempting low-hanging fruit (<a href="https://clearbit.com/resources/books/lead-qualification/lead-scoring-basics" target="_blank" rel="noopener">Clearbit</a>). HubSpot documents a built-in version: a nine-label grid from A1 to C3, where the letter is fit, the number is engagement, and a low-fit, highly engaged contact is C1 (<a href="https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" target="_blank" rel="noopener">HubSpot</a>).</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Cell</th><th>Action</th><th>Owner</th><th>Lifecycle effect</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>High fit, high intent</strong></td><td>Route to sales quickly</td><td>SDR</td><td>Move to sales-ready stage</td></tr>
+        <tr><td><strong>High fit, low intent</strong></td><td>Nurture or ABM until intent appears</td><td>Marketing</td><td>Stay in marketing-owned stage</td></tr>
+        <tr><td><strong>Low fit, high intent</strong></td><td>Light qualification, self-serve or partner redirect</td><td>Marketing or self-serve</td><td>Hold below sales-ready; review ICP</td></tr>
+        <tr><td><strong>Low fit, low intent</strong></td><td>Suppress or low-touch only</td><td>Marketing ops</td><td>Remain in a low-priority state</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Low fit with high intent is not an automatic discard. Treatment follows the motions you actually have: Clearbit's example sends enterprise leads to sales and high-intent SMB leads to self-serve, and in our view a steady flow of high-intent, low-fit leads is worth checking against your ICP definition. Negative criteria such as students, competitors and existing customers belong in a separate disqualification step ahead of the matrix (<a href="https://automationstrategists.com/blog/hubspot-lead-scoring-best-practices/" target="_blank" rel="noopener">Automation Strategists</a>). Every cell should name a lifecycle change, an owner and an SLA, with durations set from your own team capacity.</p>
+
+  <h2 id="calibrate" class="sec">How do you calibrate thresholds, and when is predictive scoring warranted?</h2>
+  <p class="lead-answer">Set thresholds against historical opportunity and win outcomes and review them on a regular cadence; a rules-based matrix is a practical baseline before predictive scoring.</p>
+  <p>We recommend calibrating the fit floor and the intent trigger against closed outcomes, such as opportunities created and deals won, rather than intuition. Sources recommend quarterly or every-90-day reviews, which is practitioner convention, not a benchmark from controlled research (<a href="https://www.pedowitzgroup.com/what-are-the-different-types-of-lead-scoring-models" target="_blank" rel="noopener">Pedowitz Group</a>). We give no numeric cutoffs because they depend on your own data.</p>
+
+  <p><strong>Design rules checklist:</strong></p>
+  <ul>
+    <li>☐ Store Fit Score, Intent Score and Qualification Reason as separate fields.</li>
+    <li>☐ Apply decay only to intent, never to fit.</li>
+    <li>☐ Re-score fit when enrichment data changes, and record a Last Fit Refresh Date.</li>
+    <li>☐ Gate or cap intent behind a fit floor before it triggers sales routing.</li>
+    <li>☐ Define an action, owner, SLA and lifecycle effect for every matrix cell.</li>
+    <li>☐ Set thresholds from closed outcomes and review them on a fixed cadence.</li>
+  </ul>
+
+  <p>MadKudu's predictive scoring keeps the separation. Its Customer Fit model uses only firmographic, demographic and technographic data, its Likelihood to Buy score sums activity from the last 90 days with weights and decay, and its Lead Grade is a matrix combining the two (<a href="https://support.madkudu.com/hc/en-us/articles/360036535232-Introduction-to-MadKudu" target="_blank" rel="noopener">MadKudu</a>, <a href="https://help.madkudu.com/docs/how-is-the-likelihood-to-buy-score-calculated" target="_blank" rel="noopener">MadKudu Likelihood to Buy</a>). Minimum-data figures for predictive scoring circulate in secondary sources but are unverified, so check the vendor's documentation before committing.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>Should fit scores decay over time?</h3>
+    <p>No. Fit does not need a time-decay curve. Re-evaluate it when firmographic or enrichment data changes, such as a new job title or company size. Decay belongs to intent. <a href="https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" target="_blank" rel="noopener">HubSpot</a> applies decay to engagement and combined event groups, not to fit criteria, and practitioners warn that building recency into fit creates a confused composite (<a href="https://checkpointgtm.com/insights/2026-W07-fit-vs-engagement-scoring/" target="_blank" rel="noopener">Checkpoint GTM</a>).</p>
+  </div>
+  <div class="faq-item">
+    <h3>Can I keep one total score and still separate fit and intent?</h3>
+    <p>Yes, if the component scores and the qualification reason are stored as separate fields. HubSpot's combined score works this way: it creates a total plus engagement-only and fit-only properties (<a href="https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" target="_blank" rel="noopener">HubSpot</a>). The risk is information loss, not the total itself, so keep the components available for routing and analysis.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What should I do with a low-fit, high-intent lead?</h3>
+    <p>Do not auto-discard it. Qualify the lead lightly, route it to self-serve or a partner if those motions exist, or check whether your ICP definition is wrong. Hold it back from sales by default, since <a href="https://clearbit.com/resources/books/lead-qualification/lead-scoring-basics" target="_blank" rel="noopener">Clearbit's guidance</a> makes fit, not intent, the main gatekeeper for sales attention.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Are email opens a reliable intent signal?</h3>
+    <p>No. Mailchimp states that with Apple Mail Privacy Protection enabled, Apple Mail preloads tracking pixels even when the email was not opened, so open metrics are unreliable, while click activity is still reported (<a href="https://mailchimp.com/help/apple-privacy-faq/" target="_blank" rel="noopener">Mailchimp</a>). We treat opens as a weak input and weight clicks, replies, meetings and key-page visits higher.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does third-party intent data replace lead scoring?</h3>
+    <p>No. Third-party intent is aggregated off-site research, usually at account level (<a href="https://pipeline.zoominfo.com/sales/intent-data-for-sales" target="_blank" rel="noopener">ZoomInfo</a>). It offers earlier and broader reach at lower precision, so it works as one input on the intent side, alongside a fit score that says whether the account matches the ICP.</p>
+  </div>
+
+  <div class="related" id="relatedSlot"></div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://knowledge.hubspot.com/scoring/understand-the-lead-scoring-tool" target="_blank" rel="noopener">Overview of the lead scoring tool, HubSpot Knowledge Base</a></li>
+      <li><a href="https://help.salesforce.com/s/articleView?id=mktg.pardot_basics_glossary.htm&language=en_US&type=5" target="_blank" rel="noopener">Account Engagement Glossary, Salesforce Help</a></li>
+      <li><a href="https://www.salesforce.com/in/blog/lead-scoring-and-grading-with-pardot/" target="_blank" rel="noopener">Lead Scoring and Grading for Sales Wins with Pardot, Salesforce</a></li>
+      <li><a href="https://support.madkudu.com/hc/en-us/articles/360036535232-Introduction-to-MadKudu" target="_blank" rel="noopener">Introduction to MadKudu, MadKudu Support</a></li>
+      <li><a href="https://help.madkudu.com/docs/how-is-the-likelihood-to-buy-score-calculated" target="_blank" rel="noopener">How is the Likelihood to Buy score calculated?, MadKudu Help</a></li>
+      <li><a href="https://clearbit.com/resources/books/lead-qualification/lead-scoring-basics" target="_blank" rel="noopener">Modern Guide to Lead Qualification: Lead scoring basics, Clearbit</a></li>
+      <li><a href="https://6sense.com/guides/account-prioritization/" target="_blank" rel="noopener">How 6sense Turns Buying Signals into Account Priorities, 6sense</a></li>
+      <li><a href="https://4thoughtmarketing.com/articles/marketo-lead-scoring-overview/" target="_blank" rel="noopener">Marketo Lead Scoring: An Overview, 4Thought Marketing</a></li>
+      <li><a href="https://automationstrategists.com/blog/hubspot-lead-scoring-best-practices/" target="_blank" rel="noopener">10 HubSpot Lead Scoring Best Practices for 2026, Automation Strategists</a></li>
+      <li><a href="https://checkpointgtm.com/insights/2026-W07-fit-vs-engagement-scoring/" target="_blank" rel="noopener">HubSpot lead scoring: fit vs. engagement, why one score never works, Checkpoint GTM</a></li>
+      <li><a href="https://artemisgtm.ai/resources/lead-scoring/" target="_blank" rel="noopener">How to Implement Lead Scoring: The Fit + Intent Model, Artemis GTM</a></li>
+      <li><a href="https://mailchimp.com/help/apple-privacy-faq/" target="_blank" rel="noopener">Apple Mail Privacy Protection (MPP) FAQs, Mailchimp</a></li>
+      <li><a href="https://pipeline.zoominfo.com/sales/intent-data-for-sales" target="_blank" rel="noopener">Intent Data for Sales: The Complete 2026 Guide, ZoomInfo Pipeline</a></li>
+      <li><a href="https://www.pedowitzgroup.com/what-are-the-different-types-of-lead-scoring-models" target="_blank" rel="noopener">What are the different types of lead scoring models?, The Pedowitz Group</a></li>
+    </ol>
+  </section>
+
+  <div class="article-cta">
+    <p>Want fit and intent scoring built into your own CRM?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Muvap</div>
+      <div class="author-role">GTM & RevOps systems</div>
+      <p class="author-bio">We build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <img src="images/muvap-logo.webp" alt="Muvap" style="height:34px;width:auto;display:block">
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
+        </a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#programs">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Muvap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
+</footer>
+
+<script src="article-interactions.js" defer></script>
+</body>
+</html>
