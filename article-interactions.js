@@ -86,4 +86,64 @@
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  /* ── Related articles ────────────────────────────────────── */
+  var relatedSlot = document.getElementById('relatedSlot');
+  if (relatedSlot) {
+    function renderRelated() {
+      var all = window.MUVAP_ARTICLES;
+      if (!all) return;
+
+      var currentFile = location.pathname.split('/').pop() || '';
+      var current = null;
+      for (var i = 0; i < all.length; i++) {
+        if (all[i].href === currentFile) { current = all[i]; break; }
+      }
+      if (!current) return;
+
+      var sorted = all.slice().sort(function (a, b) {
+        return new Date(b.date) - new Date(a.date);
+      });
+
+      var same = sorted.filter(function (a) {
+        return a.href !== currentFile && a.category === current.category;
+      });
+      var others = sorted.filter(function (a) {
+        return a.href !== currentFile && a.category !== current.category;
+      });
+
+      var picks = same.slice(0, 3);
+      if (picks.length < 3) {
+        picks = picks.concat(others.slice(0, 3 - picks.length));
+      }
+      if (!picks.length) return;
+
+      relatedSlot.innerHTML =
+        '<p class="related-label">Related articles</p>' +
+        '<div class="related-grid">' +
+        picks.map(function (a) {
+          var img = a.img
+            ? '<img src="' + a.img + '" alt="" loading="lazy" width="400" height="225">'
+            : '';
+          return '<a href="' + a.href + '" class="related-card">' +
+            img +
+            '<div class="related-card-body">' +
+              '<span class="related-card-tag">' + a.category + '</span>' +
+              '<span class="related-card-title">' + a.title + '</span>' +
+              '<span class="related-card-meta">' + a.readTime + '</span>' +
+            '</div>' +
+          '</a>';
+        }).join('') +
+        '</div>';
+    }
+
+    if (window.MUVAP_ARTICLES) {
+      renderRelated();
+    } else {
+      var s = document.createElement('script');
+      s.src = 'articles-data.js';
+      s.onload = renderRelated;
+      document.head.appendChild(s);
+    }
+  }
 })();
