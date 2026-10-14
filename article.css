@@ -219,10 +219,10 @@ footer{background:var(--nx-ink);padding:clamp(56px,7vw,80px) clamp(16px,4vw,44px
 .article-layout{
   display:grid;
   grid-template-columns:220px minmax(0,760px);
-  gap:0 48px;
-  max-width:1080px;
+  gap:0 40px;
+  max-width:1280px;
   margin:0 auto;
-  padding:0 24px;
+  padding:0 clamp(16px,3.4vw,44px);
   align-items:start;
 }
 
