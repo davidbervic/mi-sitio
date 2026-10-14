@@ -203,3 +203,106 @@ footer{background:var(--nx-ink);padding:clamp(56px,7vw,80px) clamp(16px,4vw,44px
 @media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ── compare-card accent-c ──────────────────────────────────── */
+.compare-card.accent-c .cc-label{color:#7a2fc0}
+.compare-card.accent-c .cc-label::before{background:var(--nx-purple)}
+
+/* ── statblock multi-item grid ──────────────────────────────── */
+.statblock{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;text-align:left}
+.stat-item{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:12px;padding:16px 18px}
+.stat-num{font:900 clamp(28px,5vw,40px)/1 var(--nx-font-display);color:var(--nx-paper);margin-bottom:6px}
+.stat-label{font:800 12px/1 var(--nx-font-display);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:8px}
+.stat-note{font:400 13px/1.5 var(--nx-font-text);color:rgba(255,255,255,.7)}
+
+/* ── Sticky TOC sidebar layout ──────────────────────────────── */
+.article-layout{
+  display:grid;
+  grid-template-columns:220px minmax(0,760px);
+  gap:0 48px;
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 24px;
+  align-items:start;
+}
+
+/* Reset article positioning when inside layout wrapper */
+.article-layout article{
+  max-width:none;
+  margin:0;
+  padding-left:0;
+  padding-right:0;
+}
+
+/* Hide inline qtoc on desktop — sidebar replaces it */
+@media(min-width:1080px){
+  .article-layout .qtoc{display:none}
+}
+
+/* On narrow screens collapse to single column */
+@media(max-width:1079px){
+  .article-layout{display:block;padding:0}
+  .article-toc-sidebar{display:none}
+}
+
+/* ── Sidebar inner card ─────────────────────────────────────── */
+.article-toc-sidebar{
+  position:sticky;
+  top:96px;
+  max-height:calc(100vh - 112px);
+  overflow:hidden;
+  padding-top:16px; /* aligns with article's first content */
+}
+
+.toc-sb-inner{
+  background:var(--nx-paper);
+  border:1.5px solid var(--nx-ink);
+  border-radius:var(--nx-radius-md);
+  box-shadow:var(--nx-drop-sm);
+  padding:16px 14px 18px;
+  max-height:calc(100vh - 128px);
+  overflow-y:auto;
+}
+
+.toc-sb-label{
+  font:800 10.5px/1 var(--nx-font-display);
+  letter-spacing:var(--nx-track-label);
+  text-transform:uppercase;
+  color:#999;
+  margin-bottom:12px;
+  padding-bottom:10px;
+  border-bottom:1px solid #ececec;
+}
+
+.toc-sb-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  gap:1px;
+}
+
+.toc-sb-link{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  padding:7px 8px;
+  border-radius:8px;
+  text-decoration:none;
+  color:#999;
+  font:400 12.5px/1.35 var(--nx-font-text);
+  transition:background .1s ease,color .1s ease;
+}
+.toc-sb-link:hover{background:var(--nx-paper-dim);color:var(--nx-ink)}
+.toc-sb-link.is-active{color:var(--nx-ink);font-weight:700;background:var(--nx-cyan-pale)}
+
+.toc-sb-num{
+  font:700 10px/1 var(--nx-font-mono);
+  color:var(--nx-blue);
+  flex:0 0 auto;
+  margin-top:2px;
+  opacity:.7;
+}
+.toc-sb-link.is-active .toc-sb-num{opacity:1}
+.toc-sb-text{line-height:1.35}
