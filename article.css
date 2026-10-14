@@ -35,7 +35,7 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 .placeholder-box{background:var(--nx-paper-dim);border:1.5px dashed #ccc;border-radius:14px;display:flex;align-items:center;justify-content:center;font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:#999;text-transform:uppercase;text-align:center;padding:12px}
 
 /* ---- reading progress bar ---- */
-.progress-bar{position:fixed;top:0;left:0;height:4px;width:0%;background:var(--nx-cyan);z-index:60}
+.progress-bar{position:fixed;top:0;left:0;height:4px;width:0%;background:var(--nx-pink);z-index:60}
 
 /* ---- nav (Muvap standard) ---- */
 .nx-grid-bg{
