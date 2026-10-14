@@ -303,15 +303,16 @@ footer{background:var(--nx-ink);padding:clamp(56px,7vw,80px) clamp(16px,4vw,44px
 .toc-sb-link.is-active .toc-sb-num{opacity:1}
 .toc-sb-text{line-height:1.35}
 
-/* Related articles */
-.related{margin:48px 0 40px}
-.related-label{font:800 11px/1 var(--nx-font-display);letter-spacing:.1em;text-transform:uppercase;color:#999;margin-bottom:20px}
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+/* Related articles — full-width section between article and footer */
+.related-full{background:var(--nx-paper-dim);border-top:1.5px solid #e4e4e4;padding:52px clamp(16px,5vw,80px) 60px}
+.related-full-inner{max-width:1100px;margin:0 auto}
+.related-label{font:800 11px/1 var(--nx-font-display);letter-spacing:.1em;text-transform:uppercase;color:#999;margin-bottom:24px}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 @media(max-width:700px){.related-grid{grid-template-columns:1fr}}
-.related-card{display:flex;flex-direction:column;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-md);overflow:hidden;text-decoration:none;color:var(--nx-ink);transition:box-shadow .15s,transform .15s}
+.related-card{display:flex;flex-direction:column;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-md);overflow:hidden;background:var(--nx-paper);text-decoration:none;color:var(--nx-ink);transition:box-shadow .15s,transform .15s}
 .related-card:hover{box-shadow:var(--nx-drop-sm);transform:translate(-2px,-2px);color:var(--nx-ink)}
 .related-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
-.related-card-body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}
+.related-card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:7px;flex:1}
 .related-card-tag{font:700 10px/1 var(--nx-font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--nx-pink)}
-.related-card-title{font:700 14px/1.4 var(--nx-font-text);color:var(--nx-ink)}
-.related-card-meta{font:400 12px/1 var(--nx-font-text);color:#999;margin-top:auto;padding-top:8px}
+.related-card-title{font:700 15px/1.4 var(--nx-font-text);color:var(--nx-ink)}
+.related-card-meta{font:400 12px/1 var(--nx-font-text);color:#999;margin-top:auto;padding-top:10px}

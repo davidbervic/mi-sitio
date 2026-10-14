@@ -118,23 +118,31 @@
       }
       if (!picks.length) return;
 
-      relatedSlot.innerHTML =
-        '<p class="related-label">Related articles</p>' +
-        '<div class="related-grid">' +
-        picks.map(function (a) {
-          var img = a.img
-            ? '<img src="' + a.img + '" alt="" loading="lazy" width="400" height="225">'
-            : '';
-          return '<a href="' + a.href + '" class="related-card">' +
-            img +
-            '<div class="related-card-body">' +
-              '<span class="related-card-tag">' + a.category + '</span>' +
-              '<span class="related-card-title">' + a.title + '</span>' +
-              '<span class="related-card-meta">' + a.readTime + '</span>' +
-            '</div>' +
-          '</a>';
-        }).join('') +
+      var section = document.createElement('section');
+      section.className = 'related-full';
+      section.innerHTML =
+        '<div class="related-full-inner">' +
+          '<p class="related-label">Related articles</p>' +
+          '<div class="related-grid">' +
+          picks.map(function (a) {
+            var img = a.img
+              ? '<img src="' + a.img + '" alt="" loading="lazy" width="400" height="225">'
+              : '';
+            return '<a href="' + a.href + '" class="related-card">' +
+              img +
+              '<div class="related-card-body">' +
+                '<span class="related-card-tag">' + a.category + '</span>' +
+                '<span class="related-card-title">' + a.title + '</span>' +
+                '<span class="related-card-meta">' + a.readTime + '</span>' +
+              '</div>' +
+            '</a>';
+          }).join('') +
+          '</div>' +
         '</div>';
+
+      var layout = document.querySelector('.article-layout');
+      var anchor = layout || article;
+      anchor.parentNode.insertBefore(section, anchor.nextSibling);
     }
 
     if (window.MUVAP_ARTICLES) {
