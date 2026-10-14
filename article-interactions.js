@@ -53,20 +53,10 @@
 
   /* ── Active-section highlighting ─────────────────────────── */
   var links = Array.from(sidebar.querySelectorAll('.toc-sb-link'));
-  var inner = sidebar.querySelector('.toc-sb-inner');
 
   function setActive(id) {
     links.forEach(function (a) {
-      var active = a.dataset.id === id;
-      a.classList.toggle('is-active', active);
-      if (active && inner) {
-        // Scroll sidebar so active link is visible
-        var aTop = a.offsetTop - inner.offsetTop;
-        var iH = inner.clientHeight;
-        if (aTop < inner.scrollTop + 20 || aTop > inner.scrollTop + iH - 40) {
-          inner.scrollTo({ top: aTop - iH / 2, behavior: 'smooth' });
-        }
-      }
+      a.classList.toggle('is-active', a.dataset.id === id);
     });
   }
 
