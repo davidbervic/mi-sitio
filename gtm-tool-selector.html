@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTM Tool Selector — Muvap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:   #0574FD;
+      --pink:   #FB4AAD;
+      --cyan:   #12EFFB;
+      --yellow: #FCDF07;
+      --purple: #A040F0;
+      --green:  #00CC7A;
+      --black:  #000;
+      --white:  #fff;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--blue);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px);
+      background-size: 44px 44px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .app {
+      position: relative;
+      z-index: 1;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 64px;
+    }
+
+    /* ── Branding ── */
+    .muvap-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 28px;
+    }
+
+    /* ── Screens ── */
+    .screen { display: none; width: 100%; max-width: 880px; animation: fadeIn .2s ease; }
+    .screen.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+    /* ── Step indicator ── */
+    .step-row { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; }
+    .step-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(255,255,255,.25);
+      border: 2px solid rgba(255,255,255,.35);
+      transition: all .2s;
+    }
+    .step-dot.done  { background: var(--green); border-color: var(--black); }
+    .step-dot.active { background: var(--white); border-color: var(--black); width: 28px; border-radius: 10px; }
+    .step-label { font: 700 11px/1 'Inter'; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-left: 4px; }
+
+    /* ── Back link ── */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font: 600 13px/1 'Inter'; color: rgba(255,255,255,.75);
+      background: none; border: none; padding: 0; cursor: pointer;
+      margin-bottom: 18px; transition: color .1s;
+    }
+    .back-link:hover { color: var(--white); }
+
+    /* ── Sticker headline ── */
+    .sticker {
+      font-family: 'Fredoka', sans-serif; font-weight: 700;
+      color: var(--black); -webkit-text-stroke: .065em var(--white);
+      paint-order: stroke fill; line-height: 1.1;
+    }
+    .cat-hl { color: var(--pink); -webkit-text-stroke: 0; paint-order: fill; }
+
+    /* ── White card ── */
+    .card {
+      background: var(--white);
+      border: 3px solid var(--black);
+      border-radius: 16px;
+      box-shadow: 4px 4px 0 var(--black);
+    }
+
+    /* ── CTA Button ── */
+    .btn-cta {
+      width: 100%; padding: 18px 24px;
+      background: var(--pink); border: 2.5px solid var(--black);
+      border-radius: 14px; box-shadow: 4px 4px 0 var(--black);
+      font: 700 17px/1 'Inter'; color: var(--white);
+      cursor: pointer; text-decoration: none;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn-cta:hover:not(:disabled) { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+    .btn-cta:active:not(:disabled) { transform: translate(2px,2px); box-shadow: 1px 1px 0 var(--black); }
+    .btn-cta:disabled { opacity: .35; cursor: not-allowed; box-shadow: 2px 2px 0 var(--black); }
+    .btn-cta.btn-cyan   { background: var(--cyan);   color: var(--black); }
+    .btn-cta.btn-yellow { background: var(--yellow); color: var(--black); }
+    .btn-cta.btn-green  { background: var(--green);  color: var(--black); }
+
+    /* ── SCREEN 1 ── */
+    .s1-headline { font-size: clamp(30px, 5vw, 52px); display: block; margin-bottom: 8px; }
+    .s1-sub { font: 400 15px/1.5 'Inter'; color: rgba(255,255,255,.82); margin-bottom: 32px; }
+
+    .cat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    @media (max-width: 580px) { .cat-grid { grid-template-columns: repeat(2,1fr); } }
+
+    .cat-card {
+      background: var(--white); border: 3px solid var(--black);
+      border-radius: 16px; box-shadow: 4px 4px 0 var(--black);
+      padding: 28px 16px 22px; border-bottom-width: 5px;
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+      cursor: pointer;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .cat-card:hover  { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+    .cat-card:active { transform: translate(2px,2px);   box-shadow: 2px 2px 0 var(--black); }
+    .cat-icon  { font-size: 40px; line-height: 1; }
+    .cat-label { font: 700 15px/1.2 'Inter'; color: var(--black); text-align: center; }
+
+    /* ── SCREEN 2 ── */
+    .s2-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); border: 2.5px solid var(--black);
+      border-radius: 999px; padding: 6px 14px; margin-bottom: 18px;
+      font: 700 13px/1 'Inter'; color: var(--black);
+      box-shadow: 3px 3px 0 var(--black);
+    }
+    .s2-headline { font-size: clamp(20px, 3.5vw, 34px); display: block; margin-bottom: 4px; }
+    .s2-sub { font: 400 14px/1.5 'Inter'; color: rgba(255,255,255,.72); margin-bottom: 18px; }
+
+    .features-card { padding: 20px; margin-bottom: 16px; }
+    .feature-list  { display: flex; flex-direction: column; gap: 8px; }
+
+    .feature-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 13px 16px; border-radius: 10px; border: 2px solid #e0e0e0;
+      cursor: pointer; user-select: none;
+      transition: border-color .1s, background .1s;
+    }
+    .feature-item:hover { border-color: #aaa; }
+    .feature-item.is-checked { border-color: var(--black); background: rgba(251,74,173,.07); }
+
+    .cb-box {
+      width: 20px; height: 20px; border: 2.5px solid #ccc; border-radius: 5px;
+      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      transition: all .1s;
+    }
+    .feature-item.is-checked .cb-box { background: var(--pink); border-color: var(--black); }
+    .cb-check {
+      display: none; width: 10px; height: 6px;
+      border-left: 2.5px solid var(--black); border-bottom: 2.5px solid var(--black);
+      transform: rotate(-45deg) translate(0px, -1px);
+    }
+    .feature-item.is-checked .cb-check { display: block; }
+    .feature-label { font: 400 14px/1.4 'Inter'; color: #222; }
+    .feature-item.is-checked .feature-label { font-weight: 600; }
+
+    .sel-info { font: 600 13px/1 'Inter'; color: rgba(255,255,255,.72); text-align: right; margin-bottom: 12px; min-height: 18px; }
+    .sel-count { background: var(--yellow); color: var(--black); border: 1.5px solid var(--black); border-radius: 999px; padding: 2px 8px; font-weight: 700; }
+
+    /* ── SCREEN 3 ── */
+    .s3-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 660px) { .s3-grid { grid-template-columns: 1fr; } }
+
+    .result-card { padding: 28px 24px; }
+    .res-label { font: 700 10px/1 'Inter'; letter-spacing: .12em; text-transform: uppercase; color: var(--pink); margin-bottom: 10px; }
+    .res-name { font-size: clamp(24px, 3.5vw, 38px); display: block; margin-bottom: 8px; }
+    .res-tagline { font: 400 13px/1.5 'Inter'; color: #666; margin-bottom: 18px; }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .pill {
+      display: inline-flex; align-items: center; padding: 5px 12px;
+      border-radius: 999px; border: 2px solid var(--black);
+      font: 700 12px/1 'Inter'; color: var(--black);
+    }
+    .pill-yellow { background: var(--yellow); }
+    .pill-cyan   { background: var(--cyan); }
+
+    .res-link { font: 600 13px/1 'Inter'; color: var(--blue); text-decoration: none; }
+    .res-link:hover { text-decoration: underline; }
+    .res-disclaimer { font: 400 11px/1.5 'Inter'; color: #bbb; margin-top: 16px; padding-top: 14px; border-top: 1px solid #eee; }
+
+    .form-card { padding: 28px 24px; }
+    .form-hl  { font: 700 17px/1.2 'Inter'; color: var(--black); margin-bottom: 6px; }
+    .form-sub { font: 400 13px/1.5 'Inter'; color: #777; margin-bottom: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
+    .form-label { font: 700 12px/1 'Inter'; color: var(--black); letter-spacing: .02em; }
+    .form-label .opt { font-weight: 400; color: #aaa; }
+    .form-input {
+      border: 2px solid #ccc; border-radius: 10px; padding: 12px 14px;
+      font: 400 14px/1 'Inter'; color: var(--black); outline: none;
+      transition: border-color .12s, box-shadow .12s; background: var(--white);
+    }
+    .form-input:focus { border-color: var(--black); box-shadow: 0 0 0 3px rgba(251,74,173,.18); }
+    .form-fine { font: 400 11px/1.4 'Inter'; color: #bbb; text-align: center; margin-top: 10px; }
+
+    /* ── SCREEN 4 ── */
+    #screen-4 { max-width: 480px; margin: 0 auto; }
+    .s4-card { padding: 44px 32px; text-align: center; }
+    .s4-icon {
+      width: 64px; height: 64px; background: var(--green);
+      border: 3px solid var(--black); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px; box-shadow: 3px 3px 0 var(--black);
+    }
+    .s4-hl   { font-size: 36px; display: block; margin-bottom: 12px; }
+    .s4-body { font: 400 15px/1.6 'Inter'; color: #666; margin-bottom: 28px; }
+    .s4-restart {
+      display: inline-block; margin-top: 16px;
+      font: 600 13px/1 'Inter'; color: rgba(255,255,255,.6);
+      background: none; border: none; cursor: pointer; padding: 0;
+    }
+    .s4-restart:hover { color: var(--white); text-decoration: underline; }
+
+    /* ── Watermark ── */
+    .watermark { margin-top: 48px; font: 400 12px/1 'Inter'; color: rgba(255,255,255,.35); text-align: center; }
+    .watermark a { color: rgba(255,255,255,.5); text-decoration: none; }
+    .watermark a:hover { color: var(--white); }
+  </style>
+</head>
+<body>
+<div class="app">
+
+  <img src="images/muvap-logo.webp" alt="Muvap" class="muvap-logo">
+
+  <!-- ── Screen 1: Category ── -->
+  <div class="screen active" id="screen-1">
+    <div class="step-row">
+      <div class="step-dot active"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <span class="step-label">Paso 1 de 4</span>
+    </div>
+    <span class="sticker s1-headline">¿Qué tipo de herramienta GTM necesitas?</span>
+    <p class="s1-sub">Elige una categoría y en 2 preguntas te decimos cuál usar.</p>
+    <div class="cat-grid" id="cat-grid"></div>
+  </div>
+
+  <!-- ── Screen 2: Features ── -->
+  <div class="screen" id="screen-2">
+    <button class="back-link" onclick="goBack(2)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Volver
+    </button>
+    <div class="step-row">
+      <div class="step-dot done"></div>
+      <div class="step-dot active"></div>
+      <div class="step-dot"></div>
+      <div class="step-dot"></div>
+      <span class="step-label">Paso 2 de 4</span>
+    </div>
+    <div class="s2-badge" id="s2-badge"></div>
+    <span class="sticker s2-headline" id="s2-headline"></span>
+    <p class="s2-sub">Selecciona todas las que aplican a tu caso.</p>
+    <div class="card features-card">
+      <div class="feature-list" id="feature-list"></div>
+    </div>
+    <div class="sel-info" id="sel-info"></div>
+    <button class="btn-cta" id="see-rec-btn" disabled onclick="showScreen3()">
+      Ver mi recomendación →
+    </button>
+  </div>
+
+  <!-- ── Screen 3: Result + Form ── -->
+  <div class="screen" id="screen-3">
+    <button class="back-link" onclick="goBack(3)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Volver
+    </button>
+    <div class="step-row">
+      <div class="step-dot done"></div>
+      <div class="step-dot done"></div>
+      <div class="step-dot active"></div>
+      <div class="step-dot"></div>
+      <span class="step-label">Paso 3 de 4</span>
+    </div>
+    <div class="s3-grid">
+      <div class="card result-card">
+        <p class="res-label">Tu mejor opción</p>
+        <span class="sticker res-name" id="res-name"></span>
+        <p class="res-tagline" id="res-tagline"></p>
+        <div class="pills">
+          <span class="pill pill-yellow" id="res-price"></span>
+          <span class="pill pill-cyan" id="res-coverage"></span>
+        </div>
+        <a class="res-link" id="res-link" href="#" target="_blank" rel="noopener">Visitar sitio web →</a>
+        <p class="res-disclaimer">Basado en tus respuestas. El ranking completo con las 4 mejores opciones llega a tu email.</p>
+      </div>
+      <div class="card form-card">
+        <p class="form-hl">Recibe el ranking completo</p>
+        <p class="form-sub">Las 4 mejores herramientas para tu caso, comparadas con pros y contras.</p>
+        <form id="lead-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label class="form-label" for="f-name">Nombre</label>
+            <input class="form-input" id="f-name" type="text" placeholder="Tu nombre" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-email">Email</label>
+            <input class="form-input" id="f-email" type="email" placeholder="tu@empresa.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-company">Empresa <span class="opt">(opcional)</span></label>
+            <input class="form-input" id="f-company" type="text" placeholder="Nombre de tu empresa" autocomplete="organization">
+          </div>
+          <button type="submit" class="btn-cta" id="submit-btn">Enviar mi informe</button>
+          <p class="form-fine">Te lo enviamos en minutos. Sin spam.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Screen 4: Confirmation ── -->
+  <div class="screen" id="screen-4">
+    <div class="step-row">
+      <div class="step-dot done"></div>
+      <div class="step-dot done"></div>
+      <div class="step-dot done"></div>
+      <div class="step-dot active"></div>
+      <span class="step-label">Paso 4 de 4</span>
+    </div>
+    <div class="card s4-card">
+      <div class="s4-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span class="sticker s4-hl">¡Listo! Revisa tu email.</span>
+      <p class="s4-body">En los próximos minutos recibirás el ranking completo con las mejores herramientas para tu caso, comparadas y explicadas.</p>
+      <a href="https://calendly.com/PLACEHOLDER" target="_blank" rel="noopener" class="btn-cta btn-cyan">
+        ¿Quieres hablar con David?
+      </a>
+      <button class="s4-restart" onclick="restart()">Volver al inicio</button>
+    </div>
+  </div>
+
+  <p class="watermark">Hecho por <a href="https://davidbervic.com" target="_blank">Muvap</a></p>
+</div>
+
+<script>
+const TOOL_DATA = {
+  crm: {
+    label: "CRM", icon: "🗂️",
+    accent: "#FB4AAD",
+    features: [
+      { id: "free_plan",            label: "Plan gratuito disponible" },
+      { id: "multi_pipeline",       label: "Múltiples pipelines de ventas" },
+      { id: "email_sequences",      label: "Secuencias de email integradas" },
+      { id: "workflow_automation",  label: "Automatización de workflows" },
+      { id: "lead_scoring",         label: "Lead scoring automático" },
+      { id: "advanced_reporting",   label: "Reportes y dashboards avanzados" },
+      { id: "ai_features",          label: "Features de IA / insights predictivos" },
+      { id: "all_in_one",           label: "Marketing + CRM + Automatización en uno" },
+      { id: "agency_mode",          label: "Gestión multi-cliente / agencias" },
+      { id: "high_volume_contacts", label: "100k+ contactos sin penalización" }
+    ],
+    tools: [
+      { name: "HubSpot CRM",          tagline: "El CRM más adoptado por startups B2B en crecimiento",          website: "https://hubspot.com",                   starting_price: "$20/seat/mo",  free_tier: true,  features: ["free_plan","multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","all_in_one","high_volume_contacts"] },
+      { name: "Salesforce Sales Cloud",tagline: "El CRM enterprise estándar para deals complejos",             website: "https://salesforce.com",                starting_price: "$25/seat/mo",  free_tier: false, features: ["multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","high_volume_contacts"] },
+      { name: "Zoho CRM",              tagline: "La alternativa costo-eficiente con todo lo necesario",        website: "https://zoho.com/crm",                  starting_price: "$14/seat/mo",  free_tier: true,  features: ["free_plan","multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","high_volume_contacts"] },
+      { name: "GoHighLevel",           tagline: "La plataforma todo-en-uno para agencias y coaches",           website: "https://gohighlevel.com",               starting_price: "$97/mo",       free_tier: false, features: ["multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","all_in_one","agency_mode"] },
+      { name: "Pipedrive",             tagline: "El CRM diseñado por vendedores para vendedores",              website: "https://pipedrive.com",                 starting_price: "$14/seat/mo",  free_tier: false, features: ["multi_pipeline","email_sequences","workflow_automation","advanced_reporting","ai_features","high_volume_contacts"] }
+    ]
+  },
+  enrichment: {
+    label: "Enrichment", icon: "🔍",
+    accent: "#12EFFB",
+    features: [
+      { id: "email_finding",       label: "Encontrar y validar emails B2B" },
+      { id: "phone_numbers",       label: "Teléfonos directos / móviles verificados" },
+      { id: "company_firmographics",label: "Datos de empresa (tamaño, industria, revenue)" },
+      { id: "technographics",      label: "Stack tecnológico de las empresas target" },
+      { id: "intent_signals",      label: "Señales de intención de compra" },
+      { id: "ai_research_agent",   label: "Agente IA que investiga prospectos automáticamente" },
+      { id: "waterfall_enrichment",label: "Enriquecimiento en cascada (múltiples fuentes)" },
+      { id: "job_change_alerts",   label: "Alertas cuando un contacto cambia de trabajo" },
+      { id: "crm_sync",            label: "Sync automático con CRM" },
+      { id: "self_serve_free",     label: "Acceso gratuito sin hablar con ventas" }
+    ],
+    tools: [
+      { name: "Clay",                    tagline: "El sistema operativo del enriquecimiento moderno",                    website: "https://clay.com",                                          starting_price: "$149/mo",       free_tier: true,  features: ["email_finding","phone_numbers","company_firmographics","technographics","intent_signals","ai_research_agent","waterfall_enrichment","job_change_alerts","crm_sync","self_serve_free"] },
+      { name: "Apollo.io",               tagline: "Base de datos B2B + enriquecimiento integrado con outbound",         website: "https://apollo.io",                                         starting_price: "$49/seat/mo",   free_tier: true,  features: ["email_finding","phone_numbers","company_firmographics","technographics","crm_sync","self_serve_free"] },
+      { name: "Clearbit (Breeze Intelligence)", tagline: "Enriquecimiento nativo dentro de HubSpot",                   website: "https://hubspot.com/products/marketing/breeze-intelligence", starting_price: "$45/user/mo",   free_tier: true,  features: ["email_finding","company_firmographics","technographics","crm_sync","self_serve_free"] },
+      { name: "ZoomInfo",                tagline: "La mayor base de datos B2B del mercado",                             website: "https://zoominfo.com",                                      starting_price: "~$15,000/año",  free_tier: false, features: ["email_finding","phone_numbers","company_firmographics","technographics","intent_signals","job_change_alerts","crm_sync"] },
+      { name: "Cognism",                 tagline: "La mejor base de datos para mercados europeos y teléfonos verificados",website: "https://cognism.com",                                   starting_price: "~$18,500/año",  free_tier: false, features: ["email_finding","phone_numbers","company_firmographics","technographics","intent_signals","job_change_alerts","crm_sync"] }
+    ]
+  },
+  outbound: {
+    label: "Outbound", icon: "📤",
+    accent: "#FCDF07",
+    features: [
+      { id: "cold_email",          label: "Campañas de email frío en secuencias" },
+      { id: "linkedin_automation", label: "Automatización de LinkedIn (conexiones, mensajes)" },
+      { id: "email_warmup",        label: "Warmup de emails integrado" },
+      { id: "high_volume",         label: "Alto volumen (10k+ emails/día)" },
+      { id: "ai_personalization",  label: "Personalización con IA a escala" },
+      { id: "multichannel",        label: "Email + LinkedIn en la misma secuencia" },
+      { id: "reply_management",    label: "Gestión de respuestas / inbox unificado" },
+      { id: "ab_testing",          label: "A/B testing de asuntos y copies" },
+      { id: "agency_mode",         label: "Múltiples clientes / cuentas desde una plataforma" },
+      { id: "one_time_payment",    label: "Pago único, sin suscripción mensual" }
+    ],
+    tools: [
+      { name: "Apollo.io",               tagline: "Prospección + outbound en una sola plataforma",                      website: "https://apollo.io",                            starting_price: "$49/seat/mo",  free_tier: true,  features: ["cold_email","reply_management","ab_testing","ai_personalization"] },
+      { name: "Smartlead",               tagline: "El enviador de alto volumen con inbox rotation nativa",              website: "https://smartlead.ai",                         starting_price: "$39/mo",       free_tier: false, features: ["cold_email","email_warmup","high_volume","ab_testing","agency_mode","reply_management"] },
+      { name: "Instantly",               tagline: "Escala tu outbound con warmup automático y analytics claros",        website: "https://instantly.ai",                         starting_price: "$37.60/mo",    free_tier: false, features: ["cold_email","email_warmup","high_volume","ab_testing","agency_mode","reply_management"] },
+      { name: "LinkedIn Sales Navigator",tagline: "El buscador y tracker oficial de LinkedIn para ventas B2B",          website: "https://business.linkedin.com/sales-solutions", starting_price: "$89.99/seat/mo",free_tier: false, features: ["linkedin_automation","reply_management","multichannel"] },
+      { name: "Aimfox",                  tagline: "Automatización de LinkedIn con pago único",                          website: "https://aimfox.com",                            starting_price: "$59 one-time",  free_tier: false, features: ["linkedin_automation","multichannel","one_time_payment"] }
+    ]
+  },
+  analytics: {
+    label: "Analytics", icon: "📊",
+    accent: "#A040F0",
+    features: [
+      { id: "web_traffic",         label: "Tráfico web, fuentes y comportamiento" },
+      { id: "pipeline_dashboards", label: "Dashboards de pipeline de ventas" },
+      { id: "product_analytics",   label: "Comportamiento de usuarios dentro del producto" },
+      { id: "attribution",         label: "Atribución multi-touch de marketing" },
+      { id: "data_warehouse",      label: "Integración con data warehouse (BigQuery, Snowflake)" },
+      { id: "ai_insights",         label: "Insights automáticos generados por IA" },
+      { id: "custom_sql",          label: "Consultas SQL personalizadas" },
+      { id: "free_plan",           label: "Plan gratuito funcional" },
+      { id: "real_time_events",    label: "Tracking de eventos en tiempo real" },
+      { id: "marketing_campaigns", label: "Tracking de campañas de marketing" }
+    ],
+    tools: [
+      { name: "GA4 + Looker Studio", tagline: "El analytics gratuito de Google, el más adoptado del mundo",          website: "https://analytics.google.com",       starting_price: "$0",            free_tier: true,  features: ["web_traffic","attribution","marketing_campaigns","free_plan","real_time_events"] },
+      { name: "BigQuery",            tagline: "El data warehouse serverless para análisis a gran escala",            website: "https://cloud.google.com/bigquery",  starting_price: "$0 (pay per use)",free_tier: true, features: ["data_warehouse","custom_sql","real_time_events","free_plan"] },
+      { name: "Mixpanel",            tagline: "Product analytics centrado en eventos y retención de usuarios",       website: "https://mixpanel.com",               starting_price: "$24/mo",        free_tier: true,  features: ["product_analytics","real_time_events","attribution","ai_insights","free_plan"] },
+      { name: "Amplitude",           tagline: "Product analytics enterprise con IA integrada",                      website: "https://amplitude.com",              starting_price: "$0",            free_tier: true,  features: ["product_analytics","real_time_events","ai_insights","attribution","free_plan"] },
+      { name: "Segment",             tagline: "El Customer Data Platform que centraliza todos tus datos de clientes",website: "https://segment.com",               starting_price: "$120/mo",       free_tier: true,  features: ["real_time_events","data_warehouse","attribution","free_plan","marketing_campaigns"] }
+    ]
+  },
+  call_intelligence: {
+    label: "Call Intelligence", icon: "🎙️",
+    accent: "#00CC7A",
+    features: [
+      { id: "recording_transcription", label: "Grabación y transcripción automática de calls" },
+      { id: "ai_summaries",            label: "Resúmenes de calls generados por IA" },
+      { id: "crm_sync",                label: "Sync automático con CRM (notas, actividades)" },
+      { id: "action_items",            label: "Extracción automática de action items / next steps" },
+      { id: "keyword_alerts",          label: "Alertas de keywords y temas mencionados" },
+      { id: "deal_risk",               label: "Señales de riesgo en deals (objeciones, señales negativas)" },
+      { id: "coaching_scorecards",     label: "Scorecards de coaching para reps de ventas" },
+      { id: "forecast_intelligence",   label: "Inteligencia para forecasting desde conversaciones" },
+      { id: "free_plan",               label: "Plan gratuito disponible" },
+      { id: "team_analytics",          label: "Analytics de conversación a nivel de equipo" }
+    ],
+    tools: [
+      { name: "Fathom",          tagline: "El grabador de reuniones más querido por founders y solopreneurs",          website: "https://fathom.video",  starting_price: "$0",           free_tier: true,  features: ["recording_transcription","ai_summaries","action_items","keyword_alerts","crm_sync","team_analytics","free_plan"] },
+      { name: "Fireflies.ai",    tagline: "El asistente de reuniones que transcribe, busca y sincroniza todo",         website: "https://fireflies.ai",  starting_price: "$0",           free_tier: true,  features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","team_analytics","free_plan"] },
+      { name: "Gong",            tagline: "La plataforma de revenue intelligence líder del mercado enterprise",        website: "https://gong.io",       starting_price: "~$5,000/año",  free_tier: false, features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","deal_risk","coaching_scorecards","forecast_intelligence","team_analytics"] },
+      { name: "Avoma",           tagline: "Call intelligence con coaching integrado para equipos de ventas",           website: "https://avoma.com",     starting_price: "$0",           free_tier: true,  features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","coaching_scorecards","team_analytics","free_plan"] },
+      { name: "Chorus (by ZoomInfo)", tagline: "Call intelligence enterprise con análisis de conversación profundo",  website: "https://chorus.ai",    starting_price: "~$8,000/año",  free_tier: false, features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","deal_risk","coaching_scorecards","team_analytics"] }
+    ]
+  },
+  automation: {
+    label: "Automation", icon: "⚙️",
+    accent: "#FB4AAD",
+    features: [
+      { id: "no_code_workflows",    label: "Workflows visuales sin código (drag & drop)" },
+      { id: "complex_workflows",    label: "Flujos multi-paso complejos con lógica avanzada" },
+      { id: "ai_llm_integration",   label: "Integración con LLMs / IA generativa" },
+      { id: "crm_integrations",     label: "Integraciones nativas con CRMs principales" },
+      { id: "high_volume",          label: "Alto volumen de ejecuciones (millones/mes)" },
+      { id: "api_webhooks",         label: "Soporte nativo para APIs y webhooks personalizados" },
+      { id: "team_collaboration",   label: "Colaboración en equipo y roles/permisos" },
+      { id: "templates_library",    label: "Biblioteca de templates pre-construidos" },
+      { id: "enterprise_compliance",label: "Compliance enterprise (SOC2, GDPR)" },
+      { id: "self_hostable",        label: "Se puede instalar en servidor propio (self-host)" }
+    ],
+    tools: [
+      { name: "n8n",              tagline: "La automatización más poderosa y flexible para equipos técnicos", website: "https://n8n.io",             starting_price: "$0 (self-hosted)", free_tier: true,  features: ["no_code_workflows","complex_workflows","ai_llm_integration","crm_integrations","high_volume","api_webhooks","team_collaboration","templates_library","enterprise_compliance","self_hostable"] },
+      { name: "Make",             tagline: "La automatización visual más potente para usuarios no-técnicos",  website: "https://make.com",           starting_price: "$0",               free_tier: true,  features: ["no_code_workflows","complex_workflows","crm_integrations","api_webhooks","templates_library","team_collaboration"] },
+      { name: "Zapier",           tagline: "El más simple y con más integraciones del mercado",               website: "https://zapier.com",         starting_price: "$0",               free_tier: true,  features: ["no_code_workflows","crm_integrations","templates_library"] },
+      { name: "Claude API (Anthropic)", tagline: "Inteligencia artificial generativa para automatizaciones avanzadas", website: "https://anthropic.com/api", starting_price: "Pay-per-token", free_tier: false, features: ["ai_llm_integration","complex_workflows","api_webhooks","high_volume"] },
+      { name: "Workato",          tagline: "La plataforma de automatización e integración para enterprise",   website: "https://workato.com",        starting_price: "~$10,000/año",     free_tier: false, features: ["no_code_workflows","complex_workflows","ai_llm_integration","crm_integrations","high_volume","api_webhooks","team_collaboration","enterprise_compliance"] }
+    ]
+  }
+};
+
+// ── State ──────────────────────────────────────────────
+const state = { category: null, selectedFeatures: [], rankedTools: [] };
+
+// ── Helpers ────────────────────────────────────────────
+function showScreen(n) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-' + n).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function scoreTools(catKey, selected) {
+  return TOOL_DATA[catKey].tools
+    .map(t => ({ ...t, score: selected.filter(f => t.features.includes(f)).length }))
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return (b.free_tier ? 1 : 0) - (a.free_tier ? 1 : 0);
+    });
+}
+
+// ── Screen 1: Build category grid ─────────────────────
+(function initCatGrid() {
+  const grid = document.getElementById('cat-grid');
+  grid.innerHTML = Object.keys(TOOL_DATA).map(key => {
+    const cat = TOOL_DATA[key];
+    return '<div class="cat-card" onclick="selectCategory(\'' + key + '\')" style="border-bottom-color:' + cat.accent + '">'
+      + '<span class="cat-icon">' + cat.icon + '</span>'
+      + '<span class="cat-label">' + cat.label + '</span>'
+      + '</div>';
+  }).join('');
+})();
+
+// ── Screen 2 ───────────────────────────────────────────
+function selectCategory(key) {
+  state.category = key;
+  state.selectedFeatures = [];
+  const cat = TOOL_DATA[key];
+
+  document.getElementById('s2-badge').innerHTML = cat.icon + ' ' + cat.label;
+  document.getElementById('s2-headline').innerHTML =
+    '¿Qué necesitas que haga tu herramienta de <span class="cat-hl">' + cat.label + '</span>?';
+
+  const list = document.getElementById('feature-list');
+  list.innerHTML = cat.features.map(f =>
+    '<label class="feature-item" data-id="' + f.id + '">'
+    + '<div class="cb-box"><span class="cb-check"></span></div>'
+    + '<span class="feature-label">' + f.label + '</span>'
+    + '<input type="checkbox" value="' + f.id + '" style="position:absolute;opacity:0;pointer-events:none">'
+    + '</label>'
+  ).join('');
+
+  list.querySelectorAll('.feature-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const cb = item.querySelector('input');
+      cb.checked = !cb.checked;
+      item.classList.toggle('is-checked', cb.checked);
+      updateCount();
+    });
+  });
+
+  updateCount();
+  showScreen(2);
+}
+
+function updateCount() {
+  state.selectedFeatures = Array.from(
+    document.querySelectorAll('#feature-list input:checked')
+  ).map(i => i.value);
+
+  const n = state.selectedFeatures.length;
+  const info = document.getElementById('sel-info');
+  const btn  = document.getElementById('see-rec-btn');
+
+  info.innerHTML = n > 0
+    ? '<span class="sel-count">' + n + '</span> seleccionada' + (n !== 1 ? 's' : '')
+    : '';
+  btn.disabled = n === 0;
+}
+
+// ── Screen 3 ───────────────────────────────────────────
+function showScreen3() {
+  const ranked = scoreTools(state.category, state.selectedFeatures);
+  state.rankedTools = ranked;
+  const top = ranked[0];
+
+  document.getElementById('res-name').textContent     = top.name;
+  document.getElementById('res-tagline').textContent  = top.tagline;
+  document.getElementById('res-price').textContent    = top.starting_price;
+  document.getElementById('res-coverage').textContent =
+    'Cubre ' + top.score + ' de ' + state.selectedFeatures.length + ' necesidades';
+  document.getElementById('res-link').href = top.website;
+
+  showScreen(3);
+}
+
+// ── Form submit ────────────────────────────────────────
+async function handleSubmit(e) {
+  e.preventDefault();
+  const cat = TOOL_DATA[state.category];
+  const featureLabels = state.selectedFeatures.map(id => {
+    const f = cat.features.find(x => x.id === id);
+    return f ? f.label : id;
+  });
+
+  const payload = {
+    name:                    document.getElementById('f-name').value.trim(),
+    email:                   document.getElementById('f-email').value.trim(),
+    company:                 document.getElementById('f-company').value.trim(),
+    category:                state.category,
+    category_label:          cat.label,
+    selected_features:       state.selectedFeatures,
+    selected_features_labels:featureLabels,
+    ranked_tools:            state.rankedTools.slice(0, 4).map(t => ({
+      name: t.name, score: t.score, starting_price: t.starting_price
+    })),
+    top_recommendation:      state.rankedTools[0].name,
+    timestamp:               new Date().toISOString(),
+    source:                  'gtm-tool-selector'
+  };
+
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = 'Enviando...';
+  btn.disabled = true;
+
+  try {
+    await fetch('https://PLACEHOLDER_N8N_URL/webhook/gtm-tool-selector', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch (_) { /* fail silently */ }
+
+  showScreen(4);
+}
+
+// ── Navigation ─────────────────────────────────────────
+function goBack(fromScreen) { showScreen(fromScreen - 1); }
+
+function restart() {
+  state.category = null;
+  state.selectedFeatures = [];
+  state.rankedTools = [];
+  showScreen(1);
+}
+</script>
+</body>
+</html>
