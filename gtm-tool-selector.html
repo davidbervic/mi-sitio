@@ -146,8 +146,8 @@
       font: 700 13px/1 'Inter'; color: var(--black);
       box-shadow: 3px 3px 0 var(--black);
     }
-    .s2-headline { font-size: clamp(20px, 3.5vw, 34px); display: block; margin-bottom: 4px; }
-    .s2-sub { font: 400 14px/1.5 'Inter'; color: rgba(255,255,255,.95); margin-bottom: 18px; }
+    .s2-headline { font: 700 clamp(22px, 3.5vw, 36px)/1.15 'Inter'; color: var(--white); display: block; margin-bottom: 6px; }
+    .s2-sub { font: 400 15px/1.5 'Inter'; color: rgba(255,255,255,.95); margin-bottom: 18px; }
 
     .features-card { padding: 20px; margin-bottom: 16px; }
     .feature-list  { display: flex; flex-direction: column; gap: 8px; }
@@ -228,11 +228,11 @@
 
     .res-link { font: 600 13px/1 'Inter'; color: var(--blue); text-decoration: none; }
     .res-link:hover { text-decoration: underline; }
-    .res-disclaimer { font: 400 12px/1.5 'Inter'; color: #777; margin-top: 16px; padding-top: 14px; border-top: 1px solid #eee; }
+    .res-disclaimer { font: 400 13px/1.5 'Inter'; color: #444; margin-top: 16px; padding-top: 14px; border-top: 1px solid #eee; }
 
     .form-card { padding: 28px 24px; }
-    .form-hl  { font: 700 17px/1.2 'Inter'; color: var(--black); margin-bottom: 6px; }
-    .form-sub { font: 400 13px/1.5 'Inter'; color: #777; margin-bottom: 20px; }
+    .form-hl  { font: 700 18px/1.2 'Inter'; color: var(--black); margin-bottom: 8px; }
+    .form-sub { font: 400 14px/1.5 'Inter'; color: #444; margin-bottom: 20px; }
     .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
     .form-label { font: 700 12px/1 'Inter'; color: var(--black); letter-spacing: .02em; }
     .form-label .opt { font-weight: 400; color: #aaa; }
@@ -268,7 +268,7 @@
     .form-input.is-error, .form-select.is-error {
       border-color: #d93025; box-shadow: 0 0 0 3px rgba(217,48,37,.12);
     }
-    .form-fine { font: 400 12px/1.4 'Inter'; color: #777; text-align: center; margin-top: 10px; }
+    .form-fine { font: 400 12px/1.4 'Inter'; color: #555; text-align: center; margin-top: 10px; }
 
     /* ── SCREEN 5 ── */
     #screen-5 { max-width: 480px; margin: 0 auto; }
@@ -348,8 +348,8 @@
       <span class="step-label">Step 3 of 5</span>
     </div>
     <div class="s2-badge" id="s2-badge"></div>
-    <span class="sticker s2-headline" id="s2-headline"></span>
-    <p class="s2-sub">Select everything that applies to your situation.</p>
+    <span class="s2-headline" id="s2-headline"></span>
+    <p class="s2-sub">Pick what matters — the more you select, the sharper your match.</p>
     <div class="card features-card">
       <div class="feature-list" id="feature-list"></div>
     </div>
@@ -692,11 +692,11 @@ function showScreen4() {
     + '<span class="pill pill-cyan">Covers ' + top.score + ' of ' + state.selectedFeatures.length + ' needs</span>'
     + '</div>'
     + '<a class="res-link" href="' + top.website + '" target="_blank" rel="noopener">Visit website →</a>'
-    + '<p class="res-disclaimer">Based on your answers. The full ranked comparison of ' + ranked.length + ' tools lands in your inbox.</p>'
+    + '<p class="res-disclaimer">We matched <strong>' + ranked.length + ' tools</strong> to your criteria. The full side-by-side breakdown is one step away.</p>'
     + '</div>'
     + '<div class="card form-card">'
-    + '<p class="form-hl">Get the full ranking</p>'
-    + '<p class="form-sub">The ' + Math.min(ranked.length, 4) + ' best tools for your case, compared with pros and cons.</p>'
+    + '<p class="form-hl">See who wins for your setup</p>'
+    + '<p class="form-sub">We ranked <strong>' + ranked.length + ' tools</strong> against your exact criteria — pricing, pros and cons, delivered in 2 minutes.</p>'
     + '<form id="lead-form" onsubmit="handleSubmit(event)" novalidate>'
     + '<div class="form-progress">'
     + '<div class="form-prog-dot active" id="fp1">1</div>'
@@ -711,9 +711,9 @@ function showScreen4() {
     + '<div class="form-step" id="fstep-2">'
     + '<div class="form-group"><label class="form-label" for="f-company">Company</label><input class="form-input" id="f-company" type="text" placeholder="Your company name" autocomplete="organization"><span class="field-error" id="err-company"></span></div>'
     + '<div class="form-group"><label class="form-label" for="f-role">Your role</label><input class="form-input" id="f-role" type="text" placeholder="e.g. Head of Sales, RevOps Lead, CEO..."><span class="field-error" id="err-role"></span></div>'
-    + '<button type="submit" class="btn-cta" id="submit-btn">Send my report</button>'
+    + '<button type="submit" class="btn-cta" id="submit-btn">Send me the full ranking →</button>'
     + '</div>'
-    + '<p class="form-fine">Delivered in minutes. No spam.</p>'
+    + '<p class="form-fine">Arrives in under 2 min. No pitch, ever.</p>'
     + '</form>'
     + '</div>';
 
@@ -851,7 +851,7 @@ function resetForm() {
   const dot2 = document.getElementById('fp2');
   dot2.classList.remove('active'); dot2.innerHTML = '2';
   const btn = document.getElementById('submit-btn');
-  if (btn) { btn.textContent = 'Send my report'; btn.disabled = false; }
+  if (btn) { btn.textContent = 'Send me the full ranking →'; btn.disabled = false; }
 }
 
 function restart() {
