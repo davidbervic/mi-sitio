@@ -206,12 +206,38 @@
     .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 14px; }
     .form-label { font: 700 12px/1 'Inter'; color: var(--black); letter-spacing: .02em; }
     .form-label .opt { font-weight: 400; color: #aaa; }
-    .form-input {
+    .form-input, .form-select {
       border: 2px solid #ccc; border-radius: 10px; padding: 12px 14px;
       font: 400 14px/1 'Inter'; color: var(--black); outline: none;
       transition: border-color .12s, box-shadow .12s; background: var(--white);
+      width: 100%;
     }
-    .form-input:focus { border-color: var(--black); box-shadow: 0 0 0 3px rgba(251,74,173,.18); }
+    .form-input:focus, .form-select:focus { border-color: var(--black); box-shadow: 0 0 0 3px rgba(251,74,173,.18); }
+    .form-select {
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+      padding-right: 40px; cursor: pointer;
+    }
+    .form-progress { display: flex; align-items: center; margin-bottom: 20px; }
+    .form-prog-dot {
+      width: 26px; height: 26px; border-radius: 50%; border: 2px solid #ddd;
+      display: flex; align-items: center; justify-content: center;
+      font: 700 11px/1 'Inter'; color: #ccc; flex-shrink: 0; transition: all .2s;
+    }
+    .form-prog-dot.active { border-color: var(--black); background: var(--pink); color: var(--black); }
+    .form-prog-dot.done   { border-color: var(--black); background: var(--green); color: var(--black); }
+    .form-prog-line { flex: 1; height: 2px; background: #e5e5e5; margin: 0 8px; transition: background .2s; }
+    .form-prog-line.done { background: var(--black); }
+
+    .form-step { display: none; }
+    .form-step.active { display: block; }
+
+    .field-error { font: 600 11px/1.4 'Inter'; color: #d93025; display: none; margin-top: 5px; }
+    .field-error.visible { display: block; }
+    .form-input.is-error, .form-select.is-error {
+      border-color: #d93025; box-shadow: 0 0 0 3px rgba(217,48,37,.12);
+    }
     .form-fine { font: 400 11px/1.4 'Inter'; color: #bbb; text-align: center; margin-top: 10px; }
 
     /* ── SCREEN 4 ── */
@@ -310,20 +336,43 @@
       <div class="card form-card">
         <p class="form-hl">Recibe el ranking completo</p>
         <p class="form-sub">Las 4 mejores herramientas para tu caso, comparadas con pros y contras.</p>
-        <form id="lead-form" onsubmit="handleSubmit(event)">
-          <div class="form-group">
-            <label class="form-label" for="f-name">Nombre</label>
-            <input class="form-input" id="f-name" type="text" placeholder="Tu nombre" required autocomplete="name">
+        <form id="lead-form" onsubmit="handleSubmit(event)" novalidate>
+          <div class="form-progress">
+            <div class="form-prog-dot active" id="fp1">1</div>
+            <div class="form-prog-line" id="fline"></div>
+            <div class="form-prog-dot" id="fp2">2</div>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="f-email">Email</label>
-            <input class="form-input" id="f-email" type="email" placeholder="tu@empresa.com" required autocomplete="email">
+
+          <!-- Step 1: Nombre + Email -->
+          <div class="form-step active" id="fstep-1">
+            <div class="form-group">
+              <label class="form-label" for="f-name">Nombre</label>
+              <input class="form-input" id="f-name" type="text" placeholder="Tu nombre" autocomplete="name">
+              <span class="field-error" id="err-name"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-email">Email de trabajo</label>
+              <input class="form-input" id="f-email" type="email" placeholder="tu@empresa.com" autocomplete="email">
+              <span class="field-error" id="err-email"></span>
+            </div>
+            <button type="button" class="btn-cta" onclick="nextFormStep()">Siguiente →</button>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="f-company">Empresa <span class="opt">(opcional)</span></label>
-            <input class="form-input" id="f-company" type="text" placeholder="Nombre de tu empresa" autocomplete="organization">
+
+          <!-- Step 2: Empresa + Rol -->
+          <div class="form-step" id="fstep-2">
+            <div class="form-group">
+              <label class="form-label" for="f-company">Empresa</label>
+              <input class="form-input" id="f-company" type="text" placeholder="Nombre de tu empresa" autocomplete="organization">
+              <span class="field-error" id="err-company"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-role">Tu rol</label>
+              <input class="form-input" id="f-role" type="text" placeholder="Ej: Head of Sales, RevOps Lead, CEO...">
+              <span class="field-error" id="err-role"></span>
+            </div>
+            <button type="submit" class="btn-cta" id="submit-btn">Enviar mi informe</button>
           </div>
-          <button type="submit" class="btn-cta" id="submit-btn">Enviar mi informe</button>
+
           <p class="form-fine">Te lo enviamos en minutos. Sin spam.</p>
         </form>
       </div>
@@ -591,9 +640,76 @@ function showScreen3() {
   showScreen(3);
 }
 
+// ── Email validation ───────────────────────────────────
+const BLOCKED_DOMAINS = new Set([
+  'gmail.com','googlemail.com','outlook.com','hotmail.com','hotmail.es',
+  'hotmail.co.uk','hotmail.com.ar','hotmail.com.mx','live.com','live.es',
+  'live.com.mx','msn.com','yahoo.com','yahoo.es','yahoo.co.uk','yahoo.fr',
+  'yahoo.com.mx','yahoo.com.ar','yahoo.com.br','icloud.com','me.com','mac.com',
+  'aol.com','protonmail.com','proton.me','gmx.com','gmx.de','yandex.com',
+  'yandex.ru','mail.com','inbox.com','rocketmail.com','ymail.com','tutanota.com'
+]);
+
+function isPersonalEmail(email) {
+  const domain = (email.split('@')[1] || '').toLowerCase();
+  return BLOCKED_DOMAINS.has(domain);
+}
+
+function showFieldError(fieldId, errId, msg) {
+  document.getElementById(fieldId).classList.add('is-error');
+  const err = document.getElementById(errId);
+  err.textContent = msg;
+  err.classList.add('visible');
+}
+
+function clearFieldError(fieldId, errId) {
+  document.getElementById(fieldId).classList.remove('is-error');
+  document.getElementById(errId).classList.remove('visible');
+}
+
+// ── Progressive form ───────────────────────────────────
+function nextFormStep() {
+  const name  = document.getElementById('f-name').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  let ok = true;
+
+  if (!name) {
+    showFieldError('f-name', 'err-name', 'Ingresa tu nombre'); ok = false;
+  } else { clearFieldError('f-name', 'err-name'); }
+
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showFieldError('f-email', 'err-email', 'Ingresa un email válido'); ok = false;
+  } else if (isPersonalEmail(email)) {
+    showFieldError('f-email', 'err-email', 'Usa tu email de trabajo (no Gmail, Outlook ni Hotmail)'); ok = false;
+  } else { clearFieldError('f-email', 'err-email'); }
+
+  if (!ok) return;
+
+  document.getElementById('fstep-1').classList.remove('active');
+  document.getElementById('fstep-2').classList.add('active');
+  const dot1 = document.getElementById('fp1');
+  dot1.classList.remove('active'); dot1.classList.add('done'); dot1.innerHTML = '✓';
+  document.getElementById('fline').classList.add('done');
+  document.getElementById('fp2').classList.add('active');
+}
+
 // ── Form submit ────────────────────────────────────────
 async function handleSubmit(e) {
   e.preventDefault();
+  const company = document.getElementById('f-company').value.trim();
+  const role    = document.getElementById('f-role').value.trim();
+  let ok = true;
+
+  if (!company) {
+    showFieldError('f-company', 'err-company', 'Ingresa el nombre de tu empresa'); ok = false;
+  } else { clearFieldError('f-company', 'err-company'); }
+
+  if (!role) {
+    showFieldError('f-role', 'err-role', 'Ingresa tu rol'); ok = false;
+  } else { clearFieldError('f-role', 'err-role'); }
+
+  if (!ok) return;
+
   const cat = TOOL_DATA[state.category];
   const featureLabels = state.selectedFeatures.map(id => {
     const f = cat.features.find(x => x.id === id);
@@ -603,7 +719,8 @@ async function handleSubmit(e) {
   const payload = {
     name:                    document.getElementById('f-name').value.trim(),
     email:                   document.getElementById('f-email').value.trim(),
-    company:                 document.getElementById('f-company').value.trim(),
+    company,
+    role,
     category:                state.category,
     category_label:          cat.label,
     selected_features:       state.selectedFeatures,
@@ -634,10 +751,32 @@ async function handleSubmit(e) {
 // ── Navigation ─────────────────────────────────────────
 function goBack(fromScreen) { showScreen(fromScreen - 1); }
 
+function resetForm() {
+  document.getElementById('lead-form').reset();
+  ['f-name','f-email','f-company','f-role'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('is-error');
+  });
+  ['err-name','err-email','err-company','err-role'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('visible');
+  });
+  document.getElementById('fstep-1').classList.add('active');
+  document.getElementById('fstep-2').classList.remove('active');
+  const dot1 = document.getElementById('fp1');
+  dot1.classList.add('active'); dot1.classList.remove('done'); dot1.innerHTML = '1';
+  document.getElementById('fline').classList.remove('done');
+  const dot2 = document.getElementById('fp2');
+  dot2.classList.remove('active'); dot2.innerHTML = '2';
+  const btn = document.getElementById('submit-btn');
+  if (btn) { btn.textContent = 'Enviar mi informe'; btn.disabled = false; }
+}
+
 function restart() {
   state.category = null;
   state.selectedFeatures = [];
   state.rankedTools = [];
+  resetForm();
   showScreen(1);
 }
 </script>
