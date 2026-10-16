@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -276,10 +276,10 @@
       <div class="step-dot"></div>
       <div class="step-dot"></div>
       <div class="step-dot"></div>
-      <span class="step-label">Paso 1 de 4</span>
+      <span class="step-label">Step 1 of 4</span>
     </div>
-    <span class="sticker s1-headline">¿Qué tipo de herramienta GTM necesitas?</span>
-    <p class="s1-sub">Elige una categoría y en 2 preguntas te decimos cuál usar.</p>
+    <span class="sticker s1-headline">What type of GTM tool do you need?</span>
+    <p class="s1-sub">Pick a category — 2 questions and we tell you which tool to use.</p>
     <div class="cat-grid" id="cat-grid"></div>
   </div>
 
@@ -287,24 +287,24 @@
   <div class="screen" id="screen-2">
     <button class="back-link" onclick="goBack(2)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Volver
+      Back
     </button>
     <div class="step-row">
       <div class="step-dot done"></div>
       <div class="step-dot active"></div>
       <div class="step-dot"></div>
       <div class="step-dot"></div>
-      <span class="step-label">Paso 2 de 4</span>
+      <span class="step-label">Step 2 of 4</span>
     </div>
     <div class="s2-badge" id="s2-badge"></div>
     <span class="sticker s2-headline" id="s2-headline"></span>
-    <p class="s2-sub">Selecciona todas las que aplican a tu caso.</p>
+    <p class="s2-sub">Select everything that applies to your situation.</p>
     <div class="card features-card">
       <div class="feature-list" id="feature-list"></div>
     </div>
     <div class="sel-info" id="sel-info"></div>
     <button class="btn-cta" id="see-rec-btn" disabled onclick="showScreen3()">
-      Ver mi recomendación →
+      See my recommendation →
     </button>
   </div>
 
@@ -312,30 +312,30 @@
   <div class="screen" id="screen-3">
     <button class="back-link" onclick="goBack(3)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Volver
+      Back
     </button>
     <div class="step-row">
       <div class="step-dot done"></div>
       <div class="step-dot done"></div>
       <div class="step-dot active"></div>
       <div class="step-dot"></div>
-      <span class="step-label">Paso 3 de 4</span>
+      <span class="step-label">Step 3 of 4</span>
     </div>
     <div class="s3-grid">
       <div class="card result-card">
-        <p class="res-label">Tu mejor opción</p>
+        <p class="res-label">Your top pick</p>
         <span class="sticker res-name" id="res-name"></span>
         <p class="res-tagline" id="res-tagline"></p>
         <div class="pills">
           <span class="pill pill-yellow" id="res-price"></span>
           <span class="pill pill-cyan" id="res-coverage"></span>
         </div>
-        <a class="res-link" id="res-link" href="#" target="_blank" rel="noopener">Visitar sitio web →</a>
-        <p class="res-disclaimer">Basado en tus respuestas. El ranking completo con las 4 mejores opciones llega a tu email.</p>
+        <a class="res-link" id="res-link" href="#" target="_blank" rel="noopener">Visit website →</a>
+        <p class="res-disclaimer">Based on your answers. The full ranked comparison of 4 tools lands in your inbox.</p>
       </div>
       <div class="card form-card">
-        <p class="form-hl">Recibe el ranking completo</p>
-        <p class="form-sub">Las 4 mejores herramientas para tu caso, comparadas con pros y contras.</p>
+        <p class="form-hl">Get the full ranking</p>
+        <p class="form-sub">The 4 best tools for your case, compared with pros and cons.</p>
         <form id="lead-form" onsubmit="handleSubmit(event)" novalidate>
           <div class="form-progress">
             <div class="form-prog-dot active" id="fp1">1</div>
@@ -343,37 +343,37 @@
             <div class="form-prog-dot" id="fp2">2</div>
           </div>
 
-          <!-- Step 1: Nombre + Email -->
+          <!-- Step 1: Name + Email -->
           <div class="form-step active" id="fstep-1">
             <div class="form-group">
-              <label class="form-label" for="f-name">Nombre</label>
-              <input class="form-input" id="f-name" type="text" placeholder="Tu nombre" autocomplete="name">
+              <label class="form-label" for="f-name">Name</label>
+              <input class="form-input" id="f-name" type="text" placeholder="Your name" autocomplete="name">
               <span class="field-error" id="err-name"></span>
             </div>
             <div class="form-group">
-              <label class="form-label" for="f-email">Email de trabajo</label>
-              <input class="form-input" id="f-email" type="email" placeholder="tu@empresa.com" autocomplete="email">
+              <label class="form-label" for="f-email">Work email</label>
+              <input class="form-input" id="f-email" type="email" placeholder="you@company.com" autocomplete="email">
               <span class="field-error" id="err-email"></span>
             </div>
-            <button type="button" class="btn-cta" onclick="nextFormStep()">Siguiente →</button>
+            <button type="button" class="btn-cta" onclick="nextFormStep()">Next →</button>
           </div>
 
-          <!-- Step 2: Empresa + Rol -->
+          <!-- Step 2: Company + Role -->
           <div class="form-step" id="fstep-2">
             <div class="form-group">
-              <label class="form-label" for="f-company">Empresa</label>
-              <input class="form-input" id="f-company" type="text" placeholder="Nombre de tu empresa" autocomplete="organization">
+              <label class="form-label" for="f-company">Company</label>
+              <input class="form-input" id="f-company" type="text" placeholder="Your company name" autocomplete="organization">
               <span class="field-error" id="err-company"></span>
             </div>
             <div class="form-group">
-              <label class="form-label" for="f-role">Tu rol</label>
-              <input class="form-input" id="f-role" type="text" placeholder="Ej: Head of Sales, RevOps Lead, CEO...">
+              <label class="form-label" for="f-role">Your role</label>
+              <input class="form-input" id="f-role" type="text" placeholder="e.g. Head of Sales, RevOps Lead, CEO...">
               <span class="field-error" id="err-role"></span>
             </div>
-            <button type="submit" class="btn-cta" id="submit-btn">Enviar mi informe</button>
+            <button type="submit" class="btn-cta" id="submit-btn">Send my report</button>
           </div>
 
-          <p class="form-fine">Te lo enviamos en minutos. Sin spam.</p>
+          <p class="form-fine">Delivered in minutes. No spam.</p>
         </form>
       </div>
     </div>
@@ -386,22 +386,22 @@
       <div class="step-dot done"></div>
       <div class="step-dot done"></div>
       <div class="step-dot active"></div>
-      <span class="step-label">Paso 4 de 4</span>
+      <span class="step-label">Step 4 of 4</span>
     </div>
     <div class="card s4-card">
       <div class="s4-icon">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      <span class="sticker s4-hl">¡Listo! Revisa tu email.</span>
-      <p class="s4-body">En los próximos minutos recibirás el ranking completo con las mejores herramientas para tu caso, comparadas y explicadas.</p>
+      <span class="sticker s4-hl">You're all set!</span>
+      <p class="s4-body">Your personalized tool ranking is on its way. Check your inbox in the next few minutes.</p>
       <a href="https://calendly.com/PLACEHOLDER" target="_blank" rel="noopener" class="btn-cta btn-cyan">
-        ¿Quieres hablar con David?
+        Book a free call with David
       </a>
-      <button class="s4-restart" onclick="restart()">Volver al inicio</button>
+      <button class="s4-restart" onclick="restart()">Start over</button>
     </div>
   </div>
 
-  <p class="watermark">Hecho por <a href="https://davidbervic.com" target="_blank">Muvap</a></p>
+  <p class="watermark">By <a href="https://davidbervic.com" target="_blank">Muvap</a></p>
 </div>
 
 <script>
@@ -410,138 +410,138 @@ const TOOL_DATA = {
     label: "CRM", icon: "🗂️",
     accent: "#FB4AAD",
     features: [
-      { id: "free_plan",            label: "Plan gratuito disponible" },
-      { id: "multi_pipeline",       label: "Múltiples pipelines de ventas" },
-      { id: "email_sequences",      label: "Secuencias de email integradas" },
-      { id: "workflow_automation",  label: "Automatización de workflows" },
-      { id: "lead_scoring",         label: "Lead scoring automático" },
-      { id: "advanced_reporting",   label: "Reportes y dashboards avanzados" },
-      { id: "ai_features",          label: "Features de IA / insights predictivos" },
-      { id: "all_in_one",           label: "Marketing + CRM + Automatización en uno" },
-      { id: "agency_mode",          label: "Gestión multi-cliente / agencias" },
-      { id: "high_volume_contacts", label: "100k+ contactos sin penalización" }
+      { id: "free_plan",            label: "Free plan available" },
+      { id: "multi_pipeline",       label: "Multiple sales pipelines" },
+      { id: "email_sequences",      label: "Built-in email sequences" },
+      { id: "workflow_automation",  label: "Workflow automation" },
+      { id: "lead_scoring",         label: "Automatic lead scoring" },
+      { id: "advanced_reporting",   label: "Advanced reporting & dashboards" },
+      { id: "ai_features",          label: "AI features / predictive insights" },
+      { id: "all_in_one",           label: "Marketing + CRM + Automation in one" },
+      { id: "agency_mode",          label: "Multi-client / agency management" },
+      { id: "high_volume_contacts", label: "100k+ contacts without penalties" }
     ],
     tools: [
-      { name: "HubSpot CRM",          tagline: "El CRM más adoptado por startups B2B en crecimiento",          website: "https://hubspot.com",                   starting_price: "$20/seat/mo",  free_tier: true,  features: ["free_plan","multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","all_in_one","high_volume_contacts"] },
-      { name: "Salesforce Sales Cloud",tagline: "El CRM enterprise estándar para deals complejos",             website: "https://salesforce.com",                starting_price: "$25/seat/mo",  free_tier: false, features: ["multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","high_volume_contacts"] },
-      { name: "Zoho CRM",              tagline: "La alternativa costo-eficiente con todo lo necesario",        website: "https://zoho.com/crm",                  starting_price: "$14/seat/mo",  free_tier: true,  features: ["free_plan","multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","high_volume_contacts"] },
-      { name: "GoHighLevel",           tagline: "La plataforma todo-en-uno para agencias y coaches",           website: "https://gohighlevel.com",               starting_price: "$97/mo",       free_tier: false, features: ["multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","all_in_one","agency_mode"] },
-      { name: "Pipedrive",             tagline: "El CRM diseñado por vendedores para vendedores",              website: "https://pipedrive.com",                 starting_price: "$14/seat/mo",  free_tier: false, features: ["multi_pipeline","email_sequences","workflow_automation","advanced_reporting","ai_features","high_volume_contacts"] }
+      { name: "HubSpot CRM",          tagline: "The most adopted CRM by growing B2B startups",               website: "https://hubspot.com",                   starting_price: "$20/seat/mo",  free_tier: true,  features: ["free_plan","multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","all_in_one","high_volume_contacts"] },
+      { name: "Salesforce Sales Cloud",tagline: "The enterprise CRM standard for complex deals",              website: "https://salesforce.com",                starting_price: "$25/seat/mo",  free_tier: false, features: ["multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","high_volume_contacts"] },
+      { name: "Zoho CRM",              tagline: "The cost-effective alternative with everything you need",    website: "https://zoho.com/crm",                  starting_price: "$14/seat/mo",  free_tier: true,  features: ["free_plan","multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","high_volume_contacts"] },
+      { name: "GoHighLevel",           tagline: "The all-in-one platform for agencies and coaches",           website: "https://gohighlevel.com",               starting_price: "$97/mo",       free_tier: false, features: ["multi_pipeline","email_sequences","workflow_automation","lead_scoring","advanced_reporting","ai_features","all_in_one","agency_mode"] },
+      { name: "Pipedrive",             tagline: "The CRM designed by salespeople for salespeople",            website: "https://pipedrive.com",                 starting_price: "$14/seat/mo",  free_tier: false, features: ["multi_pipeline","email_sequences","workflow_automation","advanced_reporting","ai_features","high_volume_contacts"] }
     ]
   },
   enrichment: {
     label: "Enrichment", icon: "🔍",
     accent: "#12EFFB",
     features: [
-      { id: "email_finding",       label: "Encontrar y validar emails B2B" },
-      { id: "phone_numbers",       label: "Teléfonos directos / móviles verificados" },
-      { id: "company_firmographics",label: "Datos de empresa (tamaño, industria, revenue)" },
-      { id: "technographics",      label: "Stack tecnológico de las empresas target" },
-      { id: "intent_signals",      label: "Señales de intención de compra" },
-      { id: "ai_research_agent",   label: "Agente IA que investiga prospectos automáticamente" },
-      { id: "waterfall_enrichment",label: "Enriquecimiento en cascada (múltiples fuentes)" },
-      { id: "job_change_alerts",   label: "Alertas cuando un contacto cambia de trabajo" },
-      { id: "crm_sync",            label: "Sync automático con CRM" },
-      { id: "self_serve_free",     label: "Acceso gratuito sin hablar con ventas" }
+      { id: "email_finding",       label: "Find and validate B2B emails" },
+      { id: "phone_numbers",       label: "Verified direct / mobile phone numbers" },
+      { id: "company_firmographics",label: "Company data (size, industry, revenue)" },
+      { id: "technographics",      label: "Target company tech stack" },
+      { id: "intent_signals",      label: "Buying intent signals" },
+      { id: "ai_research_agent",   label: "AI agent that researches prospects automatically" },
+      { id: "waterfall_enrichment",label: "Waterfall enrichment (multiple sources)" },
+      { id: "job_change_alerts",   label: "Alerts when a contact changes jobs" },
+      { id: "crm_sync",            label: "Automatic CRM sync" },
+      { id: "self_serve_free",     label: "Free access without talking to sales" }
     ],
     tools: [
-      { name: "Clay",                    tagline: "El sistema operativo del enriquecimiento moderno",                    website: "https://clay.com",                                          starting_price: "$149/mo",       free_tier: true,  features: ["email_finding","phone_numbers","company_firmographics","technographics","intent_signals","ai_research_agent","waterfall_enrichment","job_change_alerts","crm_sync","self_serve_free"] },
-      { name: "Apollo.io",               tagline: "Base de datos B2B + enriquecimiento integrado con outbound",         website: "https://apollo.io",                                         starting_price: "$49/seat/mo",   free_tier: true,  features: ["email_finding","phone_numbers","company_firmographics","technographics","crm_sync","self_serve_free"] },
-      { name: "Clearbit (Breeze Intelligence)", tagline: "Enriquecimiento nativo dentro de HubSpot",                   website: "https://hubspot.com/products/marketing/breeze-intelligence", starting_price: "$45/user/mo",   free_tier: true,  features: ["email_finding","company_firmographics","technographics","crm_sync","self_serve_free"] },
-      { name: "ZoomInfo",                tagline: "La mayor base de datos B2B del mercado",                             website: "https://zoominfo.com",                                      starting_price: "~$15,000/año",  free_tier: false, features: ["email_finding","phone_numbers","company_firmographics","technographics","intent_signals","job_change_alerts","crm_sync"] },
-      { name: "Cognism",                 tagline: "La mejor base de datos para mercados europeos y teléfonos verificados",website: "https://cognism.com",                                   starting_price: "~$18,500/año",  free_tier: false, features: ["email_finding","phone_numbers","company_firmographics","technographics","intent_signals","job_change_alerts","crm_sync"] }
+      { name: "Clay",                    tagline: "The operating system for modern enrichment",                    website: "https://clay.com",                                          starting_price: "$149/mo",       free_tier: true,  features: ["email_finding","phone_numbers","company_firmographics","technographics","intent_signals","ai_research_agent","waterfall_enrichment","job_change_alerts","crm_sync","self_serve_free"] },
+      { name: "Apollo.io",               tagline: "B2B database + enrichment integrated with outbound",         website: "https://apollo.io",                                         starting_price: "$49/seat/mo",   free_tier: true,  features: ["email_finding","phone_numbers","company_firmographics","technographics","crm_sync","self_serve_free"] },
+      { name: "Clearbit (Breeze Intelligence)", tagline: "Native enrichment built inside HubSpot",                   website: "https://hubspot.com/products/marketing/breeze-intelligence", starting_price: "$45/user/mo",   free_tier: true,  features: ["email_finding","company_firmographics","technographics","crm_sync","self_serve_free"] },
+      { name: "ZoomInfo",                tagline: "The largest B2B database on the market",                             website: "https://zoominfo.com",                                      starting_price: "~$15,000/año",  free_tier: false, features: ["email_finding","phone_numbers","company_firmographics","technographics","intent_signals","job_change_alerts","crm_sync"] },
+      { name: "Cognism",                 tagline: "Best database for European markets and verified phone numbers",website: "https://cognism.com",                                   starting_price: "~$18,500/año",  free_tier: false, features: ["email_finding","phone_numbers","company_firmographics","technographics","intent_signals","job_change_alerts","crm_sync"] }
     ]
   },
   outbound: {
     label: "Outbound", icon: "📤",
     accent: "#FCDF07",
     features: [
-      { id: "cold_email",          label: "Campañas de email frío en secuencias" },
-      { id: "linkedin_automation", label: "Automatización de LinkedIn (conexiones, mensajes)" },
-      { id: "email_warmup",        label: "Warmup de emails integrado" },
-      { id: "high_volume",         label: "Alto volumen (10k+ emails/día)" },
-      { id: "ai_personalization",  label: "Personalización con IA a escala" },
-      { id: "multichannel",        label: "Email + LinkedIn en la misma secuencia" },
-      { id: "reply_management",    label: "Gestión de respuestas / inbox unificado" },
-      { id: "ab_testing",          label: "A/B testing de asuntos y copies" },
-      { id: "agency_mode",         label: "Múltiples clientes / cuentas desde una plataforma" },
-      { id: "one_time_payment",    label: "Pago único, sin suscripción mensual" }
+      { id: "cold_email",          label: "Cold email campaigns in sequences" },
+      { id: "linkedin_automation", label: "LinkedIn automation (connections, messages)" },
+      { id: "email_warmup",        label: "Built-in email warmup" },
+      { id: "high_volume",         label: "High volume (10k+ emails/day)" },
+      { id: "ai_personalization",  label: "AI personalization at scale" },
+      { id: "multichannel",        label: "Email + LinkedIn in the same sequence" },
+      { id: "reply_management",    label: "Reply management / unified inbox" },
+      { id: "ab_testing",          label: "A/B testing of subject lines and copy" },
+      { id: "agency_mode",         label: "Multiple clients / accounts from one platform" },
+      { id: "one_time_payment",    label: "One-time payment, no monthly subscription" }
     ],
     tools: [
-      { name: "Apollo.io",               tagline: "Prospección + outbound en una sola plataforma",                      website: "https://apollo.io",                            starting_price: "$49/seat/mo",  free_tier: true,  features: ["cold_email","reply_management","ab_testing","ai_personalization"] },
-      { name: "Smartlead",               tagline: "El enviador de alto volumen con inbox rotation nativa",              website: "https://smartlead.ai",                         starting_price: "$39/mo",       free_tier: false, features: ["cold_email","email_warmup","high_volume","ab_testing","agency_mode","reply_management"] },
-      { name: "Instantly",               tagline: "Escala tu outbound con warmup automático y analytics claros",        website: "https://instantly.ai",                         starting_price: "$37.60/mo",    free_tier: false, features: ["cold_email","email_warmup","high_volume","ab_testing","agency_mode","reply_management"] },
-      { name: "LinkedIn Sales Navigator",tagline: "El buscador y tracker oficial de LinkedIn para ventas B2B",          website: "https://business.linkedin.com/sales-solutions", starting_price: "$89.99/seat/mo",free_tier: false, features: ["linkedin_automation","reply_management","multichannel"] },
-      { name: "Aimfox",                  tagline: "Automatización de LinkedIn con pago único",                          website: "https://aimfox.com",                            starting_price: "$59 one-time",  free_tier: false, features: ["linkedin_automation","multichannel","one_time_payment"] }
+      { name: "Apollo.io",               tagline: "Prospecting + outbound in one platform",                      website: "https://apollo.io",                            starting_price: "$49/seat/mo",  free_tier: true,  features: ["cold_email","reply_management","ab_testing","ai_personalization"] },
+      { name: "Smartlead",               tagline: "High-volume sender with native inbox rotation",              website: "https://smartlead.ai",                         starting_price: "$39/mo",       free_tier: false, features: ["cold_email","email_warmup","high_volume","ab_testing","agency_mode","reply_management"] },
+      { name: "Instantly",               tagline: "Scale your outbound with automatic warmup and clear analytics",        website: "https://instantly.ai",                         starting_price: "$37.60/mo",    free_tier: false, features: ["cold_email","email_warmup","high_volume","ab_testing","agency_mode","reply_management"] },
+      { name: "LinkedIn Sales Navigator",tagline: "The official LinkedIn search and tracking tool for B2B sales",          website: "https://business.linkedin.com/sales-solutions", starting_price: "$89.99/seat/mo",free_tier: false, features: ["linkedin_automation","reply_management","multichannel"] },
+      { name: "Aimfox",                  tagline: "LinkedIn automation with one-time payment",                          website: "https://aimfox.com",                            starting_price: "$59 one-time",  free_tier: false, features: ["linkedin_automation","multichannel","one_time_payment"] }
     ]
   },
   analytics: {
     label: "Analytics", icon: "📊",
     accent: "#A040F0",
     features: [
-      { id: "web_traffic",         label: "Tráfico web, fuentes y comportamiento" },
-      { id: "pipeline_dashboards", label: "Dashboards de pipeline de ventas" },
-      { id: "product_analytics",   label: "Comportamiento de usuarios dentro del producto" },
-      { id: "attribution",         label: "Atribución multi-touch de marketing" },
-      { id: "data_warehouse",      label: "Integración con data warehouse (BigQuery, Snowflake)" },
-      { id: "ai_insights",         label: "Insights automáticos generados por IA" },
-      { id: "custom_sql",          label: "Consultas SQL personalizadas" },
-      { id: "free_plan",           label: "Plan gratuito funcional" },
-      { id: "real_time_events",    label: "Tracking de eventos en tiempo real" },
-      { id: "marketing_campaigns", label: "Tracking de campañas de marketing" }
+      { id: "web_traffic",         label: "Web traffic, sources and behavior" },
+      { id: "pipeline_dashboards", label: "Sales pipeline dashboards" },
+      { id: "product_analytics",   label: "User behavior inside the product" },
+      { id: "attribution",         label: "Multi-touch marketing attribution" },
+      { id: "data_warehouse",      label: "Data warehouse integration (BigQuery, Snowflake)" },
+      { id: "ai_insights",         label: "Automatic AI-generated insights" },
+      { id: "custom_sql",          label: "Custom SQL queries" },
+      { id: "free_plan",           label: "Functional free plan" },
+      { id: "real_time_events",    label: "Real-time event tracking" },
+      { id: "marketing_campaigns", label: "Marketing campaign tracking" }
     ],
     tools: [
-      { name: "GA4 + Looker Studio", tagline: "El analytics gratuito de Google, el más adoptado del mundo",          website: "https://analytics.google.com",       starting_price: "$0",            free_tier: true,  features: ["web_traffic","attribution","marketing_campaigns","free_plan","real_time_events"] },
-      { name: "BigQuery",            tagline: "El data warehouse serverless para análisis a gran escala",            website: "https://cloud.google.com/bigquery",  starting_price: "$0 (pay per use)",free_tier: true, features: ["data_warehouse","custom_sql","real_time_events","free_plan"] },
-      { name: "Mixpanel",            tagline: "Product analytics centrado en eventos y retención de usuarios",       website: "https://mixpanel.com",               starting_price: "$24/mo",        free_tier: true,  features: ["product_analytics","real_time_events","attribution","ai_insights","free_plan"] },
-      { name: "Amplitude",           tagline: "Product analytics enterprise con IA integrada",                      website: "https://amplitude.com",              starting_price: "$0",            free_tier: true,  features: ["product_analytics","real_time_events","ai_insights","attribution","free_plan"] },
-      { name: "Segment",             tagline: "El Customer Data Platform que centraliza todos tus datos de clientes",website: "https://segment.com",               starting_price: "$120/mo",       free_tier: true,  features: ["real_time_events","data_warehouse","attribution","free_plan","marketing_campaigns"] }
+      { name: "GA4 + Looker Studio", tagline: "Google's free analytics, the world's most widely used",          website: "https://analytics.google.com",       starting_price: "$0",            free_tier: true,  features: ["web_traffic","attribution","marketing_campaigns","free_plan","real_time_events"] },
+      { name: "BigQuery",            tagline: "The serverless data warehouse for large-scale analysis",            website: "https://cloud.google.com/bigquery",  starting_price: "$0 (pay per use)",free_tier: true, features: ["data_warehouse","custom_sql","real_time_events","free_plan"] },
+      { name: "Mixpanel",            tagline: "Event-based product analytics focused on user retention",       website: "https://mixpanel.com",               starting_price: "$24/mo",        free_tier: true,  features: ["product_analytics","real_time_events","attribution","ai_insights","free_plan"] },
+      { name: "Amplitude",           tagline: "Enterprise product analytics with built-in AI",                      website: "https://amplitude.com",              starting_price: "$0",            free_tier: true,  features: ["product_analytics","real_time_events","ai_insights","attribution","free_plan"] },
+      { name: "Segment",             tagline: "The Customer Data Platform that centralizes all your customer data",website: "https://segment.com",               starting_price: "$120/mo",       free_tier: true,  features: ["real_time_events","data_warehouse","attribution","free_plan","marketing_campaigns"] }
     ]
   },
   call_intelligence: {
     label: "Call Intelligence", icon: "🎙️",
     accent: "#00CC7A",
     features: [
-      { id: "recording_transcription", label: "Grabación y transcripción automática de calls" },
-      { id: "ai_summaries",            label: "Resúmenes de calls generados por IA" },
-      { id: "crm_sync",                label: "Sync automático con CRM (notas, actividades)" },
-      { id: "action_items",            label: "Extracción automática de action items / next steps" },
-      { id: "keyword_alerts",          label: "Alertas de keywords y temas mencionados" },
-      { id: "deal_risk",               label: "Señales de riesgo en deals (objeciones, señales negativas)" },
-      { id: "coaching_scorecards",     label: "Scorecards de coaching para reps de ventas" },
-      { id: "forecast_intelligence",   label: "Inteligencia para forecasting desde conversaciones" },
-      { id: "free_plan",               label: "Plan gratuito disponible" },
-      { id: "team_analytics",          label: "Analytics de conversación a nivel de equipo" }
+      { id: "recording_transcription", label: "Automatic call recording and transcription" },
+      { id: "ai_summaries",            label: "AI-generated call summaries" },
+      { id: "crm_sync",                label: "Automatic CRM sync (notas, actividades)" },
+      { id: "action_items",            label: "Automatic extraction of action items / next steps" },
+      { id: "keyword_alerts",          label: "Keyword and topic mention alerts" },
+      { id: "deal_risk",               label: "Deal risk signals (objections, negative signals)" },
+      { id: "coaching_scorecards",     label: "Coaching scorecards for sales reps" },
+      { id: "forecast_intelligence",   label: "Conversation-based forecasting intelligence" },
+      { id: "free_plan",               label: "Free plan available" },
+      { id: "team_analytics",          label: "Team-level conversation analytics" }
     ],
     tools: [
-      { name: "Fathom",          tagline: "El grabador de reuniones más querido por founders y solopreneurs",          website: "https://fathom.video",  starting_price: "$0",           free_tier: true,  features: ["recording_transcription","ai_summaries","action_items","keyword_alerts","crm_sync","team_analytics","free_plan"] },
-      { name: "Fireflies.ai",    tagline: "El asistente de reuniones que transcribe, busca y sincroniza todo",         website: "https://fireflies.ai",  starting_price: "$0",           free_tier: true,  features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","team_analytics","free_plan"] },
-      { name: "Gong",            tagline: "La plataforma de revenue intelligence líder del mercado enterprise",        website: "https://gong.io",       starting_price: "~$5,000/año",  free_tier: false, features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","deal_risk","coaching_scorecards","forecast_intelligence","team_analytics"] },
-      { name: "Avoma",           tagline: "Call intelligence con coaching integrado para equipos de ventas",           website: "https://avoma.com",     starting_price: "$0",           free_tier: true,  features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","coaching_scorecards","team_analytics","free_plan"] },
-      { name: "Chorus (by ZoomInfo)", tagline: "Call intelligence enterprise con análisis de conversación profundo",  website: "https://chorus.ai",    starting_price: "~$8,000/año",  free_tier: false, features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","deal_risk","coaching_scorecards","team_analytics"] }
+      { name: "Fathom",          tagline: "The meeting recorder loved by founders and solopreneurs",          website: "https://fathom.video",  starting_price: "$0",           free_tier: true,  features: ["recording_transcription","ai_summaries","action_items","keyword_alerts","crm_sync","team_analytics","free_plan"] },
+      { name: "Fireflies.ai",    tagline: "The meeting assistant that transcribes, searches and syncs everything",         website: "https://fireflies.ai",  starting_price: "$0",           free_tier: true,  features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","team_analytics","free_plan"] },
+      { name: "Gong",            tagline: "The leading revenue intelligence platform for enterprise",        website: "https://gong.io",       starting_price: "~$5,000/año",  free_tier: false, features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","deal_risk","coaching_scorecards","forecast_intelligence","team_analytics"] },
+      { name: "Avoma",           tagline: "Call intelligence with built-in coaching for sales teams",           website: "https://avoma.com",     starting_price: "$0",           free_tier: true,  features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","coaching_scorecards","team_analytics","free_plan"] },
+      { name: "Chorus (by ZoomInfo)", tagline: "Enterprise call intelligence with deep conversation analysis",  website: "https://chorus.ai",    starting_price: "~$8,000/año",  free_tier: false, features: ["recording_transcription","ai_summaries","crm_sync","action_items","keyword_alerts","deal_risk","coaching_scorecards","team_analytics"] }
     ]
   },
   automation: {
     label: "Automation", icon: "⚙️",
     accent: "#FB4AAD",
     features: [
-      { id: "no_code_workflows",    label: "Workflows visuales sin código (drag & drop)" },
-      { id: "complex_workflows",    label: "Flujos multi-paso complejos con lógica avanzada" },
-      { id: "ai_llm_integration",   label: "Integración con LLMs / IA generativa" },
-      { id: "crm_integrations",     label: "Integraciones nativas con CRMs principales" },
-      { id: "high_volume",          label: "Alto volumen de ejecuciones (millones/mes)" },
-      { id: "api_webhooks",         label: "Soporte nativo para APIs y webhooks personalizados" },
-      { id: "team_collaboration",   label: "Colaboración en equipo y roles/permisos" },
-      { id: "templates_library",    label: "Biblioteca de templates pre-construidos" },
-      { id: "enterprise_compliance",label: "Compliance enterprise (SOC2, GDPR)" },
-      { id: "self_hostable",        label: "Se puede instalar en servidor propio (self-host)" }
+      { id: "no_code_workflows",    label: "Visual no-code workflows (drag & drop)" },
+      { id: "complex_workflows",    label: "Complex multi-step flows with advanced logic" },
+      { id: "ai_llm_integration",   label: "LLM / generative AI integration" },
+      { id: "crm_integrations",     label: "Native integrations with major CRMs" },
+      { id: "high_volume",          label: "High execution volume (millions/month)" },
+      { id: "api_webhooks",         label: "Native support for custom APIs and webhooks" },
+      { id: "team_collaboration",   label: "Team collaboration and roles/permissions" },
+      { id: "templates_library",    label: "Pre-built template library" },
+      { id: "enterprise_compliance",label: "Enterprise compliance (SOC2, GDPR)" },
+      { id: "self_hostable",        label: "Can be self-hosted on your own server" }
     ],
     tools: [
-      { name: "n8n",              tagline: "La automatización más poderosa y flexible para equipos técnicos", website: "https://n8n.io",             starting_price: "$0 (self-hosted)", free_tier: true,  features: ["no_code_workflows","complex_workflows","ai_llm_integration","crm_integrations","high_volume","api_webhooks","team_collaboration","templates_library","enterprise_compliance","self_hostable"] },
-      { name: "Make",             tagline: "La automatización visual más potente para usuarios no-técnicos",  website: "https://make.com",           starting_price: "$0",               free_tier: true,  features: ["no_code_workflows","complex_workflows","crm_integrations","api_webhooks","templates_library","team_collaboration"] },
-      { name: "Zapier",           tagline: "El más simple y con más integraciones del mercado",               website: "https://zapier.com",         starting_price: "$0",               free_tier: true,  features: ["no_code_workflows","crm_integrations","templates_library"] },
-      { name: "Claude API (Anthropic)", tagline: "Inteligencia artificial generativa para automatizaciones avanzadas", website: "https://anthropic.com/api", starting_price: "Pay-per-token", free_tier: false, features: ["ai_llm_integration","complex_workflows","api_webhooks","high_volume"] },
-      { name: "Workato",          tagline: "La plataforma de automatización e integración para enterprise",   website: "https://workato.com",        starting_price: "~$10,000/año",     free_tier: false, features: ["no_code_workflows","complex_workflows","ai_llm_integration","crm_integrations","high_volume","api_webhooks","team_collaboration","enterprise_compliance"] }
+      { name: "n8n",              tagline: "The most powerful and flexible automation for technical teams", website: "https://n8n.io",             starting_price: "$0 (self-hosted)", free_tier: true,  features: ["no_code_workflows","complex_workflows","ai_llm_integration","crm_integrations","high_volume","api_webhooks","team_collaboration","templates_library","enterprise_compliance","self_hostable"] },
+      { name: "Make",             tagline: "The most powerful visual automation for non-technical users",  website: "https://make.com",           starting_price: "$0",               free_tier: true,  features: ["no_code_workflows","complex_workflows","crm_integrations","api_webhooks","templates_library","team_collaboration"] },
+      { name: "Zapier",           tagline: "The simplest with the most integrations on the market",               website: "https://zapier.com",         starting_price: "$0",               free_tier: true,  features: ["no_code_workflows","crm_integrations","templates_library"] },
+      { name: "Claude API (Anthropic)", tagline: "Generative AI for advanced automations", website: "https://anthropic.com/api", starting_price: "Pay-per-token", free_tier: false, features: ["ai_llm_integration","complex_workflows","api_webhooks","high_volume"] },
+      { name: "Workato",          tagline: "The enterprise automation and integration platform",   website: "https://workato.com",        starting_price: "~$10,000/año",     free_tier: false, features: ["no_code_workflows","complex_workflows","ai_llm_integration","crm_integrations","high_volume","api_webhooks","team_collaboration","enterprise_compliance"] }
     ]
   }
 };
@@ -585,7 +585,7 @@ function selectCategory(key) {
 
   document.getElementById('s2-badge').innerHTML = cat.icon + ' ' + cat.label;
   document.getElementById('s2-headline').innerHTML =
-    '¿Qué necesitas que haga tu herramienta de <span class="cat-hl">' + cat.label + '</span>?';
+    'What do you need your <span class="cat-hl">' + cat.label + '</span> tool to do?';
 
   const list = document.getElementById('feature-list');
   list.innerHTML = cat.features.map(f =>
@@ -619,7 +619,7 @@ function updateCount() {
   const btn  = document.getElementById('see-rec-btn');
 
   info.innerHTML = n > 0
-    ? '<span class="sel-count">' + n + '</span> seleccionada' + (n !== 1 ? 's' : '')
+    ? '<span class="sel-count">' + n + '</span> selected'
     : '';
   btn.disabled = n === 0;
 }
@@ -634,7 +634,7 @@ function showScreen3() {
   document.getElementById('res-tagline').textContent  = top.tagline;
   document.getElementById('res-price').textContent    = top.starting_price;
   document.getElementById('res-coverage').textContent =
-    'Cubre ' + top.score + ' de ' + state.selectedFeatures.length + ' necesidades';
+    'Covers ' + top.score + ' of ' + state.selectedFeatures.length + ' needs';
   document.getElementById('res-link').href = top.website;
 
   showScreen(3);
@@ -674,13 +674,13 @@ function nextFormStep() {
   let ok = true;
 
   if (!name) {
-    showFieldError('f-name', 'err-name', 'Ingresa tu nombre'); ok = false;
+    showFieldError('f-name', 'err-name', 'Please enter your name'); ok = false;
   } else { clearFieldError('f-name', 'err-name'); }
 
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    showFieldError('f-email', 'err-email', 'Ingresa un email válido'); ok = false;
+    showFieldError('f-email', 'err-email', 'Please enter a valid email'); ok = false;
   } else if (isPersonalEmail(email)) {
-    showFieldError('f-email', 'err-email', 'Usa tu email de trabajo (no Gmail, Outlook ni Hotmail)'); ok = false;
+    showFieldError('f-email', 'err-email', 'Please use your work email (no Gmail, Outlook or Hotmail)'); ok = false;
   } else { clearFieldError('f-email', 'err-email'); }
 
   if (!ok) return;
@@ -701,11 +701,11 @@ async function handleSubmit(e) {
   let ok = true;
 
   if (!company) {
-    showFieldError('f-company', 'err-company', 'Ingresa el nombre de tu empresa'); ok = false;
+    showFieldError('f-company', 'err-company', 'Please enter your company name'); ok = false;
   } else { clearFieldError('f-company', 'err-company'); }
 
   if (!role) {
-    showFieldError('f-role', 'err-role', 'Ingresa tu rol'); ok = false;
+    showFieldError('f-role', 'err-role', 'Please enter your role'); ok = false;
   } else { clearFieldError('f-role', 'err-role'); }
 
   if (!ok) return;
@@ -734,7 +734,7 @@ async function handleSubmit(e) {
   };
 
   const btn = document.getElementById('submit-btn');
-  btn.textContent = 'Enviando...';
+  btn.textContent = 'Sending...';
   btn.disabled = true;
 
   try {
@@ -769,7 +769,7 @@ function resetForm() {
   const dot2 = document.getElementById('fp2');
   dot2.classList.remove('active'); dot2.innerHTML = '2';
   const btn = document.getElementById('submit-btn');
-  if (btn) { btn.textContent = 'Enviar mi informe'; btn.disabled = false; }
+  if (btn) { btn.textContent = 'Send my report'; btn.disabled = false; }
 }
 
 function restart() {
@@ -782,3 +782,5 @@ function restart() {
 </script>
 </body>
 </html>
+
+
