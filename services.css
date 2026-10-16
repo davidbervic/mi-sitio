@@ -52,7 +52,7 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 .logo{display:flex;align-items:center;gap:8px;flex:0 0 auto}
 .nav-right{flex:0 0 auto;display:flex;align-items:center;gap:10px}
 .nav-burger{display:none;appearance:none;cursor:pointer;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:12px;width:44px;height:44px;align-items:center;justify-content:center;font-size:18px;line-height:1;flex-shrink:0}
-.nav-links{display:flex;align-items:center;gap:22px;background:var(--nx-paper);border-radius:20px;padding:12px 22px}
+.nav-links{display:flex;align-items:center;gap:22px;background:var(--nx-paper);border-radius:20px;padding:12px 22px;border:3px solid var(--nx-ink);box-shadow:4px 4px 0 var(--nx-ink)}
 .nav-link{font:700 15px/1 var(--nx-font-text);color:var(--nx-ink);white-space:nowrap}
 .nav-link:hover,.nav-link.is-current{color:var(--nx-pink)}
 .resources-wrap{position:relative;padding-bottom:14px;margin-bottom:-14px}
@@ -66,7 +66,7 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 .resources-menu a:hover{background:#f4f4f4}
 .resources-menu span{color:#666;cursor:default}
 .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center}
-.btn-pink{background:var(--nx-pink);color:var(--nx-paper)}
+.btn-pink{background:var(--nx-pink);color:var(--nx-paper);border:2px solid var(--nx-ink);box-shadow:3px 3px 0 var(--nx-ink)}
 .btn-purple{background:#25D366;color:#ffffff}
 @media(max-width:860px){
   .nav-burger{display:inline-flex}

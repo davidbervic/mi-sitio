@@ -91,8 +91,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .resources-menu a,.resources-menu span{display:block;white-space:nowrap;padding:9px 10px;border-radius:8px;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink)}
   .resources-menu a:hover{background:#f4f4f4}
   .resources-menu span{color:#666;cursor:default}
-  .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center;cursor:pointer;border:none}
-  .btn-pink{background:var(--nx-pink);color:var(--nx-paper)}
+  .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center;cursor:pointer}
+  .btn-pink{background:var(--nx-pink);color:var(--nx-paper);border:2px solid var(--nx-ink);box-shadow:3px 3px 0 var(--nx-ink)}
   .btn-purple{background:#25D366;color:#ffffff}
   @media(max-width:860px){
     .nav-burger{display:inline-flex}
@@ -473,7 +473,12 @@ document.querySelectorAll('.reveal').forEach((el) => {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'lead_submitted', lead_source: 'munap_contact_form' });
       })
-      .catch(() => { nextBtn.disabled = false; render(); });
+      .catch(() => {
+        nextBtn.disabled = false;
+        render();
+        nextBtn.textContent = 'Something went wrong — try again';
+        setTimeout(() => render(), 4000);
+      });
   });
   render();
 })();

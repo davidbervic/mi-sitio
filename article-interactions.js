@@ -88,6 +88,10 @@
   });
 
   /* ── Related articles ────────────────────────────────────── */
+  function esc(str) {
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
   var relatedSlot = document.getElementById('relatedSlot');
   if (relatedSlot) {
     function renderRelated() {
@@ -126,14 +130,14 @@
           '<div class="related-grid">' +
           picks.map(function (a) {
             var img = a.img
-              ? '<img src="' + a.img + '" alt="" loading="lazy" width="400" height="225">'
+              ? '<img src="' + esc(a.img) + '" alt="" loading="lazy" width="400" height="225">'
               : '';
-            return '<a href="' + a.href + '" class="related-card">' +
+            return '<a href="' + esc(a.href) + '" class="related-card">' +
               img +
               '<div class="related-card-body">' +
-                '<span class="related-card-tag">' + a.category + '</span>' +
-                '<span class="related-card-title">' + a.title + '</span>' +
-                '<span class="related-card-meta">' + a.readTime + '</span>' +
+                '<span class="related-card-tag">' + esc(a.category) + '</span>' +
+                '<span class="related-card-title">' + esc(a.title) + '</span>' +
+                '<span class="related-card-meta">' + esc(a.readTime) + '</span>' +
               '</div>' +
             '</a>';
           }).join('') +

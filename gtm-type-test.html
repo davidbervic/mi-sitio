@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Your GTM Type? · Muvap</title>
+<meta name="description" content="Find the exact GTM gaps costing you pipeline — and what to fix first. 25 questions, 4 minutes.">
+<meta name="theme-color" content="#0574fd">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="canonical" href="https://davidbervic.com/gtm-type-test.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="What's Your GTM Type? · Muvap">
+<meta property="og:description" content="Find the exact GTM gaps costing you pipeline — and what to fix first.">
+<meta property="og:url" content="https://davidbervic.com/gtm-type-test.html">
+<meta property="og:image" content="https://davidbervic.com/images/muvap-logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue:   #0574FD;
+  --pink:   #FB4AAD;
+  --cyan:   #12EFFB;
+  --yellow: #FCDF07;
+  --purple: #A040F0;
+  --green:  #00CC7A;
+  --white:  #FFFFFF;
+  --black:  #000000;
+  /* nav */
+  --nx-paper: #ffffff;
+  --nx-ink:   #050505;
+  --nx-pink:  #fb4aad;
+  --nx-font-text: 'Archivo', sans-serif;
+  --nx-font-display: 'Archivo Black','Helvetica Neue',Arial,sans-serif;
+  --nx-track-tight: -.02em;
+}
+
+html, body { min-height: 100%; background: var(--blue); font-family: 'Archivo', sans-serif; -webkit-font-smoothing: antialiased; }
+
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.2) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.2) 1px,transparent 1px);
+  background-size: 44px 44px; pointer-events: none; z-index: 0;
+}
+
+/* ── Site nav (igual que el resto del sitio) ── */
+.site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px clamp(16px,4vw,44px) 6px;position:relative;z-index:40}
+.logo{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.nav-right{flex:0 0 auto;display:flex;align-items:center;gap:10px}
+.nav-burger{display:none;appearance:none;cursor:pointer;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:12px;width:44px;height:44px;align-items:center;justify-content:center;font-size:18px;line-height:1;flex-shrink:0}
+.nav-links{display:flex;align-items:center;gap:22px;background:var(--nx-paper);border-radius:20px;padding:12px 22px;border:3px solid var(--nx-ink);box-shadow:4px 4px 0 var(--nx-ink)}
+.nav-link{font:700 15px/1 var(--nx-font-text);color:var(--nx-ink);white-space:nowrap;text-decoration:none}
+.nav-link:hover{color:var(--nx-pink)}
+.resources-wrap{position:relative;padding-bottom:14px;margin-bottom:-14px}
+.resources-menu{position:absolute;top:100%;left:0;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:14px;min-width:220px;padding:6px;box-shadow:4px 4px 0 var(--nx-ink);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .15s,transform .15s,visibility .15s;pointer-events:none}
+.resources-wrap:hover .resources-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+.resources-menu a,.resources-menu span{display:block;white-space:nowrap;padding:9px 10px;border-radius:8px;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink);text-decoration:none}
+.resources-menu a:hover{background:#f4f4f4}
+.resources-menu span{color:#666;cursor:default}
+.btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center;text-decoration:none}
+.btn-pink{background:var(--nx-pink);color:var(--nx-paper);border:2px solid var(--nx-ink);box-shadow:3px 3px 0 var(--nx-ink)}
+.btn-purple{background:#25D366;color:#fff}
+.nav-cta{border:1.5px solid var(--nx-ink);box-shadow:4px 4px 0 var(--nx-ink);gap:7px;transition:transform .12s,box-shadow .12s}
+@media(max-width:860px){
+  .nav-burger{display:inline-flex}
+  .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:16px;right:16px;flex-direction:column;align-items:stretch;gap:2px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:16px;box-shadow:4px 4px 0 var(--nx-ink);padding:10px;z-index:60}
+  .site-nav.nav-open .nav-links{display:flex}
+  .nav-link{padding:12px 14px;border-radius:10px}
+  .resources-wrap{padding-bottom:0;margin-bottom:0}
+  .resources-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 4px 14px;pointer-events:auto;min-width:0}
+  .nav-cta-text{display:none}
+  .nav-cta{padding:10px 12px}
+  .site-nav .logo img{height:40px!important}
+}
+@media(max-width:420px){.site-nav{gap:8px}.nav-right{gap:6px}}
+
+/* ── Shell ── */
+.page { position: relative; z-index: 1; min-height: 100dvh; display: flex; flex-direction: column; align-items: center; padding: 0 16px 80px; }
+
+/* ── Card ── */
+.card { background: var(--white); border: 3px solid var(--black); border-radius: 16px; box-shadow: 4px 4px 0 var(--black); }
+
+/* ── Screens ── */
+.screen { display: none; width: 100%; animation: fadeUp .3s ease; }
+.screen.is-active { display: block; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── Progress bar — in a white card so el header no flota en el vacío ── */
+.prog-wrap {
+  margin-bottom: 12px;
+  background: #fff; border: 3px solid var(--black);
+  border-radius: 14px; box-shadow: 4px 4px 0 var(--black);
+  padding: 14px 18px;
+}
+.prog-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.prog-left { display: flex; flex-direction: column; gap: 3px; }
+.prog-dim { font: 700 12px/1 'Archivo',sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--black); }
+.prog-step { font: 400 11px/1 'Archivo',sans-serif; color: #6b7280; }
+.prog-count { font: 700 14px/1 'Archivo',sans-serif; color: var(--black); }
+.prog-track { width: 100%; height: 10px; background: #f3f4f6; border-radius: 999px; overflow: hidden; border: 1.5px solid #e5e7eb; }
+.prog-fill { height: 100%; border-radius: 999px; background: var(--yellow); border-right: 2px solid rgba(0,0,0,.2); transition: width .45s cubic-bezier(.4,0,.2,1); }
+
+/* ── SCREEN 1: Landing ── */
+#s1 { max-width: 660px; }
+.landing { padding-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+
+/* Landing headline */
+.landing-headline {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 900;
+  font-size: clamp(42px, 9vw, 88px);
+  color: #fff;
+  line-height: 1.0;
+  letter-spacing: -.035em;
+}
+
+.landing-sub { font: 400 18px/1.6 'Archivo',sans-serif; color: rgba(255,255,255,.9); max-width: 500px; }
+.landing-sub strong { color: #fff; font-weight: 700; }
+
+/* Level pills con color */
+.level-teaser { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.level-pill { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1.5px solid rgba(0,0,0,.35); border-radius: 999px; font: 700 14px/1 'Archivo',sans-serif; color: var(--black); }
+.level-dot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,.2); flex-shrink: 0; }
+
+.btn-cta { background: var(--pink); color: var(--black); font: 700 19px/1 'Archivo',sans-serif; border: 2.5px solid var(--black); border-radius: 12px; box-shadow: 4px 4px 0 var(--black); padding: 20px 44px; cursor: pointer; transition: transform .12s, box-shadow .12s; -webkit-tap-highlight-color: transparent; display: inline-flex; align-items: center; gap: 8px; }
+.btn-cta:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+.btn-cta:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--black); }
+
+/* Trust signals as white pills — legibles, on-brand */
+.landing-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.landing-meta-item {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.4);
+  border-radius: 999px;
+  padding: 8px 16px; font: 600 12px/1 'Archivo',sans-serif; color: rgba(255,255,255,.9);
+}
+
+/* ── SCREENS 2–6 ── */
+#s2,#s3,#s4,#s5,#s6 { max-width: 680px; }
+.q-card { padding: 22px 24px 24px; }
+.dim-pill { display: inline-block; padding: 5px 13px; border: 2px solid var(--black); border-radius: 999px; font: 700 11px/1 'Archivo',sans-serif; letter-spacing: .07em; text-transform: uppercase; box-shadow: 2px 2px 0 var(--black); margin-bottom: 10px; }
+.dim-name { font: 900 22px/1.1 'Archivo Black',sans-serif; color: var(--black); letter-spacing: -.02em; margin-bottom: 6px; }
+.dim-desc { font: 400 13px/1.5 'Archivo',sans-serif; color: #6b7280; margin-bottom: 20px; }
+
+.q-item { padding: 16px 0; border-top: 1.5px solid #e5e7eb; }
+.q-item:first-of-type { border-top: none; padding-top: 0; }
+.q-item.answered .q-num { color: var(--green); }
+.q-header { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 12px; }
+.q-num { font: 700 13px/1.55 'Archivo',sans-serif; color: #9ca3af; min-width: 20px; flex-shrink: 0; transition: color .2s; }
+.q-text { font: 400 14px/1.55 'Archivo',sans-serif; color: #111827; }
+
+/* ── Likert — estilo círculos ── */
+.likert-wrap { display: flex; flex-direction: column; gap: 8px; }
+.likert { display: flex; gap: 8px; align-items: center; }
+.likert-opt { flex: 1; position: relative; text-align: center; }
+.likert-opt input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.likert-btn {
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 2.5px solid var(--val-color);
+  background: transparent;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background .15s, box-shadow .12s, transform .1s;
+  -webkit-tap-highlight-color: transparent; user-select: none;
+}
+
+/* Número oculto; el ::after muestra el ✓ */
+.likert-num { font-size: 0; line-height: 0; }
+.likert-num::after { content: '✓'; font: 700 22px/1 'Archivo',sans-serif; color: transparent; transition: color .12s; }
+.likert-lbl { display: none; }
+
+/* Hover: rellena el círculo y muestra ✓ translúcido */
+.likert-opt:hover:not(.is-checked) .likert-btn { background: var(--val-color); }
+.likert-opt:hover:not(.is-checked) .likert-num::after { color: rgba(255,255,255,.75); }
+
+/* Seleccionado: relleno sólido + ✓ blanco */
+.likert-opt.is-checked .likert-btn { background: var(--val-color); box-shadow: 2px 2px 0 var(--black); transform: scale(1.08); }
+.likert-opt.is-checked .likert-num::after { color: #fff; }
+
+.likert-extremes { display: flex; justify-content: space-between; padding: 2px 2px 0; }
+.likert-extremes span { font: 700 12px/1 'Archivo',sans-serif; letter-spacing: .02em; }
+.likert-extremes span:first-child { color: #ef4444; }
+.likert-extremes span:last-child  { color: #00CC7A; }
+
+/* Opción N/A */
+.likert-na { margin-top: 4px; text-align: right; }
+.likert-na-opt { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.likert-na-opt input { position: absolute; opacity: 0; width: 0; height: 0; }
+.likert-na-text { font: 600 11px/1 'Archivo',sans-serif; color: var(--pink); text-decoration: underline; text-underline-offset: 2px; transition: color .12s, opacity .12s; }
+.likert-na-opt:hover .likert-na-text { opacity: .75; }
+.likert-na-opt.is-checked .likert-na-text { color: var(--pink); font-weight: 700; text-decoration: none; opacity: 1; }
+
+/* nav btns */
+.nav-btns { display: flex; gap: 10px; margin-top: 12px; align-items: stretch; }
+.btn-next { flex: 1; background: var(--pink); color: var(--black); font: 700 15px/1 'Archivo',sans-serif; border: 2.5px solid var(--black); border-radius: 11px; box-shadow: 4px 4px 0 var(--black); padding: 15px 20px; cursor: pointer; transition: transform .12s, box-shadow .12s; -webkit-tap-highlight-color: transparent; }
+.btn-next:disabled { background: #e5e7eb; color: #9ca3af; border-color: #d1d5db; box-shadow: none; cursor: not-allowed; }
+.btn-next:not(:disabled):hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+.btn-next:not(:disabled):active { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--black); }
+.btn-back { display: none; align-items: center; gap: 5px; background: var(--white); color: var(--black); font: 600 14px/1 'Archivo',sans-serif; border: 2px solid var(--black); border-radius: 10px; box-shadow: 3px 3px 0 var(--black); padding: 14px 16px; cursor: pointer; transition: transform .12s, box-shadow .12s; -webkit-tap-highlight-color: transparent; white-space: nowrap; }
+.btn-back.show { display: flex; }
+.btn-back:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--black); }
+.prog-hint {
+  margin-top: 8px; text-align: center; min-height: 16px;
+  font: 600 12px/1 'Archivo',sans-serif;
+  display: inline-flex; align-items: center; justify-content: center; width: 100%;
+}
+.prog-hint:not(:empty) {
+  background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px; padding: 6px 16px;
+  color: rgba(255,255,255,.8);
+}
+
+/* ── SCREEN 7: Contact ── */
+#s7 { max-width: 500px; }
+.contact-card { padding: 36px 32px; }
+.contact-title { font: 900 26px/1.1 'Archivo Black',sans-serif; color: var(--black); letter-spacing: -.02em; margin-bottom: 6px; }
+.contact-sub { font: 400 14px/1.55 'Archivo',sans-serif; color: #6b7280; margin-bottom: 28px; }
+.form-field { margin-bottom: 14px; }
+.form-field label { display: block; margin-bottom: 6px; font: 700 11px/1 'Archivo',sans-serif; letter-spacing: .06em; text-transform: uppercase; color: #374151; }
+.form-field input { width: 100%; padding: 13px 14px; font: 400 15px/1 'Archivo',sans-serif; border: 2px solid #d1d5db; border-radius: 10px; background: #fafafa; outline: none; transition: border-color .15s; }
+.form-field input:focus { border-color: var(--blue); background: #fff; }
+.form-field input.err { border-color: #ef4444; }
+.field-err { font: 400 11px/1 'Archivo',sans-serif; color: #ef4444; margin-top: 4px; display: none; }
+.field-err.show { display: block; }
+.contact-note { font: 400 11px/1.4 'Archivo',sans-serif; color: #9ca3af; margin-top: 12px; text-align: center; }
+
+/* ── SCREEN 8: Results ── */
+#s8 { max-width: 960px; }
+.results-headline {
+  font-family: 'Archivo Black', sans-serif;
+  font-weight: 900;
+  font-size: clamp(34px, 6vw, 64px);
+  color: #fff;
+  line-height: 1.0;
+  letter-spacing: -.035em;
+  margin-bottom: 20px;
+}
+.results-grid { display: grid; grid-template-columns: 1fr 340px; gap: 18px; align-items: start; }
+@media (max-width: 740px) { .results-grid { grid-template-columns: 1fr; } .locked-panel { position: static !important; } }
+
+.results-card { padding: 22px; margin-bottom: 16px; }
+.level-badge { display: inline-flex; align-items: center; gap: 12px; padding: 14px 24px; border: 3px solid var(--black); border-radius: 999px; box-shadow: 4px 4px 0 var(--black); margin-bottom: 10px; }
+.level-badge-emoji { font-size: 32px; }
+.level-badge-text { font: 900 36px/1 'Archivo Black',sans-serif; color: var(--black); letter-spacing: -.03em; }
+.level-score { font: 700 13px/1 'Archivo',sans-serif; color: #6b7280; letter-spacing: .04em; margin-bottom: 16px; }
+.level-score span { color: var(--black); font-size: 16px; }
+.level-desc { font: 400 14px/1.65 'Archivo',sans-serif; color: #374151; }
+.profile-heading { font: 900 17px/1 'Archivo Black',sans-serif; color: var(--black); letter-spacing: -.01em; margin-bottom: 18px; }
+
+.dim-bar { margin-bottom: 16px; }
+.dim-bar:last-child { margin-bottom: 0; }
+.dim-bar-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.dim-bar-name { font: 600 12px/1 'Archivo',sans-serif; color: #374151; }
+.dim-bar-pill { font: 700 10px/1 'Archivo',sans-serif; letter-spacing: .05em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; border: 1.5px solid var(--black); white-space: nowrap; }
+.dim-bar-track { width: 100%; height: 9px; background: #f3f4f6; border-radius: 999px; overflow: hidden; border: 1px solid #e5e7eb; margin-bottom: 4px; }
+.dim-bar-fill { height: 100%; border-radius: 999px; width: 0; transition: width 1.1s cubic-bezier(.4,0,.2,1); }
+.dim-bar-desc { font: 400 11px/1.4 'Archivo',sans-serif; color: #9ca3af; }
+
+.locked-panel { background: var(--black); border: 3px solid var(--black); border-radius: 16px; box-shadow: 4px 4px 0 rgba(0,0,0,.5); padding: 24px; color: var(--white); position: sticky; top: 20px; }
+.locked-heading { font: 900 18px/1.2 'Archivo Black',sans-serif; color: var(--white); letter-spacing: -.01em; margin-bottom: 16px; }
+.locked-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.locked-list li { display: flex; align-items: center; gap: 9px; font: 400 13px/1.4 'Archivo',sans-serif; padding: 9px 11px; background: rgba(255,255,255,.06); border-radius: 8px; transition: background .3s; color: rgba(255,255,255,.7); }
+.locked-list li.unlocked { background: rgba(0,204,122,.1); color: rgba(255,255,255,.9); }
+.report-sent-box { background: rgba(0,204,122,.12); border: 1.5px solid #00CC7A; border-radius: 10px; padding: 12px; margin-bottom: 14px; font: 400 12px/1.5 'Archivo',sans-serif; color: #00CC7A; display: none; }
+.btn-calendly { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 16px 18px; background: var(--yellow); color: var(--black); font: 700 14px/1.3 'Archivo',sans-serif; border: 2.5px solid rgba(255,255,255,.15); border-radius: 10px; box-shadow: 3px 3px 0 rgba(255,255,255,.12); text-decoration: none; cursor: pointer; transition: transform .12s, box-shadow .12s; -webkit-tap-highlight-color: transparent; text-align: center; }
+.btn-calendly:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 rgba(255,255,255,.2); }
+
+/* Mobile */
+@media (max-width: 480px) {
+  .contact-card { padding: 24px 18px; }
+  .q-card { padding: 16px; }
+  .results-card { padding: 18px; }
+  .locked-panel { padding: 20px; }
+  .btn-cta { padding: 16px 28px; font-size: 16px; }
+  .likert-btn { min-height: 52px; }
+  .level-badge-text { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav del sitio (igual que gtm-tool-selector y el resto) -->
+<nav class="site-nav">
+  <a href="index.html" class="logo">
+    <img src="images/muvap-logo.webp" alt="Muvap" style="height:56px;width:auto;display:block">
+  </a>
+  <div class="nav-right">
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a class="nav-link" href="about.html">About</a>
+      <div class="resources-wrap">
+        <a class="nav-link" href="index.html#programs" style="display:inline-flex;align-items:center;gap:4px">Services<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="resources-menu">
+          <a href="gtm-architecture-evolution.html">GTM Architecture Evolution</a>
+          <a href="gtm-outbound-evolution.html">GTM Outbound Evolution</a>
+          <a href="gtm-intelligence-evolution.html">GTM Intelligence Evolution</a>
+          <a href="gtm-workforce-evolution.html">GTM Workforce Evolution</a>
+          <a href="gtm-total-glowap.html">GTM Total Glowap!</a>
+        </div>
+      </div>
+      <a class="nav-link" href="customers.html">Case studies</a>
+      <div class="resources-wrap">
+        <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="resources-menu">
+          <a href="resources.html">Blog</a>
+          <a href="downloads.html">Downloads</a>
+          <span title="Coming soon">Webinars</span>
+        </div>
+      </div>
+    </div>
+    <a href="contact.html" class="btn-pink nav-cta"><span class="nav-cta-text">Let's talk</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg><span class="nav-cta-text">WhatsApp</span></a>
+  </div>
+</nav>
+<script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+
+<div class="page">
+
+<!-- Screen 1: Landing -->
+<div id="s1" class="screen is-active">
+  <div class="landing">
+    <h1 class="landing-headline">What's Your GTM Type?</h1>
+    <p class="landing-sub">Find the <strong>exact GTM gaps costing you pipeline</strong> — and what to fix first.</p>
+    <div class="level-teaser">
+      <div class="level-pill" style="background:#e5e7eb"><span class="level-dot" style="background:#9ca3af"></span>GTM Rookie</div>
+      <div class="level-pill" style="background:#12EFFB"><span class="level-dot" style="background:#0aa8b5"></span>GTM Player</div>
+      <div class="level-pill" style="background:#00CC7A"><span class="level-dot" style="background:#009959"></span>GTM Pro</div>
+      <div class="level-pill" style="background:#FCDF07"><span class="level-dot" style="background:#d4b800"></span>GTM Elite</div>
+    </div>
+    <button type="button" class="btn-cta" id="startBtn">Take the Test →</button>
+    <div class="landing-meta">
+      <span class="landing-meta-item">⏱ 4 minutes</span>
+      <span class="landing-meta-item">🔒 No spam</span>
+      <span class="landing-meta-item">✉ Results by email</span>
+    </div>
+  </div>
+</div>
+
+<!-- Screens 2–6 -->
+<div id="s2" class="screen">
+  <div class="prog-wrap" id="prog2"></div>
+  <div class="q-card card" id="qc2"></div>
+  <div class="nav-btns"><button type="button" class="btn-back" id="back2">← Back</button><button type="button" class="btn-next" id="next2" disabled>Next →</button></div>
+  <p class="prog-hint" id="hint2"></p>
+</div>
+<div id="s3" class="screen">
+  <div class="prog-wrap" id="prog3"></div>
+  <div class="q-card card" id="qc3"></div>
+  <div class="nav-btns"><button type="button" class="btn-back show" id="back3">← Back</button><button type="button" class="btn-next" id="next3" disabled>Next →</button></div>
+  <p class="prog-hint" id="hint3"></p>
+</div>
+<div id="s4" class="screen">
+  <div class="prog-wrap" id="prog4"></div>
+  <div class="q-card card" id="qc4"></div>
+  <div class="nav-btns"><button type="button" class="btn-back show" id="back4">← Back</button><button type="button" class="btn-next" id="next4" disabled>Next →</button></div>
+  <p class="prog-hint" id="hint4"></p>
+</div>
+<div id="s5" class="screen">
+  <div class="prog-wrap" id="prog5"></div>
+  <div class="q-card card" id="qc5"></div>
+  <div class="nav-btns"><button type="button" class="btn-back show" id="back5">← Back</button><button type="button" class="btn-next" id="next5" disabled>Next →</button></div>
+  <p class="prog-hint" id="hint5"></p>
+</div>
+<div id="s6" class="screen">
+  <div class="prog-wrap" id="prog6"></div>
+  <div class="q-card card" id="qc6"></div>
+  <div class="nav-btns"><button type="button" class="btn-back show" id="back6">← Back</button><button type="button" class="btn-next" id="next6" disabled>Next →</button></div>
+  <p class="prog-hint" id="hint6"></p>
+</div>
+
+<!-- Screen 7: Contact -->
+<div id="s7" class="screen">
+  <div class="prog-wrap">
+    <div class="prog-meta">
+      <div class="prog-left"><span class="prog-dim">Almost done</span><span class="prog-step">Step 6 of 6</span></div>
+      <span class="prog-count">25 / 25 ✓</span>
+    </div>
+    <div class="prog-track"><div class="prog-fill" style="width:100%"></div></div>
+  </div>
+  <div class="card contact-card">
+    <h2 class="contact-title">Almost there.</h2>
+    <p class="contact-sub">Where should we send your full GTM report?</p>
+    <form id="contactForm" novalidate>
+      <div class="form-field">
+        <label for="f-name">Full name</label>
+        <input id="f-name" name="name" type="text" placeholder="Jane Smith" autocomplete="name">
+        <p class="field-err" id="err-name">Please enter your name.</p>
+      </div>
+      <div class="form-field">
+        <label for="f-email">Work email</label>
+        <input id="f-email" name="email" type="email" placeholder="jane@company.com" autocomplete="email">
+        <p class="field-err" id="err-email">Please use your work email (not Gmail, Yahoo, etc.).</p>
+      </div>
+      <div class="form-field">
+        <label for="f-company">Company name</label>
+        <input id="f-company" name="company" type="text" placeholder="Your company" autocomplete="organization">
+        <p class="field-err" id="err-company">Please enter your company.</p>
+      </div>
+      <div class="form-field">
+        <label for="f-role">Your role</label>
+        <input id="f-role" name="role" type="text" placeholder="e.g. VP of Sales, Head of Revenue" autocomplete="organization-title">
+        <p class="field-err" id="err-role">Please enter your role.</p>
+      </div>
+      <div class="nav-btns" style="margin-top:20px">
+        <button type="button" class="btn-back show" id="back7">← Back</button>
+        <button type="submit" class="btn-next">See My Results →</button>
+      </div>
+    </form>
+    <p class="contact-note">🔒 No spam. One email with your results.</p>
+  </div>
+</div>
+
+<!-- Screen 8: Results -->
+<div id="s8" class="screen">
+  <h2 class="results-headline" id="resultsTitle"></h2>
+  <div class="results-grid">
+    <div>
+      <div class="card results-card">
+        <div id="levelBadge" class="level-badge"></div>
+        <p class="level-score" id="levelScore"></p>
+        <p class="level-desc" id="levelDesc"></p>
+      </div>
+      <div class="card results-card">
+        <p class="profile-heading">Your GTM Profile</p>
+        <div id="dimBars"></div>
+      </div>
+    </div>
+    <div class="locked-panel">
+      <p class="locked-heading">Your Full GTM Report</p>
+      <ul class="locked-list" id="lockedList">
+        <li>🔒 Your 3 biggest GTM gaps</li>
+        <li>🔒 What they're likely costing you</li>
+        <li>🔒 Downloadable PDF report</li>
+        <li>🔒 Priority recommendations</li>
+      </ul>
+      <div id="reportSent" class="report-sent-box"></div>
+      <a href="https://calendly.com/YOUR_LINK" target="_blank" rel="noopener" class="btn-calendly" id="calendlyBtn">📅 Book a free 30-min GTM call</a>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page -->
+<script>
+(function () {
+  'use strict';
+
+  var DIMS = [
+    {
+      name: "Revenue Architecture", accent: "#FB4AAD", textColor: "#000",
+      desc: "How well your pipeline data, ICP, and CRM support revenue decisions.",
+      qs: [
+        "Our CRM is the team’s single source of truth and everyone uses it consistently.",
+        "Our pipeline forecast is reliable enough to make business decisions on.",
+        "We have a documented ICP with specific criteria applied before qualifying a lead.",
+        "When we lose a deal, we log the reason and review patterns regularly.",
+        "Our contact and company data is clean, enriched, and up to date."
+      ]
+    },
+    {
+      name: "Modern Outbound", accent: "#12EFFB", textColor: "#000",
+      desc: "Your infrastructure for reaching the right buyers at scale.",
+      qs: [
+        "Our cold emails go out from dedicated domains with SPF, DKIM, and DMARC configured.",
+        "We build prospect lists using enrichment data, not just basic filters or bought lists.",
+        "Our outbound is personalized to each prospect, not just their job title.",
+        "We run multi-step, multi-channel sequences with tested variants.",
+        "We track outbound performance from first touch all the way to closed revenue."
+      ]
+    },
+    {
+      name: "Digital Analytics", accent: "#FCDF07", textColor: "#000",
+      desc: "How well you measure what drives revenue, not just traffic.",
+      qs: [
+        "We can trace most of our revenue back to its original marketing source.",
+        "Our team uses analytics data to make decisions, not just to check traffic.",
+        "We have dashboards that update automatically, reviewed on a set cadence.",
+        "We can connect marketing spend to pipeline and revenue, not just to lead volume.",
+        "We track specific conversion events and behavior beyond basic pageviews."
+      ]
+    },
+    {
+      name: "AI and GTM Automation", accent: "#A040F0", textColor: "#fff",
+      desc: "How much of your GTM runs on systems instead of manual effort.",
+      qs: [
+        "Our CRM updates itself from calls and emails with minimal manual input.",
+        "Our team gets an automated prep brief before each sales call.",
+        "We have a systematic content production process, not ad hoc drafting.",
+        "Inbound leads are automatically classified and routed based on intent.",
+        "We act on buying signals (funding, job changes, intent) within hours, not days."
+      ]
+    },
+    {
+      name: "GTM Alignment", accent: "#00CC7A", textColor: "#000",
+      desc: "How well sales, marketing, and ops pull in the same direction.",
+      qs: [
+        "Sales and marketing agree on what a qualified lead looks like, and it’s documented.",
+        "Our quarterly GTM priorities are set based on data, not instinct.",
+        "When performance drops, we know why within 48 hours, not weeks.",
+        "Our team adopts new processes consistently, not each person their own way.",
+        "We have a 6-month GTM roadmap with owners, milestones, and revenue targets."
+      ]
+    }
+  ];
+
+  var LIKERT_LABELS  = ["SD", "D", "A", "SA"];
+  /* Escala de colores: rojo → naranja → verde claro → verde */
+  var LIKERT_COLORS  = ["#ef4444", "#f97316", "#86efac", "#00CC7A"];
+
+  var LEVEL_INFO = {
+    "GTM Rookie": { emoji: "🌱", color: "#e5e7eb", desc: "Your GTM tech stack is still at an early stage. Most of what works depends on specific people doing the right thing at the right time. Without systems in place, you’re likely losing pipeline without knowing it — and scaling right now would amplify the chaos, not the results. The first move: build the foundation before you build the machine." },
+    "GTM Player": { emoji: "🎯", color: "#12EFFB", desc: "You have the basics, but your GTM is still fragmented. Each part kind of works, but the pieces don’t talk to each other. Marketing doesn’t know what sales closes. Sales doesn’t know what marketing generates. You’ve moved past chaos, but you haven’t built a system that compounds yet. The next unlock is integration." },
+    "GTM Pro":    { emoji: "🚀", color: "#00CC7A", desc: "Your GTM is working. You have systems, process, and reasonably reliable data. The challenge is that you’re still operating reactively — reading dashboards instead of getting alerts, researching prospects manually instead of receiving briefs. The gap between where you are and the next level is mostly automation and intelligence." },
+    "GTM Elite":  { emoji: "⚡",       color: "#FCDF07", desc: "Your GTM generates intelligence, not just activity. Data flows, systems compound, and your team spends time on high-value decisions instead of manual tasks. You’re in the top tier of operational maturity. The focus now is iteration: making your GTM sharper over time, not just bigger." }
+  };
+
+  var DIM_LABELS = {
+    "Revenue Architecture":   { Rookie: "Your pipeline data can’t be trusted yet.", Player: "You have a CRM. Your team doesn’t fully rely on it.", Pro: "Solid foundation. Scoring and enrichment are the next unlock.", Elite: "Your CRM generates intelligence, not just records." },
+    "Modern Outbound":        { Rookie: "Your outbound is ad hoc. Deliverability is a risk.", Player: "You’re sending. The system isn’t working for you yet.", Pro: "Solid motion. Personalization at scale is the gap.", Elite: "Systematic, personalized, and fully measurable." },
+    "Digital Analytics":      { Rookie: "You’re flying blind. Decisions are based on assumptions.", Player: "You have data. It’s not informing decisions yet.", Pro: "Good visibility. Attribution and automation are next.", Elite: "Proactive, fully connected analytics layer." },
+    "AI and GTM Automation":  { Rookie: "Your team handles manually what systems should own.", Player: "Some automation in place. Most is still manual.", Pro: "Good coverage. The intelligence layer is the next unlock.", Elite: "Your GTM runs with minimal manual overhead." },
+    "GTM Alignment":          { Rookie: "Your team is pulling in different directions without knowing it.", Player: "Alignment at the top. It breaks down in execution.", Pro: "Good alignment. Data-driven prioritization is the gap.", Elite: "Aligned, measured, and self-correcting." }
+  };
+
+  var GAP_TEXTS = {
+    "Revenue Architecture": "Without reliable CRM data, your forecast is guesswork and your reps operate from memory. The cost shows up in deals that slip, accounts that go cold, and a leadership team that can’t trust the numbers they’re reporting.",
+    "Modern Outbound": "Broken outbound infrastructure means your emails may not reach inboxes, and the ones that do feel generic. You’re investing in outreach that isn’t generating the pipeline you expect. Every week without a working system is pipeline you’re not building.",
+    "Digital Analytics": "Without attribution, you’re spending on channels you can’t measure and cutting the ones that are actually working. Decisions about where to invest are based on intuition. That gets more expensive as you grow.",
+    "AI and GTM Automation": "Every hour your team spends on manual tasks is an hour not spent on conversations. Operational overhead is the hidden cost of growth. Automation doesn’t replace your team — it gives them their time back.",
+    "GTM Alignment": "When sales and marketing don’t agree on what a good lead looks like, both teams work harder for worse results. The fix isn’t a meeting — it’s a documented ICP, a shared definition of qualified, and a feedback loop that keeps both teams honest."
+  };
+
+  var BAR_COLORS = { Rookie: "#9ca3af", Player: "#12EFFB", Pro: "#00CC7A", Elite: "#FCDF07" };
+
+  var CALENDLY_COPY = {
+    "GTM Rookie": "Book a call — we’ll build your GTM foundation together",
+    "GTM Player": "Book a call — I’ll show you which gaps to fix first",
+    "GTM Pro":    "Book a call — I’ll show you your top 3 automation gaps",
+    "GTM Elite":  "Book a call — let’s find your next GTM unlock"
+  };
+
+  var answers = new Array(25).fill(null);
+  var currentScreen = 1;
+
+  function esc(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+  function goTo(n) {
+    document.getElementById("s" + currentScreen).classList.remove("is-active");
+    currentScreen = n;
+    var el = document.getElementById("s" + n);
+    el.classList.add("is-active");
+    el.style.animation = "none"; el.offsetHeight; el.style.animation = "";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function dimLevel(raw) { if (raw <= 8) return "Rookie"; if (raw <= 12) return "Player"; if (raw <= 16) return "Pro"; return "Elite"; }
+  function overallLevel(t) { if (t <= 49) return "GTM Rookie"; if (t <= 64) return "GTM Player"; if (t <= 79) return "GTM Pro"; return "GTM Elite"; }
+
+  function scoreTest() {
+    var total = 0;
+    var dims = DIMS.map(function (dim, i) {
+      var slice = answers.slice(i * 5, i * 5 + 5);
+      var raw = slice.reduce(function (a, b) { return a + b; }, 0);
+      var pct = Math.round(((raw - 5) / 15) * 100);
+      total += raw;
+      return { dimension: dim.name, raw: raw, pct: pct, level: dimLevel(raw) };
+    });
+    return { total: total, overall: overallLevel(total), dimensions: dims };
+  }
+
+  function buildScreen(di) {
+    var sn = di + 2;
+    var dim = DIMS[di];
+    var offset = di * 5;
+    var prevDone = di * 5;
+
+    document.getElementById("prog" + sn).innerHTML =
+      '<div class="prog-meta">' +
+        '<div class="prog-left"><span class="prog-dim">' + esc(dim.name) + '</span><span class="prog-step">Step ' + (di + 1) + ' of 6</span></div>' +
+        '<span class="prog-count" id="pc' + sn + '">' + prevDone + ' / 25</span>' +
+      '</div>' +
+      '<div class="prog-track"><div class="prog-fill" id="pf' + sn + '" style="width:' + Math.round((prevDone/25)*100) + '%"></div></div>';
+
+    var html = '<span class="dim-pill" style="background:' + dim.accent + ';color:' + dim.textColor + '">Dimension ' + (di+1) + ' of 5</span>' +
+               '<p class="dim-name">' + esc(dim.name) + '</p>' +
+               '<p class="dim-desc">' + esc(dim.desc) + '</p>';
+
+    dim.qs.forEach(function (q, qi) {
+      var idx = offset + qi;
+      var isAnswered = answers[idx] !== null;
+      html += '<div class="q-item' + (isAnswered ? ' answered' : '') + '" id="qi' + idx + '">' +
+        '<div class="q-header"><span class="q-num">Q' + (qi + 1) + '</span><span class="q-text">' + esc(q) + '</span></div>' +
+        '<div class="likert-wrap"><div class="likert">';
+
+      [1, 2, 3, 4].forEach(function (v) {
+        var color   = LIKERT_COLORS[v - 1];
+        var checked = answers[idx] === v;
+        html +=
+          '<label class="likert-opt' + (checked ? ' is-checked' : '') + '" style="--val-color:' + color + '">' +
+            '<input type="radio" name="q' + idx + '" value="' + v + '"' + (checked ? ' checked' : '') + ' data-qi="' + idx + '" data-sn="' + sn + '">' +
+            '<span class="likert-btn"><span class="likert-num">' + v + '</span><span class="likert-lbl">' + LIKERT_LABELS[v-1] + '</span></span>' +
+          '</label>';
+      });
+
+      html += '</div>' +
+        '<div class="likert-extremes"><span>Strongly Disagree</span><span>Strongly Agree</span></div>' +
+        '<div class="likert-na">' +
+          '<label class="likert-na-opt" data-qi="' + idx + '">' +
+            '<input type="radio" name="q' + idx + '" value="na" data-qi="' + idx + '" data-sn="' + sn + '" data-na="true">' +
+            '<span class="likert-na-text">We don’t do this yet</span>' +
+          '</label>' +
+        '</div>' +
+      '</div></div>';
+    });
+
+    var card = document.getElementById("qc" + sn);
+    card.innerHTML = html;
+
+    Array.prototype.forEach.call(card.querySelectorAll('input[type="radio"]'), function (r) {
+      r.addEventListener("change", function () {
+        var qi  = parseInt(r.dataset.qi);
+        var isNA = r.dataset.na === 'true';
+        answers[qi] = isNA ? 1 : parseInt(r.value);
+
+        /* Actualizar is-checked en todos los opts del mismo grupo */
+        var sameGroup = card.querySelectorAll('[name="q' + qi + '"]');
+        Array.prototype.forEach.call(sameGroup, function (inp) {
+          var opt = inp.closest('.likert-opt') || inp.closest('.likert-na-opt');
+          if (opt) opt.classList.remove('is-checked');
+        });
+        var myOpt = r.closest('.likert-opt') || r.closest('.likert-na-opt');
+        if (myOpt) myOpt.classList.add('is-checked');
+
+        var item = document.getElementById("qi" + qi);
+        if (item) item.classList.add("answered");
+        refresh(sn, di);
+      });
+    });
+
+    refresh(sn, di);
+  }
+
+  function refresh(sn, di) {
+    var offset = di * 5, answered = 0;
+    for (var i = 0; i < 5; i++) { if (answers[offset + i] !== null) answered++; }
+    var total = di * 5 + answered;
+    var fill  = document.getElementById("pf" + sn);
+    var count = document.getElementById("pc" + sn);
+    var hint  = document.getElementById("hint" + sn);
+    var next  = document.getElementById("next" + sn);
+    if (fill)  fill.style.width = Math.round((total / 25) * 100) + "%";
+    if (count) count.textContent = total + " / 25";
+    if (hint) { var left = 5 - answered; hint.textContent = left > 0 ? (left === 1 ? "1 question left" : left + " questions left to continue") : ""; }
+    if (next)  next.disabled = answered < 5;
+  }
+
+  document.getElementById("startBtn").addEventListener("click", function () { goTo(2); });
+  document.getElementById("back7").addEventListener("click", function () { goTo(6); });
+
+  for (var d = 0; d < 5; d++) {
+    (function (di) {
+      var sn = di + 2;
+      var backEl = document.getElementById("back" + sn);
+      var nextEl = document.getElementById("next" + sn);
+      if (backEl) backEl.addEventListener("click", function () { goTo(sn <= 2 ? 1 : sn - 1); });
+      nextEl.addEventListener("click", function () { if (!nextEl.disabled) goTo(sn >= 6 ? 7 : sn + 1); });
+    })(d);
+  }
+
+  var FREE_DOMAINS = ['gmail.com','googlemail.com','outlook.com','outlook.es','outlook.co.uk','outlook.fr','outlook.de','hotmail.com','hotmail.es','hotmail.co.uk','hotmail.fr','hotmail.de','hotmail.it','yahoo.com','yahoo.es','yahoo.co.uk','yahoo.fr','yahoo.de','yahoo.it','yahoo.ca','yahoo.com.mx','yahoo.com.ar','live.com','live.es','live.co.uk','live.fr','msn.com','icloud.com','me.com','mac.com','aol.com','aol.co.uk','protonmail.com','proton.me','pm.me','mail.com','gmx.com','gmx.de','gmx.net','yandex.com','yandex.ru','fastmail.com','fastmail.org','tutanota.com','inbox.com'];
+  function isPersonalEmail(email) { var d = (email.split('@')[1] || '').toLowerCase(); return FREE_DOMAINS.indexOf(d) !== -1; }
+
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name    = document.getElementById("f-name").value.trim();
+    var email   = document.getElementById("f-email").value.trim();
+    var company = document.getElementById("f-company").value.trim();
+    var role    = document.getElementById("f-role").value.trim();
+    var ok = true;
+    function setErr(id, errId, show) {
+      document.getElementById(id).classList.toggle("err", show);
+      var el = document.getElementById(errId);
+      if (el) el.classList.toggle("show", show);
+      if (show) ok = false;
+    }
+    setErr("f-name",    "err-name",    !name);
+    setErr("f-email",   "err-email",   !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || isPersonalEmail(email));
+    setErr("f-company", "err-company", !company);
+    setErr("f-role",    "err-role",    !role);
+    if (!ok) return;
+
+    var result = scoreTest();
+    showResults(result, email);
+    goTo(8);
+
+    var sorted = result.dimensions.slice().sort(function (a, b) { return a.raw - b.raw; });
+    fetch("YOUR_N8N_WEBHOOK_URL", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name, email: email, company: company, role: role,
+        timestamp: new Date().toISOString(), source: "gtm-type-test",
+        overall_level: result.overall, total_score: result.total,
+        dimensions: result.dimensions,
+        top_gaps: sorted.slice(0, 3).map(function (g) {
+          return { dimension: g.dimension, level: g.level, gap_text: GAP_TEXTS[g.dimension] || "" };
+        }),
+        answers: answers
+      })
+    }).catch(function () {});
+  });
+
+  function showResults(result, email) {
+    var lvl = LEVEL_INFO[result.overall] || LEVEL_INFO["GTM Rookie"];
+    document.getElementById("resultsTitle").textContent = "You’re a " + result.overall;
+
+    var badge = document.getElementById("levelBadge");
+    badge.style.background = lvl.color;
+    badge.innerHTML = '<span class="level-badge-emoji">' + lvl.emoji + '</span><span class="level-badge-text">' + esc(result.overall) + '</span>';
+
+    document.getElementById("levelScore").innerHTML = 'Score: <span>' + result.total + ' / 100</span>';
+    document.getElementById("levelDesc").textContent = lvl.desc;
+
+    var barsEl = document.getElementById("dimBars");
+    barsEl.innerHTML = result.dimensions.map(function (d) {
+      var color = BAR_COLORS[d.level] || "#9ca3af";
+      var lbl   = (DIM_LABELS[d.dimension] || {})[d.level] || "";
+      return '<div class="dim-bar">' +
+        '<div class="dim-bar-top"><span class="dim-bar-name">' + esc(d.dimension) + '</span>' +
+        '<span class="dim-bar-pill" style="background:' + color + ';color:#000">' + esc(d.level) + ' · ' + d.pct + '%</span></div>' +
+        '<div class="dim-bar-track"><div class="dim-bar-fill" style="background:' + color + '" data-pct="' + d.pct + '"></div></div>' +
+        '<p class="dim-bar-desc">' + esc(lbl) + '</p></div>';
+    }).join("");
+
+    setTimeout(function () {
+      Array.prototype.forEach.call(barsEl.querySelectorAll(".dim-bar-fill"), function (el, i) {
+        setTimeout(function () { el.style.width = el.dataset.pct + "%"; }, i * 100);
+      });
+    }, 150);
+
+    var items = ["Your 3 biggest GTM gaps", "What they’re likely costing you", "Downloadable PDF report", "Priority recommendations"];
+    document.getElementById("lockedList").innerHTML = items.map(function (t, i) {
+      return '<li class="unlocked" style="transition-delay:' + (i * 120) + 'ms">✅ ' + t + '</li>';
+    }).join("");
+
+    var sent = document.getElementById("reportSent");
+    sent.style.display = "block";
+    sent.textContent = "Your full report is on its way to " + email + ".";
+
+    document.getElementById("calendlyBtn").textContent = "📅 " + (CALENDLY_COPY[result.overall] || "Book a free 30-min GTM call");
+  }
+
+  for (var i = 0; i < 5; i++) buildScreen(i);
+
+}());
+</script>
+</body>
+</html>
