@@ -183,8 +183,11 @@
     @media (max-width: 660px) { .s3-grid { grid-template-columns: 1fr; } }
 
     .result-card { padding: 28px 24px; }
-    .res-label { font: 700 10px/1 'Inter'; letter-spacing: .12em; text-transform: uppercase; color: var(--pink); margin-bottom: 10px; }
-    .res-name { font-size: clamp(24px, 3.5vw, 38px); display: block; margin-bottom: 8px; }
+    .res-label { font: 700 10px/1 'Inter'; letter-spacing: .12em; text-transform: uppercase; color: var(--pink); margin-bottom: 14px; }
+    .res-logo-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+    .res-logo { width: 52px; height: 52px; border: 2.5px solid var(--black); border-radius: 12px; background: #fff; object-fit: contain; padding: 4px; box-shadow: 3px 3px 0 var(--black); flex-shrink: 0; }
+    .res-logo[src=""] { display: none; }
+    .res-name { font-size: clamp(22px, 3.5vw, 36px); display: block; margin-bottom: 0; }
     .res-tagline { font: 400 13px/1.5 'Inter'; color: #666; margin-bottom: 18px; }
 
     .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
@@ -324,7 +327,10 @@
     <div class="s3-grid">
       <div class="card result-card">
         <p class="res-label">Your top pick</p>
-        <span class="sticker res-name" id="res-name"></span>
+        <div class="res-logo-wrap">
+          <img id="res-logo" class="res-logo" src="" alt="" aria-hidden="true">
+          <span class="sticker res-name" id="res-name"></span>
+        </div>
         <p class="res-tagline" id="res-tagline"></p>
         <div class="pills">
           <span class="pill pill-yellow" id="res-price"></span>
@@ -636,6 +642,14 @@ function showScreen3() {
   document.getElementById('res-coverage').textContent =
     'Covers ' + top.score + ' of ' + state.selectedFeatures.length + ' needs';
   document.getElementById('res-link').href = top.website;
+
+  const logoEl = document.getElementById('res-logo');
+  try {
+    const host = new URL(top.website).hostname.replace(/^(www|business|cloud|analytics)\./, '');
+    logoEl.src = 'https://icon.horse/icon/' + host;
+    logoEl.onerror = () => { logoEl.style.display = 'none'; };
+    logoEl.style.display = '';
+  } catch(e) { logoEl.style.display = 'none'; }
 
   showScreen(3);
 }
