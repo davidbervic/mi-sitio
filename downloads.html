@@ -127,7 +127,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .dl-card-body h3{margin:0;color:var(--nx-ink);font:900 18px/1.25 var(--nx-font-display);letter-spacing:var(--nx-track-display)}
   .dl-card-body p{margin:0;flex:1;color:var(--nx-ink-soft);font:400 14px/1.5 var(--nx-font-text)}
   .dl-get-btn{width:100%;text-align:center;border-radius:var(--nx-radius-sm);padding:12px;font:800 13px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm)}
-  @media(max-width:600px){.dl-grid{grid-template-columns:1fr}}
+  @media(max-width:900px){.dl-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+  @media(max-width:600px){.dl-grid{grid-template-columns:1fr!important}}
 
   /* ---- newsletter ---- */
   .newsletter-section{background:var(--nx-ink);padding:clamp(56px,8vw,96px) clamp(16px,4vw,44px)}
@@ -211,7 +212,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="dl-main">
   <div class="dl-main-wrap">
-    <div class="dl-grid" style="grid-template-columns:repeat(2,minmax(0,1fr));max-width:860px">
+    <div class="dl-grid" style="grid-template-columns:repeat(3,minmax(0,1fr));max-width:1200px">
 
       <a href="icp-worksheet.html" class="dl-card" style="text-decoration:none">
         <div class="dl-card-visual" style="background:var(--nx-cyan-pale);display:flex;align-items:center;justify-content:center;border-bottom:1.5px solid var(--nx-ink)">
@@ -249,6 +250,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h3>GTM Type Test</h3>
           <p>Descubre qué tipo de GTM motion encaja con tu negocio. 8 preguntas, resultado inmediato con tu perfil y recomendaciones de stack.</p>
           <span class="dl-get-btn" style="background:var(--nx-pink);color:var(--nx-paper)">Take the test</span>
+        </div>
+      </a>
+
+      <a href="gtm-tool-selector.html" class="dl-card" style="text-decoration:none">
+        <div class="dl-card-visual" style="background:var(--nx-yellow-pale);display:flex;align-items:center;justify-content:center;border-bottom:1.5px solid var(--nx-ink)">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+            <rect x="10" y="10" width="52" height="52" rx="8" fill="white" stroke="#050505" stroke-width="2.5"/>
+            <circle cx="36" cy="36" r="10" fill="#fcdf07" stroke="#050505" stroke-width="2"/>
+            <path d="M36 28v8l5 5" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="52" cy="20" r="6" fill="#fb4aad" stroke="#050505" stroke-width="1.5"/>
+            <circle cx="20" cy="52" r="6" fill="#12effb" stroke="#050505" stroke-width="1.5"/>
+            <path d="M44 28l-8 8M28 44l8-8" stroke="#050505" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="dl-card-body">
+          <span class="format-tag">Selector</span>
+          <h3>GTM Tool Selector</h3>
+          <p>Encuentra las herramientas correctas para tu stack GTM según tu etapa, equipo y presupuesto. Resultados personalizados al instante.</p>
+          <span class="dl-get-btn" style="background:var(--nx-yellow)">Use the selector</span>
         </div>
       </a>
 
