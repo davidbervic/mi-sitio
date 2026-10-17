@@ -117,29 +117,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ---- main ---- */
   .dl-main{background:var(--nx-paper);padding:clamp(48px,7vw,80px) clamp(16px,4vw,44px) clamp(64px,9vw,120px)}
   .dl-main-wrap{max-width:1200px;margin:0 auto}
-  .dl-chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:40px}
-  .dl-chip{appearance:none;cursor:pointer;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:9px 16px;font:700 13px/1 var(--nx-font-text);background:var(--nx-paper);color:var(--nx-ink)}
-  .dl-chip.is-active{box-shadow:var(--nx-drop-sm)}
-
-  .featured-dl{background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-xl);box-shadow:var(--nx-drop-lg);overflow:hidden;display:grid;grid-template-columns:.9fr 1.1fr;margin-bottom:40px}
-  .featured-dl-visual{width:100%;height:100%;min-height:260px}
-  .featured-dl-body{padding:32px;display:flex;flex-direction:column;gap:16px}
   .format-tag{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;background:#f4f4f4;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:4px 12px;font:800 10px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:var(--nx-ink)}
-  .featured-dl-body h2{margin:0;color:var(--nx-ink);font:900 clamp(22px,2.6vw,28px)/1.2 var(--nx-font-display);letter-spacing:var(--nx-track-display);text-decoration:underline}
-  .featured-dl-body p{margin:0;color:var(--nx-ink-soft);font:400 15px/1.55 var(--nx-font-text)}
-  .mini-bullet{display:flex;align-items:flex-start;gap:8px;font:400 14px/1.4 var(--nx-font-text);color:var(--nx-ink)}
-  @media(max-width:760px){.featured-dl{grid-template-columns:1fr}}
 
-  .gate-btn{background:var(--nx-mint);color:var(--nx-ink);border-radius:var(--nx-radius-sm);padding:15px 26px;font:800 14px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm);align-self:flex-start}
-  .gate-form{display:flex;gap:10px;max-width:420px;width:100%}
-  .gate-input{flex:1;box-sizing:border-box;padding:11px 14px;border:1.5px solid var(--nx-ink);border-radius:10px;font:400 14px/1.2 var(--nx-font-text);color:var(--nx-ink);background:var(--nx-paper)}
-  .gate-submit{background:var(--nx-mint);color:var(--nx-ink);border-radius:var(--nx-radius-sm);padding:11px 18px;font:800 13px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm);white-space:nowrap}
-  .gate-done{display:flex;align-items:center;gap:8px;color:var(--nx-ink);font:700 14px/1 var(--nx-font-text)}
-  .card-gate-form{display:flex;flex-direction:column;gap:8px;width:100%}
-  .card-gate-input{width:100%;box-sizing:border-box;padding:11px 14px;border:1.5px solid var(--nx-ink);border-radius:10px;font:400 14px/1.2 var(--nx-font-text);color:var(--nx-ink);background:var(--nx-paper)}
-  .card-gate-submit{width:100%;text-align:center;border-radius:var(--nx-radius-sm);padding:11px;font:800 13px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm)}
-
-  .dl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+  .dl-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
   .dl-card{display:flex;flex-direction:column;min-width:0;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);box-shadow:var(--nx-drop-sm);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
   .dl-card:hover{transform:translate(-2px,-2px);box-shadow:var(--nx-drop-md)}
   .dl-card-visual{width:100%;aspect-ratio:16/9}
@@ -147,7 +127,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .dl-card-body h3{margin:0;color:var(--nx-ink);font:900 18px/1.25 var(--nx-font-display);letter-spacing:var(--nx-track-display)}
   .dl-card-body p{margin:0;flex:1;color:var(--nx-ink-soft);font:400 14px/1.5 var(--nx-font-text)}
   .dl-get-btn{width:100%;text-align:center;border-radius:var(--nx-radius-sm);padding:12px;font:800 13px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm)}
-  @media(max-width:900px){.dl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   @media(max-width:600px){.dl-grid{grid-template-columns:1fr}}
 
   /* ---- newsletter ---- */
@@ -182,11 +161,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- Hidden Netlify form declaration so the build detects it (fields are submitted via JS fetch below) -->
-<form name="muvap-download-request" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-  <input type="email" name="email">
-  <input type="text" name="resource">
-</form>
 
 <div class="nx-grid-bg top-band" data-grid-parallax>
   <nav class="site-nav">
@@ -230,16 +204,55 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span class="dl-tab" style="background:var(--nx-mint);color:var(--nx-ink)">Downloads</span>
       <span class="dl-tab" style="background:var(--nx-paper);color:var(--nx-ink-soft);opacity:.6;cursor:default" title="Coming soon">Webinars</span>
     </div>
-    <h1>Free templates and tools for GTM operators.</h1>
-    <p>Templates, checklists and scripts pulled straight from client engagements. No email newsletter spam, just the file.</p>
+    <h1>Free tools for GTM operators.</h1>
+    <p>Templates and assessments pulled straight from client engagements. Free, no strings attached.</p>
   </div>
 </div>
 
 <div class="dl-main">
   <div class="dl-main-wrap">
-    <div class="dl-chips" id="categoryChips"></div>
-    <div id="featuredSlot"></div>
-    <div class="dl-grid" id="dlGrid"></div>
+    <div class="dl-grid" style="grid-template-columns:repeat(2,minmax(0,1fr));max-width:860px">
+
+      <a href="icp-worksheet.html" class="dl-card" style="text-decoration:none">
+        <div class="dl-card-visual" style="background:var(--nx-cyan-pale);display:flex;align-items:center;justify-content:center;border-bottom:1.5px solid var(--nx-ink)">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+            <rect x="12" y="10" width="48" height="52" rx="6" fill="white" stroke="#050505" stroke-width="2.5"/>
+            <rect x="20" y="22" width="32" height="4" rx="2" fill="#12effb" stroke="#050505" stroke-width="1.5"/>
+            <rect x="20" y="32" width="24" height="4" rx="2" fill="#050505" opacity=".15"/>
+            <rect x="20" y="40" width="28" height="4" rx="2" fill="#050505" opacity=".1"/>
+            <rect x="20" y="48" width="20" height="4" rx="2" fill="#050505" opacity=".08"/>
+            <circle cx="52" cy="52" r="12" fill="#00cc7a" stroke="#050505" stroke-width="2"/>
+            <path d="M47 52l3 3 5-5" stroke="#050505" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="dl-card-body">
+          <span class="format-tag">Spreadsheet</span>
+          <h3>ICP Worksheet</h3>
+          <p>Define tu cliente ideal en 1 hora. La hoja que usamos con clientes para clarificar quién compra, por qué, y cómo llegar a más de ellos.</p>
+          <span class="dl-get-btn" style="background:var(--nx-mint)">Get it free</span>
+        </div>
+      </a>
+
+      <a href="gtm-type-test.html" class="dl-card" style="text-decoration:none">
+        <div class="dl-card-visual" style="background:var(--nx-pink-pale);display:flex;align-items:center;justify-content:center;border-bottom:1.5px solid var(--nx-ink)">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+            <rect x="10" y="10" width="52" height="52" rx="8" fill="white" stroke="#050505" stroke-width="2.5"/>
+            <circle cx="36" cy="30" r="10" fill="#fb4aad" stroke="#050505" stroke-width="2"/>
+            <path d="M36 25v5l3 3" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+            <rect x="18" y="46" width="10" height="8" rx="3" fill="#12effb" stroke="#050505" stroke-width="1.5"/>
+            <rect x="31" y="43" width="10" height="11" rx="3" fill="#fcdf07" stroke="#050505" stroke-width="1.5"/>
+            <rect x="44" y="40" width="10" height="14" rx="3" fill="#a040f0" stroke="#050505" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="dl-card-body">
+          <span class="format-tag">Assessment</span>
+          <h3>GTM Type Test</h3>
+          <p>Descubre qué tipo de GTM motion encaja con tu negocio. 8 preguntas, resultado inmediato con tu perfil y recomendaciones de stack.</p>
+          <span class="dl-get-btn" style="background:var(--nx-pink);color:var(--nx-paper)">Take the test</span>
+        </div>
+      </a>
+
+    </div>
   </div>
 </div>
 
@@ -296,111 +309,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script>
-const CATEGORY_TONES = { Templates: 'var(--nx-mint)', Checklists: 'var(--nx-cyan)', Guides: 'var(--nx-pink)', Scripts: 'var(--nx-yellow)' };
-const CATEGORY_PALE = { Templates: 'var(--nx-mint-pale)', Checklists: 'var(--nx-cyan-pale)', Guides: 'var(--nx-pink-pale)', Scripts: 'var(--nx-yellow-pale)' };
-
-const DOWNLOADS = [
-  { id: 'f1', featured: true, category: 'Templates', format: 'Notion + PDF', title: 'The GTM Handoff SLA Template', desc: 'The exact doc marketing and sales sign to agree on lead definitions, routing and response time.', b1: 'Shared lead-status field definitions', b2: 'Response-time SLA by lead source' },
-  { id: 'd1', category: 'Checklists', format: 'PDF', title: '30-Day Lead Leakage Audit Checklist', desc: 'Twelve checks to run before you touch a single automation.' },
-  { id: 'd2', category: 'Templates', format: 'Spreadsheet', title: 'RevOps Automation Trigger Map', desc: 'Every trigger worth automating, mapped to the data field it depends on.' },
-  { id: 'd3', category: 'Scripts', format: 'Doc', title: 'Cold Outbound Sequence Scripts', desc: 'Twelve sequence templates, organized by trigger event.' },
-  { id: 'd4', category: 'Checklists', format: 'Spreadsheet', title: 'CRM Field Health Scorecard', desc: 'Score your CRM on the ten fields that actually predict pipeline risk.' },
-  { id: 'd5', category: 'Guides', format: 'PDF', title: 'Tool Stack Consolidation Guide', desc: 'How to cut martech spend without losing coverage.' },
-  { id: 'd6', category: 'Scripts', format: 'Doc', title: 'Discovery Call Question Bank', desc: 'Forty questions organized by deal stage and buyer type.' },
-];
-
-let activeCategory = 'All';
-const gateState = {}; // id -> 'button' | 'form' | 'done'
-
-function gateStage(id) { return gateState[id] || 'button'; }
-
-function submitGate(id, title, email) {
-  gateState[id] = 'done';
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({ 'form-name': 'muvap-download-request', email, resource: title }).toString(),
-  }).catch(() => {});
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: 'lead_magnet_downloaded', lead_source: 'munap_downloads', resource: title });
-  render();
-}
-
-function categoryChips() {
-  const cats = ['All', 'Templates', 'Checklists', 'Guides', 'Scripts'];
-  document.getElementById('categoryChips').innerHTML = cats.map(name => `
-    <button class="dl-chip${activeCategory === name ? ' is-active' : ''}" data-cat="${name}" style="${activeCategory === name ? `background:${CATEGORY_TONES[name] || 'var(--nx-paper)'}` : ''}">${name}</button>
-  `).join('');
-  document.querySelectorAll('[data-cat]').forEach(b => b.addEventListener('click', () => { activeCategory = b.dataset.cat; render(); }));
-}
-
-function gateHtml(d, variant) {
-  const stage = gateStage(d.id);
-  if (stage === 'done') return `<div class="gate-done">Sent. Check your inbox.</div>`;
-  if (stage === 'form') {
-    return variant === 'featured' ? `
-      <div class="gate-form">
-        <input class="gate-input" type="email" id="gate-input-${d.id}" placeholder="jane@company.com">
-        <button class="gate-submit" data-submit="${d.id}">Send it</button>
-      </div>
-    ` : `
-      <div class="card-gate-form">
-        <input class="card-gate-input" type="email" id="gate-input-${d.id}" placeholder="jane@company.com">
-        <button class="card-gate-submit" style="background:${CATEGORY_TONES[d.category]}" data-submit="${d.id}">Send it</button>
-      </div>
-    `;
-  }
-  return variant === 'featured'
-    ? `<button class="gate-btn" data-open="${d.id}">Get it free</button>`
-    : `<button class="dl-get-btn" style="background:${CATEGORY_TONES[d.category]}" data-open="${d.id}">Get it free</button>`;
-}
-
-function render() {
-  categoryChips();
-  const noFilter = activeCategory === 'All';
-  const featured = DOWNLOADS.find(d => d.featured);
-  const pool = DOWNLOADS.filter(d => !d.featured && (noFilter || d.category === activeCategory));
-
-  document.getElementById('featuredSlot').innerHTML = noFilter ? `
-    <div class="featured-dl">
-      <div class="placeholder-box featured-dl-visual" style="background:${CATEGORY_PALE[featured.category]};border-radius:0">Handoff SLA template preview</div>
-      <div class="featured-dl-body">
-        <span class="format-tag">${featured.format}</span>
-        <h2>${featured.title}</h2>
-        <p>${featured.desc}</p>
-        <div style="display:flex;flex-direction:column;gap:8px">
-          <div class="mini-bullet"><span style="color:var(--nx-mint)">●</span>${featured.b1}</div>
-          <div class="mini-bullet"><span style="color:var(--nx-cyan)">●</span>${featured.b2}</div>
-        </div>
-        ${gateHtml(featured, 'featured')}
-      </div>
-    </div>
-  ` : '';
-
-  document.getElementById('dlGrid').innerHTML = pool.map(d => `
-    <div class="dl-card">
-      <div class="placeholder-box dl-card-visual" style="background:${CATEGORY_PALE[d.category]};border-radius:0">${d.category} preview</div>
-      <div class="dl-card-body">
-        <span class="format-tag">${d.format}</span>
-        <h3>${d.title}</h3>
-        <p>${d.desc}</p>
-        ${gateHtml(d, 'card')}
-      </div>
-    </div>
-  `).join('');
-
-  document.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', () => { gateState[b.dataset.open] = 'form'; render(); }));
-  document.querySelectorAll('[data-submit]').forEach(b => b.addEventListener('click', () => {
-    const id = b.dataset.submit;
-    const input = document.getElementById(`gate-input-${id}`);
-    if (!input.checkValidity()) { input.reportValidity(); return; }
-    const d = DOWNLOADS.find(x => x.id === id);
-    submitGate(id, d.title, input.value);
-  }));
-}
-render();
-
-// Newsletter (visual only, no ESP wired up yet)
 document.getElementById('newsletterBtn').addEventListener('click', () => {
   document.getElementById('newsletterBtn').textContent = 'Subscribed';
 });
