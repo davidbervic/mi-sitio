@@ -185,6 +185,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @keyframes nx-reveal{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  .lang-toggle{appearance:none;cursor:pointer;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.5);border-radius:var(--nx-radius-pill);padding:6px 14px;font:700 12px/1 var(--nx-font-text);color:var(--nx-paper);letter-spacing:.06em;transition:background .15s;flex-shrink:0}
+  .lang-toggle:hover{background:rgba(255,255,255,.28)}
 </style>
 </head>
 <body>
@@ -220,7 +223,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="downloads.html">Downloads</a>          </div>
         </div>
       </div>
-      <button class="btn-pink nav-cta" data-magnetic="0.12" id="scrollToFormBtn">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">ES</button>
+      <button class="btn-pink nav-cta" data-magnetic="0.12" id="scrollToFormBtn" data-i18n="nav_cta">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
     </div>
   </nav>
@@ -229,11 +233,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="contact-hero">
     <span class="eyebrow-pill" style="background:var(--nx-cyan)">
-      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>CONTACT
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="contact_eyebrow">CONTACT</span>
     </span>
-    <h1>Let's talk about your GTM system.</h1>
-    <p>Tell us where it's breaking. We reply within one business day with next steps, not a sales deck.</p>
-    <span class="wa-line">Prefer WhatsApp? <a href="https://wa.me/51981785475" target="_blank" rel="noopener">Message us</a></span>
+    <h1 data-i18n="contact_h1">Let's talk about your GTM system.</h1>
+    <p data-i18n="contact_p">Tell us where it's breaking. We reply within one business day with next steps, not a sales deck.</p>
+    <span class="wa-line"><span data-i18n="contact_wa">Prefer WhatsApp?</span> <a href="https://wa.me/51981785475" target="_blank" rel="noopener" data-i18n="contact_wa_link">Message us</a></span>
   </div>
 </div>
 
@@ -242,26 +246,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="reveal" style="display:flex;flex-direction:column;gap:36px">
       <div style="display:flex;flex-direction:column;gap:20px">
-        <span class="steps-label">What happens next</span>
+        <span class="steps-label" data-i18n="steps_label">What happens next</span>
         <div class="next-steps">
-          <div class="next-step"><span class="next-step-num" style="background:var(--nx-mint)">1</span><span>We read what you send: no forwarding to a generic inbox.</span></div>
-          <div class="next-step"><span class="next-step-num" style="background:var(--nx-cyan)">2</span><span>You get a reply within one business day, with a real answer or a next step.</span></div>
-          <div class="next-step"><span class="next-step-num" style="background:var(--nx-pink)">3</span><span>If it's a fit, we book a 30-minute call. If it's not, we'll tell you that too.</span></div>
+          <div class="next-step"><span class="next-step-num" style="background:var(--nx-mint)">1</span><span data-i18n="step_1">We read what you send: no forwarding to a generic inbox.</span></div>
+          <div class="next-step"><span class="next-step-num" style="background:var(--nx-cyan)">2</span><span data-i18n="step_2">You get a reply within one business day, with a real answer or a next step.</span></div>
+          <div class="next-step"><span class="next-step-num" style="background:var(--nx-pink)">3</span><span data-i18n="step_3">If it's a fit, we book a 30-minute call. If it's not, we'll tell you that too.</span></div>
         </div>
       </div>
 
       <div class="quote-box is-soon">
-        <p>"Real client quote landing here soon."</p>
-        <span>Want to be the first? Let's work together.</span>
+        <p data-i18n="quote_p">"Real client quote landing here soon."</p>
+        <span data-i18n="quote_cta">Want to be the first? Let's work together.</span>
       </div>
 
       <div>
         <div class="stats-row">
-          <div><div class="stat-value nx-skeleton is-dark" aria-label="Number coming soon"></div><div class="stat-label">Avg. response time</div></div>
-          <div><div class="stat-value nx-skeleton is-dark" aria-label="Number coming soon"></div><div class="stat-label">Systems shipped</div></div>
-          <div><div class="stat-value nx-skeleton is-dark" aria-label="Number coming soon"></div><div class="stat-label">Clients who renew</div></div>
+          <div><div class="stat-value nx-skeleton is-dark" aria-label="Number coming soon"></div><div class="stat-label" data-i18n="stat_response">Avg. response time</div></div>
+          <div><div class="stat-value nx-skeleton is-dark" aria-label="Number coming soon"></div><div class="stat-label" data-i18n="stat_systems">Systems shipped</div></div>
+          <div><div class="stat-value nx-skeleton is-dark" aria-label="Number coming soon"></div><div class="stat-label" data-i18n="stat_renew">Clients who renew</div></div>
         </div>
-        <p class="stats-note" style="margin-top:10px">This is the shape of the dashboard. Real figures land as the first engagements close.</p>
+        <p class="stats-note" style="margin-top:10px" data-i18n="stats_note">This is the shape of the dashboard. Real figures land as the first engagements close.</p>
       </div>
     </div>
 
@@ -278,25 +282,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p style="position:absolute;left:-9999px"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
         <div class="form-step is-active" data-step="0">
-          <span class="form-step-label">Step 1 of 3: Your info</span>
-          <div class="form-field"><label class="form-label">Name</label><input class="form-input" type="text" name="name" placeholder="Jane Cooper" required></div>
-          <div class="form-field"><label class="form-label">Work email</label><input class="form-input" type="email" name="email" placeholder="jane@company.com" required></div>
+          <span class="form-step-label" data-i18n="step1">Step 1 of 3: Your info</span>
+          <div class="form-field"><label class="form-label" data-i18n="label_name">Name</label><input class="form-input" type="text" name="name" data-i18n-ph="ph_name" placeholder="Jane Cooper" required></div>
+          <div class="form-field"><label class="form-label" data-i18n="label_email">Work email</label><input class="form-input" type="email" name="email" data-i18n-ph="ph_email" placeholder="jane@company.com" required></div>
         </div>
 
         <div class="form-step" data-step="1">
-          <span class="form-step-label">Step 2 of 3: Your company</span>
-          <div class="form-field"><label class="form-label">Company</label><input class="form-input" type="text" name="company" placeholder="Acme Inc."></div>
+          <span class="form-step-label" data-i18n="step2">Step 2 of 3: Your company</span>
+          <div class="form-field"><label class="form-label" data-i18n="label_company">Company</label><input class="form-input" type="text" name="company" data-i18n-ph="ph_company" placeholder="Acme Inc."></div>
           <div class="form-field">
-            <label class="form-label">Team size</label>
+            <label class="form-label" data-i18n="label_teamsize">Team size</label>
             <div class="choice-row" id="teamSizeChoices"></div>
           </div>
         </div>
 
         <div class="form-step" data-step="2">
-          <span class="form-step-label">Step 3 of 3: What's the problem</span>
-          <div class="form-field"><label class="form-label">What are you hoping to solve?</label><textarea class="form-input" name="goal" rows="3" placeholder="Leads dropping between marketing and sales."></textarea></div>
+          <span class="form-step-label" data-i18n="step3">Step 3 of 3: What's the problem</span>
+          <div class="form-field"><label class="form-label" data-i18n="label_goal">What are you hoping to solve?</label><textarea class="form-input" name="goal" rows="3" data-i18n-ph="ph_goal" placeholder="Leads dropping between marketing and sales."></textarea></div>
           <div class="form-field">
-            <label class="form-label">Timeline</label>
+            <label class="form-label" data-i18n="label_timeline">Timeline</label>
             <div class="choice-row" id="timelineChoices"></div>
           </div>
         </div>
@@ -310,8 +314,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </form>
 
       <div class="form-done" id="formDone">
-        <h3>Message sent.</h3>
-        <p id="formDoneMsg">We'll reply within one business day.</p>
+        <h3 data-i18n="done_title">Message sent.</h3>
+        <p id="formDoneMsg" data-i18n="done_msg">We'll reply within one business day.</p>
       </div>
     </div>
   </div>
@@ -319,7 +323,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="reveal faq-section" data-grid-parallax>
   <div class="faq-wrap">
-    <h2>Before you reach out.</h2>
+    <h2 data-i18n="faq_title">Before you reach out.</h2>
     <div id="faqContainer"></div>
   </div>
 </div>
@@ -330,7 +334,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="index.html" class="logo">
         <img src="images/muvap-logo.webp" alt="Muvap" style="height:34px;width:auto;display:block">
       </a>
-      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <p data-i18n="footer_tagline">GTM and RevOps systems for teams who are done patching their funnel together.</p>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
@@ -360,37 +364,166 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Muvap. All rights reserved.</span>
-    <span>Built with GTM systems that work.</span>
+    <span data-i18n="footer_copy">© 2026 Muvap. All rights reserved.</span>
+    <span data-i18n="footer_built">Built with GTM systems that work.</span>
   </div>
 </footer>
 
 <script>
+// ── i18n ─────────────────────────────────────────────────────────────────────
+const COPY = {
+  en: {
+    nav_cta: "Let's talk",
+    contact_eyebrow: 'CONTACT',
+    contact_h1: "Let's talk about your GTM system.",
+    contact_p: "Tell us where it's breaking. We reply within one business day with next steps, not a sales deck.",
+    contact_wa: 'Prefer WhatsApp?',
+    contact_wa_link: 'Message us',
+    steps_label: 'What happens next',
+    step_1: 'We read what you send: no forwarding to a generic inbox.',
+    step_2: 'You get a reply within one business day, with a real answer or a next step.',
+    step_3: "If it's a fit, we book a 30-minute call. If it's not, we'll tell you that too.",
+    quote_p: '"Real client quote landing here soon."',
+    quote_cta: "Want to be the first? Let's work together.",
+    stat_response: 'Avg. response time',
+    stat_systems: 'Systems shipped',
+    stat_renew: 'Clients who renew',
+    stats_note: 'This is the shape of the dashboard. Real figures land as the first engagements close.',
+    step1: 'Step 1 of 3: Your info',
+    step2: 'Step 2 of 3: Your company',
+    step3: "Step 3 of 3: What's the problem",
+    label_name: 'Name',
+    label_email: 'Work email',
+    label_company: 'Company',
+    label_teamsize: 'Team size',
+    label_goal: 'What are you hoping to solve?',
+    label_timeline: 'Timeline',
+    ph_name: 'Jane Cooper',
+    ph_email: 'jane@company.com',
+    ph_company: 'Acme Inc.',
+    ph_goal: 'Leads dropping between marketing and sales.',
+    btn_next: 'Next',
+    btn_send: 'Send message',
+    btn_sending: 'Sending…',
+    btn_error: 'Something went wrong — try again',
+    done_title: 'Message sent.',
+    done_msg: "We'll reply within one business day.",
+    faq_title: 'Before you reach out.',
+    footer_tagline: 'GTM and RevOps systems for teams who are done patching their funnel together.',
+    footer_copy: '© 2026 Muvap. All rights reserved.',
+    footer_built: 'Built with GTM systems that work.',
+  },
+  es: {
+    nav_cta: 'Hablemos',
+    contact_eyebrow: 'CONTACTO',
+    contact_h1: 'Hablemos de tu sistema GTM.',
+    contact_p: 'Cuéntanos dónde está fallando. Respondemos en un día hábil con próximos pasos, no con una presentación de ventas.',
+    contact_wa: '¿Prefieres WhatsApp?',
+    contact_wa_link: 'Escríbenos',
+    steps_label: 'Qué pasa a continuación',
+    step_1: 'Leemos lo que envías: sin reenvío a bandejas genéricas.',
+    step_2: 'Recibes respuesta en un día hábil, con una respuesta real o un próximo paso.',
+    step_3: 'Si hay fit, agendamos una llamada de 30 minutos. Si no, también te lo decimos.',
+    quote_p: '"Aquí llegará pronto una opinión real de un cliente."',
+    quote_cta: '¿Quieres ser el primero? Trabajemos juntos.',
+    stat_response: 'Tiempo de respuesta',
+    stat_systems: 'Sistemas entregados',
+    stat_renew: 'Clientes que renuevan',
+    stats_note: 'Este es el esquema del dashboard. Los números reales llegan cuando cierren los primeros proyectos.',
+    step1: 'Paso 1 de 3: Tus datos',
+    step2: 'Paso 2 de 3: Tu empresa',
+    step3: 'Paso 3 de 3: El problema',
+    label_name: 'Nombre',
+    label_email: 'Email de trabajo',
+    label_company: 'Empresa',
+    label_teamsize: 'Tamaño del equipo',
+    label_goal: '¿Qué quieres resolver?',
+    label_timeline: 'Plazo',
+    ph_name: 'Ana García',
+    ph_email: 'ana@empresa.com',
+    ph_company: 'Mi Empresa S.A.',
+    ph_goal: 'Leads que se pierden entre marketing y ventas.',
+    btn_next: 'Siguiente',
+    btn_send: 'Enviar mensaje',
+    btn_sending: 'Enviando…',
+    btn_error: 'Algo salió mal, intenta de nuevo',
+    done_title: 'Mensaje enviado.',
+    done_msg: 'Respondemos en un día hábil.',
+    faq_title: 'Antes de escribirnos.',
+    footer_tagline: 'Sistemas GTM y RevOps para equipos que ya no quieren seguir parcheando su funnel.',
+    footer_copy: '© 2026 Muvap. Todos los derechos reservados.',
+    footer_built: 'Construido con sistemas GTM que funcionan.',
+  }
+};
+
+const FAQS = {
+  en: [
+    { q: 'How fast do you actually respond?', a: 'Within one business day, usually sooner. If a message comes in on a weekend, expect Monday.' },
+    { q: 'Do you work with early-stage startups?', a: "Yes, as long as there's a real funnel already running; pre-revenue idea validation isn't a fit." },
+    { q: "What's the typical engagement length?", a: 'Audits run one to two weeks. Implementation is usually four to eight weeks depending on scope.' },
+    { q: 'Do you sign NDAs?', a: 'Yes, happy to sign one before you share anything sensitive.' },
+  ],
+  es: [
+    { q: '¿Qué tan rápido responden?', a: 'En un día hábil, normalmente antes. Si el mensaje llega un fin de semana, espera el lunes.' },
+    { q: '¿Trabajan con startups en etapa temprana?', a: 'Sí, siempre que ya haya un funnel funcionando. La validación de ideas pre-revenue no encaja.' },
+    { q: '¿Cuánto dura un engagement?', a: 'Las auditorías duran una o dos semanas. La implementación suele ser de cuatro a ocho semanas según el alcance.' },
+    { q: '¿Firman NDA?', a: 'Sí, con gusto firmamos uno antes de que compartas algo sensible.' },
+  ]
+};
+
+const TIMELINES = {
+  en: ['ASAP', 'This quarter', 'Just exploring'],
+  es: ['Lo antes posible', 'Este trimestre', 'Solo explorando']
+};
+
+let currentLang = localStorage.getItem('muvap-lang') || 'en';
+
+function renderFAQs(lang) {
+  const container = document.getElementById('faqContainer');
+  container.innerHTML = FAQS[lang].map((f, i) => `
+    <div class="faq-item" data-faq="${i}">
+      <button class="faq-q">${f.q}<span class="faq-icon">+</span></button>
+      <div class="faq-a">${f.a}</div>
+    </div>
+  `).join('');
+  container.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const wasOpen = item.classList.contains('is-open');
+      container.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('is-open'); i.querySelector('.faq-icon').textContent = '+'; });
+      if (!wasOpen) { item.classList.add('is-open'); item.querySelector('.faq-icon').textContent = '−'; }
+    });
+  });
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('muvap-lang', lang);
+  const copy = COPY[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (copy[key] !== undefined) el.textContent = copy[key];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (copy[key] !== undefined) el.placeholder = copy[key];
+  });
+  const toggle = document.getElementById('langToggle');
+  if (toggle) toggle.textContent = lang === 'en' ? 'ES' : 'EN';
+  renderFAQs(lang);
+  renderTimelines(lang);
+  const nextBtn = document.getElementById('formNext');
+  if (nextBtn) nextBtn.textContent = copy[currentStep === 2 ? 'btn_send' : 'btn_next'];
+}
+
+document.getElementById('langToggle').addEventListener('click', () => {
+  setLang(currentLang === 'en' ? 'es' : 'en');
+});
+
+// Scroll to form
 document.getElementById('scrollToFormBtn').addEventListener('click', () => {
   const el = document.getElementById('contact-form-card');
   const y = el.getBoundingClientRect().top + window.scrollY - 20;
   window.scrollTo({ top: y, behavior: 'smooth' });
-});
-
-// FAQ (generic, no fabricated attribution)
-const FAQS = [
-  { q: 'How fast do you actually respond?', a: 'Within one business day, usually sooner. If a message comes in on a weekend, expect Monday.' },
-  { q: 'Do you work with early-stage startups?', a: "Yes, as long as there's a real funnel already running; pre-revenue idea validation isn't a fit." },
-  { q: "What's the typical engagement length?", a: 'Audits run one to two weeks. Implementation is usually four to eight weeks depending on scope.' },
-  { q: 'Do you sign NDAs?', a: 'Yes, happy to sign one before you share anything sensitive.' },
-];
-document.getElementById('faqContainer').innerHTML = FAQS.map((f, i) => `
-  <div class="faq-item" data-faq="${i}">
-    <button class="faq-q">${f.q}<span class="faq-icon">+</span></button>
-    <div class="faq-a">${f.a}</div>
-  </div>
-`).join('');
-document.querySelectorAll('.faq-item').forEach(item => {
-  item.querySelector('.faq-q').addEventListener('click', () => {
-    const wasOpen = item.classList.contains('is-open');
-    document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('is-open'); i.querySelector('.faq-icon').textContent = '+'; });
-    if (!wasOpen) { item.classList.add('is-open'); item.querySelector('.faq-icon').textContent = '−'; }
-  });
 });
 
 // Reveal-on-scroll
@@ -405,10 +538,10 @@ document.querySelectorAll('.reveal').forEach((el) => {
   else revealObserver.observe(el);
 });
 
-// 3-step contact form (Netlify Forms, matches index.html's book-a-call pattern)
+// 3-step contact form
+let currentStep = 0;
 (function () {
   const TEAM_SIZES = ['1-10', '11-50', '51-200', '200+'];
-  const TIMELINES = ['ASAP', 'This quarter', 'Just exploring'];
   let teamSize = '';
   let timeline = '';
 
@@ -417,17 +550,19 @@ document.querySelectorAll('.reveal').forEach((el) => {
   const teamSizeField = document.getElementById('teamSizeField');
   const timelineField = document.getElementById('timelineField');
 
+  window.renderTimelines = function(lang) {
+    timelineChoices.innerHTML = TIMELINES[lang].map(t => `<button type="button" class="choice-btn${timeline === t ? ' is-selected' : ''}" data-timeline="${t}">${t}</button>`).join('');
+    timelineChoices.querySelectorAll('[data-timeline]').forEach(b => b.addEventListener('click', () => { timeline = b.dataset.timeline; timelineField.value = timeline; renderTimelines(currentLang); }));
+  };
+
   function renderChoices() {
     teamSizeChoices.innerHTML = TEAM_SIZES.map(t => `<button type="button" class="choice-btn${teamSize === t ? ' is-selected' : ''}" data-team="${t}">${t}</button>`).join('');
-    timelineChoices.innerHTML = TIMELINES.map(t => `<button type="button" class="choice-btn${timeline === t ? ' is-selected' : ''}" data-timeline="${t}">${t}</button>`).join('');
     teamSizeChoices.querySelectorAll('[data-team]').forEach(b => b.addEventListener('click', () => { teamSize = b.dataset.team; teamSizeField.value = teamSize; renderChoices(); }));
-    timelineChoices.querySelectorAll('[data-timeline]').forEach(b => b.addEventListener('click', () => { timeline = b.dataset.timeline; timelineField.value = timeline; renderChoices(); }));
+    renderTimelines(currentLang);
   }
   renderChoices();
 
   const form = document.getElementById('contactForm');
-
-  // Prefill from a program CTA (program pages link here as ?service=Revenue%20Architecture%20%C2%B7%20Scale)
   const svc = new URLSearchParams(window.location.search).get('service');
   if (svc) {
     document.getElementById('serviceField').value = svc;
@@ -440,7 +575,6 @@ document.querySelectorAll('.reveal').forEach((el) => {
   const nextBtn = document.getElementById('formNext');
   const doneEl = document.getElementById('formDone');
   const doneMsg = document.getElementById('formDoneMsg');
-  let step = 0;
 
   function fieldsFor(i) {
     return Array.from(steps[i].querySelectorAll('input[required], textarea[required]'));
@@ -450,22 +584,25 @@ document.querySelectorAll('.reveal').forEach((el) => {
     return true;
   }
   function render() {
-    steps.forEach((s, i) => s.classList.toggle('is-active', i === step));
-    dots.forEach((d, i) => d.classList.toggle('is-done', i <= step));
-    backBtn.classList.toggle('show', step > 0);
-    nextBtn.textContent = step === steps.length - 1 ? 'Send message' : 'Next';
+    steps.forEach((s, i) => s.classList.toggle('is-active', i === currentStep));
+    dots.forEach((d, i) => d.classList.toggle('is-done', i <= currentStep));
+    backBtn.classList.toggle('show', currentStep > 0);
+    nextBtn.textContent = COPY[currentLang][currentStep === steps.length - 1 ? 'btn_send' : 'btn_next'];
   }
-  backBtn.addEventListener('click', () => { step = Math.max(0, step - 1); render(); });
+  backBtn.addEventListener('click', () => { currentStep = Math.max(0, currentStep - 1); render(); });
   nextBtn.addEventListener('click', () => {
-    if (!validate(step)) return;
-    if (step < steps.length - 1) { step += 1; render(); return; }
+    if (!validate(currentStep)) return;
+    if (currentStep < steps.length - 1) { currentStep += 1; render(); return; }
     const emailField = form.querySelector('[name="email"]');
     const data = new FormData(form);
     nextBtn.disabled = true;
-    nextBtn.textContent = 'Sending…';
+    nextBtn.textContent = COPY[currentLang].btn_sending;
     fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
       .then(() => {
-        doneMsg.textContent = `We'll reply to ${emailField.value} within one business day.`;
+        const copy = COPY[currentLang];
+        doneMsg.textContent = currentLang === 'en'
+          ? `We'll reply to ${emailField.value} within one business day.`
+          : `Respondemos a ${emailField.value} en un día hábil.`;
         form.style.display = 'none';
         doneEl.classList.add('show');
         window.dataLayer = window.dataLayer || [];
@@ -474,12 +611,15 @@ document.querySelectorAll('.reveal').forEach((el) => {
       .catch(() => {
         nextBtn.disabled = false;
         render();
-        nextBtn.textContent = 'Something went wrong — try again';
+        nextBtn.textContent = COPY[currentLang].btn_error;
         setTimeout(() => render(), 4000);
       });
   });
   render();
 })();
+
+// Initialize language
+setLang(currentLang);
 </script>
 <script src="assets/interactions.js" defer></script>
 </body>
