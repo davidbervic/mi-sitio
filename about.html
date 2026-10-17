@@ -222,6 +222,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
+  .lang-toggle{appearance:none;cursor:pointer;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.5);border-radius:var(--nx-radius-pill);padding:6px 14px;font:700 12px/1 var(--nx-font-text);color:var(--nx-paper);letter-spacing:.06em;transition:background .15s;flex-shrink:0}
+  .lang-toggle:hover{background:rgba(255,255,255,.28)}
+
   /* ---- monogram placeholder (About photo) ---- */
   .monogram-photo{border-radius:var(--nx-radius-lg);border:1.5px solid var(--nx-ink);box-shadow:var(--nx-drop-md);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
   .monogram-photo span{font:900 96px/1 var(--nx-font-display);color:var(--nx-paper);letter-spacing:-.03em;position:relative;z-index:1}
@@ -273,7 +276,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="downloads.html">Downloads</a>          </div>
         </div>
       </div>
-      <a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">ES</button>
+      <a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12" data-i18n="nav_cta">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
     </div>
   </nav>
@@ -286,38 +290,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="about-hero-copy">
       <span class="eyebrow-pill" style="background:var(--nx-mint)">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>ABOUT ME
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="eyebrow">ABOUT ME</span>
       </span>
-      <h1>I've spent a decade fixing the GTM systems founders inherit and never have time to rebuild.</h1>
-      <p>I'm an independent RevOps and GTM consultant. Before that, I built and ran the revenue operations function inside venture-backed companies, so I've sat on your side of the table too.</p>
+      <h1 data-i18n="h1">I've spent a decade fixing the GTM systems founders inherit and never have time to rebuild.</h1>
+      <p data-i18n="hero_p">I'm an independent RevOps and GTM consultant. Before that, I built and ran the revenue operations function inside venture-backed companies, so I've sat on your side of the table too.</p>
     </div>
   </div>
 </div>
 
 <div class="bio-section">
   <div class="reveal bio-wrap">
-    <span class="bio-eyebrow">A bit about me</span>
-    <p>I got into RevOps the way most people do: by being the person on the team who couldn't stand watching leads disappear into a CRM nobody trusted. I ended up owning the fix, then owning the function, then doing it for a living.</p>
-    <p>Outside of work I still read every automation postmortem I can find, and I'm happiest when a client's dashboard finally has numbers everyone in the room agrees on.</p>
+    <span class="bio-eyebrow" data-i18n="bio_eyebrow">A bit about me</span>
+    <p data-i18n="bio_p1">I got into RevOps the way most people do: by being the person on the team who couldn't stand watching leads disappear into a CRM nobody trusted. I ended up owning the fix, then owning the function, then doing it for a living.</p>
+    <p data-i18n="bio_p2">Outside of work I still read every automation postmortem I can find, and I'm happiest when a client's dashboard finally has numbers everyone in the room agrees on.</p>
   </div>
 </div>
 
 <div class="bio-section is-dim">
   <div class="reveal timeline-wrap">
-    <h2>Where I've worked.</h2>
-    <p class="timeline-sub">Real client engagements, most recent first.</p>
+    <h2 data-i18n="timeline_h2">Where I've worked.</h2>
+    <p class="timeline-sub" data-i18n="timeline_sub">Real client engagements, most recent first.</p>
     <div id="timelineList"></div>
   </div>
 </div>
 
 <div class="metrics-section">
   <div class="reveal metrics-row" id="metricsRow"></div>
-  <p class="metrics-note">Real numbers coming soon: these are the categories we'll report on, not final figures.</p>
+  <p class="metrics-note" data-i18n="metrics_note">Real numbers coming soon: these are the categories we'll report on, not final figures.</p>
 </div>
 
 <div class="martech-section">
   <div class="reveal martech-wrap">
-    <h2>Martech I work across.</h2>
+    <h2 data-i18n="martech_h2">Martech I work across.</h2>
     <div class="martech-tabs" id="martechTabs"></div>
     <div class="martech-tools" id="martechTools"></div>
   </div>
@@ -325,16 +329,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="testi-section" data-grid-parallax>
   <div class="reveal">
-    <h2>Recommendations.</h2>
+    <h2 data-i18n="testi_h2">Recommendations.</h2>
     <div class="testi-grid" id="testiGrid"></div>
   </div>
 </div>
 
 <div class="about-cta">
   <div class="reveal about-cta-wrap">
-    <h2>Let's see if it's a fit.</h2>
-    <p>Thirty minutes, no deck, just a straight conversation about where your GTM system is breaking.</p>
-    <a href="index.html#services" class="about-cta-btn" data-magnetic="0.15">Book a call</a>
+    <h2 data-i18n="cta_h2">Let's see if it's a fit.</h2>
+    <p data-i18n="cta_p">Thirty minutes, no deck, just a straight conversation about where your GTM system is breaking.</p>
+    <a href="index.html#services" class="about-cta-btn" data-magnetic="0.15" data-i18n="cta_btn">Book a call</a>
   </div>
 </div>
 
@@ -344,7 +348,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="index.html" class="logo">
         <img src="images/muvap-logo.webp" alt="Muvap" style="height:34px;width:auto;display:block">
       </a>
-      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <p data-i18n="footer_tagline">GTM and RevOps systems for teams who are done patching their funnel together.</p>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
@@ -374,54 +378,101 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Muvap. All rights reserved.</span>
-    <span>Built with GTM systems that work.</span>
+    <span data-i18n="footer_copy">© 2026 Muvap. All rights reserved.</span>
+    <span data-i18n="footer_built">Built with GTM systems that work.</span>
   </div>
 </footer>
 
 <script>
-// Metrics (honest placeholder: labels real, values pending)
-const METRICS = [
-  { label: 'Years in RevOps & GTM' },
-  { label: 'Companies scaled through funding rounds' },
-  { label: 'GTM systems shipped since going independent' },
-  { label: 'Pipeline under management' },
-];
-document.getElementById('metricsRow').innerHTML = METRICS.map((m, i) => `
-  ${i > 0 ? '<span class="metric-divider"></span>' : ''}
-  <div class="metric"><span class="metric-value nx-skeleton" aria-label="Number coming soon"></span><span class="metric-label">${m.label}</span></div>
-`).join('');
+// ── i18n ─────────────────────────────────────────────────────────────────────
+const COPY = {
+  en: {
+    nav_cta: "Let's talk",
+    eyebrow: 'ABOUT ME',
+    h1: "I've spent a decade fixing the GTM systems founders inherit and never have time to rebuild.",
+    hero_p: "I'm an independent RevOps and GTM consultant. Before that, I built and ran the revenue operations function inside venture-backed companies, so I've sat on your side of the table too.",
+    bio_eyebrow: 'A bit about me',
+    bio_p1: "I got into RevOps the way most people do: by being the person on the team who couldn't stand watching leads disappear into a CRM nobody trusted. I ended up owning the fix, then owning the function, then doing it for a living.",
+    bio_p2: "Outside of work I still read every automation postmortem I can find, and I'm happiest when a client's dashboard finally has numbers everyone in the room agrees on.",
+    timeline_h2: "Where I've worked.",
+    timeline_sub: 'Real client engagements, most recent first.',
+    metrics_note: "Real numbers coming soon: these are the categories we'll report on, not final figures.",
+    metrics_labels: ['Years in RevOps & GTM', 'Companies scaled through funding rounds', 'GTM systems shipped since going independent', 'Pipeline under management'],
+    martech_h2: 'Martech I work across.',
+    martech_cats: ['CRM', 'Analytics', 'Automation', 'Enrichment', 'Outbound', 'Advertising'],
+    testi_h2: 'Recommendations.',
+    testi_coming_h3: 'Recommendations are on their way.',
+    testi_coming_p: "Real quotes from people I've worked with will replace this. If we've worked together, I'd love yours.",
+    cta_h2: "Let's see if it's a fit.",
+    cta_p: 'Thirty minutes, no deck, just a straight conversation about where your GTM system is breaking.',
+    cta_btn: 'Book a call',
+    footer_tagline: 'GTM and RevOps systems for teams who are done patching their funnel together.',
+    footer_copy: '© 2026 Muvap. All rights reserved.',
+    footer_built: 'Built with GTM systems that work.',
+    career: [
+      { dates: 'Feb 2026 – Present', role: 'Revenue Operations Specialist & GTM Engineer', company: 'CloudTask', tone: 'var(--nx-cyan)', initial: 'C',
+        companyDesc: 'A RevOps focused marketplace matching B2B and SaaS companies with vetted sales, marketing, customer success and support talent.',
+        desc: 'Rebuilt pipeline architecture, shipped a custom talent-matching object syncing both sides of the marketplace, consolidated intake from 7 lead sources, and layered AI agents and answer engine optimization on top of HubSpot.' },
+      { dates: 'Feb 2025 – Feb 2026', role: 'Revenue & Martech Operations Specialist', company: 'MEDLIFE', tone: 'var(--nx-mint)', initial: 'M',
+        companyDesc: 'A global nonprofit movement delivering mobile clinics, education and community development across Latin America and Africa.',
+        desc: 'Unified lifecycle and lead stages across marketing, sales and service, built scoring and routing on top of a defined ICP, rolled out CRM data governance, and deployed AI agents and automation across research and content.' },
+    ],
+  },
+  es: {
+    nav_cta: 'Hablemos',
+    eyebrow: 'SOBRE MÍ',
+    h1: 'He pasado una década arreglando los sistemas GTM que los fundadores heredan y nunca tienen tiempo de reconstruir.',
+    hero_p: 'Soy consultor independiente de RevOps y GTM. Antes de eso, construí y dirigí la función de revenue operations dentro de empresas respaldadas por capital de riesgo, así que conozco tu lado de la mesa también.',
+    bio_eyebrow: 'Un poco sobre mí',
+    bio_p1: 'Entré a RevOps como la mayoría: siendo la persona del equipo que no soportaba ver cómo los leads desaparecían en un CRM en el que nadie confiaba. Terminé siendo el dueño del fix, luego de la función, y después de eso lo hice mi carrera.',
+    bio_p2: 'Fuera del trabajo sigo leyendo cada postmortem de automatización que encuentro, y soy más feliz cuando el dashboard de un cliente por fin tiene números con los que todos en la sala están de acuerdo.',
+    timeline_h2: 'Dónde he trabajado.',
+    timeline_sub: 'Proyectos reales con clientes, el más reciente primero.',
+    metrics_note: 'Números reales próximamente: estas son las categorías que reportaremos, no las cifras finales.',
+    metrics_labels: ['Años en RevOps y GTM', 'Empresas escaladas en rondas de inversión', 'Sistemas GTM entregados como independiente', 'Pipeline bajo gestión'],
+    martech_h2: 'Martech con el que trabajo.',
+    martech_cats: ['CRM', 'Analítica', 'Automatización', 'Enriquecimiento', 'Outbound', 'Publicidad'],
+    testi_h2: 'Recomendaciones.',
+    testi_coming_h3: 'Las recomendaciones están en camino.',
+    testi_coming_p: 'Citas reales de personas con las que he trabajado las reemplazarán. Si hemos trabajado juntos, me encantaría la tuya.',
+    cta_h2: 'Veamos si hay fit.',
+    cta_p: 'Treinta minutos, sin presentaciones, solo una conversación directa sobre dónde está fallando tu sistema GTM.',
+    cta_btn: 'Agendar una llamada',
+    footer_tagline: 'Sistemas GTM y RevOps para equipos que ya no quieren seguir parcheando su funnel.',
+    footer_copy: '© 2026 Muvap. Todos los derechos reservados.',
+    footer_built: 'Construido con sistemas GTM que funcionan.',
+    career: [
+      { dates: 'Feb 2026 – Presente', role: 'Revenue Operations Specialist & GTM Engineer', company: 'CloudTask', tone: 'var(--nx-cyan)', initial: 'C',
+        companyDesc: 'Un marketplace especializado en RevOps que conecta empresas B2B y SaaS con talento verificado en ventas, marketing, customer success y soporte.',
+        desc: 'Reconstruí la arquitectura de pipeline, implementé un objeto personalizado de matching de talento que sincroniza ambos lados del marketplace, consolidé la captación de 7 fuentes de leads, y añadí agentes de IA y optimización para motores de respuesta sobre HubSpot.' },
+      { dates: 'Feb 2025 – Feb 2026', role: 'Revenue & Martech Operations Specialist', company: 'MEDLIFE', tone: 'var(--nx-mint)', initial: 'M',
+        companyDesc: 'Un movimiento global sin fines de lucro que lleva clínicas móviles, educación y desarrollo comunitario a América Latina y África.',
+        desc: 'Unifiqué las etapas de ciclo de vida y lead stages entre marketing, ventas y servicio, construí scoring y routing sobre un ICP definido, implementé gobernanza de datos en el CRM, y desplegué agentes de IA y automatización en research y contenido.' },
+    ],
+  }
+};
 
-// Career timeline: real client engagements, most recent first.
-// Each entry: { dates, role, company, companyDesc, desc, tone, initial, logo (optional image path) }
-const CAREER = [
-  {
-    dates: 'Feb 2026 – Present',
-    role: 'Revenue Operations Specialist & GTM Engineer',
-    company: 'CloudTask',
-    tone: 'var(--nx-cyan)',
-    initial: 'C',
-    companyDesc: 'A RevOps focused marketplace matching B2B and SaaS companies with vetted sales, marketing, customer success and support talent.',
-    desc: 'Rebuilt pipeline architecture, shipped a custom talent-matching object syncing both sides of the marketplace, consolidated intake from 7 lead sources, and layered AI agents and answer engine optimization on top of HubSpot.',
-  },
-  {
-    dates: 'Feb 2025 – Feb 2026',
-    role: 'Revenue & Martech Operations Specialist',
-    company: 'MEDLIFE',
-    tone: 'var(--nx-mint)',
-    initial: 'M',
-    companyDesc: 'A global nonprofit movement delivering mobile clinics, education and community development across Latin America and Africa.',
-    desc: 'Unified lifecycle and lead stages across marketing, sales and service, built scoring and routing on top of a defined ICP, rolled out CRM data governance, and deployed AI agents and automation across research and content.',
-  },
+// Martech tool lists (product names, same in both languages)
+const MARTECH_TOOLS = [
+  [ {n:'HubSpot',logo:'images/logos/logo-hubspot.png'},{n:'Salesforce',logo:'images/logos/logo-salesforce.png'},{n:'Attio',logo:'images/logos/logo-attio.png'} ],
+  [ {n:'Google Analytics',logo:'images/logos/logo-google-analytics.png'},{n:'Amplitude',logo:null},{n:'Looker',logo:'images/logos/logo-looker-studio.png'} ],
+  [ {n:'n8n',logo:'images/logos/logo-n8n.png'},{n:'Zapier',logo:'images/logos/logo-zapier.png'},{n:'Make',logo:'images/logos/logo-make.png'} ],
+  [ {n:'Clay',logo:'images/logos/logo-clay.png'},{n:'Apollo',logo:'images/logos/logo-apollo.png'},{n:'ZoomInfo',logo:null} ],
+  [ {n:'Instantly',logo:'images/logos/logo-instantly.png'},{n:'Smartlead',logo:'images/logos/logo-smartlead.png'},{n:'Apollo',logo:'images/logos/logo-apollo.png'} ],
+  [ {n:'Google Ads',logo:'images/logos/logo-google-ads.png'},{n:'LinkedIn Ads',logo:'images/logos/logo-linkedin.png'},{n:'Meta Ads',logo:'images/logos/logo-meta.png'} ],
 ];
-const timelineList = document.getElementById('timelineList');
-if (CAREER.length) {
-  timelineList.innerHTML = CAREER.map(c => `
+
+let currentLang = localStorage.getItem('muvap-lang') || 'en';
+let martechActive = 0;
+
+function renderTimeline(lang) {
+  const career = COPY[lang].career;
+  document.getElementById('timelineList').innerHTML = career.map(c => `
     <div class="timeline-item">
       <span class="timeline-date">${c.dates}</span>
       <div>
         <div class="timeline-head">
-          ${c.logo ? `<img class="timeline-logo" src="${c.logo}" alt="${c.company} logo">` : `<div class="timeline-logo" style="background:${c.tone};display:flex;align-items:center;justify-content:center;font:800 15px/1 var(--nx-font-display);color:var(--nx-ink)">${c.initial}</div>`}
+          <div class="timeline-logo" style="background:${c.tone};display:flex;align-items:center;justify-content:center;font:800 15px/1 var(--nx-font-display);color:var(--nx-ink)">${c.initial}</div>
           <div class="timeline-role">${c.role}, ${c.company}</div>
         </div>
         <p class="timeline-what">${c.companyDesc}</p>
@@ -429,79 +480,61 @@ if (CAREER.length) {
       </div>
     </div>
   `).join('');
-} else {
-  timelineList.innerHTML = Array.from({ length: 3 }).map(() => `
-    <div class="timeline-item">
-      <span class="timeline-date nx-skeleton is-dark" style="display:inline-block;width:70px;height:1em"></span>
-      <div>
-        <div class="timeline-head">
-          <div class="timeline-logo nx-skeleton is-dark"></div>
-          <div class="timeline-role is-soon">Role and company coming soon</div>
-        </div>
-        <p class="timeline-what is-soon">What the company does</p>
-        <p class="timeline-desc is-soon">What I did here and the outcome, coming soon.</p>
-      </div>
-    </div>
+}
+
+function renderMetrics(lang) {
+  const labels = COPY[lang].metrics_labels;
+  document.getElementById('metricsRow').innerHTML = labels.map((label, i) => `
+    ${i > 0 ? '<span class="metric-divider"></span>' : ''}
+    <div class="metric"><span class="metric-value nx-skeleton" aria-label="Number coming soon"></span><span class="metric-label">${label}</span></div>
   `).join('');
 }
 
-// Martech tabs (same real categories/tools as the Home page)
-const MARTECH_CATEGORIES = [
-  { name: 'CRM', tools: [
-    {n:'HubSpot',    logo:'images/logos/logo-hubspot.png'},
-    {n:'Salesforce', logo:'images/logos/logo-salesforce.png'},
-    {n:'Attio',      logo:'images/logos/logo-attio.png'},
-  ]},
-  { name: 'Analytics', tools: [
-    {n:'Google Analytics', logo:'images/logos/logo-google-analytics.png'},
-    {n:'Amplitude',        logo:null},
-    {n:'Looker',           logo:'images/logos/logo-looker-studio.png'},
-  ]},
-  { name: 'Automation', tools: [
-    {n:'n8n',    logo:'images/logos/logo-n8n.png'},
-    {n:'Zapier', logo:'images/logos/logo-zapier.png'},
-    {n:'Make',   logo:'images/logos/logo-make.png'},
-  ]},
-  { name: 'Enrichment', tools: [
-    {n:'Clay',     logo:'images/logos/logo-clay.png'},
-    {n:'Apollo',   logo:'images/logos/logo-apollo.png'},
-    {n:'ZoomInfo', logo:null},
-  ]},
-  { name: 'Outbound', tools: [
-    {n:'Instantly',  logo:'images/logos/logo-instantly.png'},
-    {n:'Smartlead',  logo:'images/logos/logo-smartlead.png'},
-    {n:'Apollo',     logo:'images/logos/logo-apollo.png'},
-  ]},
-  { name: 'Advertising', tools: [
-    {n:'Google Ads',   logo:'images/logos/logo-google-ads.png'},
-    {n:'LinkedIn Ads', logo:'images/logos/logo-linkedin.png'},
-    {n:'Meta Ads',     logo:'images/logos/logo-meta.png'},
-  ]},
-];
-let martechActive = 0;
-const martechTabsEl = document.getElementById('martechTabs');
-const martechToolsEl = document.getElementById('martechTools');
-function renderMartech() {
-  martechTabsEl.innerHTML = MARTECH_CATEGORIES.map((c, i) =>
-    `<button class="martech-tab${i === martechActive ? ' is-active' : ''}" data-cat="${i}">${c.name}</button>`
+function renderMartech(lang) {
+  const cats = COPY[lang].martech_cats;
+  const martechTabsEl = document.getElementById('martechTabs');
+  const martechToolsEl = document.getElementById('martechTools');
+  martechTabsEl.innerHTML = cats.map((name, i) =>
+    `<button class="martech-tab${i === martechActive ? ' is-active' : ''}" data-cat="${i}">${name}</button>`
   ).join('');
-  martechToolsEl.innerHTML = MARTECH_CATEGORIES[martechActive].tools.map(t =>
+  martechToolsEl.innerHTML = MARTECH_TOOLS[martechActive].map(t =>
     `<span class="martech-tool">${t.logo ? `<img class="martech-tool-logo" src="${t.logo}" alt="${t.n}">` : ''}<span>${t.n}</span></span>`
   ).join('');
   martechTabsEl.querySelectorAll('[data-cat]').forEach(b =>
-    b.addEventListener('click', () => { martechActive = parseInt(b.dataset.cat, 10); renderMartech(); })
+    b.addEventListener('click', () => { martechActive = parseInt(b.dataset.cat, 10); renderMartech(currentLang); })
   );
 }
-renderMartech();
 
-// Recommendations: one honest panel instead of three empty cards.
-document.getElementById('testiGrid').innerHTML = `
-  <div class="testi-coming">
-    <svg width="30" height="22" viewBox="0 0 34 26" fill="none" aria-hidden="true"><path d="M0 26V15.6C0 6.2 5.9 1 14.6 0l1.1 4.4C10 5.6 6.9 8.7 6.5 13.4h7.3V26H0zm18.4 0V15.6C18.4 6.2 24.3 1 33 0l1.1 4.4c-5.7 1.2-8.8 4.3-9.2 9h7.3V26H18.4z" fill="var(--nx-ink)"/></svg>
-    <h3 style="margin:0;font:900 20px/1.2 var(--nx-font-display)">Recommendations are on their way.</h3>
-    <p>Real quotes from people I've worked with will replace this. If we've worked together, I'd love yours.</p>
-  </div>
-`;
+function renderTestimonials(lang) {
+  const copy = COPY[lang];
+  document.getElementById('testiGrid').innerHTML = `
+    <div class="testi-coming">
+      <svg width="30" height="22" viewBox="0 0 34 26" fill="none" aria-hidden="true"><path d="M0 26V15.6C0 6.2 5.9 1 14.6 0l1.1 4.4C10 5.6 6.9 8.7 6.5 13.4h7.3V26H0zm18.4 0V15.6C18.4 6.2 24.3 1 33 0l1.1 4.4c-5.7 1.2-8.8 4.3-9.2 9h7.3V26H18.4z" fill="var(--nx-ink)"/></svg>
+      <h3 style="margin:0;font:900 20px/1.2 var(--nx-font-display)">${copy.testi_coming_h3}</h3>
+      <p>${copy.testi_coming_p}</p>
+    </div>
+  `;
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('muvap-lang', lang);
+  const copy = COPY[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (copy[key] !== undefined) el.textContent = copy[key];
+  });
+  const toggle = document.getElementById('langToggle');
+  if (toggle) toggle.textContent = lang === 'en' ? 'ES' : 'EN';
+  renderTimeline(lang);
+  renderMetrics(lang);
+  renderMartech(lang);
+  renderTestimonials(lang);
+}
+
+document.getElementById('langToggle').addEventListener('click', () => {
+  setLang(currentLang === 'en' ? 'es' : 'en');
+});
 
 // Reveal-on-scroll
 const revealObserver = new IntersectionObserver((entries) => {
@@ -514,6 +547,9 @@ document.querySelectorAll('.reveal').forEach((el) => {
   if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('is-visible');
   else revealObserver.observe(el);
 });
+
+// Initialize
+setLang(currentLang);
 </script>
 <script src="assets/interactions.js" defer></script>
 </body>
