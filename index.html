@@ -316,6 +316,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ---- reassurance micro-copy ---- */
   .cta-reassure{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--nx-ink-soft);font:400 13px/1.4 var(--nx-font-text)}
+
+  .lang-toggle{appearance:none;cursor:pointer;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.5);border-radius:var(--nx-radius-pill);padding:6px 14px;font:700 12px/1 var(--nx-font-text);color:var(--nx-paper);letter-spacing:.06em;transition:background .15s;flex-shrink:0}
+  .lang-toggle:hover{background:rgba(255,255,255,.28)}
 </style>
 </head>
 <body>
@@ -351,7 +354,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="downloads.html">Downloads</a>          </div>
         </div>
       </div>
-      <a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">ES</button>
+      <a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12" data-i18n="nav_cta">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
     </div>
   </nav>
@@ -367,7 +371,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="reveal metrics-row" id="metricsRow">
     <!-- metrics injected by JS -->
   </div>
-  <p class="metrics-note">Real results from published client engagements.</p>
+  <p class="metrics-note" data-i18n="metrics_note">Real results from published client engagements.</p>
 </div>
 
 <div class="about-section">
@@ -377,12 +381,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="about-copy">
       <span class="eyebrow-pill" style="background:var(--nx-mint)">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>ABOUT ME
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="about_eyebrow">ABOUT ME</span>
       </span>
-      <h2>Ten years building the GTM systems behind fast-growing teams.</h2>
-      <p>I've spent the last decade inside RevOps and GTM teams, first as an operator, now as a consultant. I've built the pipeline definitions, lead routing and reporting that revenue teams run on every day, at companies from early-stage startups to public SaaS.</p>
-      <p>My focus is the full funnel: data hygiene, automation design and the dashboards leadership actually trusts. I bring the martech stack together instead of adding another tool to the pile.</p>
-      <span class="martech-label">Martech I work across</span>
+      <h2 data-i18n="about_h2">Ten years building the GTM systems behind fast-growing teams.</h2>
+      <p data-i18n="about_p1">I've spent the last decade inside RevOps and GTM teams, first as an operator, now as a consultant. I've built the pipeline definitions, lead routing and reporting that revenue teams run on every day, at companies from early-stage startups to public SaaS.</p>
+      <p data-i18n="about_p2">My focus is the full funnel: data hygiene, automation design and the dashboards leadership actually trusts. I bring the martech stack together instead of adding another tool to the pile.</p>
+      <span class="martech-label" data-i18n="martech_label">Martech I work across</span>
       <div class="martech-tabs" id="martechTabs"></div>
       <div class="martech-tools" id="martechTools"></div>
     </div>
@@ -401,8 +405,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="process-section">
   <div class="reveal">
     <div class="section-head">
-      <h2>How we get to a working GTM system.</h2>
-      <p>Four steps to move from a scattered GTM stack to a system your team runs on.</p>
+      <h2 data-i18n="process_h2">How we get to a working GTM system.</h2>
+      <p data-i18n="process_p">Four steps to move from a scattered GTM stack to a system your team runs on.</p>
     </div>
     <div class="process-grid">
       <div class="process-visual"><img src="images/process.webp" alt="GTM diagnosis pipeline: scan, analyze, prioritize, solve" loading="lazy"></div>
@@ -415,9 +419,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="reveal">
     <div class="section-head">
       <span class="eyebrow-pill" style="background:var(--nx-cyan);margin-bottom:28px">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>WHAT CLIENTS SAY
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="testi_eyebrow">WHAT CLIENTS SAY</span>
       </span>
-      <h2>Teams that fixed their GTM system with us.</h2>
+      <h2 data-i18n="testi_h2">Teams that fixed their GTM system with us.</h2>
     </div>
     <div class="testi-grid" id="testiGrid"></div>
   </div>
@@ -427,10 +431,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="reveal">
     <div class="section-head">
       <span class="eyebrow-pill" style="background:var(--nx-purple);margin-bottom:18px">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>SERVICES
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="services_eyebrow">SERVICES</span>
       </span>
-      <h2>Pick where you need help.</h2>
-      <p>Five programs, each with three tiers. Not sure which one fits? Start with GTM Total Glowap!</p>
+      <h2 data-i18n="services_h2">Pick where you need help.</h2>
+      <p data-i18n="services_p">Five programs, each with three tiers. Not sure which one fits? Start with GTM Total Glowap!</p>
     </div>
     <div class="services-grid" id="servicesGrid"></div>
   </div>
@@ -440,10 +444,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="reveal cta-grid">
     <div class="cta-copy">
       <span class="eyebrow-pill" style="background:var(--nx-cyan)">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>BOOK A CALL
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="cta_eyebrow">BOOK A CALL</span>
       </span>
-      <h2>Let's fix your GTM system.</h2>
-      <p>Thirty minutes. Bring your current stack and your biggest bottleneck, and leave with a clear next step.</p>
+      <h2 data-i18n="cta_h2">Let's fix your GTM system.</h2>
+      <p data-i18n="cta_p">Thirty minutes. Bring your current stack and your biggest bottleneck, and leave with a clear next step.</p>
     </div>
     <div class="cta-card">
       <div class="cta-dots" id="ctaDots">
@@ -455,20 +459,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p style="position:absolute;left:-9999px"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
 
         <div class="cta-step is-active" data-step="0">
-          <span class="cta-step-label">Step 1 of 3: Your info</span>
-          <div class="cta-field"><label class="cta-label">Name</label><input class="cta-input" type="text" name="name" placeholder="Jane Cooper" required></div>
-          <div class="cta-field"><label class="cta-label">Work email</label><input class="cta-input" type="email" name="email" placeholder="jane@company.com" required></div>
+          <span class="cta-step-label" data-i18n="form_step1">Step 1 of 3: Your info</span>
+          <div class="cta-field"><label class="cta-label" data-i18n="form_name">Name</label><input class="cta-input" type="text" name="name" data-i18n-ph="ph_name" placeholder="Jane Cooper" required></div>
+          <div class="cta-field"><label class="cta-label" data-i18n="form_email">Work email</label><input class="cta-input" type="email" name="email" data-i18n-ph="ph_email" placeholder="jane@company.com" required></div>
         </div>
 
         <div class="cta-step" data-step="1">
-          <span class="cta-step-label">Step 2 of 3: Your company</span>
-          <div class="cta-field"><label class="cta-label">Company (optional)</label><input class="cta-input" type="text" name="company" placeholder="Acme Inc."></div>
-          <div class="cta-field"><label class="cta-label">Role (optional)</label><input class="cta-input" type="text" name="role" placeholder="Head of Sales"></div>
+          <span class="cta-step-label" data-i18n="form_step2">Step 2 of 3: Your company</span>
+          <div class="cta-field"><label class="cta-label" data-i18n="form_company">Company (optional)</label><input class="cta-input" type="text" name="company" data-i18n-ph="ph_company" placeholder="Acme Inc."></div>
+          <div class="cta-field"><label class="cta-label" data-i18n="form_role">Role (optional)</label><input class="cta-input" type="text" name="role" data-i18n-ph="ph_role" placeholder="Head of Sales"></div>
         </div>
 
         <div class="cta-step" data-step="2">
-          <span class="cta-step-label">Step 3 of 3: What's the problem</span>
-          <div class="cta-field"><label class="cta-label">What do you need help with?</label><textarea class="cta-input" name="need" rows="3" placeholder="Leads dropping between marketing and sales."></textarea></div>
+          <span class="cta-step-label" data-i18n="form_step3">Step 3 of 3: What's the problem</span>
+          <div class="cta-field"><label class="cta-label" data-i18n="form_need">What do you need help with?</label><textarea class="cta-input" name="need" rows="3" data-i18n-ph="ph_need" placeholder="Leads dropping between marketing and sales."></textarea></div>
         </div>
 
         <div class="cta-nav" id="ctaNav">
@@ -479,17 +483,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="cta-reassure">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z" stroke="var(--nx-ink-soft)" stroke-width="1.8" stroke-linejoin="round"/></svg>
-          I read every message myself, usually within 24h.
+          <span data-i18n="form_reassure">I read every message myself, usually within 24h.</span>
         </div>
       </form>
 
       <div class="cta-done" id="ctaDone">
-        <h3>You're booked in.</h3>
-        <p id="ctaDoneMsg">We'll email you a link to pick a time that works.</p>
+        <h3 data-i18n="done_h3">You're booked in.</h3>
+        <p id="ctaDoneMsg" data-i18n="done_p">We'll email you a link to pick a time that works.</p>
         <div class="stage-bullets">
-          <div class="stage-bullet"><span class="stage-dot"></span>You'll get a calendar link within minutes.</div>
-          <div class="stage-bullet"><span class="stage-dot"></span>We'll review what you shared before the call.</div>
-          <div class="stage-bullet"><span class="stage-dot"></span>Come with access to your CRM if you can.</div>
+          <div class="stage-bullet"><span class="stage-dot"></span><span data-i18n="done_b1">You'll get a calendar link within minutes.</span></div>
+          <div class="stage-bullet"><span class="stage-dot"></span><span data-i18n="done_b2">We'll review what you shared before the call.</span></div>
+          <div class="stage-bullet"><span class="stage-dot"></span><span data-i18n="done_b3">Come with access to your CRM if you can.</span></div>
         </div>
       </div>
     </div>
@@ -497,7 +501,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <div class="sticky-cta">
-  <a href="#services">Book a call</a>
+  <a href="#services" data-i18n="sticky_cta">Book a call</a>
 </div>
 
 <footer>
@@ -506,7 +510,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="index.html" class="logo">
         <img src="images/muvap-logo.webp" alt="Muvap" style="height:34px;width:auto;display:block">
       </a>
-      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <p data-i18n="footer_tagline">GTM and RevOps systems for teams who are done patching their funnel together.</p>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
@@ -536,116 +540,208 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Muvap. All rights reserved.</span>
-    <span>Built with GTM systems that work.</span>
+    <span data-i18n="footer_copy">© 2026 Muvap. All rights reserved.</span>
+    <span data-i18n="footer_built">Built with GTM systems that work.</span>
   </div>
 </footer>
 
 <script>
-// ---------------------------------------------------------------------
-// Real content data, ported from the design handoff's Component class
-// (design_handoff_munap_site/_extracted/index.html, lines ~1096-1180).
-// Fabricated testimonials/metrics replaced with honest placeholders
-// per the 2026-09-21 decision. Everything else (headlines, process
-// steps, martech categories, service names) is the real handoff copy.
-// ---------------------------------------------------------------------
+// ── i18n ─────────────────────────────────────────────────────────────────────
+const COPY = {
+  en: {
+    nav_cta: "Let's talk",
+    metrics_note: 'Real results from published client engagements.',
+    about_eyebrow: 'ABOUT ME',
+    about_h2: 'Ten years building the GTM systems behind fast-growing teams.',
+    about_p1: "I've spent the last decade inside RevOps and GTM teams, first as an operator, now as a consultant. I've built the pipeline definitions, lead routing and reporting that revenue teams run on every day, at companies from early-stage startups to public SaaS.",
+    about_p2: "My focus is the full funnel: data hygiene, automation design and the dashboards leadership actually trusts. I bring the martech stack together instead of adding another tool to the pile.",
+    martech_label: 'Martech I work across',
+    process_h2: 'How we get to a working GTM system.',
+    process_p: 'Four steps to move from a scattered GTM stack to a system your team runs on.',
+    testi_eyebrow: 'WHAT CLIENTS SAY',
+    testi_h2: 'Teams that fixed their GTM system with us.',
+    testi_coming_h3: 'Client stories are on their way.',
+    testi_coming_p: "Muvap is taking on its first engagements right now. Want to be the first case study featured here?",
+    testi_coming_cta: 'Work with us',
+    services_eyebrow: 'SERVICES',
+    services_h2: 'Pick where you need help.',
+    services_p: "Five programs, each with three tiers. Not sure which one fits? Start with GTM Total Glowap!",
+    services_explore: 'Explore program →',
+    cta_eyebrow: 'BOOK A CALL',
+    cta_h2: "Let's fix your GTM system.",
+    cta_p: 'Thirty minutes. Bring your current stack and your biggest bottleneck, and leave with a clear next step.',
+    form_step1: 'Step 1 of 3: Your info',
+    form_step2: 'Step 2 of 3: Your company',
+    form_step3: "Step 3 of 3: What's the problem",
+    form_name: 'Name', form_email: 'Work email', form_company: 'Company (optional)', form_role: 'Role (optional)', form_need: 'What do you need help with?',
+    ph_name: 'Jane Cooper', ph_email: 'jane@company.com', ph_company: 'Acme Inc.', ph_role: 'Head of Sales', ph_need: 'Leads dropping between marketing and sales.',
+    form_reassure: 'I read every message myself, usually within 24h.',
+    btn_next: 'Next →', btn_book: 'Book a call →', btn_sending: 'Sending…', btn_error: 'Something went wrong — try again',
+    done_h3: "You're booked in.",
+    done_p: "We'll email you a link to pick a time that works.",
+    done_b1: "You'll get a calendar link within minutes.",
+    done_b2: "We'll review what you shared before the call.",
+    done_b3: 'Come with access to your CRM if you can.',
+    sticky_cta: 'Book a call',
+    footer_tagline: 'GTM and RevOps systems for teams who are done patching their funnel together.',
+    footer_copy: '© 2026 Muvap. All rights reserved.',
+    footer_built: 'Built with GTM systems that work.',
+    metrics_labels: ['GTM systems shipped end to end', 'legacy leads unstuck and reorganized', 'more scheduled meetings from outbound', 'lift in sales conversion from lead scoring'],
+    martech_cats: ['CRM', 'Analytics', 'Automation', 'Enrichment', 'Outbound', 'Advertising'],
+    hero_slides: [
+      { headline: 'GTM and RevOps systems your team will actually use.', sub1: 'I design revenue operations processes that connect sales, marketing and data.', sub2: 'No more relying on ten disconnected tools to run your funnel.' },
+      { headline: 'Stop losing leads between marketing and sales.', sub1: 'Clear handoffs, shared definitions, one pipeline everyone trusts.', sub2: 'Built once, not patched every quarter.' },
+      { headline: 'Automations that survive contact with reality.', sub1: 'Routing and enrichment that keep working when volume spikes.', sub2: 'No brittle spreadsheet glue holding it together.' },
+    ],
+    stages: [
+      { eyebrow: 'DIAGNOSE', title: 'Audit your GTM stack.', bullets: ['Map every tool touching a deal.', 'Find where leads silently drop.', 'Score data quality by source.'], cta: 'See the audit' },
+      { eyebrow: 'DESIGN',   title: 'Design RevOps workflows.', bullets: ['One shared pipeline definition.', 'Clear handoffs between teams.', 'Triggers built on clean fields.'], cta: 'See the workflows' },
+      { eyebrow: 'AUTOMATE', title: 'Automate the boring parts.', bullets: ['Routing and enrichment on autopilot.', 'Alerts before a deal goes cold.', 'No brittle spreadsheet glue.'], cta: 'See the automations' },
+      { eyebrow: 'MEASURE',  title: 'Track revenue in one view.', bullets: ['Pipeline, forecast and churn together.', 'Dashboards your team opens daily.', 'Numbers finance actually trusts.'], cta: 'See the dashboard' },
+    ],
+    process_steps: [
+      'Book a discovery audit of your current GTM stack.',
+      'Map the data and handoffs between sales and marketing.',
+      'Design the RevOps workflow and automation triggers.',
+      'Launch, monitor and tune it with your team.',
+    ],
+    service_descs: [
+      'Lifecycle stages, lead scoring and enrichment: a CRM that works as a revenue engine, not a contact database.',
+      'Deliverability, Clay enrichment and AI personalization that book meetings consistently.',
+      'GA4, BigQuery and multi-touch attribution that connect marketing spend to closed revenue.',
+      'Automate 5 to 10 hours a week of manual GTM work: enrichment, call notes, briefs and content.',
+      "Not sure where to start? A full audit and prioritized roadmap across your entire GTM stack.",
+    ],
+  },
+  es: {
+    nav_cta: 'Hablemos',
+    metrics_note: 'Resultados reales de proyectos publicados con clientes.',
+    about_eyebrow: 'SOBRE MÍ',
+    about_h2: 'Diez años construyendo los sistemas GTM detrás de equipos en rápido crecimiento.',
+    about_p1: 'He pasado la última década dentro de equipos de RevOps y GTM, primero como operador, ahora como consultor. Construí las definiciones de pipeline, el lead routing y los reportes en los que los equipos de revenue se apoyan cada día, en empresas desde startups en etapa temprana hasta SaaS pública.',
+    about_p2: 'Mi enfoque es el funnel completo: higiene de datos, diseño de automatización y los dashboards en los que el liderazgo realmente confía. Junto el stack de martech en vez de agregar otra herramienta al montón.',
+    martech_label: 'Martech con el que trabajo',
+    process_h2: 'Cómo llegamos a un sistema GTM que funciona.',
+    process_p: 'Cuatro pasos para pasar de un stack GTM fragmentado a un sistema en el que tu equipo se apoya.',
+    testi_eyebrow: 'LO QUE DICEN LOS CLIENTES',
+    testi_h2: 'Equipos que arreglaron su sistema GTM con nosotros.',
+    testi_coming_h3: 'Los casos de clientes están en camino.',
+    testi_coming_p: 'Muvap está tomando sus primeros proyectos ahora mismo. ¿Quieres ser el primer caso de estudio destacado aquí?',
+    testi_coming_cta: 'Trabajemos juntos',
+    services_eyebrow: 'SERVICIOS',
+    services_h2: 'Elige dónde necesitas ayuda.',
+    services_p: '¿No sabes cuál encaja? Empieza con GTM Total Glowap!',
+    services_explore: 'Explorar programa →',
+    cta_eyebrow: 'AGENDAR LLAMADA',
+    cta_h2: 'Arreglemos tu sistema GTM.',
+    cta_p: 'Treinta minutos. Trae tu stack actual y tu mayor cuello de botella, y sal con un próximo paso claro.',
+    form_step1: 'Paso 1 de 3: Tus datos',
+    form_step2: 'Paso 2 de 3: Tu empresa',
+    form_step3: 'Paso 3 de 3: El problema',
+    form_name: 'Nombre', form_email: 'Email de trabajo', form_company: 'Empresa (opcional)', form_role: 'Cargo (opcional)', form_need: '¿En qué necesitas ayuda?',
+    ph_name: 'Ana García', ph_email: 'ana@empresa.com', ph_company: 'Mi Empresa S.A.', ph_role: 'Director de Ventas', ph_need: 'Leads que se pierden entre marketing y ventas.',
+    form_reassure: 'Leo cada mensaje yo mismo, normalmente en menos de 24h.',
+    btn_next: 'Siguiente →', btn_book: 'Agendar llamada →', btn_sending: 'Enviando…', btn_error: 'Algo salió mal, intenta de nuevo',
+    done_h3: 'Reservado.',
+    done_p: 'Te enviaremos por email un enlace para elegir un horario.',
+    done_b1: 'Recibirás un enlace de calendario en minutos.',
+    done_b2: 'Revisaremos lo que compartiste antes de la llamada.',
+    done_b3: 'Ven con acceso a tu CRM si puedes.',
+    sticky_cta: 'Agendar llamada',
+    footer_tagline: 'Sistemas GTM y RevOps para equipos que ya no quieren seguir parcheando su funnel.',
+    footer_copy: '© 2026 Muvap. Todos los derechos reservados.',
+    footer_built: 'Construido con sistemas GTM que funcionan.',
+    metrics_labels: ['Sistemas GTM entregados de extremo a extremo', 'leads legacy desbloqueados y reorganizados', 'más reuniones agendadas desde outbound', 'mejora en conversión de ventas con lead scoring'],
+    martech_cats: ['CRM', 'Analítica', 'Automatización', 'Enriquecimiento', 'Outbound', 'Publicidad'],
+    hero_slides: [
+      { headline: 'Sistemas GTM y RevOps que tu equipo realmente usará.', sub1: 'Diseño procesos de revenue operations que conectan ventas, marketing y datos.', sub2: 'Sin depender de diez herramientas desconectadas para gestionar tu funnel.' },
+      { headline: 'Deja de perder leads entre marketing y ventas.', sub1: 'Handoffs claros, definiciones compartidas, un pipeline en el que todos confían.', sub2: 'Construido una vez, no parcheado cada trimestre.' },
+      { headline: 'Automatizaciones que sobreviven el contacto con la realidad.', sub1: 'Routing y enriquecimiento que siguen funcionando cuando sube el volumen.', sub2: 'Sin frágiles pegamentos de hojas de cálculo.' },
+    ],
+    stages: [
+      { eyebrow: 'DIAGNÓSTICO', title: 'Audita tu stack GTM.', bullets: ['Mapea cada herramienta que toca un deal.', 'Encuentra dónde los leads caen silenciosamente.', 'Puntúa la calidad de datos por fuente.'], cta: 'Ver la auditoría' },
+      { eyebrow: 'DISEÑO',      title: 'Diseña flujos RevOps.', bullets: ['Una definición de pipeline compartida.', 'Handoffs claros entre equipos.', 'Triggers construidos sobre campos limpios.'], cta: 'Ver los flujos' },
+      { eyebrow: 'AUTOMATIZA',  title: 'Automatiza las partes aburridas.', bullets: ['Routing y enriquecimiento en autopiloto.', 'Alertas antes de que un deal se enfríe.', 'Sin frágiles pegamentos de hojas de cálculo.'], cta: 'Ver las automatizaciones' },
+      { eyebrow: 'MIDE',        title: 'Rastrea el revenue en una vista.', bullets: ['Pipeline, forecast y churn juntos.', 'Dashboards que tu equipo abre todos los días.', 'Números en los que finance realmente confía.'], cta: 'Ver el dashboard' },
+    ],
+    process_steps: [
+      'Agenda una auditoría de descubrimiento de tu stack GTM actual.',
+      'Mapea los datos y handoffs entre ventas y marketing.',
+      'Diseña el flujo RevOps y los triggers de automatización.',
+      'Lanza, monitorea y ajusta junto a tu equipo.',
+    ],
+    service_descs: [
+      'Etapas de ciclo de vida, lead scoring y enriquecimiento: un CRM que funciona como motor de revenue, no como base de datos de contactos.',
+      'Deliverability, enriquecimiento con Clay y personalización con IA que agendan reuniones de forma consistente.',
+      'GA4, BigQuery y atribución multi-touch que conectan el gasto de marketing con el revenue cerrado.',
+      'Automatiza de 5 a 10 horas semanales de trabajo GTM manual: enriquecimiento, notas de llamadas, briefs y contenido.',
+      '¿No sabes por dónde empezar? Una auditoría completa y un roadmap priorizado de todo tu stack GTM.',
+    ],
+  }
+};
 
-const HERO_SLIDES = [
-  { headline: 'GTM and RevOps systems your team will actually use.', sub1: 'I design revenue operations processes that connect sales, marketing and data.', sub2: 'No more relying on ten disconnected tools to run your funnel.', img: 'images/hero-intelligence.webp', alt: 'GTM system connecting CRM, automation and reporting' },
-  { headline: 'Stop losing leads between marketing and sales.', sub1: 'Clear handoffs, shared definitions, one pipeline everyone trusts.', sub2: 'Built once, not patched every quarter.', img: 'images/hero-funnel.webp', alt: 'Leads scored and routed into a shared pipeline' },
-  { headline: 'Automations that survive contact with reality.', sub1: 'Routing and enrichment that keep working when volume spikes.', sub2: 'No brittle spreadsheet glue holding it together.', img: 'images/hero-ai-base.webp', alt: 'Automated GTM operations running without manual work' },
+let currentLang = localStorage.getItem('muvap-lang') || 'en';
+
+// Static images and immutable data (same in both languages)
+const HERO_IMAGES = [
+  { img: 'images/hero-intelligence.webp', alt: 'GTM system connecting CRM, automation and reporting' },
+  { img: 'images/hero-funnel.webp',       alt: 'Leads scored and routed into a shared pipeline' },
+  { img: 'images/hero-ai-base.webp',      alt: 'Automated GTM operations running without manual work' },
 ];
 
-// Metrics: real, published figures pulled straight from the case studies.
-const METRICS = [
-  { value: 2, suffix: '', label: 'GTM systems shipped end to end' },
-  { value: 100000, suffix: '+', label: 'legacy leads unstuck and reorganized' },
-  { value: 350, suffix: '%', label: 'more scheduled meetings from outbound' },
-  { value: 23, suffix: '%', label: 'lift in sales conversion from lead scoring' },
+// Metrics: real, published figures (values stay same across languages)
+const METRICS_VALUES = [
+  { value: 2,      suffix: '' },
+  { value: 100000, suffix: '+' },
+  { value: 350,    suffix: '%' },
+  { value: 23,     suffix: '%' },
 ];
 
-const MARTECH_CATEGORIES = [
-  { name: 'CRM', tools: [
-    {n:'HubSpot',    logo:'images/logos/logo-hubspot.png'},
-    {n:'Salesforce', logo:'images/logos/logo-salesforce.png'},
-    {n:'Attio',      logo:'images/logos/logo-attio.png'},
-  ], tone: 'var(--nx-mint)', text: 'var(--nx-ink)' },
-  { name: 'Analytics', tools: [
-    {n:'Google Analytics', logo:'images/logos/logo-google-analytics.png'},
-    {n:'Amplitude',        logo:null},
-    {n:'Looker',           logo:'images/logos/logo-looker-studio.png'},
-  ], tone: 'var(--nx-cyan)', text: 'var(--nx-ink)' },
-  { name: 'Automation', tools: [
-    {n:'n8n',    logo:'images/logos/logo-n8n.png'},
-    {n:'Zapier', logo:'images/logos/logo-zapier.png'},
-    {n:'Make',   logo:'images/logos/logo-make.png'},
-  ], tone: 'var(--nx-pink)', text: 'var(--nx-paper)' },
-  { name: 'Enrichment', tools: [
-    {n:'Clay',     logo:'images/logos/logo-clay.png'},
-    {n:'Apollo',   logo:'images/logos/logo-apollo.png'},
-    {n:'ZoomInfo', logo:null},
-  ], tone: 'var(--nx-purple)', text: 'var(--nx-ink)' },
-  { name: 'Outbound', tools: [
-    {n:'Instantly',  logo:'images/logos/logo-instantly.png'},
-    {n:'Smartlead',  logo:'images/logos/logo-smartlead.png'},
-    {n:'Apollo',     logo:'images/logos/logo-apollo.png'},
-  ], tone: 'var(--nx-yellow)', text: 'var(--nx-ink)' },
-  { name: 'Advertising', tools: [
-    {n:'Google Ads',   logo:'images/logos/logo-google-ads.png'},
-    {n:'LinkedIn Ads', logo:'images/logos/logo-linkedin.png'},
-    {n:'Meta Ads',     logo:'images/logos/logo-meta.png'},
-  ], tone: 'var(--nx-blue)', text: 'var(--nx-paper)' },
+const MARTECH_TOOLS = [
+  { tools: [{n:'HubSpot',logo:'images/logos/logo-hubspot.png'},{n:'Salesforce',logo:'images/logos/logo-salesforce.png'},{n:'Attio',logo:'images/logos/logo-attio.png'}], tone: 'var(--nx-mint)', text: 'var(--nx-ink)' },
+  { tools: [{n:'Google Analytics',logo:'images/logos/logo-google-analytics.png'},{n:'Amplitude',logo:null},{n:'Looker',logo:'images/logos/logo-looker-studio.png'}], tone: 'var(--nx-cyan)', text: 'var(--nx-ink)' },
+  { tools: [{n:'n8n',logo:'images/logos/logo-n8n.png'},{n:'Zapier',logo:'images/logos/logo-zapier.png'},{n:'Make',logo:'images/logos/logo-make.png'}], tone: 'var(--nx-pink)', text: 'var(--nx-paper)' },
+  { tools: [{n:'Clay',logo:'images/logos/logo-clay.png'},{n:'Apollo',logo:'images/logos/logo-apollo.png'},{n:'ZoomInfo',logo:null}], tone: 'var(--nx-purple)', text: 'var(--nx-ink)' },
+  { tools: [{n:'Instantly',logo:'images/logos/logo-instantly.png'},{n:'Smartlead',logo:'images/logos/logo-smartlead.png'},{n:'Apollo',logo:'images/logos/logo-apollo.png'}], tone: 'var(--nx-yellow)', text: 'var(--nx-ink)' },
+  { tools: [{n:'Google Ads',logo:'images/logos/logo-google-ads.png'},{n:'LinkedIn Ads',logo:'images/logos/logo-linkedin.png'},{n:'Meta Ads',logo:'images/logos/logo-meta.png'}], tone: 'var(--nx-blue)', text: 'var(--nx-paper)' },
 ];
 
-const STAGES = [
-  { eyebrow: 'DIAGNOSE', tone: 'var(--nx-mint)', title: 'Audit your GTM stack.', bullets: ['Map every tool touching a deal.', 'Find where leads silently drop.', 'Score data quality by source.'], cta: 'See the audit', img: 'images/stage-audit.webp', alt: 'GTM audit dashboard with a checklist of strategy, funnels and conversion' },
-  { eyebrow: 'DESIGN', tone: 'var(--nx-cyan)', title: 'Design RevOps workflows.', bullets: ['One shared pipeline definition.', 'Clear handoffs between teams.', 'Triggers built on clean fields.'], cta: 'See the workflows', img: 'images/stage-design.webp', alt: 'Lead scoring engine routing leads from marketing channels to sales' },
-  { eyebrow: 'AUTOMATE', tone: 'var(--nx-pink)', title: 'Automate the boring parts.', bullets: ['Routing and enrichment on autopilot.', 'Alerts before a deal goes cold.', 'No brittle spreadsheet glue.'], cta: 'See the automations', img: 'images/stage-automate.webp', alt: 'GTM automation moving leads onto a pipeline chart' },
-  { eyebrow: 'MEASURE', tone: 'var(--nx-yellow)', title: 'Track revenue in one view.', bullets: ['Pipeline, forecast and churn together.', 'Dashboards your team opens daily.', 'Numbers finance actually trusts.'], cta: 'See the dashboard', img: 'images/stage-data.webp', alt: 'GTM reporting dashboard with funnel, trend chart and breakdown' },
+const STAGES_IMAGES = [
+  { tone: 'var(--nx-mint)', img: 'images/stage-audit.webp',    alt: 'GTM audit dashboard with a checklist of strategy, funnels and conversion' },
+  { tone: 'var(--nx-cyan)', img: 'images/stage-design.webp',   alt: 'Lead scoring engine routing leads from marketing channels to sales' },
+  { tone: 'var(--nx-pink)', img: 'images/stage-automate.webp', alt: 'GTM automation moving leads onto a pipeline chart' },
+  { tone: 'var(--nx-yellow)', img: 'images/stage-data.webp',   alt: 'GTM reporting dashboard with funnel, trend chart and breakdown' },
 ];
 
-const PROCESS_STEPS = [
-  { n: 1, text: 'Book a discovery audit of your current GTM stack.', offset: 0, tone: 'var(--nx-blue)' },
-  { n: 2, text: 'Map the data and handoffs between sales and marketing.', offset: 48, tone: 'var(--nx-pink)' },
-  { n: 3, text: 'Design the RevOps workflow and automation triggers.', offset: 0, tone: 'var(--nx-blue)' },
-  { n: 4, text: 'Launch, monitor and tune it with your team.', offset: 48, tone: 'var(--nx-pink)' },
+const PROCESS_TONES = [
+  { offset: 0,  tone: 'var(--nx-blue)' },
+  { offset: 48, tone: 'var(--nx-pink)' },
+  { offset: 0,  tone: 'var(--nx-blue)' },
+  { offset: 48, tone: 'var(--nx-pink)' },
 ];
 
-// Honest placeholder testimonials: real ones pending, see the top-of-file note.
-const TESTIMONIALS = [
-  { pending: true },
-  { pending: true },
-  { pending: true },
-];
-
-// The 5 Muvap programs, each with its own page (see services.css).
 const SERVICES = [
-  { name: 'GTM Architecture Evolution', tag: 'Program 1', color: 'var(--nx-ink)', pale: 'var(--nx-paper-dim)', text: 'var(--nx-paper)', href: 'gtm-architecture-evolution.html', desc: 'Lifecycle stages, lead scoring and enrichment: a CRM that works as a revenue engine, not a contact database.' },
-  { name: 'GTM Outbound Evolution', tag: 'Program 2', color: 'var(--nx-mint)', pale: 'var(--nx-mint-pale)', href: 'gtm-outbound-evolution.html', desc: 'Deliverability, Clay enrichment and AI personalization that book meetings consistently.' },
-  { name: 'GTM Intelligence Evolution', tag: 'Program 3', color: 'var(--nx-purple)', pale: 'var(--nx-purple-pale)', href: 'gtm-intelligence-evolution.html', desc: 'GA4, BigQuery and multi-touch attribution that connect marketing spend to closed revenue.' },
-  { name: 'GTM Workforce Evolution', tag: 'Program 4', color: 'var(--nx-yellow)', pale: 'var(--nx-yellow-pale)', href: 'gtm-workforce-evolution.html', desc: 'Automate 5 to 10 hours a week of manual GTM work: enrichment, call notes, briefs and content.' },
-  { name: 'GTM Total Glowap!', tag: 'Program 5', color: 'var(--nx-pink)', pale: 'var(--nx-pink-pale)', href: 'gtm-total-glowap.html', desc: 'Not sure where to start? A full audit and prioritized roadmap across your entire GTM stack.' },
+  { name: 'GTM Architecture Evolution', tag: 'Program 1', color: 'var(--nx-ink)', pale: 'var(--nx-paper-dim)', text: 'var(--nx-paper)', href: 'gtm-architecture-evolution.html' },
+  { name: 'GTM Outbound Evolution', tag: 'Program 2', color: 'var(--nx-mint)', pale: 'var(--nx-mint-pale)', href: 'gtm-outbound-evolution.html' },
+  { name: 'GTM Intelligence Evolution', tag: 'Program 3', color: 'var(--nx-purple)', pale: 'var(--nx-purple-pale)', href: 'gtm-intelligence-evolution.html' },
+  { name: 'GTM Workforce Evolution', tag: 'Program 4', color: 'var(--nx-yellow)', pale: 'var(--nx-yellow-pale)', href: 'gtm-workforce-evolution.html' },
+  { name: 'GTM Total Glowap!', tag: 'Program 5', color: 'var(--nx-pink)', pale: 'var(--nx-pink-pale)', href: 'gtm-total-glowap.html' },
 ];
 
-// ---------------------------------------------------------------------
-// Render
-// ---------------------------------------------------------------------
+const MARTECH_CATEGORIES = MARTECH_TOOLS; // alias kept for compat
 
-function el(html) {
-  const t = document.createElement('template');
-  t.innerHTML = html.trim();
-  return t.content.firstElementChild;
-}
 
-// Hero
+// ── Render functions ──────────────────────────────────────────────────────────
+
 const heroWrap = document.getElementById('hero');
 let heroIndex = 0;
 let heroTimer = null;
 
-function renderHero() {
-  heroWrap.innerHTML = HERO_SLIDES.map((s, i) => `
+function renderHero(lang) {
+  const slides = COPY[lang].hero_slides;
+  heroWrap.innerHTML = slides.map((s, i) => `
     <div class="hero-stage${i === heroIndex ? ' is-active' : ''}" data-i="${i}">
-      <div class="hero-visual"><img src="${s.img}" alt="${s.alt}" loading="${i === 0 ? 'eager' : 'lazy'}"></div>
+      <div class="hero-visual"><img src="${HERO_IMAGES[i].img}" alt="${HERO_IMAGES[i].alt}" loading="${i === 0 ? 'eager' : 'lazy'}"></div>
       <div class="hero-copy">
         <h1>${s.headline}</h1>
         <div class="hero-subs"><p>${s.sub1}</p><p>${s.sub2}</p></div>
@@ -654,7 +750,7 @@ function renderHero() {
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5l-7 7 7 7" stroke="var(--nx-ink)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="hero-dots">
-            ${HERO_SLIDES.map((_, di) => `<span class="hero-dot${di === heroIndex ? ' is-active' : ''}" data-hero-dot="${di}"></span>`).join('')}
+            ${slides.map((_, di) => `<span class="hero-dot${di === heroIndex ? ' is-active' : ''}" data-hero-dot="${di}"></span>`).join('')}
           </div>
           <button class="hero-nav-btn" data-magnetic="0.3" aria-label="Next" data-hero-next>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 5l7 7-7 7" stroke="var(--nx-ink)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -663,105 +759,92 @@ function renderHero() {
       </div>
     </div>
   `).join('');
-
   heroWrap.querySelectorAll('[data-hero-prev]').forEach(b => b.addEventListener('click', () => goHero(heroIndex - 1)));
   heroWrap.querySelectorAll('[data-hero-next]').forEach(b => b.addEventListener('click', () => goHero(heroIndex + 1)));
   heroWrap.querySelectorAll('[data-hero-dot]').forEach(d => d.addEventListener('click', () => goHero(parseInt(d.dataset.heroDot, 10))));
 }
 
 function goHero(i) {
-  heroIndex = (i + HERO_SLIDES.length) % HERO_SLIDES.length;
-  renderHero();
+  heroIndex = (i + HERO_IMAGES.length) % HERO_IMAGES.length;
+  renderHero(currentLang);
   resetHeroTimer();
 }
-
 function resetHeroTimer() {
   if (heroTimer) clearInterval(heroTimer);
   heroTimer = setInterval(() => goHero(heroIndex + 1), 5000);
 }
 
-renderHero();
-resetHeroTimer();
+function renderMetrics(lang) {
+  const labels = COPY[lang].metrics_labels;
+  document.getElementById('metricsRow').innerHTML = METRICS_VALUES.map((m, i) => `
+    ${i > 0 ? '<span class="metric-divider"></span>' : ''}
+    <div class="metric"><span class="metric-value" data-count-to="${m.value}" data-count-suffix="${m.suffix}"></span><span class="metric-label">${labels[i]}</span></div>
+  `).join('');
+}
 
-// Metrics
-document.getElementById('metricsRow').innerHTML = METRICS.map((m, i) => `
-  ${i > 0 ? '<span class="metric-divider"></span>' : ''}
-  <div class="metric"><span class="metric-value" data-count-to="${m.value}" data-count-suffix="${m.suffix}"></span><span class="metric-label">${m.label}</span></div>
-`).join('');
-
-// Martech tabs
 let martechActive = 0;
-const martechTabsEl = document.getElementById('martechTabs');
-const martechToolsEl = document.getElementById('martechTools');
-
-function renderMartech() {
-  martechTabsEl.innerHTML = MARTECH_CATEGORIES.map((c, i) =>
-    `<button class="martech-tab${i === martechActive ? ' is-active' : ''}" data-cat="${i}"${i === martechActive ? ` style="background:${c.tone};color:${c.text}"` : ''}>${c.name}</button>`
+function renderMartech(lang) {
+  const names = COPY[lang].martech_cats;
+  const martechTabsEl = document.getElementById('martechTabs');
+  const martechToolsEl = document.getElementById('martechTools');
+  const active = MARTECH_TOOLS[martechActive];
+  martechTabsEl.innerHTML = names.map((name, i) =>
+    `<button class="martech-tab${i === martechActive ? ' is-active' : ''}" data-cat="${i}"${i === martechActive ? ` style="background:${MARTECH_TOOLS[i].tone};color:${MARTECH_TOOLS[i].text}"` : ''}>${name}</button>`
   ).join('');
-  martechToolsEl.innerHTML = MARTECH_CATEGORIES[martechActive].tools.map(t =>
+  martechToolsEl.innerHTML = active.tools.map(t =>
     `<span class="martech-tool">${t.logo ? `<img class="martech-tool-logo" src="${t.logo}" alt="${t.n}">` : ''}<span>${t.n}</span></span>`
   ).join('');
   martechTabsEl.querySelectorAll('[data-cat]').forEach(b =>
-    b.addEventListener('click', () => { martechActive = parseInt(b.dataset.cat, 10); renderMartech(); })
+    b.addEventListener('click', () => { martechActive = parseInt(b.dataset.cat, 10); renderMartech(currentLang); })
   );
 }
-renderMartech();
 
-// Stages (sticky-scroll, position-based, no scroll hijacking)
-const stagesPanel = document.getElementById('stagesPanel');
-const stagesDots = document.getElementById('stagesDots');
-const stagesTrack = document.getElementById('stagesTrack');
-
-stagesPanel.insertAdjacentHTML('afterbegin', STAGES.map((s, i) => `
-  <div class="stage${i === 0 ? ' is-active' : ''}" data-i="${i}">
-    <div class="stage-copy">
-      <span class="eyebrow-pill" style="background:${s.tone}">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>${s.eyebrow}
-      </span>
-      <h2>${s.title}</h2>
-      <div class="stage-bullets">
-        ${s.bullets.map(b => `<div class="stage-bullet"><span class="stage-dot"></span>${b}</div>`).join('')}
+function renderStages(lang) {
+  const stages = COPY[lang].stages;
+  const stagesPanel = document.getElementById('stagesPanel');
+  const stagesDots = document.getElementById('stagesDots');
+  const existingStages = stagesPanel.querySelectorAll('.stage');
+  existingStages.forEach(el => el.remove());
+  stagesPanel.insertAdjacentHTML('afterbegin', stages.map((s, i) => `
+    <div class="stage${i === 0 ? ' is-active' : ''}" data-i="${i}">
+      <div class="stage-copy">
+        <span class="eyebrow-pill" style="background:${STAGES_IMAGES[i].tone}">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>${s.eyebrow}
+        </span>
+        <h2>${s.title}</h2>
+        <div class="stage-bullets">
+          ${s.bullets.map(b => `<div class="stage-bullet"><span class="stage-dot"></span>${b}</div>`).join('')}
+        </div>
+        <button class="stage-btn" data-magnetic="0.15" style="background:${STAGES_IMAGES[i].tone}">${s.cta}</button>
       </div>
-      <button class="stage-btn" data-magnetic="0.15" style="background:${s.tone}">${s.cta}</button>
+      <div class="stage-visual"><img src="${STAGES_IMAGES[i].img}" alt="${STAGES_IMAGES[i].alt}" loading="lazy"></div>
     </div>
-    <div class="stage-visual"><img src="${s.img}" alt="${s.alt}" loading="lazy"></div>
-  </div>
-`).join(''));
-
-stagesDots.innerHTML = STAGES.map((_, i) => `<span class="hero-dot${i === 0 ? ' is-active' : ''}" data-stage-dot="${i}"></span>`).join('');
-
-function updateStage() {
-  const rect = stagesTrack.getBoundingClientRect();
-  const total = stagesTrack.offsetHeight - window.innerHeight;
-  if (total <= 0) return;
-  const progress = Math.min(1, Math.max(0, -rect.top / total));
-  const idx = Math.min(STAGES.length - 1, Math.floor(progress * STAGES.length));
-  stagesPanel.querySelectorAll('.stage').forEach((el, i) => el.classList.toggle('is-active', i === idx));
-  stagesDots.querySelectorAll('.hero-dot').forEach((el, i) => el.classList.toggle('is-active', i === idx));
+  `).join(''));
+  stagesDots.innerHTML = stages.map((_, i) => `<span class="hero-dot${i === 0 ? ' is-active' : ''}" data-stage-dot="${i}"></span>`).join('');
+  updateStage();
 }
-window.addEventListener('scroll', updateStage, { passive: true });
-updateStage();
 
-// Process
-document.getElementById('processSteps').innerHTML = PROCESS_STEPS.map(p => `
-  <div class="process-step" style="margin-left:${p.offset}px;background:${p.tone}">
-    <span class="process-num">${p.n}</span>
-    <span class="process-text">${p.text}</span>
-  </div>
-`).join('');
+function renderProcess(lang) {
+  document.getElementById('processSteps').innerHTML = COPY[lang].process_steps.map((text, i) => `
+    <div class="process-step" style="margin-left:${PROCESS_TONES[i].offset}px;background:${PROCESS_TONES[i].tone}">
+      <span class="process-num">${i + 1}</span>
+      <span class="process-text">${text}</span>
+    </div>
+  `).join('');
+}
 
-// Testimonials: one honest, well-designed "coming soon" panel beats three
-// empty-looking cards, and it doubles as a soft conversion moment.
-document.getElementById('testiGrid').innerHTML = `
-  <div class="testi-coming">
-    <svg width="34" height="26" viewBox="0 0 34 26" fill="none" aria-hidden="true"><path d="M0 26V15.6C0 6.2 5.9 1 14.6 0l1.1 4.4C10 5.6 6.9 8.7 6.5 13.4h7.3V26H0zm18.4 0V15.6C18.4 6.2 24.3 1 33 0l1.1 4.4c-5.7 1.2-8.8 4.3-9.2 9h7.3V26H18.4z" fill="var(--nx-ink)"/></svg>
-    <h3 style="margin:0;font:900 22px/1.2 var(--nx-font-display)">Client stories are on their way.</h3>
-    <p>Muvap is taking on its first engagements right now. Want to be the first case study featured here?</p>
-    <a href="contact.html" class="btn-pink" data-magnetic="0.15">Work with us</a>
-  </div>
-`;
+function renderTestimonials(lang) {
+  const copy = COPY[lang];
+  document.getElementById('testiGrid').innerHTML = `
+    <div class="testi-coming">
+      <svg width="34" height="26" viewBox="0 0 34 26" fill="none" aria-hidden="true"><path d="M0 26V15.6C0 6.2 5.9 1 14.6 0l1.1 4.4C10 5.6 6.9 8.7 6.5 13.4h7.3V26H0zm18.4 0V15.6C18.4 6.2 24.3 1 33 0l1.1 4.4c-5.7 1.2-8.8 4.3-9.2 9h7.3V26H18.4z" fill="var(--nx-ink)"/></svg>
+      <h3 style="margin:0;font:900 22px/1.2 var(--nx-font-display)">${copy.testi_coming_h3}</h3>
+      <p>${copy.testi_coming_p}</p>
+      <a href="contact.html" class="btn-pink" data-magnetic="0.15">${copy.testi_coming_cta}</a>
+    </div>
+  `;
+}
 
-// Services: one card per program, linking to its page
 const SERVICE_ICONS = {
   'GTM Architecture Evolution': '<path d="M12 3C7 3 4 4.6 4 6.5v11C4 19.4 7 21 12 21s8-1.6 8-3.5v-11C20 4.6 17 3 12 3zm0 2c3.9 0 6 1.1 6 1.5S15.9 8 12 8 6 6.9 6 6.5 8.1 5 12 5zM6 9.2C7.5 9.8 9.6 10 12 10s4.5-.2 6-.8V12c0 .4-2.1 1.5-6 1.5S6 12.4 6 12zm0 5.5c1.5.6 3.6.8 6 .8s4.5-.2 6-.8v2.8c0 .4-2.1 1.5-6 1.5s-6-1.1-6-1.5z"/>',
   'GTM Outbound Evolution': '<path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm0 2.9V17h16V9.9l-8 5z"/>',
@@ -769,17 +852,68 @@ const SERVICE_ICONS = {
   'GTM Workforce Evolution': '<path d="M12 2l1.8 4.6L18.5 8l-4.6 1.8L12 14l-1.8-4.2L5.5 8l4.6-1.4zM19 14l1 2.5L22.5 17.5 20 18.5 19 21l-1-2.5L15.5 17.5 18 16.5z"/>',
   'GTM Total Glowap!': '<path d="M11 4a7 7 0 1 0 4.6 12.3l4.5 4.5 1.4-1.4-4.5-4.5A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/>',
 };
-document.getElementById('servicesGrid').innerHTML = SERVICES.map(sv => `
-  <a class="service-card" href="${sv.href}">
-    <div class="service-visual" style="background:${sv.pale}">
-      <svg width="34" height="34" viewBox="0 0 24 24" fill="var(--nx-ink)" aria-hidden="true">${SERVICE_ICONS[sv.name] || ''}</svg>
-    </div>
-    <span class="eyebrow-pill" style="background:${sv.color};color:${sv.text || 'var(--nx-ink)'};align-self:flex-start">${sv.tag}</span>
-    <h3 style="opacity:1">${sv.name.replace('&', '&amp;')}</h3>
-    <p>${sv.desc}</p>
-    <span class="service-btn-link" style="background:${sv.color};color:${sv.text || 'var(--nx-ink)'}">Explore program →</span>
-  </a>
-`).join('');
+
+function renderServices(lang) {
+  const descs = COPY[lang].service_descs;
+  const explore = COPY[lang].services_explore;
+  document.getElementById('servicesGrid').innerHTML = SERVICES.map((sv, i) => `
+    <a class="service-card" href="${sv.href}">
+      <div class="service-visual" style="background:${sv.pale}">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="var(--nx-ink)" aria-hidden="true">${SERVICE_ICONS[sv.name] || ''}</svg>
+      </div>
+      <span class="eyebrow-pill" style="background:${sv.color};color:${sv.text || 'var(--nx-ink)'};align-self:flex-start">${sv.tag}</span>
+      <h3 style="opacity:1">${sv.name.replace('&', '&amp;')}</h3>
+      <p>${descs[i]}</p>
+      <span class="service-btn-link" style="background:${sv.color};color:${sv.text || 'var(--nx-ink)'}">${explore}</span>
+    </a>
+  `).join('');
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('muvap-lang', lang);
+  const copy = COPY[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (copy[key] !== undefined) el.textContent = copy[key];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (copy[key] !== undefined) el.placeholder = copy[key];
+  });
+  const toggle = document.getElementById('langToggle');
+  if (toggle) toggle.textContent = lang === 'en' ? 'ES' : 'EN';
+  renderHero(lang);
+  renderMetrics(lang);
+  renderMartech(lang);
+  renderStages(lang);
+  renderProcess(lang);
+  renderTestimonials(lang);
+  renderServices(lang);
+  const nextBtn = document.getElementById('ctaNext');
+  if (nextBtn) nextBtn.textContent = COPY[lang][formStep === 2 ? 'btn_book' : 'btn_next'];
+  resetHeroTimer();
+}
+
+document.getElementById('langToggle').addEventListener('click', () => {
+  setLang(currentLang === 'en' ? 'es' : 'en');
+});
+
+// Stage scroll
+const stagesTrack = document.getElementById('stagesTrack');
+function updateStage() {
+  const stagesPanel = document.getElementById('stagesPanel');
+  const stagesDots = document.getElementById('stagesDots');
+  const rect = stagesTrack.getBoundingClientRect();
+  const stages = stagesPanel.querySelectorAll('.stage');
+  const total = stagesTrack.offsetHeight - window.innerHeight;
+  if (total <= 0) return;
+  const progress = Math.min(1, Math.max(0, -rect.top / total));
+  const idx = Math.min(stages.length - 1, Math.floor(progress * stages.length));
+  stages.forEach((el, i) => el.classList.toggle('is-active', i === idx));
+  stagesDots.querySelectorAll('.hero-dot').forEach((el, i) => el.classList.toggle('is-active', i === idx));
+}
+window.addEventListener('scroll', updateStage, { passive: true });
 
 // Reveal-on-scroll
 const revealObserver = new IntersectionObserver((entries) => {
@@ -793,7 +927,8 @@ document.querySelectorAll('.reveal').forEach((el) => {
   else revealObserver.observe(el);
 });
 
-// Book-a-call multi-step form (Netlify Forms, matches contact.html's pattern)
+// Book-a-call multi-step form
+let formStep = 0;
 (function () {
   const form = document.getElementById('bookForm');
   const steps = Array.from(form.querySelectorAll('.cta-step'));
@@ -802,32 +937,28 @@ document.querySelectorAll('.reveal').forEach((el) => {
   const nextBtn = document.getElementById('ctaNext');
   const doneEl = document.getElementById('ctaDone');
   const doneMsg = document.getElementById('ctaDoneMsg');
-  let step = 0;
 
-  function fieldsFor(i) {
-    return Array.from(steps[i].querySelectorAll('input, textarea'));
-  }
-  function validate(i) {
-    for (const f of fieldsFor(i)) { if (!f.checkValidity()) { f.reportValidity(); return false; } }
-    return true;
-  }
+  function fieldsFor(i) { return Array.from(steps[i].querySelectorAll('input, textarea')); }
+  function validate(i) { for (const f of fieldsFor(i)) { if (!f.checkValidity()) { f.reportValidity(); return false; } } return true; }
   function render() {
-    steps.forEach((s, i) => s.classList.toggle('is-active', i === step));
-    dots.forEach((d, i) => d.classList.toggle('is-done', i < step));
-    backBtn.classList.toggle('show', step > 0);
-    nextBtn.textContent = step === steps.length - 1 ? 'Book a call →' : 'Next →';
+    steps.forEach((s, i) => s.classList.toggle('is-active', i === formStep));
+    dots.forEach((d, i) => d.classList.toggle('is-done', i < formStep));
+    backBtn.classList.toggle('show', formStep > 0);
+    nextBtn.textContent = COPY[currentLang][formStep === steps.length - 1 ? 'btn_book' : 'btn_next'];
   }
-  backBtn.addEventListener('click', () => { step = Math.max(0, step - 1); render(); });
+  backBtn.addEventListener('click', () => { formStep = Math.max(0, formStep - 1); render(); });
   nextBtn.addEventListener('click', () => {
-    if (!validate(step)) return;
-    if (step < steps.length - 1) { step += 1; render(); return; }
+    if (!validate(formStep)) return;
+    if (formStep < steps.length - 1) { formStep += 1; render(); return; }
     const emailField = form.querySelector('[name="email"]');
     const data = new FormData(form);
     nextBtn.disabled = true;
-    nextBtn.textContent = 'Sending…';
+    nextBtn.textContent = COPY[currentLang].btn_sending;
     fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
       .then(() => {
-        doneMsg.textContent = `We'll email ${emailField.value} a link to pick a time that works.`;
+        doneMsg.textContent = currentLang === 'en'
+          ? `We'll email ${emailField.value} a link to pick a time that works.`
+          : `Te enviamos a ${emailField.value} un enlace para elegir un horario.`;
         form.style.display = 'none';
         doneEl.classList.add('show');
         window.dataLayer = window.dataLayer || [];
@@ -836,12 +967,15 @@ document.querySelectorAll('.reveal').forEach((el) => {
       .catch(() => {
         nextBtn.disabled = false;
         render();
-        nextBtn.textContent = 'Something went wrong — try again';
+        nextBtn.textContent = COPY[currentLang].btn_error;
         setTimeout(() => render(), 4000);
       });
   });
   render();
 })();
+
+// Initialize
+setLang(currentLang);
 </script>
 <script src="assets/interactions.js" defer></script>
 </body>
