@@ -67,13 +67,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background-size:var(--nx-grid-cell) var(--nx-grid-cell);
   }
   .eyebrow-pill{
-    display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);
-    padding:6px 14px;font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:var(--nx-ink);
+    display:inline-flex;align-items:center;gap:6px;border:none;border-radius:var(--nx-radius-pill);
+    padding:6px 14px;font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:var(--nx-paper);
   }
 
   /* ---- nav ---- */
   .top-band{padding:20px clamp(16px,4vw,44px) 0}
-  .site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0;position:sticky;top:16px;z-index:40}
+  .site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0;position:relative;z-index:40}
   .logo{display:flex;align-items:center;gap:8px;flex:0 0 auto}
   .logo span{font:900 24px/1 var(--nx-font-display);letter-spacing:-.03em;color:var(--nx-paper)}
   .nav-right{flex:0 0 auto;display:flex;align-items:center;gap:10px}
@@ -625,3 +625,5 @@ setLang(currentLang);
 <script src="assets/interactions.js" defer></script>
 </body>
 </html>
+
+

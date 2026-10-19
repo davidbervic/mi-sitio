@@ -118,6 +118,191 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="services.css">
+<style>
+/* Trust Strip */
+.sv-trust-strip {
+  background: var(--nx-ink);
+  color: var(--nx-paper);
+  padding: 28px clamp(16px,4vw,64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.sv-trust-headline {
+  font-size: clamp(1rem,2vw,1.15rem);
+  font-weight: 700;
+  letter-spacing: .01em;
+  color: rgba(255,255,255,.82);
+}
+.sv-trust-headline strong {
+  color: var(--nx-yellow);
+  font-family: var(--nx-font-display);
+  font-size: clamp(1.1rem,2.2vw,1.3rem);
+  font-weight: 900;
+}
+.sv-trust-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px 40px;
+}
+.sv-trust-logos img {
+  height: 22px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: .65;
+}
+.sv-trust-logos span {
+  font-size: .8rem;
+  font-weight: 700;
+  font-family: var(--nx-font-display);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  opacity: .6;
+  color: var(--nx-paper);
+}
+.sv-trust-divider {
+  width: 1px;
+  height: 18px;
+  background: rgba(255,255,255,.2);
+}
+
+/* Pain points */
+.sv-pain {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.sv-pain-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  background: var(--nx-paper);
+  border: 1.5px solid var(--nx-ink);
+  border-radius: var(--nx-radius-md);
+  padding: 18px 22px;
+  box-shadow: var(--nx-drop-sm);
+}
+.sv-pain-num {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--nx-ink);
+  color: var(--nx-paper);
+  border: 1.5px solid var(--nx-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 900 13px/1 var(--nx-font-display);
+}
+.sv-pain-item p {
+  margin: 0;
+  font: 400 16px/1.55 var(--nx-font-text);
+  color: var(--nx-ink-soft);
+  padding-top: 4px;
+}
+
+/* Differentiator */
+.sv-diff-body {
+  max-width: 640px;
+  font: 400 17px/1.65 var(--nx-font-text);
+  color: var(--nx-ink-soft);
+  margin: 0 auto 44px;
+  text-align: center;
+}
+.sv-diff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+.sv-diff-card {
+  background: var(--nx-paper);
+  border: 1.5px solid var(--nx-ink);
+  border-radius: var(--nx-radius-md);
+  padding: 24px;
+  box-shadow: var(--nx-drop-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sv-diff-card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--acc-pale);
+  border: 1.5px solid var(--nx-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.sv-diff-card h3 {
+  font: 900 16px/1.15 var(--nx-font-display);
+  letter-spacing: var(--nx-track-tight);
+  margin: 0;
+  color: var(--nx-ink);
+}
+.sv-diff-card p {
+  margin: 0;
+  font: 400 14.5px/1.55 var(--nx-font-text);
+  color: var(--nx-ink-soft);
+}
+
+/* Social proof */
+.sv-proof {
+  background: var(--nx-paper);
+  border: 1.5px solid var(--nx-ink);
+  border-radius: var(--nx-radius-lg);
+  box-shadow: var(--nx-drop-md);
+  padding: clamp(32px,5vw,52px) clamp(28px,5vw,60px);
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.sv-proof-quote {
+  font: 900 64px/1 var(--nx-font-display);
+  color: var(--acc-pale);
+  line-height: 1;
+  margin-bottom: -8px;
+  -webkit-text-stroke: 2px var(--nx-ink);
+}
+.sv-proof p {
+  margin: 0;
+  font: 500 clamp(16px,1.5vw,18px)/1.7 var(--nx-font-text);
+  color: var(--nx-ink-soft);
+  font-style: italic;
+  max-width: 620px;
+}
+.sv-proof cite {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font: 800 11px/1 var(--nx-font-display);
+  font-style: normal;
+  letter-spacing: var(--nx-track-label);
+  text-transform: uppercase;
+  color: #888;
+}
+.sv-proof cite::before,
+.sv-proof cite::after {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1.5px;
+  background: #ccc;
+}
+</style>
 </head>
 <body style="--acc:var(--nx-ink);--acc-pale:var(--nx-paper-dim);--acc-ink:var(--nx-paper);--acc-dark:var(--nx-paper);--acc-dark-ink:var(--nx-ink)">
 <!-- Google Tag Manager (noscript) -->
@@ -125,6 +310,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<!-- §1 HERO -->
 <div class="nx-grid-bg top-band" data-grid-parallax>
   <nav class="site-nav">
     <a href="index.html" class="logo">
@@ -133,7 +319,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="nav-right">
       <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
       <div class="nav-links">
-        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="about.html" data-i18n="nav_about">About</a>
         <div class="resources-wrap">
           <a class="nav-link is-current" href="index.html#programs" style="display:inline-flex;align-items:center;gap:4px">Services<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="resources-menu">
@@ -144,14 +330,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="gtm-total-glowap.html">GTM Total Glowap!</a>
           </div>
         </div>
-        <a class="nav-link" href="customers.html">Case studies</a>
+        <a class="nav-link" href="customers.html" data-i18n="nav_casestudies">Case studies</a>
         <div class="resources-wrap">
-          <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px" data-i18n="nav_resources">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="resources-menu">
             <a href="resources.html">Blog</a>
             <a href="downloads.html">Downloads</a>          </div>
         </div>
       </div>
+      <button class="lang-toggle" id="langToggle">ES</button>
       <a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
     </div>
@@ -160,12 +347,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <header class="sv-hero">
     <div class="sv-hero-copy">
       <span class="eyebrow-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>PROGRAM 1 · GTM ARCHITECTURE EVOLUTION</span>
-      <h1>Your CRM should be a revenue engine, not a contact database.</h1>
-      <p class="sv-hero-sub">We redesign and build the revenue intelligence layer: from lifecycle stages and lead scoring to a CRM your team queries in natural language via Claude.</p>
-      <p class="sv-hero-body">Whether you&#x27;re on HubSpot, Salesforce, Zoho, or GoHighLevel, we meet your stack where it is and build to where it needs to go.</p>
+      <h1 data-i18n="hero_h1">Your CRM has leads. Your pipeline has numbers. But your team is still flying blind.</h1>
+      <p class="sv-hero-sub" data-i18n="hero_sub">We build the revenue intelligence layer your CRM is missing: lifecycle stages, lead scoring, enrichment, and a system your team actually trusts.</p>
+      <p class="sv-hero-body" data-i18n="hero_body">Whether you are on HubSpot, Salesforce, Zoho, or GoHighLevel, we work inside the tools you already have and build them into something that runs revenue.</p>
       <div class="sv-hero-ctas">
-        <a class="sv-btn is-acc" data-magnetic="0.12" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Discovery%20Call">Book a Discovery Call (free)</a>
-        <a class="sv-link" href="#pricing">See Pricing →</a>
+        <a class="sv-btn is-acc" data-magnetic="0.12" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Discovery%20Call" data-i18n="hero_cta">Book a Discovery Call (free)</a>
+        <a class="sv-link" href="#pricing" data-i18n="hero_link">See Pricing →</a>
       </div>
     </div>
     <aside class="sv-hero-visual">
@@ -174,182 +361,232 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </header>
 </div>
 
+<!-- §2 TRUST STRIP -->
+<div class="sv-trust-strip">
+  <p class="sv-trust-headline" data-i18n-html="trust_headline">Same outcome. <strong>75 to 85% less than a US RevOps agency.</strong> We work inside the tools you already pay for.</p>
+  <div class="sv-trust-logos" aria-label="Supported CRMs">
+    <img src="images/logos/logo-hubspot.png" alt="HubSpot">
+    <span class="sv-trust-divider" aria-hidden="true"></span>
+    <img src="images/logos/logo-salesforce.png" alt="Salesforce">
+    <span class="sv-trust-divider" aria-hidden="true"></span>
+    <span>Zoho CRM</span>
+    <span class="sv-trust-divider" aria-hidden="true"></span>
+    <span>GoHighLevel</span>
+  </div>
+</div>
+
+<!-- §3 PAIN SECTION -->
 <section class="sv-section is-dim">
   <div class="sv-inner reveal">
     <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--acc);color:var(--acc-ink)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>Who it&#x27;s for</span>
-      <h2>This program is for you if...</h2>
+      <span class="eyebrow-pill" style="background:var(--acc)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="pain_eyebrow">Does this sound familiar?</span></span>
+      <h2 data-i18n="pain_h2">You have a CRM. You just do not trust what is in it.</h2>
     </div>
-    <div class="sv-qual">
-      <div class="sv-qual-item"><span class="sv-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Your team doesn&#x27;t trust the data in your CRM</span></div>
-      <div class="sv-qual-item"><span class="sv-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>You have pipeline stages but no clear entry or exit criteria</span></div>
-      <div class="sv-qual-item"><span class="sv-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Leadership forecasts by asking reps, not by reading dashboards</span></div>
-      <div class="sv-qual-item"><span class="sv-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Lead enrichment is manual or doesn&#x27;t happen at all</span></div>
-      <div class="sv-qual-item"><span class="sv-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>You&#x27;ve tried to improve CRM adoption before and it didn&#x27;t stick</span></div>
+    <div class="sv-pain">
+      <div class="sv-pain-item"><span class="sv-pain-num">1</span><p data-i18n="pain_1">Your team enters data differently depending on the rep. The same account looks like three different companies depending on who you ask.</p></div>
+      <div class="sv-pain-item"><span class="sv-pain-num">2</span><p data-i18n="pain_2">Your pipeline stages exist but nobody agrees on what actually moves a deal from one to the next. Deals age in place while everyone assumes someone else is on it.</p></div>
+      <div class="sv-pain-item"><span class="sv-pain-num">3</span><p data-i18n="pain_3">You forecast by calling reps. Not by opening a dashboard. You already know that is a problem.</p></div>
+      <div class="sv-pain-item"><span class="sv-pain-num">4</span><p data-i18n="pain_4">New leads come in and nobody knows if they are worth a call until someone spends 20 minutes researching them manually. Every single time.</p></div>
+      <div class="sv-pain-item"><span class="sv-pain-num">5</span><p data-i18n="pain_5">You have tried to fix this before. You ran a training. You sent the reminders. Six weeks later the CRM looked exactly the same.</p></div>
     </div>
   </div>
 </section>
 
+<!-- §4 DIFFERENTIATOR -->
+<section class="sv-section">
+  <div class="sv-inner reveal">
+    <div class="section-head">
+      <span class="eyebrow-pill" style="background:var(--acc)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="diff_eyebrow">How we work</span></span>
+      <h2 data-i18n="diff_h2">This is not consulting.</h2>
+    </div>
+    <p class="sv-diff-body" data-i18n="diff_body">Consulting gives you a deck with recommendations. We go into your CRM and build the system. You get a working revenue architecture, not a to-do list for your team to figure out later.</p>
+    <div class="sv-diff-grid">
+      <div class="sv-diff-card">
+        <div class="sv-diff-card-icon" aria-hidden="true">🔧</div>
+        <h3 data-i18n="diff_card1_h">We build, we do not advise</h3>
+        <p data-i18n="diff_card1_p">No slide decks. No frameworks to implement yourself. We go inside the platform and do the work.</p>
+      </div>
+      <div class="sv-diff-card">
+        <div class="sv-diff-card-icon" aria-hidden="true">🔗</div>
+        <h3 data-i18n="diff_card2_h">Your tools, no new vendors</h3>
+        <p data-i18n="diff_card2_p">No platform switches. No surprise subscriptions. We configure what you already have and tell you exactly what extra tools you need (if any).</p>
+      </div>
+      <div class="sv-diff-card">
+        <div class="sv-diff-card-icon" aria-hidden="true">✅</div>
+        <h3 data-i18n="diff_card3_h">We hand it over running</h3>
+        <p data-i18n="diff_card3_p">At the end of a Deploy, your team is using the system. Not learning about it. Using it. Adoption is part of the scope, not an afterthought.</p>
+      </div>
+      <div class="sv-diff-card">
+        <div class="sv-diff-card-icon" aria-hidden="true">🛡️</div>
+        <h3 data-i18n="diff_card4_h">30-day go-live guarantee</h3>
+        <p data-i18n="diff_card4_p">If adoption does not hold in the first 30 days after go-live, we come back and fix it. No extra charge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §5 SOCIAL PROOF PLACEHOLDER -->
+<section class="sv-section is-dim">
+  <div class="sv-inner reveal">
+    <div class="section-head">
+      <span class="eyebrow-pill" style="background:var(--acc)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="proof_eyebrow">Results</span></span>
+      <h2 data-i18n="proof_h2">What clients say</h2>
+    </div>
+    <div class="sv-proof">
+      <div class="sv-proof-quote" aria-hidden="true">"</div>
+      <p data-i18n="proof_p">Clients have reported their sales team working from a single source of truth within 30 days of deployment. More detail is on its way. If we have worked together and you would like to share your experience, I would genuinely appreciate it.</p>
+      <cite data-i18n="proof_cite">Testimonials incoming</cite>
+    </div>
+  </div>
+</section>
+
+<!-- §6 TIERS AND PRICING -->
 <section class="sv-section" id="pricing">
   <div class="sv-inner reveal">
     <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--acc);color:var(--acc-ink)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>Tiers &amp; pricing</span>
-      <h2>Pick the tier that fits your stage</h2>
-      <p>Foundation / Scale / Intelligence. Each tier builds on the one before it.</p>
+      <span class="eyebrow-pill" style="background:var(--acc)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="eyebrow_pricing">Tiers &amp; pricing</span></span>
+      <h2 data-i18n="pricing_h2">Pick the tier that fits your stage</h2>
+      <p data-i18n="pricing_intro">Foundation / Scale / Intelligence. Each tier builds on the one before it.</p>
     </div>
     <div class="sv-tiers">
       <article class="sv-tier">
         <span class="sv-tier-badge">Tier 1</span>
         <h3>Foundation</h3>
-        <div><span class="sv-tier-label">Goal</span><p class="sv-tier-goal">The CRM reflects reality. The team uses it. Pipeline data is trustworthy.</p></div>
-        <div class="sv-tier-fee"><span class="sv-tier-label">Muvap fee · Deploy S</span><strong>$3,000 to $4,000</strong><small>Price depends on number of pipelines and database size requiring cleanup.</small></div>
+        <div><span class="sv-tier-label">Goal</span><p class="sv-tier-goal" data-i18n="goal_1">A CRM your team trusts. Consistent data. A pipeline with clear rules. The floor everything else is built on.</p></div>
+        <div class="sv-tier-fee"><span class="sv-tier-label">Muvap fee · Deploy S</span><strong>$3,000 to $4,000</strong><small data-i18n="fee_note_1">Price depends on number of pipelines and database size requiring cleanup.</small></div>
         <div><span class="sv-tier-label">Your tool cost / mo</span><p class="sv-tier-tools">CRM plan only: HubSpot Starter $40/mo, Salesforce Starter $50/mo, Zoho Standard $28/mo, GoHighLevel $97/mo.</p></div>
         <div><span class="sv-tier-label">What Muvap delivers</span></div>
         <ul class="sv-tier-list">
-          <li>Lifecycle stage redesign aligned to the actual buyer journey</li>
+          <li>Lifecycle stage redesign aligned to your actual buyer journey</li>
           <li>CRM property audit and cleanup</li>
           <li>Contact and company deduplication</li>
-          <li>Pipeline stages with clear entry and exit criteria</li>
-          <li>Basic manual deal scoring</li>
-          <li>Team adoption protocol and training</li>
-          <li>Basic pipeline dashboard in Looker Studio</li>
+          <li>Pipeline stages with documented entry and exit criteria</li>
+          <li>Manual deal scoring rubric your reps can actually use</li>
+          <li>Team adoption protocol and training session</li>
+          <li>Pipeline dashboard in Looker Studio</li>
         </ul>
-        <a class="sv-btn is-acc" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Foundation">Start with Foundation →</a>
+        <a class="sv-btn is-acc" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Foundation" data-i18n="tier_cta_1">Start with Foundation →</a>
       </article>
       <article class="sv-tier">
         <span class="sv-tier-badge">Tier 2</span>
         <h3>Scale</h3>
-        <div><span class="sv-tier-label">Goal</span><p class="sv-tier-goal">ICP-qualified pipeline with automated scoring, segmentation, and enrichment running.</p></div>
+        <div><span class="sv-tier-label">Goal</span><p class="sv-tier-goal" data-i18n="goal_2">Qualified pipeline that fills itself. Automated scoring, segmentation, and enrichment running without anyone touching it manually.</p></div>
         <div class="sv-tier-fee"><span class="sv-tier-label">Muvap fee · Deploy M</span><strong>$5,700</strong></div>
         <div><span class="sv-tier-label">Your tool cost / mo</span><p class="sv-tier-tools">~$363/mo: Apollo Basic $49 + Clay Explorer $314, plus CRM upgrade: HubSpot Professional $500/mo, Salesforce Pro Suite $300/mo, Zoho Professional $115/mo, GoHighLevel Unlimited $297/mo.</p></div>
         <div><span class="sv-tier-label">What Muvap delivers</span></div>
         <ul class="sv-tier-list">
-          <li>AI-assisted lead scoring model (ICP fit + engagement signals)</li>
-          <li>ICP-based segmentation system</li>
-          <li>Automated enrichment pipeline via Clay + Apollo (title, industry, tech stack, headcount)</li>
-          <li>Stage conversion analytics: where deals are dying and why</li>
-          <li>Revenue reporting by segment and ICP</li>
+          <li>ICP-fit lead scoring model (firmographic fit plus engagement signals)</li>
+          <li>ICP-based segmentation system for marketing and sales alignment</li>
+          <li>Automated enrichment pipeline via Clay and Apollo: title, industry, tech stack, headcount</li>
+          <li>Stage conversion analytics: where deals die and why</li>
+          <li>Revenue reporting by segment and ICP tier</li>
           <li>Automatic contact enrichment triggered on every form fill</li>
         </ul>
-        <a class="sv-btn is-acc" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Scale">Start with Scale →</a>
+        <a class="sv-btn is-acc" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Scale" data-i18n="tier_cta_2">Start with Scale →</a>
       </article>
       <article class="sv-tier">
         <span class="sv-tier-badge">Tier 3</span>
         <h3>Intelligence</h3>
-        <div><span class="sv-tier-label">Goal</span><p class="sv-tier-goal">The CRM operates as a conversational intelligence layer. Query, update, and act in natural language via Claude.</p></div>
-        <div class="sv-tier-fee"><span class="sv-tier-label">Muvap fee · Deploy L+</span><strong>$8,000 to $12,000</strong><small>Price depends on number of MCP integrations and CRM schema complexity.</small></div>
-        <div><span class="sv-tier-label">Your tool cost / mo</span><p class="sv-tier-tools">~$72–222/mo incremental: Claude API $50–200 + n8n Starter $22, on top of Scale tier tools. CRM must be at Professional/Core/Enterprise plan with full API + MCP server available.</p></div>
+        <div><span class="sv-tier-label">Goal</span><p class="sv-tier-goal" data-i18n="goal_3">A CRM that talks back. Query your pipeline, update records, and get deal summaries in plain language via Claude. No SQL. No filters.</p></div>
+        <div class="sv-tier-fee"><span class="sv-tier-label">Muvap fee · Deploy L+</span><strong>$8,000 to $12,000</strong><small data-i18n="fee_note_3">Price depends on number of MCP integrations and CRM schema complexity.</small></div>
+        <div><span class="sv-tier-label">Your tool cost / mo</span><p class="sv-tier-tools">~$72 to $222/mo incremental: Claude API $50 to $200 + n8n Starter $22, on top of Scale tier tools. CRM must be on Professional or higher plan with full API and MCP server available.</p></div>
         <div><span class="sv-tier-label">What Muvap delivers</span></div>
         <ul class="sv-tier-list">
           <li>CRM MCP server configuration and deployment</li>
-          <li>Claude Project configured with CRM schema, stage definitions, and business context</li>
-          <li>Prompt library for the team&#x27;s most common CRM queries</li>
-          <li>CRM update flow via Claude (create contacts, log notes, change stages, all in chat)</li>
-          <li>Executive onboarding: what to ask, what to expect, what not to trust</li>
+          <li>Claude Project configured with your CRM schema, stage definitions, and business context</li>
+          <li>Prompt library covering your team's most common CRM queries</li>
+          <li>CRM update flow via Claude: create contacts, log notes, change stages, all in chat</li>
+          <li>Executive onboarding: what to ask, what to trust, what to verify</li>
         </ul>
-        <a class="sv-btn is-acc" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Intelligence">Start with Intelligence →</a>
+        <a class="sv-btn is-acc" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Intelligence" data-i18n="tier_cta_3">Start with Intelligence →</a>
       </article>
     </div>
-    <p class="sv-prereq"><span aria-hidden="true">⚠</span><span><strong>Prerequisite for Intelligence:</strong> Foundation tier must be complete. Without clean data, the headless CRM layer does not function. A DPA is required before work begins.</span></p>
+    <p class="sv-prereq"><span aria-hidden="true">⚠</span><span data-i18n-html="prereq"><strong>Prerequisite for Intelligence:</strong> Foundation tier must be complete. Without clean data, the headless CRM layer does not function. A DPA is required before work begins.</span></p>
   </div>
 </section>
 
+<!-- §7 HOW EVERY ENGAGEMENT WORKS -->
 <section class="sv-section is-dim">
   <div class="sv-inner reveal">
     <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--acc);color:var(--acc-ink)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>Delivery process</span>
-      <h2>How every engagement works</h2>
-      <p>Same six phases across every Muvap program. You can stop after any of them.</p>
+      <span class="eyebrow-pill" style="background:var(--acc)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="eyebrow_delivery">Delivery process</span></span>
+      <h2 data-i18n="delivery_h2">How every engagement works</h2>
+      <p data-i18n="delivery_intro">Six phases. Same sequence across every Muvap program. You can stop after any of them.</p>
     </div>
     <div class="sv-steps">
-      <div class="sv-step"><span class="sv-step-num">1</span><div class="sv-step-card"><h3>Discovery Call</h3><span class="sv-step-price">Free</span><p>30-min fit check. No commitment.</p></div></div>
-      <div class="sv-step"><span class="sv-step-num">2</span><div class="sv-step-card"><h3>Map</h3><span class="sv-step-price">$1,500</span><p>Audit + prioritization roadmap. Fee credited toward Deploy at David&#x27;s discretion.</p></div></div>
-      <div class="sv-step"><span class="sv-step-num">3</span><div class="sv-step-card"><h3>Architect</h3><span class="sv-step-price">Included</span><p>System design and build plan. Included in Map.</p></div></div>
-      <div class="sv-step"><span class="sv-step-num">4</span><div class="sv-step-card"><h3>Deploy S / M / L</h3><span class="sv-step-price">$3K–12K</span><p>Execution. 1 to 8 weeks depending on scope.</p></div></div>
-      <div class="sv-step"><span class="sv-step-num">5</span><div class="sv-step-card"><h3>Activate + Measure</h3><span class="sv-step-price">Included</span><p>Go-live support + 30-day monitoring. Included in Deploy.</p></div></div>
-      <div class="sv-step"><span class="sv-step-num">6</span><div class="sv-step-card"><h3>Evolution Partner</h3><span class="sv-step-price">$1,500–3K/mo</span><p>Optional monthly retainer. 3-month cycles.</p></div></div>
+      <div class="sv-step"><span class="sv-step-num">1</span><div class="sv-step-card"><h3 data-i18n="step1_h">Discovery Call</h3><span class="sv-step-price">Free</span><p data-i18n="step1_p">30-minute fit check. No commitment, no pitch deck.</p></div></div>
+      <div class="sv-step"><span class="sv-step-num">2</span><div class="sv-step-card"><h3 data-i18n="step2_h">Map</h3><span class="sv-step-price">$1,500</span><p data-i18n="step2_p">Full CRM audit plus a prioritization roadmap. Fee credited toward Deploy at David's discretion.</p></div></div>
+      <div class="sv-step"><span class="sv-step-num">3</span><div class="sv-step-card"><h3 data-i18n="step3_h">Architect</h3><span class="sv-step-price">Included</span><p data-i18n="step3_p">System design and build plan. Delivered inside the Map phase at no extra cost.</p></div></div>
+      <div class="sv-step"><span class="sv-step-num">4</span><div class="sv-step-card"><h3 data-i18n="step4_h">Deploy S / M / L</h3><span class="sv-step-price">$3K to $12K</span><p data-i18n="step4_p">Execution. One to eight weeks depending on tier and scope.</p></div></div>
+      <div class="sv-step"><span class="sv-step-num">5</span><div class="sv-step-card"><h3 data-i18n="step5_h">Activate + Measure</h3><span class="sv-step-price">Included</span><p data-i18n="step5_p">Go-live support plus 30-day monitoring. Included in every Deploy.</p></div></div>
+      <div class="sv-step"><span class="sv-step-num">6</span><div class="sv-step-card"><h3 data-i18n="step6_h">Evolution Partner</h3><span class="sv-step-price">$1,500 to $3K/mo</span><p data-i18n="step6_p">Optional ongoing retainer after Deploy. Monthly sprints, system monitoring, priority access. 3-month cycles.</p></div></div>
     </div>
   </div>
 </section>
 
+<!-- §8 WORKS WITH YOUR CRM -->
 <section class="sv-section">
   <div class="sv-inner reveal">
     <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--acc);color:var(--acc-ink)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>Supported platforms</span>
-      <h2>Works with your CRM</h2>
+      <span class="eyebrow-pill" style="background:var(--acc)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="eyebrow_platforms">Supported platforms</span></span>
+      <h2 data-i18n="platforms_h2">Works with your CRM</h2>
     </div>
     <div class="sv-platforms">
-      <div class="sv-platform"><h3><img class="sv-platform-logo" src="images/logos/logo-hubspot.png" alt="HubSpot">HubSpot</h3><div class="sv-pills"><span class="sv-pill is-acc">Foundation</span><span class="sv-pill is-acc">Scale</span><span class="sv-pill is-acc">Intelligence</span></div><p>Best MCP support today.</p></div>
-      <div class="sv-platform"><h3><img class="sv-platform-logo" src="images/logos/logo-salesforce.png" alt="Salesforce">Salesforce</h3><div class="sv-pills"><span class="sv-pill is-acc">Foundation</span><span class="sv-pill is-acc">Scale</span><span class="sv-pill is-acc">Intelligence</span></div><p>Full API + MCP available.</p></div>
-      <div class="sv-platform"><h3>Zoho CRM</h3><div class="sv-pills"><span class="sv-pill is-acc">Foundation</span><span class="sv-pill is-acc">Scale</span><span class="sv-pill is-acc">Intelligence</span></div><p>MCP via n8n bridge.</p></div>
-      <div class="sv-platform"><h3>GoHighLevel</h3><div class="sv-pills"><span class="sv-pill is-acc">Foundation</span><span class="sv-pill is-acc">Scale</span><span class="sv-pill is-acc">Intelligence</span></div><p>API on all plans, MCP via n8n bridge.</p></div>
+      <div class="sv-platform"><h3><img class="sv-platform-logo" src="images/logos/logo-hubspot.png" alt="HubSpot">HubSpot</h3><div class="sv-pills"><span class="sv-pill is-acc">Foundation</span><span class="sv-pill is-acc">Scale</span><span class="sv-pill is-acc">Intelligence</span></div><p data-i18n="platform_hs">The strongest MCP support available today. Recommended starting point for Intelligence tier.</p></div>
+      <div class="sv-platform"><h3><img class="sv-platform-logo" src="images/logos/logo-salesforce.png" alt="Salesforce">Salesforce</h3><div class="sv-pills"><span class="sv-pill is-acc">Foundation</span><span class="sv-pill is-acc">Scale</span><span class="sv-pill is-acc">Intelligence</span></div><p data-i18n="platform_sf">Full API plus native MCP available on Pro Suite and above.</p></div>
+      <div class="sv-platform"><h3>Zoho CRM</h3><div class="sv-pills"><span class="sv-pill is-acc">Foundation</span><span class="sv-pill is-acc">Scale</span><span class="sv-pill is-acc">Intelligence</span></div><p data-i18n="platform_zoho">All three tiers supported. Intelligence tier runs via n8n bridge.</p></div>
+      <div class="sv-platform"><h3>GoHighLevel</h3><div class="sv-pills"><span class="sv-pill is-acc">Foundation</span><span class="sv-pill is-acc">Scale</span><span class="sv-pill is-acc">Intelligence</span></div><p data-i18n="platform_ghl">API on all plans. Intelligence tier runs via n8n bridge.</p></div>
     </div>
-    <p class="sv-note">Already on a different CRM? <a href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Discovery%20Call">Book a call</a>, we evaluate case by case.</p>
+    <p class="sv-note" data-i18n-html="platforms_note">Already on a different CRM? <a href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Discovery%20Call">Book a call</a>, we evaluate case by case.</p>
   </div>
 </section>
 
-<section class="sv-section is-dim">
-  <div class="sv-inner reveal">
-    <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--acc);color:var(--acc-ink)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>Value comparison</span>
-      <h2>75–85% less than a US RevOps agency</h2>
-    </div>
-    <div class="sv-table-wrap">
-      <table class="sv-table">
-        <thead><tr><th scope="col">Engagement</th><th scope="col">Muvap fee</th><th scope="col">US agency equivalent</th><th scope="col">You save</th></tr></thead>
-        <tbody>
-        <tr><td>Foundation / Deploy S</td><td class="is-muvap" data-label="Muvap fee">$3,000–4,000</td><td class="is-agency" data-label="US agency">$15,000–25,000</td><td data-label="You save"><span class="sv-save">75–85%</span></td></tr>
-        <tr><td>Scale / Deploy M</td><td class="is-muvap" data-label="Muvap fee">$5,700</td><td class="is-agency" data-label="US agency">$25,000–40,000</td><td data-label="You save"><span class="sv-save">75–85%</span></td></tr>
-        <tr><td>Intelligence / Deploy L+</td><td class="is-muvap" data-label="Muvap fee">$8,000–12,000</td><td class="is-agency" data-label="US agency">$40,000–80,000</td><td data-label="You save"><span class="sv-save">75–85%</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="sv-note">Muvap charges for expertise and configuration. You own your tools directly and pay vendors at standard rates. No markup, no bundled subscriptions.</p>
+<!-- §9 FINAL CTA -->
+<section class="sv-cta" id="book">
+  <div class="sv-cta-inner reveal">
+    <h2 data-i18n="cta_h2">Ready to build a CRM your team actually uses?</h2>
+    <p data-i18n="cta_p">The Discovery Call is free. 30 minutes. You walk away with a clear picture of which tier fits your stack and what it will take to build it.</p>
+    <a class="sv-btn is-acc" data-magnetic="0.12" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Discovery%20Call" data-i18n="cta_btn">Book a Discovery Call</a>
+    <a class="sv-cta-secondary" href="gtm-total-glowap.html" data-i18n="cta_secondary">Start with GTM Total Glowap! first →</a>
   </div>
 </section>
 
+<!-- §10 EVOLUTION PARTNER -->
 <section class="sv-section nx-grid-bg" data-grid-parallax>
   <div class="sv-inner sv-evo reveal">
     <div class="sv-evo-copy">
-      <span class="eyebrow-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>Evolution Partner</span>
-      <h2>Don&#x27;t let the system drift</h2>
-      <p>After your Deploy, continue as an Evolution Partner. We monitor, iterate, and keep the system improving every month.</p>
-      <div class="sv-evo-price"><strong>$1,500–3,000/mo</strong><span>Depending on scope and number of programs under active management. 3-month renewal cycles. 30-day written notice to not renew.</span></div>
+      <span class="eyebrow-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="eyebrow_evo">Evolution Partner</span></span>
+      <h2 data-i18n="evo_h2">The system should get better over time. Not just survive.</h2>
+      <p data-i18n="evo_p">After your Deploy, continue as an Evolution Partner. We monitor the system, catch drift before it becomes a problem, and run one improvement sprint every month.</p>
+      <div class="sv-evo-price"><strong>$1,500 to $3,000/mo</strong><span data-i18n="evo_price_note">Depending on scope and number of programs under active management. 3-month renewal cycles. 30-day written notice to cancel.</span></div>
+      <a class="sv-btn is-paper" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Evolution%20Partner" data-i18n="evo_cta">Ask about Evolution Partner →</a>
     </div>
     <div class="sv-evo-grid">
-        <div class="sv-evo-item"><h3>Monthly Strategy Call</h3><p>60-minute session. Review metrics, align on next sprint, adjust priorities.</p></div>
-        <div class="sv-evo-item"><h3>System Monitoring</h3><p>Ongoing health checks: CRM data quality, enrichment pipeline uptime, scoring drift.</p></div>
-        <div class="sv-evo-item"><h3>One Improvement Sprint/Mo</h3><p>Scope defined monthly. Could be a new scoring rule, a new report, a stage adjustment.</p></div>
-        <div class="sv-evo-item"><h3>Priority Access</h3><p>Scope additions and new program deployments go to the front of the queue.</p></div>
+        <div class="sv-evo-item"><h3 data-i18n="evo_item1_h">Monthly Strategy Call</h3><p data-i18n="evo_item1_p">60 minutes. Review what moved, what stalled, and where to put effort next month.</p></div>
+        <div class="sv-evo-item"><h3 data-i18n="evo_item2_h">System Monitoring</h3><p data-i18n="evo_item2_p">Ongoing health checks: CRM data quality, enrichment pipeline uptime, scoring model drift.</p></div>
+        <div class="sv-evo-item"><h3 data-i18n="evo_item3_h">One Improvement Sprint / Mo</h3><p data-i18n="evo_item3_p">Scope set at the monthly call. A new scoring rule, a new report, a stage adjustment, or a new automation. One concrete thing, shipped.</p></div>
+        <div class="sv-evo-item"><h3 data-i18n="evo_item4_h">Priority Access</h3><p data-i18n="evo_item4_p">New scope additions and new program Deploys go to the front of the queue.</p></div>
     </div>
   </div>
 </section>
 
-<section class="sv-cta" id="book">
-  <div class="sv-cta-inner reveal">
-    <h2>Ready to build a CRM your team actually uses?</h2>
-    <p>The Discovery Call is free. 30 minutes. You walk away knowing which tier fits your stack and what it will take to build it.</p>
-    <a class="sv-btn is-acc" data-magnetic="0.12" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Discovery%20Call">Book a Discovery Call</a>
-    <a class="sv-cta-secondary" href="gtm-total-glowap.html">Start with GTM Total Glowap! first →</a>
-  </div>
-</section>
-
+<!-- §11 RELATED PROGRAMS -->
 <section class="sv-section is-dim">
   <div class="sv-inner reveal">
     <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--nx-paper)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>Keep building</span>
-      <h2>Related programs</h2>
+      <span class="eyebrow-pill" style="background:var(--nx-paper)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="eyebrow_related">Keep building</span></span>
+      <h2 data-i18n="related_h2">Related programs</h2>
     </div>
     <div class="sv-related">
-      <a class="sv-rel" href="gtm-outbound-evolution.html"><span class="sv-rel-badge" style="background:var(--nx-mint)">Program 2</span><h3>GTM Outbound Evolution</h3><p>Once your CRM is clean, build the pipeline that fills it.</p><span class="sv-rel-arrow">Explore program <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-      <a class="sv-rel" href="gtm-workforce-evolution.html"><span class="sv-rel-badge" style="background:var(--nx-yellow)">Program 4</span><h3>GTM Workforce Evolution</h3><p>Automate the operational overhead once the foundation is in place.</p><span class="sv-rel-arrow">Explore program <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-      <a class="sv-rel" href="gtm-total-glowap.html"><span class="sv-rel-badge" style="background:var(--nx-pink)">Program 5</span><h3>GTM Total Glowap!</h3><p>Not sure where to start? Begin with the full audit.</p><span class="sv-rel-arrow">Explore program <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="sv-rel" href="gtm-outbound-evolution.html"><span class="sv-rel-badge" style="background:var(--nx-mint)">Program 2</span><h3>GTM Outbound Evolution</h3><p data-i18n="rel1_p">CRM is clean. Now build the pipeline that fills it. Sequencing, targeting, and outbound that converts.</p><span class="sv-rel-arrow"><span data-i18n="rel_arrow">Explore program</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="sv-rel" href="gtm-workforce-evolution.html"><span class="sv-rel-badge" style="background:var(--nx-yellow)">Program 4</span><h3>GTM Workforce Evolution</h3><p data-i18n="rel2_p">Once the foundation is in place, automate the operational overhead so your team does the work that actually matters.</p><span class="sv-rel-arrow"><span data-i18n="rel_arrow">Explore program</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+      <a class="sv-rel" href="gtm-total-glowap.html"><span class="sv-rel-badge" style="background:var(--nx-pink)">Program 5</span><h3>GTM Total Glowap!</h3><p data-i18n="rel3_p">Not sure where to start? Total Glowap is the full diagnostic that tells you exactly where your revenue system is breaking.</p><span class="sv-rel-arrow"><span data-i18n="rel_arrow">Explore program</span> <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
     </div>
   </div>
 </section>
 
 <div class="sticky-cta">
-  <a href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Discovery%20Call">Book a Discovery Call</a>
+  <a href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Discovery%20Call" data-i18n="sticky_cta">Book a Discovery Call</a>
 </div>
 
 <footer>
@@ -358,7 +595,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="index.html" class="logo">
         <img src="images/muvap-logo.webp" alt="Muvap" style="height:34px;width:auto;display:block">
       </a>
-      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <p data-i18n="footer_tagline">GTM and RevOps systems for teams who are done patching their funnel together.</p>
       <div class="footer-socials">
         <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
@@ -369,7 +606,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="footer-col">
-      <span class="footer-col-label">Programs</span>
+      <span class="footer-col-label" data-i18n="footer_programs">Programs</span>
       <a href="gtm-architecture-evolution.html">GTM Architecture Evolution</a>
       <a href="gtm-outbound-evolution.html">GTM Outbound Evolution</a>
       <a href="gtm-intelligence-evolution.html">GTM Intelligence Evolution</a>
@@ -377,23 +614,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="gtm-total-glowap.html">GTM Total Glowap!</a>
     </div>
     <div class="footer-col">
-      <span class="footer-col-label">Site</span>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="customers.html">Case studies</a>
-      <a href="resources.html">Blog</a>
-      <a href="contact.html">Contact</a>
+      <span class="footer-col-label" data-i18n="footer_site">Site</span>
+      <a href="index.html" data-i18n="footer_home">Home</a>
+      <a href="about.html" data-i18n="footer_about">About</a>
+      <a href="customers.html" data-i18n="footer_cases">Case studies</a>
+      <a href="resources.html" data-i18n="footer_blog">Blog</a>
+      <a href="contact.html" data-i18n="footer_contact">Contact</a>
     </div>
     <div class="footer-col">
-      <span class="footer-col-label">Get started</span>
-      <a href="contact.html?service=Discovery%20Call">Book a Discovery Call</a>
-      <a href="gtm-total-glowap.html">GTM Diagnostic</a>
-      <a href="downloads.html">Free downloads</a>
+      <span class="footer-col-label" data-i18n="footer_getstarted">Get started</span>
+      <a href="contact.html?service=Discovery%20Call" data-i18n="footer_book">Book a Discovery Call</a>
+      <a href="gtm-total-glowap.html" data-i18n="footer_diag">GTM Diagnostic</a>
+      <a href="downloads.html" data-i18n="footer_dl">Free downloads</a>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Muvap. All rights reserved.</span>
-    <span>Built with GTM systems that work.</span>
+    <span data-i18n="footer_copy">© 2026 Muvap. All rights reserved.</span>
+    <span data-i18n="footer_built">Built with GTM systems that work.</span>
   </div>
 </footer>
 
@@ -420,6 +657,190 @@ document.querySelectorAll('a[href^="contact.html?service="]').forEach(function(a
     window.dataLayer.push({ event: 'program_cta_click', program: "GTM Architecture Evolution", cta_service: decodeURIComponent(a.getAttribute('href').split('service=')[1] || '') });
   });
 });
+
+// Language toggle
+var currentLang = localStorage.getItem('muvap-lang') || 'en';
+var COPY = {
+  en: {
+    nav_about: 'About', nav_casestudies: 'Case studies', nav_resources: 'Resources',
+    hero_h1: 'Your CRM has leads. Your pipeline has numbers. But your team is still flying blind.',
+    hero_sub: 'We build the revenue intelligence layer your CRM is missing: lifecycle stages, lead scoring, enrichment, and a system your team actually trusts.',
+    hero_body: 'Whether you are on HubSpot, Salesforce, Zoho, or GoHighLevel, we work inside the tools you already have and build them into something that runs revenue.',
+    hero_cta: 'Book a Discovery Call (free)', hero_link: 'See Pricing →',
+    trust_headline: 'Same outcome. <strong>75 to 85% less than a US RevOps agency.</strong> We work inside the tools you already pay for.',
+    pain_eyebrow: 'Does this sound familiar?',
+    pain_h2: 'You have a CRM. You just do not trust what is in it.',
+    pain_1: 'Your team enters data differently depending on the rep. The same account looks like three different companies depending on who you ask.',
+    pain_2: 'Your pipeline stages exist but nobody agrees on what actually moves a deal from one to the next. Deals age in place while everyone assumes someone else is on it.',
+    pain_3: 'You forecast by calling reps. Not by opening a dashboard. You already know that is a problem.',
+    pain_4: 'New leads come in and nobody knows if they are worth a call until someone spends 20 minutes researching them manually. Every single time.',
+    pain_5: 'You have tried to fix this before. You ran a training. You sent the reminders. Six weeks later the CRM looked exactly the same.',
+    diff_eyebrow: 'How we work',
+    diff_h2: 'This is not consulting.',
+    diff_body: 'Consulting gives you a deck with recommendations. We go into your CRM and build the system. You get a working revenue architecture, not a to-do list for your team to figure out later.',
+    diff_card1_h: 'We build, we do not advise',
+    diff_card1_p: 'No slide decks. No frameworks to implement yourself. We go inside the platform and do the work.',
+    diff_card2_h: 'Your tools, no new vendors',
+    diff_card2_p: 'No platform switches. No surprise subscriptions. We configure what you already have and tell you exactly what extra tools you need (if any).',
+    diff_card3_h: 'We hand it over running',
+    diff_card3_p: 'At the end of a Deploy, your team is using the system. Not learning about it. Using it. Adoption is part of the scope, not an afterthought.',
+    diff_card4_h: '30-day go-live guarantee',
+    diff_card4_p: 'If adoption does not hold in the first 30 days after go-live, we come back and fix it. No extra charge.',
+    proof_eyebrow: 'Results',
+    proof_h2: 'What clients say',
+    proof_p: 'Clients have reported their sales team working from a single source of truth within 30 days of deployment. More detail is on its way. If we have worked together and you would like to share your experience, I would genuinely appreciate it.',
+    proof_cite: 'Testimonials incoming',
+    eyebrow_pricing: 'Tiers & pricing', pricing_h2: 'Pick the tier that fits your stage',
+    pricing_intro: 'Foundation / Scale / Intelligence. Each tier builds on the one before it.',
+    goal_1: 'A CRM your team trusts. Consistent data. A pipeline with clear rules. The floor everything else is built on.',
+    fee_note_1: 'Price depends on number of pipelines and database size requiring cleanup.',
+    tier_cta_1: 'Start with Foundation →',
+    goal_2: 'Qualified pipeline that fills itself. Automated scoring, segmentation, and enrichment running without anyone touching it manually.',
+    tier_cta_2: 'Start with Scale →',
+    goal_3: 'A CRM that talks back. Query your pipeline, update records, and get deal summaries in plain language via Claude. No SQL. No filters.',
+    fee_note_3: 'Price depends on number of MCP integrations and CRM schema complexity.',
+    tier_cta_3: 'Start with Intelligence →',
+    prereq: '<strong>Prerequisite for Intelligence:</strong> Foundation tier must be complete. Without clean data, the headless CRM layer does not function. A DPA is required before work begins.',
+    eyebrow_delivery: 'Delivery process', delivery_h2: 'How every engagement works',
+    delivery_intro: 'Six phases. Same sequence across every Muvap program. You can stop after any of them.',
+    step1_h: 'Discovery Call', step1_p: '30-minute fit check. No commitment, no pitch deck.',
+    step2_h: 'Map', step2_p: "Full CRM audit plus a prioritization roadmap. Fee credited toward Deploy at David's discretion.",
+    step3_h: 'Architect', step3_p: 'System design and build plan. Delivered inside the Map phase at no extra cost.',
+    step4_h: 'Deploy S / M / L', step4_p: 'Execution. One to eight weeks depending on tier and scope.',
+    step5_h: 'Activate + Measure', step5_p: 'Go-live support plus 30-day monitoring. Included in every Deploy.',
+    step6_h: 'Evolution Partner', step6_p: 'Optional ongoing retainer after Deploy. Monthly sprints, system monitoring, priority access. 3-month cycles.',
+    eyebrow_platforms: 'Supported platforms', platforms_h2: 'Works with your CRM',
+    platform_hs: 'The strongest MCP support available today. Recommended starting point for Intelligence tier.',
+    platform_sf: 'Full API plus native MCP available on Pro Suite and above.',
+    platform_zoho: 'All three tiers supported. Intelligence tier runs via n8n bridge.',
+    platform_ghl: 'API on all plans. Intelligence tier runs via n8n bridge.',
+    platforms_note: 'Already on a different CRM? <a href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Discovery%20Call">Book a call</a>, we evaluate case by case.',
+    eyebrow_evo: 'Evolution Partner',
+    evo_h2: 'The system should get better over time. Not just survive.',
+    evo_p: 'After your Deploy, continue as an Evolution Partner. We monitor the system, catch drift before it becomes a problem, and run one improvement sprint every month.',
+    evo_price_note: 'Depending on scope and number of programs under active management. 3-month renewal cycles. 30-day written notice to cancel.',
+    evo_item1_h: 'Monthly Strategy Call', evo_item1_p: '60 minutes. Review what moved, what stalled, and where to put effort next month.',
+    evo_item2_h: 'System Monitoring', evo_item2_p: 'Ongoing health checks: CRM data quality, enrichment pipeline uptime, scoring model drift.',
+    evo_item3_h: 'One Improvement Sprint / Mo', evo_item3_p: 'Scope set at the monthly call. A new scoring rule, a new report, a stage adjustment, or a new automation. One concrete thing, shipped.',
+    evo_item4_h: 'Priority Access', evo_item4_p: 'New scope additions and new program Deploys go to the front of the queue.',
+    evo_cta: 'Ask about Evolution Partner →',
+    cta_h2: 'Ready to build a CRM your team actually uses?',
+    cta_p: 'The Discovery Call is free. 30 minutes. You walk away with a clear picture of which tier fits your stack and what it will take to build it.',
+    cta_btn: 'Book a Discovery Call', cta_secondary: 'Start with GTM Total Glowap! first →',
+    eyebrow_related: 'Keep building', related_h2: 'Related programs',
+    rel1_p: 'CRM is clean. Now build the pipeline that fills it. Sequencing, targeting, and outbound that converts.',
+    rel2_p: 'Once the foundation is in place, automate the operational overhead so your team does the work that actually matters.',
+    rel3_p: 'Not sure where to start? Total Glowap is the full diagnostic that tells you exactly where your revenue system is breaking.',
+    rel_arrow: 'Explore program', sticky_cta: 'Book a Discovery Call',
+    footer_tagline: 'GTM and RevOps systems for teams who are done patching their funnel together.',
+    footer_programs: 'Programs', footer_site: 'Site', footer_getstarted: 'Get started',
+    footer_home: 'Home', footer_about: 'About', footer_cases: 'Case studies',
+    footer_blog: 'Blog', footer_contact: 'Contact',
+    footer_book: 'Book a Discovery Call', footer_diag: 'GTM Diagnostic', footer_dl: 'Free downloads',
+    footer_copy: '© 2026 Muvap. All rights reserved.',
+    footer_built: 'Built with GTM systems that work.'
+  },
+  es: {
+    nav_about: 'Nosotros', nav_casestudies: 'Casos de estudio', nav_resources: 'Recursos',
+    hero_h1: 'Tu CRM tiene leads. Tu pipeline tiene números. Pero tu equipo sigue navegando a ciegas.',
+    hero_sub: 'Construimos la capa de inteligencia de ingresos que le falta a tu CRM: etapas del ciclo de vida, lead scoring, enriquecimiento y un sistema en el que tu equipo realmente confía.',
+    hero_body: 'Ya sea que uses HubSpot, Salesforce, Zoho o GoHighLevel, trabajamos dentro de las herramientas que ya tienes y las convertimos en algo que genera ingresos.',
+    hero_cta: 'Reserva una llamada de descubrimiento (gratis)', hero_link: 'Ver precios →',
+    trust_headline: 'El mismo resultado. <strong>75 a 85% menos que una agencia RevOps de EE.UU.</strong> Trabajamos dentro de las herramientas que ya pagas.',
+    pain_eyebrow: '¿Esto te suena familiar?',
+    pain_h2: 'Tienes un CRM. Solo que no confías en lo que hay dentro.',
+    pain_1: 'Tu equipo ingresa datos de forma diferente según el vendedor. La misma cuenta parece tres empresas distintas dependiendo de a quién le preguntes.',
+    pain_2: 'Tus etapas de pipeline existen pero nadie se pone de acuerdo en qué mueve realmente un deal de una a otra. Los deals envejecen mientras todos asumen que alguien más los está atendiendo.',
+    pain_3: 'Pronosticas llamando a los vendedores. No abriendo un dashboard. Ya sabes que eso es un problema.',
+    pain_4: 'Llegan nuevos leads y nadie sabe si vale la pena una llamada hasta que alguien invierte 20 minutos investigándolos manualmente. Cada vez.',
+    pain_5: 'Ya intentaste arreglar esto antes. Hiciste una capacitación. Mandaste recordatorios. Seis semanas después el CRM se veía exactamente igual.',
+    diff_eyebrow: 'Cómo trabajamos',
+    diff_h2: 'Esto no es consultoría.',
+    diff_body: 'La consultoría te entrega una presentación con recomendaciones. Nosotros entramos a tu CRM y construimos el sistema. Obtienes una arquitectura de ingresos funcionando, no una lista de pendientes para que tu equipo resuelva después.',
+    diff_card1_h: 'Construimos, no aconsejamos',
+    diff_card1_p: 'Sin presentaciones. Sin marcos de trabajo para implementar solos. Entramos a la plataforma y hacemos el trabajo.',
+    diff_card2_h: 'Tus herramientas, sin nuevos proveedores',
+    diff_card2_p: 'Sin cambios de plataforma. Sin suscripciones sorpresa. Configuramos lo que ya tienes y te decimos exactamente qué herramientas adicionales necesitas (si es que necesitas alguna).',
+    diff_card3_h: 'Lo entregamos funcionando',
+    diff_card3_p: 'Al final de un Deploy, tu equipo está usando el sistema. No aprendiendo sobre él. Usándolo. La adopción es parte del alcance, no un después.',
+    diff_card4_h: 'Garantía de 30 días post-lanzamiento',
+    diff_card4_p: 'Si la adopción no se sostiene en los primeros 30 días después del lanzamiento, volvemos y lo arreglamos. Sin costo adicional.',
+    proof_eyebrow: 'Resultados',
+    proof_h2: 'Lo que dicen los clientes',
+    proof_p: 'Clientes han reportado que su equipo de ventas trabaja desde una única fuente de verdad dentro de los 30 días del despliegue. Hay más detalle en camino. Si hemos trabajado juntos y quieres compartir tu experiencia, lo agradecería genuinamente.',
+    proof_cite: 'Testimonios en camino',
+    eyebrow_pricing: 'Tiers y precios', pricing_h2: 'Elige el tier que se ajusta a tu etapa',
+    pricing_intro: 'Foundation / Scale / Intelligence. Cada tier construye sobre el anterior.',
+    goal_1: 'Un CRM en el que confía tu equipo. Datos consistentes. Un pipeline con reglas claras. La base sobre la que se construye todo lo demás.',
+    fee_note_1: 'El precio depende del número de pipelines y el tamaño de la base de datos que requiere limpieza.',
+    tier_cta_1: 'Empezar con Foundation →',
+    goal_2: 'Pipeline calificado que se llena solo. Scoring automatizado, segmentación y enriquecimiento corriendo sin que nadie los toque manualmente.',
+    tier_cta_2: 'Empezar con Scale →',
+    goal_3: 'Un CRM que responde. Consulta tu pipeline, actualiza registros y obtén resúmenes de deals en lenguaje natural vía Claude. Sin SQL. Sin filtros.',
+    fee_note_3: 'El precio depende del número de integraciones MCP y la complejidad del esquema del CRM.',
+    tier_cta_3: 'Empezar con Intelligence →',
+    prereq: '<strong>Requisito para Intelligence:</strong> el tier Foundation debe estar completo. Sin datos limpios, la capa CRM headless no funciona. Se requiere un DPA antes de comenzar el trabajo.',
+    eyebrow_delivery: 'Proceso de entrega', delivery_h2: 'Cómo funciona cada proyecto',
+    delivery_intro: 'Seis fases. La misma secuencia en todos los programas Muvap. Puedes detenerte después de cualquiera.',
+    step1_h: 'Discovery Call', step1_p: 'Evaluación de 30 minutos. Sin compromiso, sin presentación de ventas.',
+    step2_h: 'Map', step2_p: 'Auditoría completa del CRM más una hoja de ruta de priorización. El pago se acredita al Deploy a discreción de David.',
+    step3_h: 'Architect', step3_p: 'Diseño del sistema y plan de construcción. Entregado dentro de la fase Map sin costo adicional.',
+    step4_h: 'Deploy S / M / L', step4_p: 'Ejecución. Una a ocho semanas según el tier y el alcance.',
+    step5_h: 'Activate + Measure', step5_p: 'Soporte de lanzamiento más 30 días de monitoreo. Incluido en cada Deploy.',
+    step6_h: 'Evolution Partner', step6_p: 'Retainer continuo opcional después del Deploy. Sprints mensuales, monitoreo del sistema, acceso prioritario. Ciclos de 3 meses.',
+    eyebrow_platforms: 'Plataformas compatibles', platforms_h2: 'Compatible con tu CRM',
+    platform_hs: 'El soporte MCP más sólido disponible hoy. Punto de partida recomendado para el tier Intelligence.',
+    platform_sf: 'API completa más MCP nativo disponible en Pro Suite y superior.',
+    platform_zoho: 'Los tres tiers son compatibles. El tier Intelligence corre vía puente n8n.',
+    platform_ghl: 'API en todos los planes. El tier Intelligence corre vía puente n8n.',
+    platforms_note: '¿Ya usas un CRM diferente? <a href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Discovery%20Call">Reserva una llamada</a>, evaluamos caso a caso.',
+    eyebrow_evo: 'Evolution Partner',
+    evo_h2: 'El sistema debería mejorar con el tiempo. No solo sobrevivir.',
+    evo_p: 'Después de tu Deploy, continúa como Evolution Partner. Monitoreamos el sistema, detectamos el deterioro antes de que se convierta en un problema y ejecutamos un sprint de mejora cada mes.',
+    evo_price_note: 'Según el alcance y el número de programas en gestión activa. Ciclos de renovación de 3 meses. 30 días de aviso escrito para cancelar.',
+    evo_item1_h: 'Llamada de estrategia mensual', evo_item1_p: '60 minutos. Revisamos qué avanzó, qué se estancó y dónde enfocar el esfuerzo el mes siguiente.',
+    evo_item2_h: 'Monitoreo del sistema', evo_item2_p: 'Chequeos continuos: calidad de datos del CRM, uptime del pipeline de enriquecimiento, drift del modelo de scoring.',
+    evo_item3_h: 'Un sprint de mejora al mes', evo_item3_p: 'Alcance definido en la llamada mensual. Una nueva regla de scoring, un nuevo reporte, un ajuste de etapa o una nueva automatización. Una cosa concreta, entregada.',
+    evo_item4_h: 'Acceso prioritario', evo_item4_p: 'Las adiciones de alcance y los nuevos Deploys de programas van al frente de la cola.',
+    evo_cta: 'Pregunta por Evolution Partner →',
+    cta_h2: '¿Listo para construir un CRM que tu equipo realmente use?',
+    cta_p: 'La llamada de descubrimiento es gratis. 30 minutos. Te vas con una imagen clara de qué tier se ajusta a tu stack y lo que tomará construirlo.',
+    cta_btn: 'Reserva tu llamada de descubrimiento', cta_secondary: 'Empieza con GTM Total Glowap! primero →',
+    eyebrow_related: 'Sigue construyendo', related_h2: 'Programas relacionados',
+    rel1_p: 'El CRM está limpio. Ahora construye el pipeline que lo llena. Secuenciación, targeting y outbound que convierte.',
+    rel2_p: 'Una vez que la base esté instalada, automatiza la carga operativa para que tu equipo haga el trabajo que realmente importa.',
+    rel3_p: '¿No sabes por dónde empezar? Total Glowap es el diagnóstico completo que te dice exactamente dónde se rompe tu sistema de ingresos.',
+    rel_arrow: 'Explorar programa', sticky_cta: 'Reserva tu llamada',
+    footer_tagline: 'Sistemas GTM y RevOps para equipos que ya se cansaron de parchar su funnel.',
+    footer_programs: 'Programas', footer_site: 'Sitio', footer_getstarted: 'Empieza ya',
+    footer_home: 'Inicio', footer_about: 'Nosotros', footer_cases: 'Casos de estudio',
+    footer_blog: 'Blog', footer_contact: 'Contacto',
+    footer_book: 'Reserva una llamada', footer_diag: 'Diagnóstico GTM', footer_dl: 'Descargas gratis',
+    footer_copy: '© 2026 Muvap. Todos los derechos reservados.',
+    footer_built: 'Construido con sistemas GTM que funcionan.'
+  }
+};
+
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('muvap-lang', lang);
+  var copy = COPY[lang];
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (copy[key] !== undefined) el.textContent = copy[key];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n-html');
+    if (copy[key] !== undefined) el.innerHTML = copy[key];
+  });
+  var toggle = document.getElementById('langToggle');
+  if (toggle) toggle.textContent = lang === 'en' ? 'ES' : 'EN';
+  document.documentElement.lang = lang;
+}
+document.getElementById('langToggle').addEventListener('click', function() {
+  setLang(currentLang === 'en' ? 'es' : 'en');
+});
+setLang(currentLang);
 </script>
 <script src="assets/interactions.js" defer></script>
 </body>

@@ -89,8 +89,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     background-size:var(--nx-grid-cell) var(--nx-grid-cell);
   }
   .eyebrow-pill{
-    display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);
-    padding:6px 14px;font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:var(--nx-ink);
+    display:inline-flex;align-items:center;gap:6px;border:none;border-radius:var(--nx-radius-pill);
+    padding:6px 14px;font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:var(--nx-paper);
   }
   .placeholder-box{
     background:var(--nx-paper-dim);border:1.5px dashed #ccc;border-radius:14px;display:flex;align-items:center;justify-content:center;
@@ -99,7 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ---- nav ---- */
   .top-band{padding:20px clamp(16px,4vw,44px) 0}
-  .site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0;position:sticky;top:16px;z-index:40}
+  .site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0;position:relative;z-index:40}
   .logo{display:flex;align-items:center;gap:8px;flex:0 0 auto}
   .logo span{font:900 24px/1 var(--nx-font-display);letter-spacing:-.03em;color:var(--nx-paper)}
   .nav-right{flex:0 0 auto;display:flex;align-items:center;gap:10px}
@@ -287,42 +287,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="about-hero-grid">
     <div class="about-hero-photo" style="display:flex;align-items:center;justify-content:center">
-      <img src="images/about-hero-photo.webp" alt="David Berrocal with the teams at MEDLIFE and CloudTask" style="width:100%;height:100%;object-fit:contain;display:block;background:transparent">
+      <img src="images/about-hero-photo.png" alt="David Berrocal with the teams at MEDLIFE and CloudTask" style="width:100%;height:100%;object-fit:contain;display:block">
     </div>
     <div class="about-hero-copy">
       <span class="eyebrow-pill" style="background:var(--nx-mint)">
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="eyebrow">ABOUT ME</span>
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="eyebrow">THE PERSON BEHIND MUVAP</span>
       </span>
-      <h1 data-i18n="h1">I've spent a decade fixing the GTM systems founders inherit and never have time to rebuild.</h1>
-      <p data-i18n="hero_p">I'm an independent RevOps and GTM consultant. Before that, I built and ran the revenue operations function inside venture-backed companies, so I've sat on your side of the table too.</p>
+      <h1 data-i18n="h1">Five years fixing the revenue systems that fast-growing teams never had time to build right.</h1>
+      <p data-i18n="hero_p">I help sales and marketing teams stop losing deals to broken processes. Before going independent, I was inside the company doing this exact work, so I know what it feels like when the CRM is a mess and nobody trusts the numbers.</p>
     </div>
   </div>
 </div>
 
 <div class="bio-section">
   <div class="reveal bio-wrap">
-    <span class="bio-eyebrow" data-i18n="bio_eyebrow">A bit about me</span>
-    <p data-i18n="bio_p1">I got into RevOps the way most people do: by being the person on the team who couldn't stand watching leads disappear into a CRM nobody trusted. I ended up owning the fix, then owning the function, then doing it for a living.</p>
+    <span class="bio-eyebrow" data-i18n="bio_eyebrow">HOW I GOT HERE</span>
+    <p data-i18n="bio_p1">I got into this the way most people do: by being the person on the team who couldn't stand watching leads disappear into a CRM nobody trusted. I ended up owning the fix. Then owning the system. Then doing it full time.</p>
     <p data-i18n="bio_p2">Outside of work I still read every automation postmortem I can find, and I'm happiest when a client's dashboard finally has numbers everyone in the room agrees on.</p>
   </div>
 </div>
 
 <div class="bio-section is-dim">
   <div class="reveal timeline-wrap">
-    <h2 data-i18n="timeline_h2">Where I've worked.</h2>
-    <p class="timeline-sub" data-i18n="timeline_sub">Real client engagements, most recent first.</p>
+    <h2 data-i18n="timeline_h2">Where I've done this.</h2>
+    <p class="timeline-sub" data-i18n="timeline_sub">The companies I've helped fix their revenue systems.</p>
     <div id="timelineList"></div>
   </div>
 </div>
 
 <div class="metrics-section">
   <div class="reveal metrics-row" id="metricsRow"></div>
-  <p class="metrics-note" data-i18n="metrics_note">Real numbers coming soon: these are the categories we'll report on, not final figures.</p>
+  <p class="metrics-note" data-i18n="metrics_note">Numbers incoming. These are what we track.</p>
 </div>
 
 <div class="martech-section">
   <div class="reveal martech-wrap">
-    <h2 data-i18n="martech_h2">Martech I work across.</h2>
+    <h2 data-i18n="martech_h2">Tools I know cold.</h2>
     <div class="martech-tabs" id="martechTabs"></div>
     <div class="martech-tools" id="martechTools"></div>
   </div>
@@ -330,7 +330,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="testi-section" data-grid-parallax>
   <div class="reveal">
-    <h2 data-i18n="testi_h2">Recommendations.</h2>
+    <h2 data-i18n="testi_h2">What people say.</h2>
     <div class="testi-grid" id="testiGrid"></div>
   </div>
 </div>
@@ -338,7 +338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="about-cta">
   <div class="reveal about-cta-wrap">
     <h2 data-i18n="cta_h2">Let's see if it's a fit.</h2>
-    <p data-i18n="cta_p">Thirty minutes, no deck, just a straight conversation about where your GTM system is breaking.</p>
+    <p data-i18n="cta_p">Thirty minutes. No slides, no pitch. Just an honest conversation about where your revenue system is breaking and what it would take to fix it.</p>
     <a href="index.html#services" class="about-cta-btn" data-magnetic="0.15" data-i18n="cta_btn">Book a call</a>
   </div>
 </div>
@@ -389,23 +389,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 const COPY = {
   en: {
     nav_cta: "Let's talk",
-    eyebrow: 'ABOUT ME',
-    h1: "I've spent a decade fixing the GTM systems founders inherit and never have time to rebuild.",
-    hero_p: "I'm an independent RevOps and GTM consultant. Before that, I built and ran the revenue operations function inside venture-backed companies, so I've sat on your side of the table too.",
-    bio_eyebrow: 'A bit about me',
-    bio_p1: "I got into RevOps the way most people do: by being the person on the team who couldn't stand watching leads disappear into a CRM nobody trusted. I ended up owning the fix, then owning the function, then doing it for a living.",
+    eyebrow: 'THE PERSON BEHIND MUVAP',
+    h1: "Five years fixing the revenue systems that fast-growing teams never had time to build right.",
+    hero_p: "I help sales and marketing teams stop losing deals to broken processes. Before going independent, I was inside the company doing this exact work, so I know what it feels like when the CRM is a mess and nobody trusts the numbers.",
+    bio_eyebrow: 'HOW I GOT HERE',
+    bio_p1: "I got into this the way most people do: by being the person on the team who couldn't stand watching leads disappear into a CRM nobody trusted. I ended up owning the fix. Then owning the system. Then doing it full time.",
     bio_p2: "Outside of work I still read every automation postmortem I can find, and I'm happiest when a client's dashboard finally has numbers everyone in the room agrees on.",
-    timeline_h2: "Where I've worked.",
-    timeline_sub: 'Real client engagements, most recent first.',
-    metrics_note: "Real numbers coming soon: these are the categories we'll report on, not final figures.",
-    metrics_labels: ['Years in RevOps & GTM', 'Companies scaled through funding rounds', 'GTM systems shipped since going independent', 'Pipeline under management'],
-    martech_h2: 'Martech I work across.',
+    timeline_h2: "Where I've done this.",
+    timeline_sub: "The companies I've helped fix their revenue systems.",
+    metrics_note: "Numbers incoming. These are what we track.",
+    metrics_labels: ['Years doing this full time', 'Companies scaled through funding rounds', 'Revenue systems built since going independent', 'Pipeline under management'],
+    martech_h2: 'Tools I know cold.',
     martech_cats: ['CRM', 'Analytics', 'Automation', 'Enrichment', 'Outbound', 'Advertising'],
-    testi_h2: 'Recommendations.',
+    testi_h2: 'What people say.',
     testi_coming_h3: 'Recommendations are on their way.',
-    testi_coming_p: "Real quotes from people I've worked with will replace this. If we've worked together, I'd love yours.",
+    testi_coming_p: "Quotes from people I've worked with are on their way. If we've worked together and you'd like to leave one, I'd really appreciate it.",
     cta_h2: "Let's see if it's a fit.",
-    cta_p: 'Thirty minutes, no deck, just a straight conversation about where your GTM system is breaking.',
+    cta_p: 'Thirty minutes. No slides, no pitch. Just an honest conversation about where your revenue system is breaking and what it would take to fix it.',
     cta_btn: 'Book a call',
     footer_tagline: 'GTM and RevOps systems for teams who are done patching their funnel together.',
     footer_copy: '© 2026 Muvap. All rights reserved.',
@@ -421,23 +421,23 @@ const COPY = {
   },
   es: {
     nav_cta: 'Hablemos',
-    eyebrow: 'SOBRE MÍ',
-    h1: 'He pasado una década arreglando los sistemas GTM que los fundadores heredan y nunca tienen tiempo de reconstruir.',
-    hero_p: 'Soy consultor independiente de RevOps y GTM. Antes de eso, construí y dirigí la función de revenue operations dentro de empresas respaldadas por capital de riesgo, así que conozco tu lado de la mesa también.',
-    bio_eyebrow: 'Un poco sobre mí',
-    bio_p1: 'Entré a RevOps como la mayoría: siendo la persona del equipo que no soportaba ver cómo los leads desaparecían en un CRM en el que nadie confiaba. Terminé siendo el dueño del fix, luego de la función, y después de eso lo hice mi carrera.',
+    eyebrow: 'LA PERSONA DETRÁS DE MUVAP',
+    h1: 'Cinco años arreglando los sistemas de revenue que los equipos de alto crecimiento nunca tuvieron tiempo de construir bien.',
+    hero_p: 'Ayudo a equipos de ventas y marketing a dejar de perder oportunidades por procesos rotos. Antes de trabajar de forma independiente, estaba dentro de la empresa haciendo exactamente este trabajo, así que sé lo que se siente cuando el CRM es un desastre y nadie confía en los números.',
+    bio_eyebrow: 'CÓMO LLEGUÉ AQUÍ',
+    bio_p1: 'Llegué a esto como la mayoría: siendo la persona del equipo que no soportaba ver cómo los leads desaparecían en un CRM en el que nadie confiaba. Terminé siendo el dueño del fix. Luego del sistema. Luego lo hice a tiempo completo.',
     bio_p2: 'Fuera del trabajo sigo leyendo cada postmortem de automatización que encuentro, y soy más feliz cuando el dashboard de un cliente por fin tiene números con los que todos en la sala están de acuerdo.',
-    timeline_h2: 'Dónde he trabajado.',
-    timeline_sub: 'Proyectos reales con clientes, el más reciente primero.',
-    metrics_note: 'Números reales próximamente: estas son las categorías que reportaremos, no las cifras finales.',
-    metrics_labels: ['Años en RevOps y GTM', 'Empresas escaladas en rondas de inversión', 'Sistemas GTM entregados como independiente', 'Pipeline bajo gestión'],
-    martech_h2: 'Martech con el que trabajo.',
+    timeline_h2: 'Dónde he hecho esto.',
+    timeline_sub: 'Las empresas a las que he ayudado a arreglar sus sistemas de revenue.',
+    metrics_note: 'Números en camino. Estas son las categorías que seguimos.',
+    metrics_labels: ['Años haciéndolo a tiempo completo', 'Empresas escaladas en rondas de inversión', 'Sistemas de revenue construidos como independiente', 'Pipeline bajo gestión'],
+    martech_h2: 'Herramientas que conozco a fondo.',
     martech_cats: ['CRM', 'Analítica', 'Automatización', 'Enriquecimiento', 'Outbound', 'Publicidad'],
-    testi_h2: 'Recomendaciones.',
+    testi_h2: 'Lo que dicen las personas.',
     testi_coming_h3: 'Las recomendaciones están en camino.',
-    testi_coming_p: 'Citas reales de personas con las que he trabajado las reemplazarán. Si hemos trabajado juntos, me encantaría la tuya.',
+    testi_coming_p: 'Citas de personas con las que he trabajado están en camino. Si hemos trabajado juntos y quieres dejar una, te lo agradecería mucho.',
     cta_h2: 'Veamos si hay fit.',
-    cta_p: 'Treinta minutos, sin presentaciones, solo una conversación directa sobre dónde está fallando tu sistema GTM.',
+    cta_p: 'Treinta minutos. Sin slides, sin pitch. Solo una conversación honesta sobre dónde está fallando tu sistema de revenue y qué haría falta para arreglarlo.',
     cta_btn: 'Agendar una llamada',
     footer_tagline: 'Sistemas GTM y RevOps para equipos que ya no quieren seguir parcheando su funnel.',
     footer_copy: '© 2026 Muvap. Todos los derechos reservados.',
@@ -555,3 +555,5 @@ setLang(currentLang);
 <script src="assets/interactions.js" defer></script>
 </body>
 </html>
+
+

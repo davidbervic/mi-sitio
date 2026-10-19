@@ -74,7 +74,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* ---- nav ---- */
   .top-band{padding:20px clamp(16px,4vw,44px) 0}
-  .site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0;position:sticky;top:16px;z-index:40}
+  .site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0;position:relative;z-index:40}
   .logo{display:flex;align-items:center;gap:8px;flex:0 0 auto}
   .logo span{font:900 24px/1 var(--nx-font-display);letter-spacing:-.03em;color:var(--nx-paper)}
   .nav-right{flex:0 0 auto;display:flex;align-items:center;gap:10px}
@@ -115,7 +115,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .dl-hero p{margin:0;color:rgba(255,255,255,.85);font:400 17px/1.5 var(--nx-font-text);max-width:560px}
 
   /* ---- main ---- */
-  .dl-main{background:var(--nx-paper);padding:clamp(48px,7vw,80px) clamp(16px,4vw,44px) clamp(64px,9vw,120px)}
+  .dl-main{background:url('images/dl-downloads-bg.webp') center/cover no-repeat;padding:clamp(48px,7vw,80px) clamp(16px,4vw,44px) clamp(64px,9vw,120px)}
   .dl-main-wrap{max-width:1200px;margin:0 auto}
   .format-tag{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;background:#f4f4f4;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:4px 12px;font:800 10px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:var(--nx-ink)}
 
@@ -218,7 +218,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="dl-card-body">
           <span class="format-tag">Spreadsheet</span>
           <h3>ICP Worksheet</h3>
-          <p>Define tu cliente ideal en 1 hora. La hoja que usamos con clientes para clarificar quién compra, por qué, y cómo llegar a más de ellos.</p>
+          <p>Stop guessing who your best customers are. One hour with this worksheet and you'll know exactly who to target, why they buy, and how to find more of them.</p>
           <span class="dl-get-btn" style="background:var(--nx-mint)">Get it free</span>
         </div>
       </a>
@@ -230,7 +230,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="dl-card-body">
           <span class="format-tag">Assessment</span>
           <h3>GTM Type Test</h3>
-          <p>Descubre qué tipo de GTM motion encaja con tu negocio. 8 preguntas, resultado inmediato con tu perfil y recomendaciones de stack.</p>
+          <p>Not sure how you should be going to market? Answer 8 quick questions and get an instant breakdown of your best approach, plus the tools that actually fit it.</p>
           <span class="dl-get-btn" style="background:var(--nx-pink);color:var(--nx-paper)">Take the test</span>
         </div>
       </a>
@@ -242,7 +242,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="dl-card-body">
           <span class="format-tag">Selector</span>
           <h3>GTM Tool Selector</h3>
-          <p>Encuentra las herramientas correctas para tu stack GTM según tu etapa, equipo y presupuesto. Resultados personalizados al instante.</p>
+          <p>Stop overpaying for tools you don't need. Tell us your stage, team size and budget, and we'll tell you exactly which tools to use, and which ones to skip.</p>
           <span class="dl-get-btn" style="background:var(--nx-yellow)">Use the selector</span>
         </div>
       </a>
@@ -311,3 +311,5 @@ document.getElementById('newsletterBtn').addEventListener('click', () => {
 <script src="assets/interactions.js" defer></script>
 </body>
 </html>
+
+
