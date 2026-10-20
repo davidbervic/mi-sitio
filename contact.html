@@ -284,7 +284,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="form-step is-active" data-step="0">
           <span class="form-step-label" data-i18n="step1">Step 1 of 3: Your info</span>
-          <div class="form-field"><label class="form-label" data-i18n="label_name">Name</label><input class="form-input" type="text" name="name" data-i18n-ph="ph_name" placeholder="Jane Cooper" required></div>
+          <div class="form-field"><label class="form-label" data-i18n="label_first_name">First name</label><input class="form-input" type="text" name="firstName" data-i18n-ph="ph_first_name" placeholder="Jane" required autocomplete="given-name"></div>
+          <div class="form-field"><label class="form-label" data-i18n="label_last_name">Last name</label><input class="form-input" type="text" name="lastName" data-i18n-ph="ph_last_name" placeholder="Cooper" required autocomplete="family-name"></div>
           <div class="form-field"><label class="form-label" data-i18n="label_email">Work email</label><input class="form-input" type="email" name="email" data-i18n-ph="ph_email" placeholder="jane@company.com" required></div>
         </div>
 
@@ -299,7 +300,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="form-step" data-step="2">
           <span class="form-step-label" data-i18n="step3">Step 3 of 3: What's the problem</span>
-          <div class="form-field"><label class="form-label" data-i18n="label_goal">What are you hoping to solve?</label><textarea class="form-input" name="goal" rows="3" data-i18n-ph="ph_goal" placeholder="Leads dropping between marketing and sales."></textarea></div>
+          <div class="form-field"><label class="form-label" data-i18n="label_goal">What are you hoping to solve?</label><textarea class="form-input" name="need" rows="3" data-i18n-ph="ph_goal" placeholder="Leads dropping between marketing and sales."></textarea></div>
           <div class="form-field">
             <label class="form-label" data-i18n="label_timeline">Timeline</label>
             <div class="choice-row" id="timelineChoices"></div>
@@ -393,13 +394,13 @@ const COPY = {
     step1: 'Step 1 of 3: Your info',
     step2: 'Step 2 of 3: Your company',
     step3: "Step 3 of 3: What's the problem",
-    label_name: 'Name',
+    label_first_name: 'First name', label_last_name: 'Last name',
     label_email: 'Work email',
     label_company: 'Company',
     label_teamsize: 'Team size',
     label_goal: 'What are you hoping to solve?',
     label_timeline: 'Timeline',
-    ph_name: 'Jane Cooper',
+    ph_first_name: 'Jane', ph_last_name: 'Cooper',
     ph_email: 'jane@company.com',
     ph_company: 'Acme Inc.',
     ph_goal: 'Leads dropping between marketing and sales.',
@@ -434,13 +435,13 @@ const COPY = {
     step1: 'Paso 1 de 3: Tus datos',
     step2: 'Paso 2 de 3: Tu empresa',
     step3: 'Paso 3 de 3: El problema',
-    label_name: 'Nombre',
+    label_first_name: 'Nombre', label_last_name: 'Apellido',
     label_email: 'Email de trabajo',
     label_company: 'Empresa',
     label_teamsize: 'Tamaño del equipo',
     label_goal: '¿Qué quieres resolver?',
     label_timeline: 'Plazo',
-    ph_name: 'Ana García',
+    ph_first_name: 'Ana', ph_last_name: 'García',
     ph_email: 'ana@empresa.com',
     ph_company: 'Mi Empresa S.A.',
     ph_goal: 'Leads que se pierden entre marketing y ventas.',

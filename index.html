@@ -463,14 +463,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <div class="cta-step is-active" data-step="0">
           <span class="cta-step-label" data-i18n="form_step1">Step 1 of 3: Your info</span>
-          <div class="cta-field"><label class="cta-label" data-i18n="form_name">Name</label><input class="cta-input" type="text" name="name" data-i18n-ph="ph_name" placeholder="Jane Cooper" required></div>
+          <div class="cta-field"><label class="cta-label" data-i18n="form_first_name">First name</label><input class="cta-input" type="text" name="firstName" data-i18n-ph="ph_first_name" placeholder="Jane" required autocomplete="given-name"></div>
+          <div class="cta-field"><label class="cta-label" data-i18n="form_last_name">Last name</label><input class="cta-input" type="text" name="lastName" data-i18n-ph="ph_last_name" placeholder="Cooper" required autocomplete="family-name"></div>
           <div class="cta-field"><label class="cta-label" data-i18n="form_email">Work email</label><input class="cta-input" type="email" name="email" data-i18n-ph="ph_email" placeholder="jane@company.com" required></div>
         </div>
 
         <div class="cta-step" data-step="1">
           <span class="cta-step-label" data-i18n="form_step2">Step 2 of 3: Your company</span>
           <div class="cta-field"><label class="cta-label" data-i18n="form_company">Company (optional)</label><input class="cta-input" type="text" name="company" data-i18n-ph="ph_company" placeholder="Acme Inc."></div>
-          <div class="cta-field"><label class="cta-label" data-i18n="form_role">Role (optional)</label><input class="cta-input" type="text" name="role" data-i18n-ph="ph_role" placeholder="Head of Sales"></div>
+          <div class="cta-field"><label class="cta-label" data-i18n="form_role">Role (optional)</label><select class="cta-input" name="role"><option value="" selected data-i18n="ph_role">Select your role</option><option value="Founder / CEO">Founder / CEO</option><option value="VP Sales">VP Sales</option><option value="CRO">CRO</option><option value="RevOps / Sales Ops">RevOps / Sales Ops</option><option value="VP Marketing">VP Marketing</option><option value="Head of Growth">Head of Growth</option><option value="COO / Head of Operations">COO / Head of Operations</option><option value="Other" data-i18n-opt="role_other">Other</option></select></div>
         </div>
 
         <div class="cta-step" data-step="2">
@@ -576,8 +577,8 @@ const COPY = {
     form_step1: 'Step 1 of 3: Your info',
     form_step2: 'Step 2 of 3: Your company',
     form_step3: "Step 3 of 3: What's the problem",
-    form_name: 'Name', form_email: 'Work email', form_company: 'Company (optional)', form_role: 'Role (optional)', form_need: 'What do you need help with?',
-    ph_name: 'Jane Cooper', ph_email: 'jane@company.com', ph_company: 'Acme Inc.', ph_role: 'Head of Sales', ph_need: 'Leads dropping between marketing and sales.',
+    form_first_name: 'First name', form_last_name: 'Last name', form_email: 'Work email', form_company: 'Company (optional)', form_role: 'Role (optional)', form_need: 'What do you need help with?',
+    ph_first_name: 'Jane', ph_last_name: 'Cooper', ph_email: 'jane@company.com', ph_company: 'Acme Inc.', ph_role: 'Select your role', ph_need: 'Leads dropping between marketing and sales.',
     form_reassure: 'I read every message myself, usually within 24h.',
     btn_next: 'Next →', btn_book: 'Book a call →', btn_sending: 'Sending…', btn_error: 'Something went wrong — try again',
     done_h3: "You're booked in.",
@@ -641,8 +642,8 @@ const COPY = {
     form_step1: 'Paso 1 de 3: Tus datos',
     form_step2: 'Paso 2 de 3: Tu empresa',
     form_step3: 'Paso 3 de 3: El problema',
-    form_name: 'Nombre', form_email: 'Email de trabajo', form_company: 'Empresa (opcional)', form_role: 'Cargo (opcional)', form_need: '¿En qué necesitas ayuda?',
-    ph_name: 'Ana García', ph_email: 'ana@empresa.com', ph_company: 'Mi Empresa S.A.', ph_role: 'Director de Ventas', ph_need: 'Leads que se pierden entre marketing y ventas.',
+    form_first_name: 'Nombre', form_last_name: 'Apellido', form_email: 'Email de trabajo', form_company: 'Empresa (opcional)', form_role: 'Cargo (opcional)', form_need: '¿En qué necesitas ayuda?',
+    ph_first_name: 'Ana', ph_last_name: 'García', ph_email: 'ana@empresa.com', ph_company: 'Mi Empresa S.A.', ph_role: 'Selecciona tu cargo', ph_need: 'Leads que se pierden entre marketing y ventas.',
     form_reassure: 'Leo cada mensaje yo mismo, normalmente en menos de 24h.',
     btn_next: 'Siguiente →', btn_book: 'Agendar llamada →', btn_sending: 'Enviando…', btn_error: 'Algo salió mal, intenta de nuevo',
     done_h3: 'Reservado.',
