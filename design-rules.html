@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muvap Design Rules</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue:#0574fd; --pink:#fb4aad; --cyan:#12effb; --yellow:#fcdf07;
+  --purple:#a040f0; --green:#00cc7a; --black:#050505; --white:#ffffff;
+  --gray:#f4f4f4; --soft:#888;
+  --drop-sm:4px 4px 0 #050505; --drop-md:7px 7px 0 #050505;
+  --r-sm:10px; --r-md:16px; --r-lg:22px; --r-pill:999px;
+  --font-display:'Archivo Black',sans-serif;
+  --font-text:'Archivo',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font-text);color:var(--black);background:var(--white);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* page */
+.page-hero{background-color:var(--blue);background-image:linear-gradient(rgba(255,255,255,.07) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.07) 2px,transparent 2px);background-size:64px 64px;padding:48px clamp(16px,4vw,64px) 52px}
+.page-hero-inner{max-width:960px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--pink);border-radius:var(--r-pill);padding:6px 14px;font:800 11px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--white)}
+.page-hero h1{font:900 clamp(36px,5vw,56px)/1.05 var(--font-display);color:var(--white);letter-spacing:-.035em}
+.page-hero p{font:400 17px/1.6 var(--font-text);color:rgba(255,255,255,.8);max-width:640px}
+.meta{display:flex;gap:24px;flex-wrap:wrap;margin-top:4px}
+.meta-item{font:700 13px/1.3 var(--font-text);color:rgba(255,255,255,.5)}
+.meta-item span{color:rgba(255,255,255,.85);font-weight:700}
+
+/* layout */
+.content{max-width:960px;margin:0 auto;padding:48px clamp(16px,4vw,64px) 80px}
+.rule-block{margin-bottom:48px}
+.rule-block+.rule-block{border-top:1.5px solid #ececec;padding-top:48px}
+.section-label{display:inline-flex;align-items:center;gap:6px;font:800 10px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:14px}
+.rule-block h2{font:900 26px/1.1 var(--font-display);letter-spacing:-.02em;color:var(--black);margin-bottom:8px}
+.rule-block>p{font:400 16px/1.65 var(--font-text);color:#333;max-width:720px;margin-bottom:24px}
+
+/* cards */
+.card{background:var(--white);border:1.5px solid var(--black);border-radius:var(--r-md);box-shadow:var(--drop-sm);padding:22px 24px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card h3{font:900 15px/1.2 var(--font-display);letter-spacing:-.015em;margin-bottom:8px}
+.card p{font:400 14px/1.55 var(--font-text);color:#444}
+.card .label{font:800 10px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+
+/* color swatches */
+.swatch-row{display:flex;flex-wrap:wrap;gap:12px}
+.swatch{display:flex;flex-direction:column;gap:6px;min-width:90px}
+.swatch-box{width:100%;height:56px;border-radius:var(--r-sm);border:1.5px solid var(--black)}
+.swatch-name{font:700 12px/1 var(--font-display)}
+.swatch-hex{font:400 11px/1 var(--font-mono);color:var(--soft)}
+.swatch-role{font:400 11px/1.4 var(--font-text);color:var(--soft)}
+
+/* section rhythm */
+.rhythm-strip{display:flex;flex-direction:column;gap:0;border:1.5px solid var(--black);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--drop-md)}
+.rhythm-row{padding:14px 18px;display:flex;align-items:center;gap:14px;border-bottom:1.5px solid var(--black)}
+.rhythm-row:last-child{border-bottom:none}
+.rhythm-color{width:18px;height:18px;border-radius:5px;border:1.5px solid rgba(0,0,0,.2);flex:0 0 auto}
+.rhythm-label{font:700 13px/1.2 var(--font-display);flex:1}
+.rhythm-note{font:400 12px/1.3 var(--font-text);color:var(--soft);text-align:right}
+
+/* type scale */
+.type-row{display:flex;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1.5px solid #ececec}
+.type-row:last-child{border-bottom:none}
+.type-sample{flex:1;min-width:0}
+.type-spec{flex:0 0 220px;font:400 12px/1.6 var(--font-mono);color:var(--soft)}
+
+/* component demos */
+.demo-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:16px}
+.pill-demo{display:inline-flex;align-items:center;gap:6px;border-radius:var(--r-pill);padding:6px 14px;font:800 11px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--white)}
+.btn-demo{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--black);border-radius:var(--r-sm);padding:13px 22px;font:800 14px/1 var(--font-display);box-shadow:var(--drop-sm);cursor:default}
+.btn-demo.sm{padding:10px 16px;font-size:13px}
+.tag-demo{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--black);border-radius:var(--r-pill);padding:5px 12px;font:700 12px/1 var(--font-text)}
+
+/* shadow scale */
+.shadow-demo{display:flex;flex-wrap:wrap;gap:24px;margin-top:16px}
+.shadow-box{width:100px;height:64px;background:var(--white);border:1.5px solid var(--black);border-radius:var(--r-md);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.shadow-box small{font:700 10px/1 var(--font-display);letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+
+/* grid preview */
+.grid-preview{border:1.5px solid var(--black);border-radius:var(--r-md);overflow:hidden;height:100px;background-color:var(--blue);background-image:linear-gradient(rgba(255,255,255,.07) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.07) 2px,transparent 2px);background-size:64px 64px;display:flex;align-items:center;justify-content:center}
+.grid-preview span{background:rgba(0,0,0,.35);color:var(--white);border-radius:var(--r-pill);padding:4px 12px;font:700 12px/1.4 var(--font-display)}
+
+/* dos/donts */
+.check-list{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.check-item{display:flex;align-items:flex-start;gap:10px;font:400 15px/1.5 var(--font-text);color:#333}
+.check-icon{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--black);display:flex;align-items:center;justify-content:center;font:900 12px/1 var(--font-display);flex:0 0 auto;margin-top:1px}
+.check-icon.ok{background:var(--green);color:var(--white)}
+.check-icon.no{background:#ff4444;color:var(--white)}
+
+/* code snippet */
+.code{background:#f7f7f7;border:1.5px solid #e0e0e0;border-radius:var(--r-sm);padding:16px 18px;font:400 12px/1.7 var(--font-mono);color:#333;overflow-x:auto;margin-top:12px}
+.code .hl{color:var(--blue);font-weight:500}
+.code .cm{color:var(--soft)}
+
+/* do/dont grid */
+.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+.dd-card{border:1.5px solid var(--black);border-radius:var(--r-md);overflow:hidden}
+.dd-head{padding:10px 14px;font:800 11px/1 var(--font-display);letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
+.dd-head.ok{background:var(--green)}
+.dd-head.no{background:#ff4444}
+.dd-body{padding:14px;font:400 14px/1.55 var(--font-text);color:#333}
+
+@media(max-width:640px){.dd-grid{grid-template-columns:1fr}.type-spec{display:none}}
+</style>
+</head>
+<body>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="badge">Design Reference</span>
+    <h1>Muvap Design Rules</h1>
+    <p>Patterns extracted from index.html and about.html. Use these rules when building any new page — especially the service program pages — to keep the brand consistent.</p>
+    <div class="meta">
+      <div class="meta-item">Version <span>1.0 · Oct 2026</span></div>
+      <div class="meta-item">Source <span>index.html, about.html, services.css</span></div>
+      <div class="meta-item">Applies to <span>All Muvap pages</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- 1. COLOR PALETTE -->
+  <div class="rule-block">
+    <div class="section-label">01</div>
+    <h2>Color palette and roles</h2>
+    <p>Eight core colors. Each has one job. Never mix roles (blue is never a text color, black is never a hero background, yellow is never used as a primary surface).</p>
+    <div class="swatch-row">
+      <div class="swatch">
+        <div class="swatch-box" style="background:#0574fd"></div>
+        <div class="swatch-name">Blue</div>
+        <div class="swatch-hex">#0574FD</div>
+        <div class="swatch-role">Hero + CTA backgrounds only</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#050505"></div>
+        <div class="swatch-name">Black</div>
+        <div class="swatch-hex">#050505</div>
+        <div class="swatch-role">All text · all borders · all shadows · metrics sections</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#ffffff;border-color:#ccc"></div>
+        <div class="swatch-name">White</div>
+        <div class="swatch-hex">#FFFFFF</div>
+        <div class="swatch-role">Card backgrounds · body section bg</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#f4f4f4"></div>
+        <div class="swatch-name">Gray</div>
+        <div class="swatch-hex">#F4F4F4</div>
+        <div class="swatch-role">Alternate content sections (is-dim)</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#fb4aad"></div>
+        <div class="swatch-name">Hot Pink</div>
+        <div class="swatch-hex">#FB4AAD</div>
+        <div class="swatch-role">Nav CTA · accents</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#12effb"></div>
+        <div class="swatch-name">Cyan</div>
+        <div class="swatch-hex">#12EFFB</div>
+        <div class="swatch-role">Metrics values · Program 2 accent</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#fcdf07"></div>
+        <div class="swatch-name">Yellow</div>
+        <div class="swatch-hex">#FCDF07</div>
+        <div class="swatch-role">Program 4 accent · energy accents</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#00cc7a"></div>
+        <div class="swatch-name">Green</div>
+        <div class="swatch-hex">#00CC7A</div>
+        <div class="swatch-role">Primary CTA buttons · success states</div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-box" style="background:#a040f0"></div>
+        <div class="swatch-name">Purple</div>
+        <div class="swatch-hex">#A040F0</div>
+        <div class="swatch-role">Program 3 accent · secondary accent</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. SECTION RHYTHM -->
+  <div class="rule-block">
+    <div class="section-label">02</div>
+    <h2>Section background rhythm</h2>
+    <p>Pages alternate between blue (grid), black (ink), white and light gray. Never stack more than 2 white/gray sections without a blue or black break.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px">
+      <div>
+        <div class="label" style="font:800 10px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:12px">Main pages (index, about)</div>
+        <div class="rhythm-strip">
+          <div class="rhythm-row" style="background:#0574fd">
+            <div class="rhythm-color" style="background:#0574fd;border-color:rgba(255,255,255,.4)"></div>
+            <div class="rhythm-label" style="color:#fff">Hero</div>
+            <div class="rhythm-note" style="color:rgba(255,255,255,.6)">Blue grid, full-width</div>
+          </div>
+          <div class="rhythm-row" style="background:#050505">
+            <div class="rhythm-color" style="background:#050505"></div>
+            <div class="rhythm-label" style="color:#fff">Metrics / Stats</div>
+            <div class="rhythm-note" style="color:rgba(255,255,255,.5)">Cyan numbers on black</div>
+          </div>
+          <div class="rhythm-row">
+            <div class="rhythm-color" style="background:#fff"></div>
+            <div class="rhythm-label">About / Content</div>
+            <div class="rhythm-note">White bg</div>
+          </div>
+          <div class="rhythm-row" style="background:#0574fd">
+            <div class="rhythm-color" style="background:#0574fd;border-color:rgba(255,255,255,.4)"></div>
+            <div class="rhythm-label" style="color:#fff">Sticky stages / Feature</div>
+            <div class="rhythm-note" style="color:rgba(255,255,255,.6)">Blue grid again</div>
+          </div>
+          <div class="rhythm-row">
+            <div class="rhythm-color" style="background:#f4f4f4"></div>
+            <div class="rhythm-label">Secondary content</div>
+            <div class="rhythm-note">Light gray</div>
+          </div>
+          <div class="rhythm-row" style="background:#0574fd">
+            <div class="rhythm-color" style="background:#0574fd;border-color:rgba(255,255,255,.4)"></div>
+            <div class="rhythm-label" style="color:#fff">Testimonials / Social</div>
+            <div class="rhythm-note" style="color:rgba(255,255,255,.6)">Blue grid</div>
+          </div>
+          <div class="rhythm-row" style="background:#0574fd">
+            <div class="rhythm-color" style="background:#0574fd;border-color:rgba(255,255,255,.4)"></div>
+            <div class="rhythm-label" style="color:#fff">CTA</div>
+            <div class="rhythm-note" style="color:rgba(255,255,255,.6)">Blue grid</div>
+          </div>
+          <div class="rhythm-row" style="background:#050505">
+            <div class="rhythm-color" style="background:#050505"></div>
+            <div class="rhythm-label" style="color:#fff">Footer</div>
+            <div class="rhythm-note" style="color:rgba(255,255,255,.5)">Black</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="label" style="font:800 10px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:12px">Service pages (target state)</div>
+        <div class="rhythm-strip">
+          <div class="rhythm-row" style="background:#0574fd">
+            <div class="rhythm-color" style="background:#0574fd;border-color:rgba(255,255,255,.4)"></div>
+            <div class="rhythm-label" style="color:#fff">Hero + trust badges (inline)</div>
+            <div class="rhythm-note" style="color:rgba(255,255,255,.6)">Blue grid</div>
+          </div>
+          <div class="rhythm-row">
+            <div class="rhythm-color" style="background:#f4f4f4"></div>
+            <div class="rhythm-label">Pain / Problem</div>
+            <div class="rhythm-note">Light gray</div>
+          </div>
+          <div class="rhythm-row">
+            <div class="rhythm-color" style="background:#fff"></div>
+            <div class="rhythm-label">How it works / methodology</div>
+            <div class="rhythm-note">White</div>
+          </div>
+          <div class="rhythm-row" style="background:#f4f4f4">
+            <div class="rhythm-color" style="background:#f4f4f4"></div>
+            <div class="rhythm-label">Tiers / Pricing</div>
+            <div class="rhythm-note">Light gray</div>
+          </div>
+          <div class="rhythm-row">
+            <div class="rhythm-color" style="background:#fff"></div>
+            <div class="rhythm-label">Process / Working together</div>
+            <div class="rhythm-note">White</div>
+          </div>
+          <div class="rhythm-row" style="background:#050505">
+            <div class="rhythm-color" style="background:#050505"></div>
+            <div class="rhythm-label" style="color:#fff">CTA</div>
+            <div class="rhythm-note" style="color:rgba(255,255,255,.5)">Black</div>
+          </div>
+          <div class="rhythm-row" style="background:#0574fd">
+            <div class="rhythm-color" style="background:#0574fd;border-color:rgba(255,255,255,.4)"></div>
+            <div class="rhythm-label" style="color:#fff">Evolution Partner</div>
+            <div class="rhythm-note" style="color:rgba(255,255,255,.6)">Blue grid</div>
+          </div>
+          <div class="rhythm-row">
+            <div class="rhythm-color" style="background:#f4f4f4"></div>
+            <div class="rhythm-label">Related programs</div>
+            <div class="rhythm-note">Light gray</div>
+          </div>
+          <div class="rhythm-row" style="background:#050505">
+            <div class="rhythm-color" style="background:#050505"></div>
+            <div class="rhythm-label" style="color:#fff">Footer</div>
+            <div class="rhythm-note" style="color:rgba(255,255,255,.5)">Black</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. TYPOGRAPHY -->
+  <div class="rule-block">
+    <div class="section-label">03</div>
+    <h2>Typography scale</h2>
+    <p>Three fonts, each with a fixed role. Never use Archivo Black for body text. Never use JetBrains Mono for headlines.</p>
+    <div style="margin-top:16px">
+      <div class="type-row">
+        <div class="type-sample">
+          <div style="font:900 48px/1.05 var(--font-display);letter-spacing:-.035em;color:var(--black)">Hero headline</div>
+        </div>
+        <div class="type-spec">Archivo Black 900<br>clamp(34px, 4.8vw, 58px)<br>line-height: 1.04<br>letter-spacing: -.035em<br>On blue: color white</div>
+      </div>
+      <div class="type-row">
+        <div class="type-sample">
+          <div style="font:900 36px/1.1 var(--font-display);letter-spacing:-.035em;color:var(--black)">Section H2</div>
+        </div>
+        <div class="type-spec">Archivo Black 900<br>clamp(28px, 3.6vw, 42px)<br>line-height: 1.1<br>letter-spacing: -.035em</div>
+      </div>
+      <div class="type-row">
+        <div class="type-sample">
+          <div style="font:900 22px/1.15 var(--font-display);letter-spacing:-.02em;color:var(--black)">Card heading H3</div>
+        </div>
+        <div class="type-spec">Archivo Black 900<br>18–24px fixed<br>line-height: 1.1–1.2<br>letter-spacing: -.02em</div>
+      </div>
+      <div class="type-row">
+        <div class="type-sample">
+          <div style="font:800 11px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)">EYEBROW LABEL</div>
+        </div>
+        <div class="type-spec">Archivo Black 800<br>11px fixed<br>letter-spacing: .12em<br>UPPERCASE · lives in colored pill</div>
+      </div>
+      <div class="type-row">
+        <div class="type-sample">
+          <div style="font:500 18px/1.55 var(--font-text);color:#333">Body text, lead paragraph. Archivo at 400–500 weight for readability.</div>
+        </div>
+        <div class="type-spec">Archivo 400–500<br>16–18px / line-height 1.5–1.65<br>color: #141414 (--nx-ink-soft)</div>
+      </div>
+      <div class="type-row">
+        <div class="type-sample">
+          <div style="font:500 14px/1.2 var(--font-mono);color:var(--black)">$5,700 · Deploy M · $3K–$12K</div>
+        </div>
+        <div class="type-spec">JetBrains Mono 400–500<br>12–15px<br>For prices, codes, tech labels only</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. BLUE GRID -->
+  <div class="rule-block">
+    <div class="section-label">04</div>
+    <h2>Blue grid background</h2>
+    <p>Used for heroes, CTA sections, and feature highlight sections. Always exactly this — do not vary the grid color, opacity or size.</p>
+    <div class="grid-preview">
+      <span>64px × 64px grid, rgba(255,255,255,.07) lines</span>
+    </div>
+    <pre class="code"><span class="cm">/* Every blue section uses this exactly */</span>
+.nx-grid-bg {
+  <span class="hl">background-color</span>: #0574fd;
+  <span class="hl">background-image</span>:
+    linear-gradient(rgba(255,255,255,.07) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255,255,255,.07) 2px, transparent 2px);
+  <span class="hl">background-size</span>: 64px 64px;
+}</pre>
+  </div>
+
+  <!-- 5. BORDERS + SHADOWS -->
+  <div class="rule-block">
+    <div class="section-label">05</div>
+    <h2>Black borders and offset shadows</h2>
+    <p>Every interactive or card element has a 1.5px solid black border and a flat offset box-shadow. This is the brand's most recognizable trait. No exceptions.</p>
+    <div class="shadow-demo">
+      <div>
+        <div class="shadow-box" style="box-shadow:4px 4px 0 #050505"><small>Drop SM</small></div>
+        <div style="font:400 12px/1.5 var(--font-mono);color:var(--soft);margin-top:8px">4px 4px 0 black<br>Cards, pills, buttons</div>
+      </div>
+      <div>
+        <div class="shadow-box" style="box-shadow:7px 7px 0 #050505"><small>Drop MD</small></div>
+        <div style="font:400 12px/1.5 var(--font-mono);color:var(--soft);margin-top:8px">7px 7px 0 black<br>Tier cards, panels</div>
+      </div>
+      <div>
+        <div class="shadow-box" style="box-shadow:11px 11px 0 #050505"><small>Drop LG</small></div>
+        <div style="font:400 12px/1.5 var(--font-mono);color:var(--soft);margin-top:8px">11px 11px 0 black<br>Hero snapshot, modals</div>
+      </div>
+      <div>
+        <div class="shadow-box" style="box-shadow:7px 7px 0 rgba(255,255,255,.9);background:#050505"><small style="color:#fff">On dark bg</small></div>
+        <div style="font:400 12px/1.5 var(--font-mono);color:var(--soft);margin-top:8px">7px 7px 0 white/90<br>CTA buttons on black</div>
+      </div>
+    </div>
+    <pre class="code"><span class="cm">/* Border rule: ALL cards, buttons, pills */</span>
+border: <span class="hl">1.5px solid #050505</span>;
+border-radius: 16px; <span class="cm">/* cards */</span>
+border-radius: 10px; <span class="cm">/* buttons */</span>
+border-radius: 999px; <span class="cm">/* pills and tags */</span>
+
+<span class="cm">/* Hover state: always translate + grow shadow */</span>
+&:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: <span class="hl">7px 7px 0 #050505</span>;
+}
+&:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}</pre>
+  </div>
+
+  <!-- 6. COMPONENTS -->
+  <div class="rule-block">
+    <div class="section-label">06</div>
+    <h2>Component library</h2>
+    <p>The same patterns appear on every page. Never invent new component shapes — extend these.</p>
+
+    <div style="margin-top:24px">
+      <div class="label" style="font:800 10px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:12px">Eyebrow pills (section label)</div>
+      <div class="demo-row">
+        <span class="pill-demo" style="background:#fb4aad">★ Program 1 · Architecture</span>
+        <span class="pill-demo" style="background:#00cc7a">★ Diagnose</span>
+        <span class="pill-demo" style="background:#a040f0">★ Intelligence</span>
+        <span class="pill-demo" style="background:#fcdf07;color:#050505">★ Workforce</span>
+      </div>
+      <pre class="code"><span class="cm">/* Eyebrow pill */</span>
+display: inline-flex; align-items: center; gap: 6px;
+background: [accent color]; color: white;
+border-radius: 999px; padding: 6px 14px;
+font: <span class="hl">800 11px/1 'Archivo Black'</span>;
+letter-spacing: .12em; text-transform: uppercase;</pre>
+    </div>
+
+    <div style="margin-top:28px">
+      <div class="label" style="font:800 10px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:12px">Buttons</div>
+      <div class="demo-row">
+        <div class="btn-demo" style="background:#00cc7a;color:#050505">Book a Discovery Call</div>
+        <div class="btn-demo" style="background:#050505;color:#fff">See Pricing →</div>
+        <div class="btn-demo" style="background:#fff;color:#050505">Learn more</div>
+        <div class="btn-demo sm" style="background:#fb4aad;color:#fff">Let's talk ↗</div>
+      </div>
+    </div>
+
+    <div style="margin-top:28px">
+      <div class="label" style="font:800 10px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:12px">White content card</div>
+      <div style="max-width:340px">
+        <div class="card">
+          <div style="font:800 10px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:8px">What we deliver</div>
+          <h3>Foundation tier</h3>
+          <p>A CRM your team trusts. Consistent data. A pipeline with clear rules.</p>
+          <div class="btn-demo" style="margin-top:12px;background:#050505;color:#fff;font-size:13px;padding:10px 16px;border-radius:10px;display:inline-flex">Start with Foundation →</div>
+        </div>
+      </div>
+      <pre class="code"><span class="cm">/* Content card */</span>
+background: white;
+border: <span class="hl">1.5px solid #050505</span>;
+border-radius: <span class="hl">16px</span>; <span class="cm">/* or 22px for larger cards */</span>
+box-shadow: <span class="hl">4px 4px 0 #050505</span>;
+padding: 22–28px;</pre>
+    </div>
+
+    <div style="margin-top:28px">
+      <div class="label" style="font:800 10px/1 var(--font-display);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:12px">Section head (centered)</div>
+      <div style="text-align:center;max-width:480px;margin:0 auto;padding:24px;border:1.5px dashed #ccc;border-radius:var(--r-md)">
+        <span class="pill-demo" style="background:#00cc7a;margin-bottom:14px;display:inline-flex">★ How we work</span>
+        <div style="font:900 32px/1.1 var(--font-display);letter-spacing:-.03em;margin-bottom:12px">Section headline here</div>
+        <div style="font:400 16px/1.6 var(--font-text);color:#555">Intro copy. One or two sentences max. Never more than three lines.</div>
+      </div>
+      <pre class="code"><span class="cm">/* Section head is always centered with max-width:720px */</span>
+.section-head { text-align: center; max-width: 720px; margin: 0 auto 52px; }
+.section-head .eyebrow-pill { margin-bottom: 18px; }
+.section-head h2 { margin: 0 0 14px; font: 900 clamp(28px,3.6vw,42px)/1.1 ... }
+.section-head p  { margin: 0; font: 400 17px/1.55 ...; color: <span class="hl">#141414</span>; }</pre>
+    </div>
+  </div>
+
+  <!-- 7. PROGRAM COLORS -->
+  <div class="rule-block">
+    <div class="section-label">07</div>
+    <h2>Per-program accent color (service pages)</h2>
+    <p>Each service program page inherits a color via CSS custom properties on <code style="font-family:var(--font-mono);font-size:13px;background:#f4f4f4;padding:2px 6px;border-radius:4px">body</code>. Never hardcode program colors in the HTML.</p>
+    <div class="card-grid" style="margin-top:16px">
+      <div class="card" style="border-color:#050505">
+        <div class="label">Program 1</div>
+        <h3>Architecture Evolution</h3>
+        <div class="demo-row" style="margin-top:8px">
+          <div style="width:24px;height:24px;border-radius:6px;background:#050505;border:1.5px solid #050505"></div>
+          <span style="font:700 13px/1 var(--font-mono)">#050505 (black)</span>
+        </div>
+        <p style="margin-top:8px"><code style="font-size:11px;font-family:var(--font-mono)">--acc:var(--nx-ink)</code></p>
+      </div>
+      <div class="card">
+        <div class="label">Program 2</div>
+        <h3>Outbound Evolution</h3>
+        <div class="demo-row" style="margin-top:8px">
+          <div style="width:24px;height:24px;border-radius:6px;background:#00cc7a;border:1.5px solid #050505"></div>
+          <span style="font:700 13px/1 var(--font-mono)">#00CC7A (mint)</span>
+        </div>
+        <p style="margin-top:8px"><code style="font-size:11px;font-family:var(--font-mono)">--acc:var(--nx-mint)</code></p>
+      </div>
+      <div class="card">
+        <div class="label">Program 3</div>
+        <h3>Intelligence Evolution</h3>
+        <div class="demo-row" style="margin-top:8px">
+          <div style="width:24px;height:24px;border-radius:6px;background:#a040f0;border:1.5px solid #050505"></div>
+          <span style="font:700 13px/1 var(--font-mono)">#A040F0 (purple)</span>
+        </div>
+        <p style="margin-top:8px"><code style="font-size:11px;font-family:var(--font-mono)">--acc:var(--nx-purple)</code></p>
+      </div>
+      <div class="card">
+        <div class="label">Program 4</div>
+        <h3>Workforce Evolution</h3>
+        <div class="demo-row" style="margin-top:8px">
+          <div style="width:24px;height:24px;border-radius:6px;background:#fcdf07;border:1.5px solid #050505"></div>
+          <span style="font:700 13px/1 var(--font-mono)">#FCDF07 (yellow)</span>
+        </div>
+        <p style="margin-top:8px"><code style="font-size:11px;font-family:var(--font-mono)">--acc:var(--nx-yellow)</code></p>
+      </div>
+      <div class="card">
+        <div class="label">Program 5</div>
+        <h3>Total Glowap!</h3>
+        <div class="demo-row" style="margin-top:8px">
+          <div style="width:24px;height:24px;border-radius:6px;background:#fb4aad;border:1.5px solid #050505"></div>
+          <span style="font:700 13px/1 var(--font-mono)">#FB4AAD (pink)</span>
+        </div>
+        <p style="margin-top:8px"><code style="font-size:11px;font-family:var(--font-mono)">--acc:var(--nx-pink)</code></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. SPACING -->
+  <div class="rule-block">
+    <div class="section-label">08</div>
+    <h2>Spacing and layout</h2>
+    <p>Everything uses <code style="font-family:var(--font-mono);font-size:13px;background:#f4f4f4;padding:2px 6px;border-radius:4px">clamp()</code> for fluid scaling. The max-width container is always 1200px centered.</p>
+    <pre class="code"><span class="cm">/* Section padding (standard) */</span>
+padding: <span class="hl">clamp(64px, 9vw, 112px)</span> clamp(16px, 4vw, 44px);
+
+<span class="cm">/* Inner container */</span>
+.sv-inner { max-width: <span class="hl">1200px</span>; margin: 0 auto; }
+
+<span class="cm">/* Section head max width */</span>
+.section-head { max-width: <span class="hl">720px</span>; margin: 0 auto 52px; }
+
+<span class="cm">/* Content columns: standard card gap */</span>
+gap: <span class="hl">24px</span>; <span class="cm">/* between tier cards */</span>
+gap: <span class="hl">16–18px</span>; <span class="cm">/* between smaller cards */</span>
+
+<span class="cm">/* Hero padding */</span>
+padding: <span class="hl">clamp(48px, 7vw, 96px)</span> 0 clamp(56px, 8vw, 104px);</pre>
+  </div>
+
+  <!-- 9. DOS AND DONTS -->
+  <div class="rule-block">
+    <div class="section-label">09</div>
+    <h2>Rules and anti-patterns</h2>
+    <div class="check-list">
+      <div class="check-item">
+        <div class="check-icon ok">✓</div>
+        <div>Every section head has an eyebrow pill with an icon (star SVG or similar) before the text</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon ok">✓</div>
+        <div>All cards have <code style="font-family:var(--font-mono);font-size:12px;background:#f4f4f4;padding:1px 5px;border-radius:3px">1.5px solid #050505</code> border and a flat black box-shadow</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon ok">✓</div>
+        <div>Hero is always blue grid with white Archivo Black headline. Trust/credential indicators belong inside the hero, not as a separate strip below</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon ok">✓</div>
+        <div>CTA section is always black (<code style="font-family:var(--font-mono);font-size:12px;background:#f4f4f4;padding:1px 5px;border-radius:3px">#050505</code>) background with white headline and green or accent-colored primary button</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon ok">✓</div>
+        <div>Prices are always in JetBrains Mono inside a pill or `sv-tier-fee` box with accent-pale background</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon ok">✓</div>
+        <div>Hover state on every card and button: <code style="font-family:var(--font-mono);font-size:12px;background:#f4f4f4;padding:1px 5px;border-radius:3px">transform: translate(-2px,-2px)</code> + larger shadow</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon no">✗</div>
+        <div>Never use gradient text. No <code style="font-family:var(--font-mono);font-size:12px;background:#f4f4f4;padding:1px 5px;border-radius:3px">background-clip: text</code> anywhere</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon no">✗</div>
+        <div>Never use em dashes (—). Use a comma, a period, or a colon instead</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon no">✗</div>
+        <div>Never stack more than 2 white/gray sections without a blue or black section in between</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon no">✗</div>
+        <div>Never use rounded corners larger than <code style="font-family:var(--font-mono);font-size:12px;background:#f4f4f4;padding:1px 5px;border-radius:3px">border-radius: 30px</code> (--nx-radius-xl). No fully circular sections</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon no">✗</div>
+        <div>Never put body text directly on a blue background. Blue sections contain only headlines, eyebrow pills, CTAs, and white card panels</div>
+      </div>
+      <div class="check-item">
+        <div class="check-icon no">✗</div>
+        <div>Never add a new section background color outside the five defined: blue, black, white, light gray (#F4F4F4), or a program accent</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. WHAT'S DIFFERENT ON SERVICE PAGES -->
+  <div class="rule-block">
+    <div class="section-label">10</div>
+    <h2>What to fix on service pages</h2>
+    <p>Compared to the main site, the service pages currently have these gaps:</p>
+    <div class="dd-grid">
+      <div class="dd-card">
+        <div class="dd-head no">Current state (problem)</div>
+        <div class="dd-body">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li>• Trust strip is a separate black section below the hero, feeling disconnected</li>
+            <li>• Too many consecutive white/gray sections without a blue or black break</li>
+            <li>• No stats/metrics bar showing proof numbers</li>
+            <li>• Differentiator and Social Proof sections sit far apart, diluting their impact</li>
+            <li>• Platforms section is a plain 4-column grid with no visual hierarchy</li>
+            <li>• Delivery steps use a horizontal 6-step layout that is hard to read at a glance</li>
+          </ul>
+        </div>
+      </div>
+      <div class="dd-card">
+        <div class="dd-head ok">Target state (fixes)</div>
+        <div class="dd-body">
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:10px">
+            <li>• Trust badges inline at the bottom of the hero copy, before the fold</li>
+            <li>• Insert at least one blue grid section mid-page (methodology or tools)</li>
+            <li>• Merge differentiator + social proof into one "Why Muvap" section</li>
+            <li>• Replace platforms grid with a two-column "Your CRM + What we add" layout</li>
+            <li>• "Where are you today?" scenario selector above tier cards (interactive)</li>
+            <li>• Delivery steps: vertical timeline with team role cards below</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
