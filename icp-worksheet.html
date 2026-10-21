@@ -2,269 +2,127 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ICP Worksheet — Free Excel Download · Muvap</title>
-<meta name="description" content="27 pre-built CRM fields. Auto-generated ICP statement. Free Excel download for B2B revenue teams.">
-<meta name="theme-color" content="#0574fd">
-<link rel="icon" type="image/png" href="favicon.png">
+<meta name="description" content="27 pre-built CRM fields. Auto-generated ICP statement. Free Excel download for B2B revenue teams that are tired of qualifying on gut feeling.">
 <link rel="canonical" href="https://davidbervic.com/icp-worksheet.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ICP Worksheet — Free Excel Download · Muvap">
 <meta property="og:description" content="27 pre-built CRM fields. Auto-generated ICP statement. Free Excel download.">
 <meta property="og:url" content="https://davidbervic.com/icp-worksheet.html">
-<meta property="og:image" content="https://davidbervic.com/images/muvap-logo.webp">
+<meta property="og:image" content="https://davidbervic.com/images/dl-icp-worksheet.webp">
+<meta name="theme-color" content="#0574fd">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="services.css">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* why grid */
+.sv-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.sv-why-stmts{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.sv-why-stmt{display:flex;gap:14px;align-items:flex-start;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-md);padding:16px 18px;box-shadow:var(--nx-drop-sm)}
+.sv-why-stmt-n{font:900 22px/1 var(--nx-font-display);letter-spacing:var(--nx-track-display);color:var(--nx-pink);flex:0 0 auto}
+.sv-why-stmt p{margin:0}
+.sv-why-remate{margin-top:36px;text-align:center;padding:26px 32px}
+.sv-why-remate p{font:900 clamp(17px,2.2vw,22px)/1.25 var(--nx-font-display);letter-spacing:var(--nx-track-tight)}
+.sv-why-remate strong{background:var(--nx-pink);color:#fff;padding:0 6px;border-radius:4px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+@media(max-width:760px){.sv-why-grid{grid-template-columns:1fr;gap:32px}}
 
-:root {
-  --blue:   #0574FD;
-  --pink:   #FB4AAD;
-  --cyan:   #12EFFB;
-  --yellow: #FCDF07;
-  --purple: #A040F0;
-  --green:  #00CC7A;
-  --white:  #FFFFFF;
-  --black:  #000000;
-  --nx-paper: #ffffff; --nx-ink: #050505; --nx-pink: #fb4aad;
-  --nx-font-text: 'Archivo',sans-serif;
-  --nx-font-display: 'Archivo Black','Helvetica Neue',Arial,sans-serif;
-  --nx-track-tight: -.02em;
-}
+/* scenarios */
+.sv-scen-wrap{display:grid;grid-template-columns:300px 1fr;gap:20px;align-items:start}
+.sv-scen-tabs{display:flex;flex-direction:column;gap:8px}
+.sv-scen-tab{text-align:left;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-md);padding:14px 16px;font:600 14px/1.35 var(--nx-font-text);color:var(--nx-ink-soft);cursor:pointer;transition:background .1s,box-shadow .1s;box-shadow:3px 3px 0 transparent}
+.sv-scen-tab:hover{background:var(--nx-paper-dim);box-shadow:3px 3px 0 var(--nx-ink)}
+.sv-scen-tab.is-active{background:var(--nx-pink);color:#fff;box-shadow:3px 3px 0 rgba(0,0,0,.15)}
+.sv-scen-panel{display:none}
+.sv-scen-panel.is-active{display:grid;grid-template-columns:1fr 1fr;gap:28px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);box-shadow:var(--nx-drop-md);padding:28px}
+.sv-scen-num{font:900 36px/1 var(--nx-font-display);letter-spacing:var(--nx-track-display);color:var(--nx-pink);margin-bottom:10px}
+.sv-scen-panel h3{font:900 19px/1.15 var(--nx-font-display);letter-spacing:var(--nx-track-tight);margin-bottom:12px}
+.sv-scen-panel .ctx{font:400 14px/1.55 var(--nx-font-text);color:var(--nx-ink);margin-bottom:20px}
+.sv-chip-label{font:800 10px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:var(--nx-ink);margin-top:24px;margin-bottom:10px}
+.sv-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.sv-chip{display:inline-flex;align-items:center;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-pill);padding:6px 13px;font:700 12px/1 var(--nx-font-text);background:var(--nx-paper-dim)}
+.sv-scen-outcome{font:600 15px/1.65 var(--nx-font-text);color:var(--nx-ink-soft);border-left:3px solid var(--nx-ink);padding-left:14px;font-style:italic}
+@media(max-width:860px){.sv-scen-wrap{grid-template-columns:1fr}}
+@media(max-width:860px){.sv-scen-panel.is-active{grid-template-columns:1fr}}
 
-html, body { min-height: 100%; background: #fff; font-family: 'Archivo',sans-serif; -webkit-font-smoothing: antialiased; }
+/* hero anchor */
+.sv-hero-anchor{font:400 14px/1.5 var(--nx-font-mono);color:#fff;margin-top:-10px}
 
-/* ══ Section system ══ */
-.sec { width: 100%; position: relative; overflow: hidden; }
-.sec-blue { background: var(--blue); }
-.sec-white { background: #fff; }
-.sec-black { background: #000; }
+/* panel visual mockups */
+.icp-mock{background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);box-shadow:var(--nx-drop-sm);overflow:hidden}
+.icp-mock-head{background:var(--nx-ink);padding:10px 14px;display:flex;align-items:center;gap:8px}
+.icp-mock-head span{font:800 11px/1 var(--nx-font-display);letter-spacing:.08em;text-transform:uppercase;color:var(--nx-paper)}
+.icp-mock-tabs{display:flex;background:var(--nx-paper-dim);border-bottom:1.5px solid var(--nx-ink);padding:6px 10px 0;gap:4px}
+.icp-mock-tab{padding:5px 12px 6px;border-radius:4px 4px 0 0;font:700 10px/1 var(--nx-font-display);background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-bottom:none;color:var(--nx-ink)}
+.icp-mock-tab.active{background:var(--nx-pink);color:#fff;border-color:var(--nx-pink)}
+.icp-mock-body{padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.icp-mock-row{display:grid;grid-template-columns:110px 1fr;gap:4px}
+.icp-mock-lbl{background:#e8f2ff;border:1px solid #c5d8f5;border-radius:3px;padding:5px 8px;font:600 10px/1.3 var(--nx-font-display);color:#374151}
+.icp-mock-val{background:#fff;border:1px solid #d1d5db;border-radius:3px;padding:5px 8px;font:400 10px/1.3 var(--nx-font-text);color:#6b7280}
+.icp-mock-val.filled{color:var(--nx-ink);font-weight:600}
+.icp-mock-val.accent{background:#fffbe5;border-color:#d4a800;font-weight:700;color:var(--nx-ink)}
+.icp-mock-divider{height:1px;background:#e5e7eb;margin:4px 0}
+.icp-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.icp-stat{background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:7px 6px;text-align:center}
+.icp-stat strong{display:block;font:900 15px/1 var(--nx-font-display);color:var(--nx-pink)}
+.icp-stat span{display:block;font:400 9px/1.2 var(--nx-font-mono);color:#9ca3af;margin-top:2px}
 
-.sec-blue::before {
-  content: ''; position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),
-                    linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
-  background-size: 44px 44px; pointer-events: none; z-index: 0;
-}
+/* download CTA */
+.sv-cta2{background:var(--nx-blue);padding:clamp(64px,9vw,112px) clamp(16px,4vw,44px);position:relative}
+.sv-cta2::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.2) 1px,transparent 1px);background-size:44px 44px;pointer-events:none;z-index:0}
+.sv-cta2-inner{position:relative;z-index:1;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.sv-cta2-h2{color:var(--nx-paper);font:900 clamp(26px,3.2vw,40px)/1.1 var(--nx-font-display);letter-spacing:var(--nx-track-display);margin-bottom:24px}
+.sv-trust-pts{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.sv-trust-pt{display:flex;gap:12px;align-items:flex-start}
+.sv-trust-pt-ic{flex:0 0 auto;width:24px;height:24px;border-radius:50%;background:var(--nx-pink);color:var(--nx-paper);border:1.5px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;font:900 10px/1 var(--nx-font-display)}
+.sv-trust-pt p{font:400 17px/1.55 var(--nx-font-text);color:#fff;margin:0;padding-top:3px}
+.sv-cta2-note{font:400 15px/1.5 var(--nx-font-text);color:#fff}
 
-.sec-divider { width: 100%; height: 4px; background: var(--black); }
-
-.sec-inner { position: relative; z-index: 1; max-width: 1160px; margin: 0 auto; padding: clamp(48px,7vw,96px) clamp(16px,4vw,44px); }
-
-/* ══ Nav ══ */
-.site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px clamp(16px,4vw,44px) 6px;position:relative;z-index:40}
-.logo{display:flex;align-items:center;gap:8px;flex:0 0 auto}
-.nav-right{flex:0 0 auto;display:flex;align-items:center;gap:10px}
-.nav-burger{display:none;appearance:none;cursor:pointer;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:12px;width:44px;height:44px;align-items:center;justify-content:center;font-size:18px;line-height:1;flex-shrink:0}
-.nav-links{display:flex;align-items:center;gap:22px;background:var(--nx-paper);border-radius:20px;padding:12px 22px;border:3px solid var(--nx-ink);box-shadow:4px 4px 0 var(--nx-ink)}
-.nav-link{font:700 15px/1 var(--nx-font-text);color:var(--nx-ink);white-space:nowrap;text-decoration:none}
-.nav-link:hover{color:var(--nx-pink)}
-.resources-wrap{position:relative;padding-bottom:14px;margin-bottom:-14px}
-.resources-menu{position:absolute;top:100%;left:0;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:14px;min-width:220px;padding:6px;box-shadow:4px 4px 0 var(--nx-ink);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .15s,transform .15s,visibility .15s;pointer-events:none}
-.resources-wrap:hover .resources-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
-.resources-menu a,.resources-menu span{display:block;white-space:nowrap;padding:9px 10px;border-radius:8px;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink);text-decoration:none}
-.resources-menu a:hover{background:#f4f4f4}
-.resources-menu span{color:#666;cursor:default}
-.btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center;text-decoration:none}
-.btn-pink{background:var(--nx-pink);color:var(--nx-paper);border:2px solid var(--nx-ink);box-shadow:3px 3px 0 var(--nx-ink)}
-.btn-purple{background:#25D366;color:#fff}
-.nav-cta{border:1.5px solid var(--nx-ink);box-shadow:4px 4px 0 var(--nx-ink);gap:7px;transition:transform .12s,box-shadow .12s}
-@media(max-width:860px){
-  .nav-burger{display:inline-flex}
-  .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:16px;right:16px;flex-direction:column;align-items:stretch;gap:2px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:16px;box-shadow:4px 4px 0 var(--nx-ink);padding:10px;z-index:60}
-  .site-nav.nav-open .nav-links{display:flex}
-  .nav-link{padding:12px 14px;border-radius:10px}
-  .resources-wrap{padding-bottom:0;margin-bottom:0}
-  .resources-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 4px 14px;pointer-events:auto;min-width:0}
-  .nav-cta-text{display:none}
-  .nav-cta{padding:10px 12px}
-  .site-nav .logo img{height:40px!important}
-}
-@media(max-width:420px){.site-nav{gap:8px}.nav-right{gap:6px}}
-
-/* ══ HERO ══ */
-.hero-content { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; padding-top: 12px; }
-
-.trust-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; }
-.trust-badge {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: #fff; border: 2.5px solid var(--black);
-  border-radius: 999px; box-shadow: 3px 3px 0 var(--black);
-  padding: 8px 16px; font: 700 13px/1 'Archivo',sans-serif; color: var(--black);
-}
-.trust-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; animation: pulse 2s infinite; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
-.trust-stars { display: flex; align-items: center; gap: 7px; }
-.stars { color: var(--yellow); font-size: 18px; filter: drop-shadow(1px 1px 0 rgba(0,0,0,.5)); letter-spacing: -.02em; }
-.stars-text { font: 600 13px/1 'Archivo',sans-serif; color: rgba(255,255,255,.85); }
-
-.hero-hl {
-  font-family: 'Archivo Black', sans-serif; font-weight: 900;
-  font-size: clamp(44px, 8vw, 96px); color: #fff;
-  line-height: 1.0; letter-spacing: -.035em;
-  max-width: 900px;
-}
-.hl-accent {
-  background: var(--yellow); color: var(--black);
-  border: 3px solid var(--black); border-radius: 10px;
-  padding: 0 10px; display: inline;
-  box-shadow: 3px 3px 0 rgba(0,0,0,.25);
-}
-
-.hero-sub {
-  font: 400 19px/1.65 'Archivo',sans-serif;
-  color: rgba(255,255,255,.88); max-width: 560px;
-}
-.hero-sub strong { color: #fff; font-weight: 700; }
-
-.btn-cta-hero {
-  display: inline-flex; align-items: center; gap: 10px;
-  padding: 20px 48px; background: var(--pink); color: var(--black);
-  font: 700 18px/1 'Archivo',sans-serif;
-  border: 3px solid var(--black); border-radius: 14px;
-  box-shadow: 5px 5px 0 var(--black);
-  cursor: pointer; text-decoration: none;
-  transition: transform .12s, box-shadow .12s; -webkit-tap-highlight-color: transparent;
-}
-.btn-cta-hero:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--black); }
-.btn-cta-hero:active { transform: translate(2px,2px); box-shadow: 3px 3px 0 var(--black); }
-
-/* ══ BENEFITS SECTION (WHITE) ══ */
-.benefits-content { display: flex; flex-direction: column; gap: 40px; }
-.section-eyebrow { font: 700 11px/1 'Archivo',sans-serif; letter-spacing: .12em; text-transform: uppercase; color: #9ca3af; }
-
-.benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media(max-width:640px){ .benefits-grid { grid-template-columns: 1fr; } }
-
-.benefit-card {
-  background: #fff; border: 3px solid var(--black);
-  border-radius: 14px; box-shadow: 5px 5px 0 var(--black);
-  padding: 24px 22px; display: flex; flex-direction: column; gap: 12px;
-}
-.benefit-icon {
-  width: 44px; height: 44px; border-radius: 10px;
-  border: 2.5px solid var(--black);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 20px; flex-shrink: 0;
-}
-.benefit-title { font: 700 15px/1.2 'Archivo',sans-serif; color: var(--black); }
-.benefit-desc { font: 400 13px/1.65 'Archivo',sans-serif; color: #555; }
-
-.stat-strip {
-  display: flex; border: 3px solid var(--black);
-  border-radius: 14px; box-shadow: 5px 5px 0 var(--black);
-  overflow: hidden;
-}
-.stat-item { flex: 1; padding: 22px 16px; text-align: center; border-right: 3px solid var(--black); }
-.stat-item:last-child { border-right: none; }
-.stat-num { font: 900 34px/1 'Archivo Black',sans-serif; color: var(--black); letter-spacing: -.02em; }
-.stat-lbl { font: 400 12px/1.4 'Archivo',sans-serif; color: #6b7280; margin-top: 4px; }
-
-/* Excel mockup */
-.excel-mockup {
-  background: #f0f0f0; border: 3px solid var(--black); border-radius: 12px;
-  box-shadow: 5px 5px 0 var(--black); overflow: hidden;
-}
-.excel-title-bar { background: #217346; padding: 8px 12px; display: flex; align-items: center; gap: 6px; }
-.excel-title-bar span { font: 600 11px/1 'Archivo',sans-serif; color: #fff; }
-.excel-tabs { display: flex; background: #d6d6d6; border-bottom: 1px solid #bbb; padding: 6px 8px 0; gap: 3px; }
-.excel-tab { padding: 5px 12px 6px; border-radius: 4px 4px 0 0; border: 1px solid #aaa; border-bottom: none; font: 600 10px/1 'Archivo',sans-serif; background: #fff; color: var(--black); white-space: nowrap; }
-.excel-body { padding: 12px; }
-.excel-row { display: grid; grid-template-columns: 120px 1fr; gap: 4px; margin-bottom: 4px; }
-.excel-cell-label { background: #e8f2ff; border: 1px solid #c5d8f5; border-radius: 3px; padding: 4px 7px; font: 600 10px/1.4 'Archivo',sans-serif; color: #374151; }
-.excel-cell-input { background: #fff; border: 1px solid #d1d5db; border-radius: 3px; padding: 4px 7px; font: 400 10px/1.4 'Archivo',sans-serif; color: #6b7280; }
-.excel-highlight { background: #fffbe5; border-color: #d4a800; color: var(--black); font-weight: 600; }
-.excel-stat-row { display: flex; gap: 8px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e5e7eb; }
-.excel-stat { flex: 1; background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 6px; padding: 7px 8px; text-align: center; }
-.excel-stat-num { font: 700 16px/1 'Archivo',sans-serif; color: var(--blue); }
-.excel-stat-lbl { font: 400 9px/1.2 'Archivo',sans-serif; color: #9ca3af; margin-top: 2px; }
-
-/* ══ FORM SECTION (BLUE) ══ */
-.form-section-inner { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-.form-eyebrow {
-  font: 700 12px/1 'Archivo',sans-serif; letter-spacing: .1em; text-transform: uppercase;
-  color: #fff; background: rgba(255,255,255,.15);
-  border: 1.5px solid rgba(255,255,255,.3);
-  border-radius: 999px; padding: 8px 20px;
-}
-
-/* Card */
-.card { background: var(--white); border: 3px solid var(--black); border-radius: 16px; box-shadow: 5px 5px 0 var(--black); }
-
-.form-card { max-width: 500px; width: 100%; padding: 32px 28px; }
-@media(max-width:560px){ .form-card { padding: 24px 18px; } }
-
-.form-urgency { display: flex; align-items: center; gap: 6px; margin-bottom: 14px; font: 600 11px/1 'Archivo',sans-serif; color: var(--green); }
-.form-urgency-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 1.8s infinite; }
-
-.form-title { font: 900 24px/1.2 'Archivo Black',sans-serif; color: var(--black); letter-spacing: -.02em; margin-bottom: 3px; }
-.form-sub { font: 400 13px/1.5 'Archivo',sans-serif; color: #6b7280; margin-bottom: 18px; }
-
-.form-includes { background: #f8fffe; border: 1.5px solid rgba(0,204,122,.3); border-radius: 10px; padding: 10px 12px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px; }
-.form-includes-title { font: 700 10px/1 'Archivo',sans-serif; letter-spacing: .07em; text-transform: uppercase; color: var(--green); margin-bottom: 2px; }
-.form-include-item { display: flex; align-items: center; gap: 7px; font: 400 12px/1.4 'Archivo',sans-serif; color: #374151; }
-.form-include-icon { font-size: 12px; flex-shrink: 0; }
-
-.form-field { margin-bottom: 10px; }
-.form-field label { display: block; margin-bottom: 4px; font: 700 11px/1 'Archivo',sans-serif; letter-spacing: .06em; text-transform: uppercase; color: #374151; }
-.form-field input { width: 100%; padding: 11px 13px; font: 400 15px/1 'Archivo',sans-serif; border: 2px solid #d1d5db; border-radius: 10px; background: #fafafa; outline: none; transition: border-color .15s; }
-.form-field input:focus { border-color: var(--blue); background: #fff; }
-.form-field input.err { border-color: #ef4444; }
-.field-err { font: 400 11px/1 'Archivo',sans-serif; color: #ef4444; margin-top: 3px; display: none; }
-.field-err.show { display: block; }
-
-.btn-download {
-  display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
-  padding: 17px 20px; margin-top: 4px;
-  background: var(--pink); color: var(--black);
-  font: 700 17px/1 'Archivo',sans-serif;
-  border: 2.5px solid var(--black); border-radius: 12px;
-  box-shadow: 4px 4px 0 var(--black); cursor: pointer;
-  transition: transform .12s, box-shadow .12s; -webkit-tap-highlight-color: transparent;
-}
-.btn-download:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
-.btn-download:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--black); }
-
-.form-steps { display: flex; gap: 0; margin-top: 12px; border-top: 1.5px solid #f3f4f6; padding-top: 12px; }
-.form-step { flex: 1; text-align: center; position: relative; }
-.form-step + .form-step::before { content: '→'; position: absolute; left: 0; top: 50%; transform: translate(-50%,-50%); font-size: 11px; color: #d1d5db; }
-.form-step-icon { font-size: 18px; display: block; margin-bottom: 3px; }
-.form-step-text { font: 400 10px/1.3 'Archivo',sans-serif; color: #9ca3af; }
-.form-privacy { font: 400 11px/1.4 'Archivo',sans-serif; color: #9ca3af; margin-top: 8px; text-align: center; }
-
-.form-footer-note { font: 400 11px/1.4 'Archivo',sans-serif; color: rgba(255,255,255,.45); text-align: center; }
-
-/* ══ Success state ══ */
-.form-success { display: none; flex-direction: column; align-items: center; gap: 14px; text-align: center; padding: 12px 0; }
-.form-success.show { display: flex; }
-.success-icon { font-size: 48px; }
-.success-title { font: 900 22px/1.2 'Archivo Black',sans-serif; color: var(--black); letter-spacing: -.02em; }
-.success-sub { font: 400 13px/1.5 'Archivo',sans-serif; color: #6b7280; }
-.btn-fallback { display: inline-flex; align-items: center; gap: 6px; padding: 12px 20px; background: var(--black); color: var(--white); font: 700 13px/1 'Archivo',sans-serif; border-radius: 10px; text-decoration: none; transition: opacity .12s; }
-.btn-fallback:hover { opacity: .85; }
-
-/* ══ Mobile sticky CTA ══ */
-.mobile-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--white); border-top: 3px solid var(--black); padding: 12px 16px; z-index: 50; gap: 10px; align-items: center; }
-@media(max-width:920px){ .mobile-cta { display: flex; } }
-.mobile-cta-text { flex: 1; }
-.mobile-cta-title { font: 700 13px/1.2 'Archivo',sans-serif; color: var(--black); }
-.mobile-cta-sub { font: 400 11px/1 'Archivo',sans-serif; color: #9ca3af; margin-top: 2px; }
-.btn-mobile-cta { flex-shrink: 0; background: var(--pink); color: var(--black); font: 700 13px/1 'Archivo',sans-serif; border: 2px solid var(--black); border-radius: 10px; box-shadow: 3px 3px 0 var(--black); padding: 12px 16px; cursor: pointer; white-space: nowrap; -webkit-tap-highlight-color: transparent; }
+/* download form card */
+.dl-card{background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-xl);box-shadow:var(--nx-drop-lg);padding:32px}
+.dl-urgency{display:flex;align-items:center;gap:8px;margin-bottom:14px;font:700 12px/1 var(--nx-font-display);letter-spacing:.06em;text-transform:uppercase;color:var(--nx-green)}
+.dl-urgency-dot{width:7px;height:7px;border-radius:50%;background:var(--nx-green);animation:dlpulse 2s infinite}
+@keyframes dlpulse{0%,100%{opacity:1}50%{opacity:.45}}
+.dl-card h3{font:900 22px/1.15 var(--nx-font-display);letter-spacing:var(--nx-track-display);color:var(--nx-ink);margin-bottom:6px}
+.dl-card .dl-sub{font:400 14px/1.5 var(--nx-font-text);color:var(--nx-ink-soft);margin-bottom:20px}
+.dl-includes{background:#f8fffe;border:1.5px solid rgba(0,204,122,.3);border-radius:10px;padding:10px 12px;margin-bottom:18px;display:flex;flex-direction:column;gap:5px}
+.dl-includes-title{font:800 10px/1 var(--nx-font-display);letter-spacing:.07em;text-transform:uppercase;color:var(--nx-green);margin-bottom:2px}
+.dl-include-item{display:flex;align-items:center;gap:8px;font:400 13px/1.4 var(--nx-font-text);color:var(--nx-ink)}
+.dl-include-dot{width:6px;height:6px;border-radius:50%;background:var(--nx-green);flex:0 0 auto}
+.dl-field{margin-bottom:12px}
+.dl-label{display:block;font:700 12px/1 var(--nx-font-display);letter-spacing:.06em;text-transform:uppercase;color:var(--nx-ink-soft);margin-bottom:6px}
+.dl-input{width:100%;padding:13px 14px;border:1.5px solid var(--nx-ink);border-radius:10px;font:400 15px/1.3 var(--nx-font-text);color:var(--nx-ink);background:var(--nx-paper);box-sizing:border-box}
+.dl-input::placeholder{color:var(--nx-ink-soft)}
+.dl-input:focus{outline:none;border-color:var(--nx-pink)}
+.dl-input.err{border-color:#ef4444}
+.dl-field-err{font:400 11px/1 var(--nx-font-text);color:#ef4444;margin-top:4px;display:none}
+.dl-field-err.show{display:block}
+.dl-btn{width:100%;margin-top:4px;padding:15px 24px;background:var(--nx-pink);color:#fff;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-sm);font:800 15px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:transform .08s,box-shadow .08s}
+.dl-btn:active{transform:translate(4px,4px);box-shadow:none}
+.dl-privacy{font:400 12px/1.4 var(--nx-font-mono);color:var(--nx-ink-soft);margin-top:10px;text-align:center}
+.dl-done{display:none;flex-direction:column;align-items:flex-start;gap:12px}
+.dl-done.show{display:flex}
+.dl-done-check{width:48px;height:48px;border-radius:50%;background:var(--nx-green);border:2px solid var(--nx-ink);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px}
+.dl-done h3{margin:0;font:900 22px/1.1 var(--nx-font-display);letter-spacing:var(--nx-track-display);color:var(--nx-ink)}
+.dl-done p{margin:0;font:400 14px/1.5 var(--nx-font-text);color:var(--nx-ink-soft)}
+.dl-done-bullets{display:flex;flex-direction:column;gap:8px}
+.dl-done-bullet{display:flex;align-items:center;gap:10px;font:400 14px/1.4 var(--nx-font-text);color:var(--nx-ink-soft)}
+.dl-done-dot{width:7px;height:7px;border-radius:50%;background:var(--nx-ink);flex:0 0 auto}
+.dl-fallback{display:inline-flex;align-items:center;gap:6px;padding:11px 18px;background:var(--nx-ink);color:var(--nx-paper);border-radius:10px;font:700 13px/1 var(--nx-font-display);text-decoration:none;margin-top:4px}
+@media(max-width:860px){.sv-cta2-inner{grid-template-columns:1fr;gap:36px}}
 </style>
 </head>
-<body>
+<body style="--acc:var(--nx-pink);--acc-pale:var(--nx-pink-pale);--acc-ink:#fff">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- ═══════════════════════════════════════════
-     SECCIÓN 1: HERO — fondo azul
-     Solo headline, sub y CTA. Sin cuerpo de texto.
-════════════════════════════════════════════ -->
-<section class="sec sec-blue">
+<!-- §1 HERO -->
+<div class="nx-grid-bg top-band">
   <nav class="site-nav">
-    <a href="index.html" class="logo">
-      <img src="images/muvap-logo.webp" alt="Muvap" style="height:56px;width:auto;display:block">
-    </a>
+    <a href="index.html" class="logo"><img src="images/muvap-logo.webp" alt="Muvap" style="height:72px;width:auto;display:block"></a>
     <div class="nav-right">
       <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
       <div class="nav-links">
@@ -279,329 +137,375 @@ html, body { min-height: 100%; background: #fff; font-family: 'Archivo',sans-ser
         <a class="nav-link" href="customers.html">Case studies</a>
         <div class="resources-wrap">
           <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <div class="resources-menu">
-            <a href="resources.html">Blog</a>
-            <a href="downloads.html">Downloads</a>          </div>
+          <div class="resources-menu"><a href="resources.html">Blog</a><a href="downloads.html">Downloads</a></div>
         </div>
       </div>
-      <a href="contact.html" class="btn-pink nav-cta"><span class="nav-cta-text">Let's talk</span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp" class="btn-purple nav-cta"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg><span class="nav-cta-text">WhatsApp</span></a>
+      <a href="contact.html" class="btn-pink nav-cta">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp" class="btn-purple nav-cta"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
     </div>
   </nav>
-  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
-
-  <div class="sec-inner">
-    <div class="hero-content">
-      <div class="trust-row">
-        <div class="trust-badge">
-          <span class="trust-dot"></span>
-          400+ B2B teams downloaded this
-        </div>
-        <div class="trust-stars">
-          <span class="stars">★★★★★</span>
-          <span class="stars-text">Free forever · No credit card</span>
-        </div>
+  <header class="sv-hero">
+    <div class="sv-hero-copy">
+      <span class="eyebrow-pill" style="background:var(--acc)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>ICP WORKSHEET · FREE DOWNLOAD</span>
+      <h1 style="color:var(--nx-paper);font:900 clamp(34px,4.8vw,58px)/1.04 var(--nx-font-display);letter-spacing:var(--nx-track-display)">Your ICP is in your head. Put it in your CRM.</h1>
+      <p class="sv-hero-sub">A free Excel worksheet with 27 pre-built CRM fields and an auto-generated ICP statement. Fill it in once. Your whole team qualifies from the same playbook.</p>
+      <div class="sv-hero-ctas">
+        <a class="sv-btn is-acc" href="#download">Download Free →</a>
+        <a class="sv-link" href="#whats-inside">See what's inside →</a>
       </div>
-
-      <h1 class="hero-hl">
-        Your ICP is in your head.<br>
-        Put it in your CRM.
-      </h1>
-
-      <p class="hero-sub">
-        A free Excel worksheet that turns your gut feeling about who you sell to
-        into <strong>27 measurable CRM fields</strong> and an ICP statement you can paste anywhere.
-      </p>
-
-      <a href="#sec-form" class="btn-cta-hero">⬇ Download Free →</a>
+      <p class="sv-hero-anchor">Free forever · No credit card · Works in HubSpot, Salesforce and Zoho</p>
     </div>
-  </div>
-</section>
-
-<div class="sec-divider"></div>
-
-<!-- ═══════════════════════════════════════════
-     SECCIÓN 2: BENEFICIOS — fondo blanco
-     Aquí vive el cuerpo de texto. Negro sobre blanco.
-════════════════════════════════════════════ -->
-<section class="sec sec-white">
-  <div class="sec-inner">
-    <div class="benefits-content">
-      <p class="section-eyebrow">What's inside</p>
-
-      <div class="benefits-grid">
-        <div class="benefit-card">
-          <div class="benefit-icon" style="background:var(--yellow)">📊</div>
-          <div class="benefit-title">Stop qualifying on instinct</div>
-          <div class="benefit-desc">Score leads based on your actual ICP criteria — not your gut feeling about who "feels like a fit."</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon" style="background:var(--pink)">🗂️</div>
-          <div class="benefit-title">27 CRM fields, pre-mapped</div>
-          <div class="benefit-desc">Drop them into HubSpot or Salesforce in one session. Firmographic, behavioral, intent — all covered.</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon" style="background:var(--cyan)">⚡</div>
-          <div class="benefit-title">Auto-generates your ICP statement</div>
-          <div class="benefit-desc">Fill in the fields and the statement builds itself. Copy-paste it into any pitch deck, investor brief, or onboarding doc.</div>
-        </div>
-        <div class="benefit-card">
-          <div class="benefit-icon" style="background:var(--green)">📄</div>
-          <div class="benefit-title">Print-ready summary tab</div>
-          <div class="benefit-desc">One clean view to share with your board, your investors, or your next sales hire on day one.</div>
-        </div>
-      </div>
-
-      <!-- Stats strip -->
-      <div class="stat-strip">
-        <div class="stat-item">
-          <div class="stat-num">27</div>
-          <div class="stat-lbl">CRM fields pre-mapped</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">4</div>
-          <div class="stat-lbl">Worksheets included</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">5 min</div>
-          <div class="stat-lbl">To complete</div>
-        </div>
-      </div>
-
-      <!-- Excel mockup -->
-      <div class="excel-mockup">
-        <div class="excel-title-bar">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect width="14" height="14" rx="2" fill="#fff"/><path d="M3 3l2.5 4L3 11h1.5l2-3.5L8.5 11H10L7.5 7 10 3H8.5L6.5 6.5 4.5 3H3z" fill="#217346"/></svg>
-          <span>Muvap_ICP_Worksheet.xlsx</span>
-        </div>
-        <div class="excel-tabs">
-          <div class="excel-tab">Welcome</div>
-          <div class="excel-tab" style="border-color:#FB4AAD;color:#FB4AAD">Define Your ICP</div>
-          <div class="excel-tab">CRM Map</div>
-          <div class="excel-tab">Summary</div>
-        </div>
-        <div class="excel-body">
-          <div class="excel-row">
-            <div class="excel-cell-label">Industry</div>
-            <div class="excel-cell-input">SaaS ▾</div>
-          </div>
-          <div class="excel-row">
-            <div class="excel-cell-label">Company Size</div>
-            <div class="excel-cell-input">51–200 ▾</div>
-          </div>
-          <div class="excel-row">
-            <div class="excel-cell-label">Funding Stage</div>
-            <div class="excel-cell-input">Series A ▾</div>
-          </div>
-          <div class="excel-row">
-            <div class="excel-cell-label">Job Title</div>
-            <div class="excel-cell-input">VP of Sales</div>
-          </div>
-          <div class="excel-row">
-            <div class="excel-cell-label" style="background:#fffbe5;border-color:#d4a800;font-weight:700">ICP Statement</div>
-            <div class="excel-cell-input excel-highlight">We help SaaS companies with 51–200 employees, led by a VP of Sales...</div>
-          </div>
-          <div class="excel-stat-row">
-            <div class="excel-stat"><div class="excel-stat-num">27</div><div class="excel-stat-lbl">CRM fields</div></div>
-            <div class="excel-stat"><div class="excel-stat-num">4</div><div class="excel-stat-lbl">Worksheets</div></div>
-            <div class="excel-stat"><div class="excel-stat-num">5 min</div><div class="excel-stat-lbl">To complete</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="sec-divider"></div>
-
-<!-- ═══════════════════════════════════════════
-     SECCIÓN 3: FORMULARIO — fondo azul
-     White card sobre azul: uso perfecto del brand system.
-════════════════════════════════════════════ -->
-<section class="sec sec-blue" id="sec-form">
-  <div class="sec-inner">
-    <div class="form-section-inner">
-      <span class="form-eyebrow">Free download · No waitlist</span>
-
-      <div class="form-card card">
-        <div id="formState">
-          <div class="form-urgency">
-            <span class="form-urgency-dot"></span>
-            Instant download · Starts immediately
-          </div>
-
-          <h2 class="form-title">Get the free worksheet</h2>
-          <p class="form-sub">Takes 10 seconds. Your download starts immediately.</p>
-
-          <div class="form-includes">
-            <p class="form-includes-title">Included in this download</p>
-            <div class="form-include-item"><span class="form-include-icon">📋</span>ICP Definition Worksheet (tabs 1–2)</div>
-            <div class="form-include-item"><span class="form-include-icon">🗂️</span>27 pre-built CRM properties (tab 3)</div>
-            <div class="form-include-item"><span class="form-include-icon">📄</span>Print-ready ICP Summary (tab 4)</div>
-            <div class="form-include-item"><span class="form-include-icon">⚡</span>Auto-generated ICP statement</div>
-          </div>
-
-          <form id="leadForm" novalidate>
-            <div class="form-field">
-              <label for="f-name">Your name</label>
-              <input id="f-name" name="name" type="text" placeholder="Jane Smith" autocomplete="name">
-              <p class="field-err" id="err-name">Please enter your name.</p>
-            </div>
-            <div class="form-field">
-              <label for="f-email">Work email</label>
-              <input id="f-email" name="email" type="email" placeholder="jane@company.com" autocomplete="email">
-              <p class="field-err" id="err-email">Please use your work email (not Gmail, Yahoo, etc.).</p>
-            </div>
-            <div class="form-field">
-              <label for="f-company">Company</label>
-              <input id="f-company" name="company" type="text" placeholder="Your company" autocomplete="organization">
-              <p class="field-err" id="err-company">Please enter your company.</p>
-            </div>
-            <div class="form-field">
-              <label for="f-role">Your role</label>
-              <input id="f-role" name="role" type="text" placeholder="e.g. VP of Sales, Head of Revenue" autocomplete="organization-title">
-              <p class="field-err" id="err-role">Please enter your role.</p>
-            </div>
-            <button type="submit" class="btn-download">
-              ⬇ Download Free &nbsp;<span>→</span>
-            </button>
-          </form>
-
-          <div class="form-steps">
-            <div class="form-step">
-              <span class="form-step-icon">✍️</span>
-              <span class="form-step-text">Fill the form</span>
-            </div>
-            <div class="form-step">
-              <span class="form-step-icon">⬇</span>
-              <span class="form-step-text">Download starts</span>
-            </div>
-            <div class="form-step">
-              <span class="form-step-icon">📧</span>
-              <span class="form-step-text">Copy in inbox</span>
-            </div>
-          </div>
-
-          <p class="form-privacy">🔒 No spam. No sequence. We send the file once.</p>
-        </div>
-
-        <div id="successState" class="form-success">
-          <div class="success-icon">✅</div>
-          <p class="success-title">Your download started!</p>
-          <p class="success-sub">Check your inbox — a copy is on its way to <strong id="successEmail"></strong>.</p>
-          <a id="fallbackLink" href="downloads/muvap-icp-worksheet.xlsx" download class="btn-fallback">⬇ Download again</a>
-        </div>
-      </div>
-
-      <p class="form-footer-note">🔒 No spam. No sequence. We send the file once.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Mobile sticky CTA -->
-<div class="mobile-cta" id="mobileCta">
-  <div class="mobile-cta-text">
-    <div class="mobile-cta-title">ICP Worksheet</div>
-    <div class="mobile-cta-sub">Free Excel download · Instant</div>
-  </div>
-  <button type="button" class="btn-mobile-cta" id="mobileCTABtn">Get Free →</button>
+    <aside class="sv-hero-visual">
+      <img src="images/dl-icp-worksheet.webp" alt="ICP Worksheet Excel preview" style="width:100%;max-width:480px;display:block;margin:0 auto">
+    </aside>
+  </header>
 </div>
 
+<!-- §2 WHY SECTION (white) -->
+<section class="sv-section">
+  <div class="sv-inner reveal">
+    <div style="text-align:center;margin-bottom:40px">
+      <span class="eyebrow-pill" style="background:var(--acc)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>The problem</span>
+      <h2 style="font:900 clamp(28px,3.6vw,42px)/1.1 var(--nx-font-display);letter-spacing:var(--nx-track-display);margin:14px 0 10px">Sound familiar?</h2>
+      <p style="font:400 clamp(15px,1.8vw,17px)/1.65 var(--nx-font-text);color:var(--nx-ink-soft);max-width:520px;margin:0 auto">These aren't edge cases. They're the default state of a team that hasn't documented who they're actually selling to.</p>
+    </div>
+    <div class="sv-why-grid">
+      <div class="sv-why-stmts">
+        <div class="sv-why-stmt" style="flex-direction:column;align-items:flex-start;gap:6px">
+          <span class="sv-why-stmt-n">01</span>
+          <p style="font:700 clamp(16px,2vw,19px)/1.35 var(--nx-font-display);color:var(--nx-ink)">Your reps describe your ICP differently depending on who you ask.</p>
+          <p style="font:400 13px/1.5 var(--nx-font-text);color:var(--nx-ink-soft);margin:0">That means every rep qualifies on instinct. Some deals close. Most don't, and no one knows why.</p>
+        </div>
+        <div class="sv-why-stmt" style="flex-direction:column;align-items:flex-start;gap:6px">
+          <span class="sv-why-stmt-n">02</span>
+          <p style="font:700 clamp(16px,2vw,19px)/1.35 var(--nx-font-display);color:var(--nx-ink)">Marketing sends leads your sales team never calls — and no one can agree on why.</p>
+          <p style="font:400 13px/1.5 var(--nx-font-text);color:var(--nx-ink-soft);margin:0">No shared definition means no shared accountability. Both teams are working from different rules.</p>
+        </div>
+        <div class="sv-why-stmt" style="flex-direction:column;align-items:flex-start;gap:6px">
+          <span class="sv-why-stmt-n">03</span>
+          <p style="font:700 clamp(16px,2vw,19px)/1.35 var(--nx-font-display);color:var(--nx-ink)">Your CRM has no firmographic structure. Every contact looks the same.</p>
+          <p style="font:400 13px/1.5 var(--nx-font-text);color:var(--nx-ink-soft);margin:0">You can't score or route leads if the fields that define your ICP don't exist in the CRM yet.</p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center">
+        <img src="images/crm-empty-fields-3d.webp" alt="CRM with empty fields and no ICP structure" style="width:100%;max-width:420px;display:block">
+      </div>
+    </div>
+    <div class="sv-why-remate"><p>The ICP isn't vague. <strong>The documentation is.</strong></p></div>
+  </div>
+</section>
+
+<!-- §3 WHAT'S INSIDE (gray, background image) -->
+<section class="sv-section is-dim" id="whats-inside" style="background-image:url('images/testimonials-bg.webp');background-size:cover;background-position:center">
+  <div class="sv-inner reveal">
+    <div class="section-head">
+      <span class="eyebrow-pill" style="background:var(--acc)"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg>What's inside</span>
+      <h2 style="color:#fff">Built for where you actually are.</h2>
+      <p style="color:#fff">Same worksheet. What changes is which part does the most work for your situation right now.</p>
+    </div>
+    <div class="sv-scen-wrap">
+      <div class="sv-scen-tabs" role="tablist">
+        <button class="sv-scen-tab is-active" data-tab="0" role="tab">Our reps qualify differently. We keep losing deals we should have won.</button>
+        <button class="sv-scen-tab" data-tab="1" role="tab">Marketing sends leads we'd never call. They think the leads are good.</button>
+        <button class="sv-scen-tab" data-tab="2" role="tab">I'm setting up our CRM and don't know what fields to create.</button>
+        <button class="sv-scen-tab" data-tab="3" role="tab">I need to show our ICP to investors or a new sales hire.</button>
+      </div>
+      <div class="sv-scen-panels">
+
+        <!-- Panel 01 -->
+        <div class="sv-scen-panel is-active" data-panel="0">
+          <div>
+            <div class="sv-scen-num">01</div>
+            <h3>No criteria = no consistency</h3>
+            <p class="ctx">No written ICP means every rep builds their own mental model. Some close, some don't, and you can't replicate what's working.</p>
+            <div class="sv-chip-label">What's in this tab</div>
+            <div class="sv-chips">
+              <span class="sv-chip">Firmographic fields</span>
+              <span class="sv-chip">Behavioral signals</span>
+              <span class="sv-chip">Intent markers</span>
+              <span class="sv-chip">ICP statement generator</span>
+            </div>
+            <p class="sv-scen-outcome">Every rep qualifies from the same criteria. The ICP statement is already written — copy-paste it into any deck, onboarding doc, or brief.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center">
+            <div class="icp-mock" style="width:100%;max-width:340px">
+              <div class="icp-mock-head"><span>ICP Definition</span></div>
+              <div class="icp-mock-tabs">
+                <div class="icp-mock-tab active">Define ICP</div>
+                <div class="icp-mock-tab">CRM Map</div>
+                <div class="icp-mock-tab">Summary</div>
+              </div>
+              <div class="icp-mock-body">
+                <div class="icp-mock-row"><div class="icp-mock-lbl">Industry</div><div class="icp-mock-val filled">SaaS · Series A–B</div></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">Company size</div><div class="icp-mock-val filled">51–200 employees</div></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">Buyer title</div><div class="icp-mock-val filled">VP Sales / CRO</div></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">Signal</div><div class="icp-mock-val filled">Hiring AEs</div></div>
+                <div class="icp-mock-divider"></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl" style="background:#fffbe5;border-color:#d4a800">ICP Statement</div><div class="icp-mock-val accent">We help SaaS companies 51–200 employees, led by VP Sales…</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 02 -->
+        <div class="sv-scen-panel" data-panel="1">
+          <div>
+            <div class="sv-scen-num">02</div>
+            <h3>No shared definition = no shared accountability</h3>
+            <p class="ctx">Marketing and sales are working from different rules. The worksheet creates one document both teams sign off on — so "that wasn't an MQL" stops being a valid excuse.</p>
+            <div class="sv-chip-label">What's in this tab</div>
+            <div class="sv-chips">
+              <span class="sv-chip">Lead quality criteria</span>
+              <span class="sv-chip">MQL/SQL definitions</span>
+              <span class="sv-chip">Source-by-source scoring</span>
+              <span class="sv-chip">Shared sign-off space</span>
+            </div>
+            <p class="sv-scen-outcome">One document. Both teams fill in the same fields. When a lead comes in, both sides know whether it counts — before anyone opens Slack.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center">
+            <div class="icp-mock" style="width:100%;max-width:340px">
+              <div class="icp-mock-head"><span>Lead Quality Alignment</span></div>
+              <div class="icp-mock-body" style="padding-top:14px">
+                <div class="icp-mock-row"><div class="icp-mock-lbl">MQL criteria</div><div class="icp-mock-val filled">3+ signals matched</div></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">SQL criteria</div><div class="icp-mock-val filled">ICP fit + demo booked</div></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">Disqualify if</div><div class="icp-mock-val filled">&lt;10 employees</div></div>
+                <div class="icp-mock-divider"></div>
+                <div style="display:flex;gap:8px;margin-top:4px">
+                  <div style="flex:1;background:#e8f4ff;border:1px solid #c5d8f5;border-radius:6px;padding:7px 8px;text-align:center;font:700 10px/1.4 var(--nx-font-display);color:#374151">Marketing<br><span style="color:#00cc7a">✓ Agreed</span></div>
+                  <div style="flex:1;background:#e8f4ff;border:1px solid #c5d8f5;border-radius:6px;padding:7px 8px;text-align:center;font:700 10px/1.4 var(--nx-font-display);color:#374151">Sales<br><span style="color:#00cc7a">✓ Agreed</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 03 -->
+        <div class="sv-scen-panel" data-panel="2">
+          <div>
+            <div class="sv-scen-num">03</div>
+            <h3>Blank CRM = first setup always misses what matters</h3>
+            <p class="ctx">Setting up a CRM without a field map means creating properties that don't reflect how you qualify. The worksheet gives you 27 pre-built fields — copy the names in, done.</p>
+            <div class="sv-chip-label">What's in this tab</div>
+            <div class="sv-chips">
+              <span class="sv-chip">27 pre-mapped properties</span>
+              <span class="sv-chip">HubSpot ready</span>
+              <span class="sv-chip">Salesforce ready</span>
+              <span class="sv-chip">Zoho ready</span>
+            </div>
+            <p class="sv-scen-outcome">Your CRM has the fields it needs on day one. No going back to add properties after 500 contacts are already in the system.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center">
+            <div class="icp-mock" style="width:100%;max-width:340px">
+              <div class="icp-mock-head"><span>CRM Field Map · 27 Properties</span></div>
+              <div class="icp-mock-body" style="padding-top:14px">
+                <div class="icp-mock-row"><div class="icp-mock-lbl">icp_industry</div><div class="icp-mock-val filled">Dropdown</div></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">icp_size_band</div><div class="icp-mock-val filled">Dropdown</div></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">icp_funding</div><div class="icp-mock-val filled">Dropdown</div></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">icp_fit_score</div><div class="icp-mock-val filled">Number</div></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">icp_signal_1</div><div class="icp-mock-val filled">Checkbox</div></div>
+                <div class="icp-stat-row">
+                  <div class="icp-stat"><strong>27</strong><span>fields total</span></div>
+                  <div class="icp-stat"><strong>4</strong><span>categories</span></div>
+                  <div class="icp-stat"><strong>3</strong><span>CRMs</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 04 -->
+        <div class="sv-scen-panel" data-panel="3">
+          <div>
+            <div class="sv-scen-num">04</div>
+            <h3>ICP in someone's head can't be shared or verified</h3>
+            <p class="ctx">Investors ask who you sell to. New hires ask the same. You shouldn't have to explain it from memory every time. The summary tab builds the answer for you.</p>
+            <div class="sv-chip-label">What's in this tab</div>
+            <div class="sv-chips">
+              <span class="sv-chip">One-page ICP summary</span>
+              <span class="sv-chip">Auto-populated fields</span>
+              <span class="sv-chip">Board-ready formatting</span>
+              <span class="sv-chip">Print or share as PDF</span>
+            </div>
+            <p class="sv-scen-outcome">The summary is already built from the fields you filled in. Print it, paste it in the deck, send it to the new hire on day one.</p>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:center">
+            <div class="icp-mock" style="width:100%;max-width:340px">
+              <div class="icp-mock-head"><span>Print-Ready Summary</span></div>
+              <div class="icp-mock-body" style="padding-top:14px">
+                <div style="background:#fffbe5;border:1.5px solid #d4a800;border-radius:8px;padding:10px 12px;margin-bottom:8px">
+                  <div style="font:800 9px/1 var(--nx-font-display);letter-spacing:.08em;text-transform:uppercase;color:#7c4a00;margin-bottom:5px">ICP Statement</div>
+                  <div style="font:400 11px/1.5 var(--nx-font-text);color:var(--nx-ink)">We help <strong>SaaS companies</strong> with <strong>51–200 employees</strong>, funded at <strong>Series A–B</strong>, led by a <strong>VP Sales or CRO</strong>, who are hiring AEs and need a CRM that reflects how they sell.</div>
+                </div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">Target segment</div><div class="icp-mock-val filled">B2B SaaS · Mid-market</div></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">Primary buyer</div><div class="icp-mock-val filled">VP Sales / CRO</div></div>
+                <div class="icp-mock-row"><div class="icp-mock-lbl">Key signal</div><div class="icp-mock-val filled">Hiring sales reps</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- §4 DOWNLOAD CTA -->
+<section class="sv-cta2" id="download">
+  <div class="sv-cta2-inner">
+    <div>
+      <h2 class="sv-cta2-h2">Stop qualifying on gut feeling.</h2>
+      <div class="sv-trust-pts">
+        <div class="sv-trust-pt">
+          <div class="sv-trust-pt-ic">✓</div>
+          <p>27 CRM fields already built for you. Drop them into HubSpot, Salesforce or Zoho in one session.</p>
+        </div>
+        <div class="sv-trust-pt">
+          <div class="sv-trust-pt-ic">✓</div>
+          <p>The ICP statement writes itself. Fill in the fields once — it auto-populates a statement you can paste anywhere.</p>
+        </div>
+        <div class="sv-trust-pt">
+          <div class="sv-trust-pt-ic">✓</div>
+          <p>Works for the whole team. One shared doc that marketing and sales fill in together, so both sides qualify the same way.</p>
+        </div>
+      </div>
+      <p class="sv-cta2-note">Free forever · Takes 5 minutes · 400+ B2B teams downloaded this</p>
+    </div>
+
+    <div>
+      <div class="dl-card">
+        <div id="dlFormState">
+          <div class="dl-urgency">
+            <span class="dl-urgency-dot"></span>
+            Instant download · No waitlist
+          </div>
+          <h3>Get the free worksheet</h3>
+          <p class="dl-sub">Takes 10 seconds. Your download starts immediately.</p>
+          <div class="dl-includes">
+            <p class="dl-includes-title">What's included</p>
+            <div class="dl-include-item"><span class="dl-include-dot"></span>ICP Definition tab — firmographic + behavioral fields</div>
+            <div class="dl-include-item"><span class="dl-include-dot"></span>27 pre-built CRM properties, ready to copy</div>
+            <div class="dl-include-item"><span class="dl-include-dot"></span>Auto-generated ICP statement</div>
+            <div class="dl-include-item"><span class="dl-include-dot"></span>Print-ready one-page summary</div>
+          </div>
+          <form id="dlForm" novalidate>
+            <div class="dl-field">
+              <label class="dl-label" for="dl-name">Your name</label>
+              <input class="dl-input" id="dl-name" type="text" name="name" placeholder="Jane Smith" autocomplete="name">
+              <p class="dl-field-err" id="dl-err-name">Please enter your name.</p>
+            </div>
+            <div class="dl-field">
+              <label class="dl-label" for="dl-email">Work email</label>
+              <input class="dl-input" id="dl-email" type="email" name="email" placeholder="jane@company.com" autocomplete="email">
+              <p class="dl-field-err" id="dl-err-email">Please use your work email.</p>
+            </div>
+            <div class="dl-field">
+              <label class="dl-label" for="dl-company">Company</label>
+              <input class="dl-input" id="dl-company" type="text" name="company" placeholder="Your company" autocomplete="organization">
+              <p class="dl-field-err" id="dl-err-company">Please enter your company.</p>
+            </div>
+            <button type="submit" class="dl-btn">⬇ Download Free →</button>
+          </form>
+          <p class="dl-privacy">🔒 No spam. We send the file once.</p>
+        </div>
+        <div id="dlDoneState" class="dl-done">
+          <div class="dl-done-check">✓</div>
+          <h3>Your download started!</h3>
+          <p>Check your inbox — a copy is on its way to <strong id="dlSuccessEmail"></strong>.</p>
+          <div class="dl-done-bullets">
+            <div class="dl-done-bullet"><span class="dl-done-dot"></span>Start with the "Define ICP" tab.</div>
+            <div class="dl-done-bullet"><span class="dl-done-dot"></span>Use the CRM Map tab to copy fields directly into your CRM.</div>
+            <div class="dl-done-bullet"><span class="dl-done-dot"></span>Share the Summary tab with your team or investors.</div>
+          </div>
+          <a id="dlFallback" href="downloads/muvap-icp-worksheet.xlsx" download class="dl-fallback">⬇ Download again</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <script>
-(function () {
-  'use strict';
+(function(){
+  var b=document.querySelector('.nav-burger'),n=document.querySelector('.site-nav');
+  if(!b||!n)return;
+  function close(){n.classList.remove('nav-open');b.setAttribute('aria-expanded','false');b.textContent='☰'}
+  b.addEventListener('click',function(e){e.stopPropagation();var open=n.classList.toggle('nav-open');b.setAttribute('aria-expanded',open?'true':'false');b.textContent=open?'✕':'☰'});
+  document.addEventListener('click',function(e){if(!n.contains(e.target))close()});
+})();
+</script>
 
-  var DOWNLOAD_URL  = 'downloads/muvap-icp-worksheet.xlsx';
-  var WEBHOOK_URL   = 'YOUR_N8N_WEBHOOK_URL';
-  var FREE_DOMAINS  = ['gmail.com','googlemail.com','outlook.com','outlook.es','outlook.co.uk','outlook.fr','outlook.de','hotmail.com','hotmail.es','hotmail.co.uk','hotmail.fr','hotmail.de','hotmail.it','yahoo.com','yahoo.es','yahoo.co.uk','yahoo.fr','yahoo.de','yahoo.it','yahoo.ca','yahoo.com.mx','yahoo.com.ar','live.com','live.es','live.co.uk','live.fr','msn.com','icloud.com','me.com','mac.com','aol.com','aol.co.uk','protonmail.com','proton.me','pm.me','mail.com','gmx.com','gmx.de','gmx.net','yandex.com','yandex.ru','fastmail.com','fastmail.org','tutanota.com','inbox.com'];
-  function isPersonalEmail(email) { var d = (email.split('@')[1] || '').toLowerCase(); return FREE_DOMAINS.indexOf(d) !== -1; }
-
-  var form         = document.getElementById('leadForm');
-  var formState    = document.getElementById('formState');
-  var successState = document.getElementById('successState');
-  var successEmail = document.getElementById('successEmail');
-  var mobileCta    = document.getElementById('mobileCta');
-  var mobileBtn    = document.getElementById('mobileCTABtn');
-
-  if (window.IntersectionObserver) {
-    var obs = new IntersectionObserver(function(entries) {
-      var visible = entries[0].isIntersecting;
-      mobileCta.style.display = visible ? 'none' : '';
-    }, { threshold: 0.3 });
-    obs.observe(document.querySelector('.form-card'));
-  }
-
-  if (mobileBtn) {
-    mobileBtn.addEventListener('click', function () {
-      document.querySelector('.form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+<script>
+(function(){
+  var tabs=Array.from(document.querySelectorAll('.sv-scen-tab'));
+  var panels=Array.from(document.querySelectorAll('.sv-scen-panel'));
+  tabs.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var i=+tab.dataset.tab;
+      tabs.forEach(function(t){t.classList.remove('is-active')});
+      panels.forEach(function(p){p.classList.remove('is-active')});
+      tab.classList.add('is-active');
+      panels[i].classList.add('is-active');
     });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  var DOWNLOAD_URL='downloads/muvap-icp-worksheet.xlsx';
+  var WEBHOOK_URL='YOUR_N8N_WEBHOOK_URL';
+  var FREE_DOMAINS=['gmail.com','googlemail.com','outlook.com','outlook.es','outlook.co.uk','outlook.fr','outlook.de','hotmail.com','hotmail.es','hotmail.co.uk','hotmail.fr','hotmail.de','hotmail.it','yahoo.com','yahoo.es','yahoo.co.uk','yahoo.fr','yahoo.de','yahoo.it','yahoo.ca','yahoo.com.mx','yahoo.com.ar','live.com','live.es','live.co.uk','live.fr','msn.com','icloud.com','me.com','mac.com','aol.com','aol.co.uk','protonmail.com','proton.me','pm.me','mail.com','gmx.com','gmx.de','gmx.net','yandex.com','yandex.ru','fastmail.com','fastmail.org','tutanota.com','inbox.com'];
+  function isPersonal(email){var d=(email.split('@')[1]||'').toLowerCase();return FREE_DOMAINS.indexOf(d)!==-1}
+
+  var form=document.getElementById('dlForm');
+  var formState=document.getElementById('dlFormState');
+  var doneState=document.getElementById('dlDoneState');
+  var successEmail=document.getElementById('dlSuccessEmail');
+
+  function validate(){
+    var name=document.getElementById('dl-name').value.trim();
+    var email=document.getElementById('dl-email').value.trim();
+    var company=document.getElementById('dl-company').value.trim();
+    var ok=true;
+    function setErr(inputId,errId,show){
+      document.getElementById(inputId).classList.toggle('err',show);
+      var el=document.getElementById(errId);
+      if(el)el.classList.toggle('show',show);
+      if(show)ok=false;
+    }
+    setErr('dl-name','dl-err-name',!name);
+    setErr('dl-email','dl-err-email',!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||isPersonal(email));
+    setErr('dl-company','dl-err-company',!company);
+    return ok?{name:name,email:email,company:company}:null;
   }
 
-  /* Smooth scroll for hero CTA */
-  document.querySelector('.btn-cta-hero').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('sec-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-
-  function triggerDownload() {
-    var a = document.createElement('a');
-    a.href = DOWNLOAD_URL;
-    a.download = 'Muvap_ICP_Worksheet.xlsx';
+  function triggerDownload(){
+    var a=document.createElement('a');
+    a.href=DOWNLOAD_URL;
+    a.download='Muvap_ICP_Worksheet.xlsx';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
   }
 
-  function showSuccess(email) {
-    successEmail.textContent = email;
-    formState.style.display = 'none';
-    successState.classList.add('show');
-    if (mobileCta) mobileCta.style.display = 'none';
-  }
-
-  function validate() {
-    var name    = document.getElementById('f-name').value.trim();
-    var email   = document.getElementById('f-email').value.trim();
-    var company = document.getElementById('f-company').value.trim();
-    var role    = document.getElementById('f-role').value.trim();
-    var ok = true;
-
-    function setErr(fId, eId, show) {
-      document.getElementById(fId).classList.toggle('err', show);
-      var el = document.getElementById(eId);
-      if (el) el.classList.toggle('show', show);
-      if (show) ok = false;
-    }
-
-    setErr('f-name',    'err-name',    !name);
-    setErr('f-email',   'err-email',   !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || isPersonalEmail(email));
-    setErr('f-company', 'err-company', !company);
-    setErr('f-role',    'err-role',    !role);
-
-    return ok ? { name: name, email: email, company: company, role: role } : null;
-  }
-
-  form.addEventListener('submit', function (e) {
+  form.addEventListener('submit',function(e){
     e.preventDefault();
-    var data = validate();
-    if (!data) return;
-
+    var data=validate();
+    if(!data)return;
     triggerDownload();
-    showSuccess(data.email);
-
-    fetch(WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: data.name, email: data.email, company: data.company, role: data.role,
-        source: 'icp-worksheet', timestamp: new Date().toISOString()
-      })
-    }).catch(function () {});
+    successEmail.textContent=data.email;
+    formState.style.display='none';
+    doneState.classList.add('show');
+    fetch(WEBHOOK_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:data.name,email:data.email,company:data.company,source:'icp-worksheet',timestamp:new Date().toISOString()})
+    }).catch(function(){});
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'lead_submitted',lead_source:'icp_worksheet_download'});
   });
-
-}());
+})();
 </script>
+
+<script src="assets/interactions.js" defer></script>
 </body>
 </html>
-
-
