@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What's Your GTM Type? · Muvap</title>
-<meta name="description" content="Find the exact GTM gaps costing you pipeline — and what to fix first. 25 questions, 4 minutes.">
+<title>How Modern Is Your GTM Tech Stack? · Muvap</title>
+<meta name="description" content="Find gaps in your GTM stack that might be hurting your revenue. 25 questions, 4 minutes.">
 <meta name="theme-color" content="#0574fd">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="canonical" href="https://davidbervic.com/gtm-type-test.html">
@@ -103,14 +103,18 @@ body::before {
 .prog-fill { height: 100%; border-radius: 999px; background: var(--yellow); border-right: 2px solid rgba(0,0,0,.2); transition: width .45s cubic-bezier(.4,0,.2,1); }
 
 /* ── SCREEN 1: Landing ── */
-#s1 { max-width: 660px; }
-.landing { padding-top: 40px; display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
+#s1 { max-width: 1080px; }
+.landing { padding-top: 90px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; text-align: left; max-width: 1080px; margin: 0 auto; }
+.landing-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.landing-visual { display: flex; align-items: center; justify-content: center; }
+.landing-visual img { width: 100%; max-width: 480px; }
+@media(max-width: 760px) { .landing { grid-template-columns: 1fr; text-align: center; } .landing-copy { align-items: center; } .landing-visual { display: none; } }
 
 /* Landing headline */
 .landing-headline {
   font-family: 'Archivo Black', sans-serif;
   font-weight: 900;
-  font-size: clamp(42px, 9vw, 88px);
+  font-size: clamp(36px, 5vw, 64px);
   color: #fff;
   line-height: 1.0;
   letter-spacing: -.035em;
@@ -134,7 +138,7 @@ body::before {
   display: inline-flex; align-items: center; gap: 6px;
   background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.4);
   border-radius: 999px;
-  padding: 8px 16px; font: 600 12px/1 'Archivo',sans-serif; color: rgba(255,255,255,.9);
+  padding: 10px 18px; font: 700 14px/1 'Archivo',sans-serif; color: #fff;
 }
 
 /* ── SCREENS 2–6 ── */
@@ -223,7 +227,7 @@ body::before {
 .form-field input { width: 100%; padding: 13px 14px; font: 400 15px/1 'Archivo',sans-serif; border: 2px solid #d1d5db; border-radius: 10px; background: #fafafa; outline: none; transition: border-color .15s; }
 .form-field input:focus { border-color: var(--blue); background: #fff; }
 .form-field input.err { border-color: #ef4444; }
-.field-err { font: 400 11px/1 'Archivo',sans-serif; color: #ef4444; margin-top: 4px; display: none; }
+.field-err { font: 600 12px/1.4 'Archivo',sans-serif; color: #ef4444; margin-top: 6px; display: none; padding: 6px 10px; background: #fff1f1; border: 1px solid #fca5a5; border-radius: 6px; }
 .field-err.show { display: block; }
 .contact-note { font: 400 11px/1.4 'Archivo',sans-serif; color: #9ca3af; margin-top: 12px; text-align: center; }
 
@@ -317,19 +321,24 @@ body::before {
 <!-- Screen 1: Landing -->
 <div id="s1" class="screen is-active">
   <div class="landing">
-    <h1 class="landing-headline">What's Your GTM Type?</h1>
-    <p class="landing-sub">Find the <strong>exact GTM gaps costing you pipeline</strong> — and what to fix first.</p>
-    <div class="level-teaser">
-      <div class="level-pill" style="background:#e5e7eb"><span class="level-dot" style="background:#9ca3af"></span>GTM Rookie</div>
-      <div class="level-pill" style="background:#12EFFB"><span class="level-dot" style="background:#0aa8b5"></span>GTM Player</div>
-      <div class="level-pill" style="background:#00CC7A"><span class="level-dot" style="background:#009959"></span>GTM Pro</div>
-      <div class="level-pill" style="background:#FCDF07"><span class="level-dot" style="background:#d4b800"></span>GTM Elite</div>
+    <div class="landing-copy">
+      <h1 class="landing-headline">How modern is your GTM tech stack?</h1>
+      <p class="landing-sub">Find gaps in your GTM stack that might be hurting your revenue by taking this test.</p>
+      <div class="level-teaser">
+        <div class="level-pill" style="background:#e5e7eb"><span class="level-dot" style="background:#9ca3af"></span>GTM Rookie</div>
+        <div class="level-pill" style="background:#12EFFB"><span class="level-dot" style="background:#0aa8b5"></span>GTM Player</div>
+        <div class="level-pill" style="background:#00CC7A"><span class="level-dot" style="background:#009959"></span>GTM Pro</div>
+        <div class="level-pill" style="background:#FCDF07"><span class="level-dot" style="background:#d4b800"></span>GTM Elite</div>
+      </div>
+      <button type="button" class="btn-cta" id="startBtn">Take the Test →</button>
+      <div class="landing-meta">
+        <span class="landing-meta-item">⏱ 4 minutes</span>
+        <span class="landing-meta-item">🔒 No spam</span>
+        <span class="landing-meta-item">✉ Results by email</span>
+      </div>
     </div>
-    <button type="button" class="btn-cta" id="startBtn">Take the Test →</button>
-    <div class="landing-meta">
-      <span class="landing-meta-item">⏱ 4 minutes</span>
-      <span class="landing-meta-item">🔒 No spam</span>
-      <span class="landing-meta-item">✉ Results by email</span>
+    <div class="landing-visual">
+      <img src="images/gtm-type-test-hero.webp" alt="GTM Tech Stack Assessment">
     </div>
   </div>
 </div>
@@ -387,7 +396,7 @@ body::before {
       <div class="form-field">
         <label for="f-email">Work email</label>
         <input id="f-email" name="email" type="email" placeholder="jane@company.com" autocomplete="email">
-        <p class="field-err" id="err-email">Please use your work email (not Gmail, Yahoo, etc.).</p>
+        <p class="field-err" id="err-email">Please use your work email. Gmail, Outlook and personal emails are not accepted.</p>
       </div>
       <div class="form-field">
         <label for="f-company">Company name</label>

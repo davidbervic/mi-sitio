@@ -294,7 +294,7 @@
     .form-step { display: none; }
     .form-step.active { display: block; }
 
-    .field-error { font: 600 11px/1.4 'Archivo'; color: #d93025; display: none; margin-top: 5px; }
+    .field-error { font: 600 12px/1.4 'Archivo'; color: #ef4444; display: none; margin-top: 6px; padding: 6px 10px; background: #fff1f1; border: 1px solid #fca5a5; border-radius: 6px; }
     .field-error.visible { display: block; }
     .form-input.is-error, .form-select.is-error {
       border-color: #d93025; box-shadow: 0 0 0 3px rgba(217,48,37,.12);
@@ -819,7 +819,7 @@ function nextFormStep() {
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     showFieldError('f-email', 'err-email', 'Please enter a valid email'); ok = false;
   } else if (isPersonalEmail(email)) {
-    showFieldError('f-email', 'err-email', 'Please use your work email (no Gmail, Outlook or Hotmail)'); ok = false;
+    showFieldError('f-email', 'err-email', 'Please use your work email. Gmail, Outlook and personal emails are not accepted.'); ok = false;
   } else { clearFieldError('f-email', 'err-email'); }
 
   if (!ok) return;
