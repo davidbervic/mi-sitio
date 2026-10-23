@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How Modern Is Your GTM Tech Stack? · Muvap</title>
+<title>How Modern Is Your GTM Tech Stack? Â· Muvap</title>
 <meta name="description" content="Find gaps in your GTM stack that might be hurting your revenue. 25 questions, 4 minutes.">
 <meta name="theme-color" content="#0574fd">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="canonical" href="https://davidbervic.com/gtm-type-test.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="What's Your GTM Type? · Muvap">
-<meta property="og:description" content="Find the exact GTM gaps costing you pipeline — and what to fix first.">
+<meta property="og:title" content="What's Your GTM Type? Â· Muvap">
+<meta property="og:description" content="Find the exact GTM gaps costing you pipeline â€” and what to fix first.">
 <meta property="og:url" content="https://davidbervic.com/gtm-type-test.html">
 <meta property="og:image" content="https://davidbervic.com/images/muvap-logo.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,7 +90,7 @@ body::before {
 .screen.is-active { display: block; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* -- Progress bar — in a white card so el header no flota en el vacío -- */
+/* -- Progress bar â€” in a white card so el header no flota en el vacÃ­o -- */
 .prog-wrap {
   margin-bottom: 12px;
   background: #fff; border: 3px solid var(--black);
@@ -140,16 +140,16 @@ body::before {
 .btn-cta:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--black); }
 .btn-cta:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 var(--black); }
 
-/* Trust signals — white cards */
+/* Trust signals */
 .landing-meta { display: flex; flex-wrap: wrap; gap: 8px; }
 .landing-meta-item {
   display: inline-flex; align-items: center; gap: 7px;
-  background: var(--white); border: 2px solid var(--black);
-  border-radius: 999px; box-shadow: 3px 3px 0 var(--black);
-  padding: 9px 16px; font: 700 13px/1 'Archivo',sans-serif; color: var(--black);
+  background: rgba(0,0,0,.25); border: 1.5px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  padding: 9px 16px; font: 700 13px/1 'Archivo',sans-serif; color: var(--white);
 }
 
-/* -- SCREENS 2–6 -- */
+/* -- SCREENS 2â€“6 -- */
 #s2,#s3,#s4,#s5,#s6 { max-width: 680px; }
 .q-card { padding: 22px 24px 24px; }
 .dim-pill { display: inline-block; padding: 5px 13px; border: 2px solid var(--black); border-radius: 999px; font: 700 11px/1 'Archivo',sans-serif; letter-spacing: .07em; text-transform: uppercase; box-shadow: 2px 2px 0 var(--black); margin-bottom: 10px; }
@@ -163,7 +163,7 @@ body::before {
 .q-num { font: 700 13px/1.55 'Archivo',sans-serif; color: #9ca3af; min-width: 20px; flex-shrink: 0; transition: color .2s; }
 .q-text { font: 400 14px/1.55 'Archivo',sans-serif; color: #111827; }
 
-/* -- Likert — estilo círculos -- */
+/* -- Likert â€” estilo cÃ­rculos -- */
 .likert-wrap { display: flex; flex-direction: column; gap: 8px; }
 .likert { display: flex; gap: 8px; align-items: center; }
 .likert-opt { flex: 1; position: relative; text-align: center; }
@@ -179,16 +179,16 @@ body::before {
   -webkit-tap-highlight-color: transparent; user-select: none;
 }
 
-/* Número oculto; el ::after muestra el ? */
+/* NÃºmero oculto; el ::after muestra el ? */
 .likert-num { font-size: 0; line-height: 0; }
 .likert-num::after { content: '?'; font: 700 22px/1 'Archivo',sans-serif; color: transparent; transition: color .12s; }
 .likert-lbl { display: none; }
 
-/* Hover: rellena el círculo y muestra ? translúcido */
+/* Hover: rellena el cÃ­rculo y muestra ? translÃºcido */
 .likert-opt:hover:not(.is-checked) .likert-btn { background: var(--val-color); }
 .likert-opt:hover:not(.is-checked) .likert-num::after { color: rgba(255,255,255,.75); }
 
-/* Seleccionado: relleno sólido + ? blanco */
+/* Seleccionado: relleno sÃ³lido + ? blanco */
 .likert-opt.is-checked .likert-btn { background: var(--val-color); box-shadow: 2px 2px 0 var(--black); transform: scale(1.08); }
 .likert-opt.is-checked .likert-num::after { color: #fff; }
 
@@ -197,7 +197,7 @@ body::before {
 .likert-extremes span:first-child { color: #FB4AAD; }
 .likert-extremes span:last-child  { color: #00CC7A; }
 
-/* Opción N/A */
+/* OpciÃ³n N/A */
 .likert-na { margin-top: 4px; text-align: right; }
 .likert-na-opt { display: inline-flex; align-items: center; gap: 5px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .likert-na-opt input { position: absolute; opacity: 0; width: 0; height: 0; }
@@ -334,20 +334,20 @@ body::before {
 <div id="s1" class="screen is-active">
   <div class="landing">
     <div class="landing-copy">
-      <span class="landing-eyebrow"><em class="landing-eyebrow-star">?</em> Revenue Tech Maturity Test</span>
+      <span class="landing-eyebrow"><em class="landing-eyebrow-star">&#x2726;</em> Revenue Tech Maturity Test</span>
       <h1 class="landing-headline">How modern is your GTM tech stack?</h1>
       <p class="landing-sub">This isn't a quiz about what tools you use. It's a diagnostic that measures how well your revenue architecture, outbound, analytics, automation, and team alignment actually work together.</p>
       <ul class="landing-bullets">
-        <li><span class="b-ico">??</span>A score per dimension</li>
-        <li><span class="b-ico">??</span>Your 3 highest-leverage gaps</li>
-        <li><span class="b-ico">??</span>A prioritized action plan sent to your inbox</li>
+        <li><span class="b-ico">1</span>A score per dimension</li>
+        <li><span class="b-ico">2</span>Your 3 highest-leverage gaps</li>
+        <li><span class="b-ico">3</span>A prioritized action plan sent to your inbox</li>
       </ul>
-      <button type="button" class="btn-cta" id="startBtn">Take the Test ?</button>
+      <button type="button" class="btn-cta" id="startBtn">Take the Test &rarr;</button>
       <div class="landing-meta">
-        <span class="landing-meta-item">? 4 minutes</span>
-        <span class="landing-meta-item">?? No spam</span>
-        <span class="landing-meta-item">? Results by email</span>
-        <span class="landing-meta-item">?? Free</span>
+        <span class="landing-meta-item">4 min</span>
+        <span class="landing-meta-item">No spam</span>
+        <span class="landing-meta-item">Results by email</span>
+        <span class="landing-meta-item">Free</span>
       </div>
     </div>
     <div class="landing-visual">
@@ -368,7 +368,7 @@ body::before {
   </div>
 </div>
 
-<!-- Screens 2–6 -->
+<!-- Screens 2â€“6 -->
 <div id="s2" class="screen">
   <div class="prog-wrap" id="prog2"></div>
   <div class="q-card card" id="qc2"></div>
@@ -474,7 +474,7 @@ body::before {
       name: "Revenue Architecture", accent: "#FB4AAD", textColor: "#000",
       desc: "How well your pipeline data, ICP, and CRM support revenue decisions.",
       qs: [
-        "Our CRM is the team’s single source of truth and everyone uses it consistently.",
+        "Our CRM is the teamâ€™s single source of truth and everyone uses it consistently.",
         "Our pipeline forecast is reliable enough to make business decisions on.",
         "We have a documented ICP with specific criteria applied before qualifying a lead.",
         "When we lose a deal, we log the reason and review patterns regularly.",
@@ -518,7 +518,7 @@ body::before {
       name: "GTM Alignment", accent: "#00CC7A", textColor: "#000",
       desc: "How well sales, marketing, and ops pull in the same direction.",
       qs: [
-        "Sales and marketing agree on what a qualified lead looks like, and it’s documented.",
+        "Sales and marketing agree on what a qualified lead looks like, and itâ€™s documented.",
         "Our quarterly GTM priorities are set based on data, not instinct.",
         "When performance drops, we know why within 48 hours, not weeks.",
         "Our team adopts new processes consistently, not each person their own way.",
@@ -532,35 +532,35 @@ body::before {
   var LIKERT_COLORS  = ["#FB4AAD", "#FCA8D8", "#6DEAB5", "#00CC7A"];
 
   var LEVEL_INFO = {
-    "GTM Rookie": { emoji: "??", color: "#e5e7eb", desc: "Your GTM tech stack is still at an early stage. Most of what works depends on specific people doing the right thing at the right time. Without systems in place, you’re likely losing pipeline without knowing it — and scaling right now would amplify the chaos, not the results. The first move: build the foundation before you build the machine." },
-    "GTM Player": { emoji: "??", color: "#12EFFB", desc: "You have the basics, but your GTM is still fragmented. Each part kind of works, but the pieces don’t talk to each other. Marketing doesn’t know what sales closes. Sales doesn’t know what marketing generates. You’ve moved past chaos, but you haven’t built a system that compounds yet. The next unlock is integration." },
-    "GTM Pro":    { emoji: "??", color: "#00CC7A", desc: "Your GTM is working. You have systems, process, and reasonably reliable data. The challenge is that you’re still operating reactively — reading dashboards instead of getting alerts, researching prospects manually instead of receiving briefs. The gap between where you are and the next level is mostly automation and intelligence." },
-    "GTM Elite":  { emoji: "?",       color: "#FCDF07", desc: "Your GTM generates intelligence, not just activity. Data flows, systems compound, and your team spends time on high-value decisions instead of manual tasks. You’re in the top tier of operational maturity. The focus now is iteration: making your GTM sharper over time, not just bigger." }
+    "GTM Rookie": { emoji: "??", color: "#e5e7eb", desc: "Your GTM tech stack is still at an early stage. Most of what works depends on specific people doing the right thing at the right time. Without systems in place, youâ€™re likely losing pipeline without knowing it â€” and scaling right now would amplify the chaos, not the results. The first move: build the foundation before you build the machine." },
+    "GTM Player": { emoji: "??", color: "#12EFFB", desc: "You have the basics, but your GTM is still fragmented. Each part kind of works, but the pieces donâ€™t talk to each other. Marketing doesnâ€™t know what sales closes. Sales doesnâ€™t know what marketing generates. Youâ€™ve moved past chaos, but you havenâ€™t built a system that compounds yet. The next unlock is integration." },
+    "GTM Pro":    { emoji: "??", color: "#00CC7A", desc: "Your GTM is working. You have systems, process, and reasonably reliable data. The challenge is that youâ€™re still operating reactively â€” reading dashboards instead of getting alerts, researching prospects manually instead of receiving briefs. The gap between where you are and the next level is mostly automation and intelligence." },
+    "GTM Elite":  { emoji: "?",       color: "#FCDF07", desc: "Your GTM generates intelligence, not just activity. Data flows, systems compound, and your team spends time on high-value decisions instead of manual tasks. Youâ€™re in the top tier of operational maturity. The focus now is iteration: making your GTM sharper over time, not just bigger." }
   };
 
   var DIM_LABELS = {
-    "Revenue Architecture":   { Rookie: "Your pipeline data can’t be trusted yet.", Player: "You have a CRM. Your team doesn’t fully rely on it.", Pro: "Solid foundation. Scoring and enrichment are the next unlock.", Elite: "Your CRM generates intelligence, not just records." },
-    "Modern Outbound":        { Rookie: "Your outbound is ad hoc. Deliverability is a risk.", Player: "You’re sending. The system isn’t working for you yet.", Pro: "Solid motion. Personalization at scale is the gap.", Elite: "Systematic, personalized, and fully measurable." },
-    "Digital Analytics":      { Rookie: "You’re flying blind. Decisions are based on assumptions.", Player: "You have data. It’s not informing decisions yet.", Pro: "Good visibility. Attribution and automation are next.", Elite: "Proactive, fully connected analytics layer." },
+    "Revenue Architecture":   { Rookie: "Your pipeline data canâ€™t be trusted yet.", Player: "You have a CRM. Your team doesnâ€™t fully rely on it.", Pro: "Solid foundation. Scoring and enrichment are the next unlock.", Elite: "Your CRM generates intelligence, not just records." },
+    "Modern Outbound":        { Rookie: "Your outbound is ad hoc. Deliverability is a risk.", Player: "Youâ€™re sending. The system isnâ€™t working for you yet.", Pro: "Solid motion. Personalization at scale is the gap.", Elite: "Systematic, personalized, and fully measurable." },
+    "Digital Analytics":      { Rookie: "Youâ€™re flying blind. Decisions are based on assumptions.", Player: "You have data. Itâ€™s not informing decisions yet.", Pro: "Good visibility. Attribution and automation are next.", Elite: "Proactive, fully connected analytics layer." },
     "AI and GTM Automation":  { Rookie: "Your team handles manually what systems should own.", Player: "Some automation in place. Most is still manual.", Pro: "Good coverage. The intelligence layer is the next unlock.", Elite: "Your GTM runs with minimal manual overhead." },
     "GTM Alignment":          { Rookie: "Your team is pulling in different directions without knowing it.", Player: "Alignment at the top. It breaks down in execution.", Pro: "Good alignment. Data-driven prioritization is the gap.", Elite: "Aligned, measured, and self-correcting." }
   };
 
   var GAP_TEXTS = {
-    "Revenue Architecture": "Without reliable CRM data, your forecast is guesswork and your reps operate from memory. The cost shows up in deals that slip, accounts that go cold, and a leadership team that can’t trust the numbers they’re reporting.",
-    "Modern Outbound": "Broken outbound infrastructure means your emails may not reach inboxes, and the ones that do feel generic. You’re investing in outreach that isn’t generating the pipeline you expect. Every week without a working system is pipeline you’re not building.",
-    "Digital Analytics": "Without attribution, you’re spending on channels you can’t measure and cutting the ones that are actually working. Decisions about where to invest are based on intuition. That gets more expensive as you grow.",
-    "AI and GTM Automation": "Every hour your team spends on manual tasks is an hour not spent on conversations. Operational overhead is the hidden cost of growth. Automation doesn’t replace your team — it gives them their time back.",
-    "GTM Alignment": "When sales and marketing don’t agree on what a good lead looks like, both teams work harder for worse results. The fix isn’t a meeting — it’s a documented ICP, a shared definition of qualified, and a feedback loop that keeps both teams honest."
+    "Revenue Architecture": "Without reliable CRM data, your forecast is guesswork and your reps operate from memory. The cost shows up in deals that slip, accounts that go cold, and a leadership team that canâ€™t trust the numbers theyâ€™re reporting.",
+    "Modern Outbound": "Broken outbound infrastructure means your emails may not reach inboxes, and the ones that do feel generic. Youâ€™re investing in outreach that isnâ€™t generating the pipeline you expect. Every week without a working system is pipeline youâ€™re not building.",
+    "Digital Analytics": "Without attribution, youâ€™re spending on channels you canâ€™t measure and cutting the ones that are actually working. Decisions about where to invest are based on intuition. That gets more expensive as you grow.",
+    "AI and GTM Automation": "Every hour your team spends on manual tasks is an hour not spent on conversations. Operational overhead is the hidden cost of growth. Automation doesnâ€™t replace your team â€” it gives them their time back.",
+    "GTM Alignment": "When sales and marketing donâ€™t agree on what a good lead looks like, both teams work harder for worse results. The fix isnâ€™t a meeting â€” itâ€™s a documented ICP, a shared definition of qualified, and a feedback loop that keeps both teams honest."
   };
 
   var BAR_COLORS = { Rookie: "#9ca3af", Player: "#12EFFB", Pro: "#00CC7A", Elite: "#FCDF07" };
 
   var CALENDLY_COPY = {
-    "GTM Rookie": "Book a call — we’ll build your GTM foundation together",
-    "GTM Player": "Book a call — I’ll show you which gaps to fix first",
-    "GTM Pro":    "Book a call — I’ll show you your top 3 automation gaps",
-    "GTM Elite":  "Book a call — let’s find your next GTM unlock"
+    "GTM Rookie": "Book a call â€” weâ€™ll build your GTM foundation together",
+    "GTM Player": "Book a call â€” Iâ€™ll show you which gaps to fix first",
+    "GTM Pro":    "Book a call â€” Iâ€™ll show you your top 3 automation gaps",
+    "GTM Elite":  "Book a call â€” letâ€™s find your next GTM unlock"
   };
 
   var answers = new Array(25).fill(null);
@@ -631,7 +631,7 @@ body::before {
         '<div class="likert-na">' +
           '<label class="likert-na-opt" data-qi="' + idx + '">' +
             '<input type="radio" name="q' + idx + '" value="na" data-qi="' + idx + '" data-sn="' + sn + '" data-na="true">' +
-            '<span class="likert-na-text">We don’t do this yet</span>' +
+            '<span class="likert-na-text">We donâ€™t do this yet</span>' +
           '</label>' +
         '</div>' +
       '</div></div>';
@@ -753,7 +753,7 @@ body::before {
 
   function showResults(result, email) {
     var lvl = LEVEL_INFO[result.overall] || LEVEL_INFO["GTM Rookie"];
-    document.getElementById("resultsTitle").textContent = "You’re a " + result.overall;
+    document.getElementById("resultsTitle").textContent = "Youâ€™re a " + result.overall;
 
     var badge = document.getElementById("levelBadge");
     badge.style.background = lvl.color;
@@ -768,7 +768,7 @@ body::before {
       var lbl   = (DIM_LABELS[d.dimension] || {})[d.level] || "";
       return '<div class="dim-bar">' +
         '<div class="dim-bar-top"><span class="dim-bar-name">' + esc(d.dimension) + '</span>' +
-        '<span class="dim-bar-pill" style="background:' + color + ';color:#000">' + esc(d.level) + ' · ' + d.pct + '%</span></div>' +
+        '<span class="dim-bar-pill" style="background:' + color + ';color:#000">' + esc(d.level) + ' Â· ' + d.pct + '%</span></div>' +
         '<div class="dim-bar-track"><div class="dim-bar-fill" style="background:' + color + '" data-pct="' + d.pct + '"></div></div>' +
         '<p class="dim-bar-desc">' + esc(lbl) + '</p></div>';
     }).join("");
