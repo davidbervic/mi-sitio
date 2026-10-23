@@ -1,5 +1,5 @@
-﻿/* ============================================================
-   article.css — shared stylesheet for Muvap blog articles
+/* ============================================================
+   article.css � shared stylesheet for Muvap blog articles
    migrated from mi-sitio (davidbervic.com). Reuses the exact
    HTML structure/classes of the proven AEO article template
    (mi-sitio/blog.css), reskinned with Muvap's design tokens
@@ -16,7 +16,7 @@
   --nx-pink:#fb4aad; --nx-pink-soft:#fc89ca; --nx-pink-pale:#fed7ed;
   --nx-purple:#a040f0; --nx-purple-pale:#ead5fc;
   --nx-yellow:#fcdf07; --nx-yellow-pale:#fef8c8;
-  --nx-grid-line:rgba(255,255,255,.18); --nx-grid-cell:64px; --nx-grid-width:2px;
+  --nx-grid-line:rgba(255,255,255,.18); --nx-grid-cell:64px; --nx-grid-width:1px;
   --nx-radius-sm:10px; --nx-radius-md:16px; --nx-radius-lg:22px; --nx-radius-xl:30px; --nx-radius-pill:999px;
   --nx-drop-sm:4px 4px 0 var(--nx-ink); --nx-drop-md:7px 7px 0 var(--nx-ink); --nx-drop-lg:11px 11px 0 var(--nx-ink);
   --nx-font-display:'Archivo Black','Helvetica Neue',Arial,sans-serif;
@@ -40,8 +40,8 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 /* ---- nav (Muvap standard) ---- */
 .nx-grid-bg{
   background-color:var(--nx-blue);
-  background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),
-                    linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));
+  background-image:linear-gradient(rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width)),
+                    linear-gradient(90deg,rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width));
   background-size:var(--nx-grid-cell) var(--nx-grid-cell);
 }
 .top-band{padding:20px clamp(16px,4vw,44px) 24px}
@@ -211,18 +211,18 @@ footer{background:var(--nx-ink);padding:clamp(56px,7vw,80px) clamp(16px,4vw,44px
 
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* ── compare-card accent-c ──────────────────────────────────── */
+/* -- compare-card accent-c ------------------------------------ */
 .compare-card.accent-c .cc-label{color:#7a2fc0}
 .compare-card.accent-c .cc-label::before{background:var(--nx-purple)}
 
-/* ── statblock multi-item grid ──────────────────────────────── */
+/* -- statblock multi-item grid -------------------------------- */
 .statblock{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;text-align:left}
 .stat-item{background:rgba(255,255,255,.12);border:1.5px solid rgba(255,255,255,.25);border-radius:12px;padding:16px 18px}
 .stat-num{font:900 clamp(28px,5vw,40px)/1 var(--nx-font-display);color:var(--nx-paper);margin-bottom:6px}
 .stat-label{font:800 12px/1 var(--nx-font-display);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:8px}
 .stat-note{font:400 13px/1.5 var(--nx-font-text);color:rgba(255,255,255,.7)}
 
-/* ── Sticky TOC sidebar layout ──────────────────────────────── */
+/* -- Sticky TOC sidebar layout -------------------------------- */
 .article-layout{
   display:grid;
   grid-template-columns:260px minmax(0,760px);
@@ -241,7 +241,7 @@ footer{background:var(--nx-ink);padding:clamp(56px,7vw,80px) clamp(16px,4vw,44px
   padding-right:0;
 }
 
-/* Hide inline qtoc on desktop — sidebar replaces it */
+/* Hide inline qtoc on desktop � sidebar replaces it */
 @media(min-width:1080px){
   .article-layout .qtoc{display:none}
 }
@@ -252,7 +252,7 @@ footer{background:var(--nx-ink);padding:clamp(56px,7vw,80px) clamp(16px,4vw,44px
   .article-toc-sidebar{display:none}
 }
 
-/* ── Sidebar inner card ─────────────────────────────────────── */
+/* -- Sidebar inner card --------------------------------------- */
 .article-toc-sidebar{
   position:sticky;
   top:96px;
@@ -310,7 +310,7 @@ footer{background:var(--nx-ink);padding:clamp(56px,7vw,80px) clamp(16px,4vw,44px
 .toc-sb-link.is-active .toc-sb-num{opacity:1}
 .toc-sb-text{line-height:1.35}
 
-/* Related articles — full-width section between article and footer */
+/* Related articles � full-width section between article and footer */
 .related-full{background:var(--nx-paper-dim);border-top:1.5px solid #e4e4e4;padding:52px clamp(16px,5vw,80px) 60px}
 .related-full-inner{max-width:1100px;margin:0 auto}
 .related-label{font:800 11px/1 var(--nx-font-display);letter-spacing:.1em;text-transform:uppercase;color:#999;margin-bottom:24px}

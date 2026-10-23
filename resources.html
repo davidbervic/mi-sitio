@@ -1,4 +1,4 @@
-Ôªø<!--
+<!--
   RECONSTRUCCION de Resources/Blog index (Muvap), a partir del design
   handoff real (design_handoff_munap_site/_extracted/resources.html).
 
@@ -31,7 +31,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
 <!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Resources ¬∑ Muvap</title>
+<title>Resources ∑ Muvap</title>
 <meta name="description" content="Straight answers to the questions GTM and RevOps operators actually ask, no fluff.">
 <meta name="theme-color" content="#0574fd">
 <link rel="icon" type="image/png" href="favicon.png">
@@ -49,7 +49,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --nx-pink:#fb4aad; --nx-pink-soft:#fc89ca; --nx-pink-pale:#fed7ed;
     --nx-purple:#a040f0; --nx-purple-pale:#ead5fc;
     --nx-yellow:#fcdf07; --nx-yellow-pale:#fef8c8;
-    --nx-grid-line:rgba(255,255,255,.18); --nx-grid-cell:64px; --nx-grid-width:2px;
+    --nx-grid-line:rgba(255,255,255,.18); --nx-grid-cell:64px; --nx-grid-width:1px;
     --nx-radius-sm:10px; --nx-radius-md:16px; --nx-radius-lg:22px; --nx-radius-xl:30px; --nx-radius-pill:999px;
     --nx-drop-sm:4px 4px 0 var(--nx-ink); --nx-drop-md:7px 7px 0 var(--nx-ink); --nx-drop-lg:11px 11px 0 var(--nx-ink);
     --nx-font-display:'Archivo Black','Helvetica Neue',Arial,sans-serif;
@@ -65,8 +65,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .nx-grid-bg{
     background-color:var(--nx-blue);
-    background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),
-                      linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));
+    background-image:linear-gradient(rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width)),
+                      linear-gradient(90deg,rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width));
     background-size:var(--nx-grid-cell) var(--nx-grid-cell);
   }
   .placeholder-box{
@@ -218,7 +218,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="images/muvap-logo.webp" alt="Muvap" style="height:72px;width:auto;display:block">
     </a>
     <div class="nav-right">
-      <button class="nav-burger" aria-label="Menu" aria-expanded="false">‚ò∞</button>
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">?</button>
       <div class="nav-links">
         <a class="nav-link" href="about.html">About</a>
         <div class="resources-wrap">
@@ -244,7 +244,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </nav>
 
-  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="‚ò∞"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"‚úï":"‚ò∞"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="?"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"?":"?"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
 
   <div class="blog-hero">
     <div class="blog-tabs">
@@ -332,7 +332,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>¬© 2026 Muvap. All rights reserved.</span>
+    <span>© 2026 Muvap. All rights reserved.</span>
     <span>Built with GTM systems that work.</span>
   </div>
 </footer>
@@ -365,7 +365,7 @@ const CATEGORY_ICONS = {
 };
 function featuredVisualHtml(article) {
   if (article.img) {
-    return `<div class="featured-visual" style="background-color:var(--nx-blue);background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));background-size:var(--nx-grid-cell) var(--nx-grid-cell)"><img src="${article.img}" alt="${article.title}" loading="eager" style="width:100%;height:100%;object-fit:contain;display:block"></div>`;
+    return `<div class="featured-visual" style="background-color:var(--nx-blue);background-image:linear-gradient(rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width)),linear-gradient(90deg,rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width));background-size:var(--nx-grid-cell) var(--nx-grid-cell)"><img src="${article.img}" alt="${article.title}" loading="eager" style="width:100%;height:100%;object-fit:contain;display:block"></div>`;
   }
   const category = article.category;
   return `
@@ -385,7 +385,7 @@ const ARTICLES = [
   { id: 'a3', category: 'Scoring', href: 'how-to-design-a-fit-score-in-hubspot.html', title: "How Do You Design a Fit Score in HubSpot Step by Step?", quick: "Learn how to design a fit score in HubSpot in 5 steps: define your ICP, build the score object, set weighted rules, test thresholds, and automate routing.", author: 'Muvap', date: 'May 8, 2026', readTime: '7 min read' },
   { id: 'a4', category: 'Scoring', href: 'how-to-use-fit-score-for-crm-cleaning.html', title: "How Can You Use Fit Score for CRM Cleaning?", quick: "Learn how a HubSpot fit score identifies disqualified leads automatically, turning CRM cleaning from an open-ended manual audit into a mechanical filtering exercise.", author: 'Muvap', date: 'May 8, 2026', readTime: '8 min read' },
   { id: 'a5', category: 'Scoring', href: 'what-is-engagement-score-hubspot.html', title: "What Is an Engagement Score in HubSpot? A Founder's Guide", quick: "An engagement score in HubSpot rates how actively a contact interacts with you: site visits, email clicks, form fills, so a lean team calls the warmest leads first.", author: 'Muvap', date: 'Aug 6, 2026', readTime: '7 min read' },
-  { id: 'a16', category: 'Scoring', href: 'fit-scoring-vs-intent-scoring.html', title: "Fit Scoring vs Intent Scoring: What Each Measures and Why to Keep Them Separate", quick: "Fit scoring shows who the buyer is; intent scoring shows who is active now. Compare inputs, decay rules and platform names, then build a routing matrix for every fit √ó intent combination.", author: 'Muvap', date: 'Oct 14, 2026', readTime: '10 min read', img: 'images/cover-fit-scoring-vs-intent-scoring.webp' },
+  { id: 'a16', category: 'Scoring', href: 'fit-scoring-vs-intent-scoring.html', title: "Fit Scoring vs Intent Scoring: What Each Measures and Why to Keep Them Separate", quick: "Fit scoring shows who the buyer is; intent scoring shows who is active now. Compare inputs, decay rules and platform names, then build a routing matrix for every fit ◊ intent combination.", author: 'Muvap', date: 'Oct 14, 2026', readTime: '10 min read', img: 'images/cover-fit-scoring-vs-intent-scoring.webp' },
   { id: 'a11', category: 'Enrichment', href: 'clearbit-vs-zoominfo-vs-apollo-enrichment-provider-comparison.html', title: "Clearbit vs ZoomInfo vs Apollo: Which Enrichment Provider Should Anchor Your Data Stack?", quick: "Clearbit, ZoomInfo, and Apollo compared on database size, accuracy, pricing, and CRM integrations so you can design a waterfall enrichment stack that improves match rates without overspending.", author: 'Muvap', date: 'Sep 21, 2026', readTime: '6 min read', img: 'images/cover-clearbit-zoominfo-apollo.webp' },
   { id: 'a17', category: 'Enrichment', href: 'enrichment-strategy-gtm-use-case.html', title: "Enrichment Strategy by GTM Use Case: How to Design a Clay, Apollo and ZoomInfo Stack", quick: "Different GTM jobs need different enrichment strengths. Design your stack per use case, with the right trigger, depth, provider role and cost gate for inbound, cold email, calling, ABM, CRM hygiene and agents.", author: 'Muvap', date: 'Oct 14, 2026', readTime: '12 min read', img: 'images/cover-enrichment-strategy-gtm-use-case.webp' },
   { id: 'a18', category: 'Enrichment', href: 'waterfall-enrichment-clay-apollo-zoominfo.html', title: "Waterfall Enrichment: What It Is and When to Use It (Clay vs Apollo vs ZoomInfo)", quick: "Use a waterfall to increase data coverage, not to fix data quality. Learn how Clay, Apollo and ZoomInfo each run it, and test your single-provider miss rate before you build.", author: 'Muvap', date: 'Oct 14, 2026', readTime: '10 min read', img: 'images/cover-waterfall-enrichment-clay-apollo-zoominfo.webp' },
@@ -448,8 +448,8 @@ function render() {
         <span class="featured-tag" style="background:${CATEGORY_TONES[featured.category]}">${featured.category}</span>
         <h2><a href="${featured.href}" style="color:inherit;text-decoration:none">${featured.title}</a></h2>
         <div class="featured-quick"><strong>Quick answer: </strong>${featured.quick}</div>
-        ${featured.bullets ? `<div class="featured-bullets">${featured.bullets.map(b => `<div class="featured-bullet"><span>‚óè</span>${b}</div>`).join('')}</div>` : ''}
-        <div class="featured-meta"><span>${featured.author}</span><span>¬∑</span><span>${featured.date}</span><span>¬∑</span><span>${featured.readTime}</span></div>
+        ${featured.bullets ? `<div class="featured-bullets">${featured.bullets.map(b => `<div class="featured-bullet"><span>?</span>${b}</div>`).join('')}</div>` : ''}
+        <div class="featured-meta"><span>${featured.author}</span><span>∑</span><span>${featured.date}</span><span>∑</span><span>${featured.readTime}</span></div>
         <a href="${featured.href}" class="featured-read-link">Read the article<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
     </div>
@@ -467,7 +467,7 @@ function render() {
         <span class="blog-card-tag" style="background:${CATEGORY_TONES[a.category]}">${a.category}</span>
         <h3>${a.title}</h3>
         <p>${a.quick}</p>
-        <div class="blog-card-meta"><span>${a.author}</span><span>¬∑</span><span>${a.date}</span><span>¬∑</span><span>${a.readTime}</span></div>
+        <div class="blog-card-meta"><span>${a.author}</span><span>∑</span><span>${a.date}</span><span>∑</span><span>${a.readTime}</span></div>
       </div>
     </a>
   `).join('');

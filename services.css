@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    services.css: shared stylesheet for the 5 Muvap program pages
    (revenue-architecture, modern-outbound, digital-analytics,
    ai-gtm-automation, gtm-systems-reset). Same tokens, nav and
@@ -15,7 +15,7 @@
   --nx-pink:#fb4aad; --nx-pink-soft:#fc89ca; --nx-pink-pale:#fed7ed;
   --nx-purple:#a040f0; --nx-purple-pale:#ead5fc;
   --nx-yellow:#fcdf07; --nx-yellow-pale:#fef8c8;
-  --nx-grid-cell:64px; --nx-grid-width:2px;
+  --nx-grid-cell:64px; --nx-grid-width:1px;
   --nx-radius-sm:10px; --nx-radius-md:16px; --nx-radius-lg:22px; --nx-radius-xl:30px; --nx-radius-pill:999px;
   --nx-drop-sm:4px 4px 0 var(--nx-ink); --nx-drop-md:7px 7px 0 var(--nx-ink); --nx-drop-lg:11px 11px 0 var(--nx-ink);
   --nx-font-display:'Archivo Black','Helvetica Neue',Arial,sans-serif;
@@ -37,8 +37,8 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 
 .nx-grid-bg{
   background-color:var(--nx-blue);
-  background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),
-                    linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));
+  background-image:linear-gradient(rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width)),
+                    linear-gradient(90deg,rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width));
   background-size:var(--nx-grid-cell) var(--nx-grid-cell);
 }
 .eyebrow-pill{

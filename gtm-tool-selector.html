@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GTM Tool Selector — Muvap</title>
+  <title>GTM Tool Selector � Muvap</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=Fredoka:wght@700&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
       --green:  #00CC7A;
       --black:  #000;
       --white:  #fff;
-      /* nav aliases — valores exactos del home */
+      /* nav aliases � valores exactos del home */
       --nx-paper: #ffffff;
       --nx-ink:   #050505;
       --nx-pink:  #fb4aad;
@@ -28,7 +28,7 @@
       --nx-track-tight: -.02em;
     }
 
-    /* ── Site nav ── */
+    /* -- Site nav -- */
     .site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px clamp(16px,4vw,44px) 6px;position:relative;z-index:40}
     .logo{display:flex;align-items:center;gap:8px;flex:0 0 auto}
     .nav-right{flex:0 0 auto;display:flex;align-items:center;gap:10px}
@@ -74,9 +74,9 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(255,255,255,.2) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.2) 1px, transparent 1px);
-      background-size: 44px 44px;
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size: 64px 64px;
       pointer-events: none;
       z-index: 0;
     }
@@ -92,12 +92,12 @@
       overflow-x: hidden;
     }
 
-    /* ── Screens ── */
+    /* -- Screens -- */
     .screen { display: none; width: 100%; max-width: 880px; animation: fadeIn .2s ease; }
     .screen.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
-    /* ── Step indicator ── */
+    /* -- Step indicator -- */
     .step-row { display: flex; align-items: center; gap: 8px; margin-bottom: 28px; }
     .step-dot {
       width: 10px; height: 10px; border-radius: 50%;
@@ -109,7 +109,7 @@
     .step-dot.active { background: var(--white); border-color: var(--black); width: 28px; border-radius: 10px; }
     .step-label { font: 700 12px/1 'Archivo'; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.9); margin-left: 4px; }
 
-    /* ── Back link ── */
+    /* -- Back link -- */
     .back-link {
       display: inline-flex; align-items: center; gap: 6px;
       font: 600 13px/1 'Archivo'; color: rgba(255,255,255,.75);
@@ -118,7 +118,7 @@
     }
     .back-link:hover { color: var(--white); }
 
-    /* ── Sticker headline ── */
+    /* -- Sticker headline -- */
     .sticker {
       font-family: 'Fredoka', sans-serif; font-weight: 700;
       color: var(--black); -webkit-text-stroke: .065em var(--white);
@@ -126,7 +126,7 @@
     }
     .cat-hl { color: var(--pink); -webkit-text-stroke: 0; paint-order: fill; }
 
-    /* ── White card ── */
+    /* -- White card -- */
     .card {
       background: var(--white);
       border: 3px solid var(--black);
@@ -134,7 +134,7 @@
       box-shadow: 4px 4px 0 var(--black);
     }
 
-    /* ── CTA Button ── */
+    /* -- CTA Button -- */
     .btn-cta {
       width: 100%; padding: 18px 24px;
       background: var(--pink); border: 2.5px solid var(--black);
@@ -151,7 +151,7 @@
     .btn-cta.btn-yellow { background: var(--yellow); color: var(--black); }
     .btn-cta.btn-green  { background: var(--green);  color: var(--black); }
 
-    /* ── SCREEN 1 ── */
+    /* -- SCREEN 1 -- */
     .s1-headline { font-family: 'Archivo Black', sans-serif; font-weight: 900; font-size: clamp(32px, 4.4vw, 52px); line-height: 1.05; letter-spacing: -.035em; color: #fff; -webkit-text-stroke: 0; paint-order: fill; display: block; margin-bottom: 8px; }
     .s1-sub { font: 400 15px/1.5 'Archivo'; color: rgba(255,255,255,.95); margin-bottom: 32px; }
 
@@ -171,7 +171,7 @@
     .cat-icon  { font-size: 40px; line-height: 1; }
     .cat-label { font: 700 15px/1.2 'Archivo'; color: var(--black); text-align: center; }
 
-    /* ── SCREEN 2 ── */
+    /* -- SCREEN 2 -- */
     .s2-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--white); border: 2.5px solid var(--black);
@@ -213,11 +213,11 @@
     .sel-info { font: 600 13px/1 'Archivo'; color: rgba(255,255,255,.72); text-align: right; margin-bottom: 12px; min-height: 18px; }
     .sel-count { background: var(--yellow); color: var(--black); border: 1.5px solid var(--black); border-radius: 999px; padding: 2px 8px; font-weight: 700; }
 
-    /* ── SCREEN 3 ── */
+    /* -- SCREEN 3 -- */
     .s3-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     @media (max-width: 660px) { .s3-grid { grid-template-columns: 1fr; } }
 
-    /* ── SCREEN 2: Budget ── */
+    /* -- SCREEN 2: Budget -- */
     .s2b-headline { font-size: clamp(26px, 4.5vw, 44px); display: block; margin-bottom: 8px; }
     .s2b-sub { font: 400 15px/1.5 'Archivo'; color: rgba(255,255,255,.95); margin-bottom: 28px; }
     .budget-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
@@ -236,7 +236,7 @@
     .budget-card-sub   { font: 400 13px/1.3 'Archivo'; color: #666; }
     .budget-card:last-child { grid-column: 1 / -1; }
 
-    /* ── No-match state ── */
+    /* -- No-match state -- */
     .no-match-card { padding: 40px 28px; text-align: center; }
     .no-match-icon { font-size: 48px; margin-bottom: 16px; }
     .no-match-title { font-size: clamp(20px, 3vw, 28px); display: block; margin-bottom: 12px; }
@@ -304,7 +304,7 @@
     }
     .form-fine { font: 400 12px/1.4 'Archivo'; color: #555; text-align: center; margin-top: 10px; }
 
-    /* ── SCREEN 5 ── */
+    /* -- SCREEN 5 -- */
     #screen-5 { max-width: 480px; margin: 0 auto; }
     .s4-card { padding: 44px 32px; text-align: center; }
     .s4-icon {
@@ -322,7 +322,7 @@
     }
     .s4-restart:hover { color: var(--white); text-decoration: underline; }
 
-    /* ── Watermark ── */
+    /* -- Watermark -- */
     .watermark { margin-top: 48px; font: 400 12px/1 'Archivo'; color: rgba(255,255,255,.35); text-align: center; }
     .watermark a { color: rgba(255,255,255,.5); text-decoration: none; }
     .watermark a:hover { color: var(--white); }
@@ -335,7 +335,7 @@
     <img src="images/muvap-logo.webp" alt="Muvap" style="height:56px;width:auto;display:block">
   </a>
   <div class="nav-right">
-    <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+    <button class="nav-burger" aria-label="Menu" aria-expanded="false">?</button>
     <div class="nav-links">
       <a class="nav-link" href="about.html">About</a>
       <div class="resources-wrap">
@@ -360,11 +360,11 @@
     <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg><span class="nav-cta-text">WhatsApp</span></a>
   </div>
 </nav>
-<script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+<script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="?"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"?":"?"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
 
 <div class="app">
 
-  <!-- ── Screen 1: Category ── -->
+  <!-- -- Screen 1: Category -- -->
   <div class="screen active" id="screen-1">
     <div class="step-row">
       <div class="step-dot active"></div>
@@ -375,11 +375,11 @@
       <span class="step-label">Step 1 of 5</span>
     </div>
     <span class="sticker s1-headline">What type of GTM tool do you need?</span>
-    <p class="s1-sub">Pick a category — 3 questions and we tell you which tool to use.</p>
+    <p class="s1-sub">Pick a category � 3 questions and we tell you which tool to use.</p>
     <div class="cat-grid" id="cat-grid"></div>
   </div>
 
-  <!-- ── Screen 2: Budget ── -->
+  <!-- -- Screen 2: Budget -- -->
   <div class="screen" id="screen-2">
     <button class="back-link" onclick="goBack(2)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -398,7 +398,7 @@
     <div class="budget-grid" id="budget-grid"></div>
   </div>
 
-  <!-- ── Screen 3: Features ── -->
+  <!-- -- Screen 3: Features -- -->
   <div class="screen" id="screen-3">
     <button class="back-link" onclick="goBack(3)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -414,17 +414,17 @@
     </div>
     <div class="s2-badge" id="s2-badge"></div>
     <span class="s2-headline" id="s2-headline"></span>
-    <p class="s2-sub">Pick what matters — the more you select, the sharper your match.</p>
+    <p class="s2-sub">Pick what matters � the more you select, the sharper your match.</p>
     <div class="card features-card">
       <div class="feature-list" id="feature-list"></div>
     </div>
     <div class="sel-info" id="sel-info"></div>
     <button class="btn-cta" id="see-rec-btn" disabled onclick="showScreen4()">
-      See my recommendation →
+      See my recommendation ?
     </button>
   </div>
 
-  <!-- ── Screen 4: Result + Form ── -->
+  <!-- -- Screen 4: Result + Form -- -->
   <div class="screen" id="screen-4">
     <button class="back-link" onclick="goBack(4)">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -443,7 +443,7 @@
     </div>
   </div>
 
-  <!-- ── Screen 5: Confirmation ── -->
+  <!-- -- Screen 5: Confirmation -- -->
   <div class="screen" id="screen-5">
     <div class="step-row">
       <div class="step-dot done"></div>
@@ -472,7 +472,7 @@
 <script>
 const TOOL_DATA = {
   crm: {
-    label: "CRM", icon: "🗂️",
+    label: "CRM", icon: "???",
     accent: "#FB4AAD",
     features: [
       { id: "free_plan",            label: "Free plan available" },
@@ -495,7 +495,7 @@ const TOOL_DATA = {
     ]
   },
   enrichment: {
-    label: "Enrichment", icon: "🔍",
+    label: "Enrichment", icon: "??",
     accent: "#12EFFB",
     features: [
       { id: "email_finding",       label: "Find and validate B2B emails" },
@@ -518,7 +518,7 @@ const TOOL_DATA = {
     ]
   },
   outbound: {
-    label: "Outbound", icon: "📤",
+    label: "Outbound", icon: "??",
     accent: "#FCDF07",
     features: [
       { id: "cold_email",          label: "Cold email campaigns in sequences" },
@@ -541,7 +541,7 @@ const TOOL_DATA = {
     ]
   },
   analytics: {
-    label: "Analytics", icon: "📊",
+    label: "Analytics", icon: "??",
     accent: "#A040F0",
     features: [
       { id: "web_traffic",         label: "Web traffic, sources and behavior" },
@@ -564,7 +564,7 @@ const TOOL_DATA = {
     ]
   },
   call_intelligence: {
-    label: "Call Intelligence", icon: "🎙️",
+    label: "Call Intelligence", icon: "???",
     accent: "#00CC7A",
     features: [
       { id: "recording_transcription", label: "Automatic call recording and transcription" },
@@ -587,7 +587,7 @@ const TOOL_DATA = {
     ]
   },
   automation: {
-    label: "Automation", icon: "⚙️",
+    label: "Automation", icon: "??",
     accent: "#FB4AAD",
     features: [
       { id: "no_code_workflows",    label: "Visual no-code workflows (drag & drop)" },
@@ -611,19 +611,19 @@ const TOOL_DATA = {
   }
 };
 
-// ── Budget ranges ──────────────────────────────────────
+// -- Budget ranges --------------------------------------
 const BUDGET_RANGES = [
-  { id: 'free',       label: 'Free only',          sub: 'Tools with a $0 plan',            icon: '🎁', max: 0,        freeOnly: true  },
-  { id: 'starter',    label: 'Up to $50/mo',       sub: 'Early-stage & solo',              icon: '🌱', max: 50,       freeOnly: false },
-  { id: 'growth',     label: '$50 – $200/mo',      sub: 'Growing teams',                   icon: '📈', max: 200,      freeOnly: false },
-  { id: 'pro',        label: '$200 – $1,000/mo',   sub: 'Scaling teams',                   icon: '🚀', max: 1000,     freeOnly: false },
-  { id: 'enterprise', label: 'No limit',           sub: 'Enterprise & custom pricing',     icon: '🏢', max: Infinity, freeOnly: false },
+  { id: 'free',       label: 'Free only',          sub: 'Tools with a $0 plan',            icon: '??', max: 0,        freeOnly: true  },
+  { id: 'starter',    label: 'Up to $50/mo',       sub: 'Early-stage & solo',              icon: '??', max: 50,       freeOnly: false },
+  { id: 'growth',     label: '$50 � $200/mo',      sub: 'Growing teams',                   icon: '??', max: 200,      freeOnly: false },
+  { id: 'pro',        label: '$200 � $1,000/mo',   sub: 'Scaling teams',                   icon: '??', max: 1000,     freeOnly: false },
+  { id: 'enterprise', label: 'No limit',           sub: 'Enterprise & custom pricing',     icon: '??', max: Infinity, freeOnly: false },
 ];
 
-// ── State ──────────────────────────────────────────────
+// -- State ----------------------------------------------
 const state = { category: null, budget: null, selectedFeatures: [], rankedTools: [] };
 
-// ── Helpers ────────────────────────────────────────────
+// -- Helpers --------------------------------------------
 function showScreen(n) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + n).classList.add('active');
@@ -642,7 +642,7 @@ function scoreTools(catKey, budgetRange, selected) {
     });
 }
 
-// ── Screen 1: Build category grid ─────────────────────
+// -- Screen 1: Build category grid ---------------------
 (function initCatGrid() {
   const grid = document.getElementById('cat-grid');
   grid.innerHTML = Object.keys(TOOL_DATA).map(key => {
@@ -654,7 +654,7 @@ function scoreTools(catKey, budgetRange, selected) {
   }).join('');
 })();
 
-// ── Screen 2: Budget grid ──────────────────────────────
+// -- Screen 2: Budget grid ------------------------------
 (function initBudgetGrid() {
   const grid = document.getElementById('budget-grid');
   grid.innerHTML = BUDGET_RANGES.map(r =>
@@ -718,7 +718,7 @@ function updateCount() {
   btn.disabled = n === 0;
 }
 
-// ── Screen 4 ───────────────────────────────────────────
+// -- Screen 4 -------------------------------------------
 function showScreen4() {
   const ranked = scoreTools(state.category, state.budget, state.selectedFeatures);
   state.rankedTools = ranked;
@@ -727,10 +727,10 @@ function showScreen4() {
   if (ranked.length === 0) {
     container.innerHTML =
       '<div class="card no-match-card" style="grid-column:1/-1">'
-      + '<div class="no-match-icon">🔍</div>'
+      + '<div class="no-match-icon">??</div>'
       + '<span class="sticker no-match-title">No tools found</span>'
       + '<p class="no-match-body">No tools in the <strong>' + TOOL_DATA[state.category].label + '</strong> category fit your budget and feature combination.</p>'
-      + '<div class="no-match-hint">💡 Try a higher budget range, or reduce the number of required features.</div>'
+      + '<div class="no-match-hint">?? Try a higher budget range, or reduce the number of required features.</div>'
       + '<button class="btn-cta btn-yellow" onclick="goBack(4)" style="max-width:320px;margin:0 auto">Change criteria</button>'
       + '</div>';
     showScreen(4);
@@ -756,12 +756,12 @@ function showScreen4() {
     + '<span class="pill pill-yellow">' + top.starting_price + '</span>'
     + '<span class="pill pill-cyan">Covers ' + top.score + ' of ' + state.selectedFeatures.length + ' needs</span>'
     + '</div>'
-    + '<a class="res-link" href="' + top.website + '" target="_blank" rel="noopener">Visit website →</a>'
+    + '<a class="res-link" href="' + top.website + '" target="_blank" rel="noopener">Visit website ?</a>'
     + '<p class="res-disclaimer">We matched <strong>' + ranked.length + ' tools</strong> to your criteria. The full side-by-side breakdown is one step away.</p>'
     + '</div>'
     + '<div class="card form-card">'
     + '<p class="form-hl">See who wins for your setup</p>'
-    + '<p class="form-sub">We ranked <strong>' + ranked.length + ' tools</strong> against your exact criteria — pricing, pros and cons, delivered in 2 minutes.</p>'
+    + '<p class="form-sub">We ranked <strong>' + ranked.length + ' tools</strong> against your exact criteria � pricing, pros and cons, delivered in 2 minutes.</p>'
     + '<form id="lead-form" onsubmit="handleSubmit(event)" novalidate>'
     + '<div class="form-progress">'
     + '<div class="form-prog-dot active" id="fp1">1</div>'
@@ -771,12 +771,12 @@ function showScreen4() {
     + '<div class="form-step active" id="fstep-1">'
     + '<div class="form-group"><label class="form-label" for="f-name">Name</label><input class="form-input" id="f-name" type="text" placeholder="Your name" autocomplete="name"><span class="field-error" id="err-name"></span></div>'
     + '<div class="form-group"><label class="form-label" for="f-email">Work email</label><input class="form-input" id="f-email" type="email" placeholder="you@company.com" autocomplete="email"><span class="field-error" id="err-email"></span></div>'
-    + '<button type="button" class="btn-cta" onclick="nextFormStep()">Next →</button>'
+    + '<button type="button" class="btn-cta" onclick="nextFormStep()">Next ?</button>'
     + '</div>'
     + '<div class="form-step" id="fstep-2">'
     + '<div class="form-group"><label class="form-label" for="f-company">Company</label><input class="form-input" id="f-company" type="text" placeholder="Your company name" autocomplete="organization"><span class="field-error" id="err-company"></span></div>'
     + '<div class="form-group"><label class="form-label" for="f-role">Your role</label><input class="form-input" id="f-role" type="text" placeholder="e.g. Head of Sales, RevOps Lead, CEO..."><span class="field-error" id="err-role"></span></div>'
-    + '<button type="submit" class="btn-cta" id="submit-btn">Send me the full ranking →</button>'
+    + '<button type="submit" class="btn-cta" id="submit-btn">Send me the full ranking ?</button>'
     + '</div>'
     + '<p class="form-fine">Arrives in under 2 min. No pitch, ever.</p>'
     + '</form>'
@@ -785,7 +785,7 @@ function showScreen4() {
   showScreen(4);
 }
 
-// ── Email validation ───────────────────────────────────
+// -- Email validation -----------------------------------
 const BLOCKED_DOMAINS = new Set([
   'gmail.com','googlemail.com','outlook.com','hotmail.com','hotmail.es',
   'hotmail.co.uk','hotmail.com.ar','hotmail.com.mx','live.com','live.es',
@@ -812,7 +812,7 @@ function clearFieldError(fieldId, errId) {
   document.getElementById(errId).classList.remove('visible');
 }
 
-// ── Progressive form ───────────────────────────────────
+// -- Progressive form -----------------------------------
 function nextFormStep() {
   const name  = document.getElementById('f-name').value.trim();
   const email = document.getElementById('f-email').value.trim();
@@ -833,12 +833,12 @@ function nextFormStep() {
   document.getElementById('fstep-1').classList.remove('active');
   document.getElementById('fstep-2').classList.add('active');
   const dot1 = document.getElementById('fp1');
-  dot1.classList.remove('active'); dot1.classList.add('done'); dot1.innerHTML = '✓';
+  dot1.classList.remove('active'); dot1.classList.add('done'); dot1.innerHTML = '?';
   document.getElementById('fline').classList.add('done');
   document.getElementById('fp2').classList.add('active');
 }
 
-// ── Form submit ────────────────────────────────────────
+// -- Form submit ----------------------------------------
 async function handleSubmit(e) {
   e.preventDefault();
   const company = document.getElementById('f-company').value.trim();
@@ -895,7 +895,7 @@ async function handleSubmit(e) {
   showScreen(5);
 }
 
-// ── Navigation ─────────────────────────────────────────
+// -- Navigation -----------------------------------------
 function goBack(fromScreen) { showScreen(fromScreen - 1); }
 
 function resetForm() {
@@ -916,7 +916,7 @@ function resetForm() {
   const dot2 = document.getElementById('fp2');
   dot2.classList.remove('active'); dot2.innerHTML = '2';
   const btn = document.getElementById('submit-btn');
-  if (btn) { btn.textContent = 'Send me the full ranking →'; btn.disabled = false; }
+  if (btn) { btn.textContent = 'Send me the full ranking ?'; btn.disabled = false; }
 }
 
 function restart() {
