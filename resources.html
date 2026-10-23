@@ -65,8 +65,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .nx-grid-bg{
     background-color:var(--nx-blue);
-    background-image:linear-gradient(rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width)),
-                      linear-gradient(90deg,rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width));
+    background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),
+                      linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));
     background-size:var(--nx-grid-cell) var(--nx-grid-cell);
   }
   .placeholder-box{
@@ -365,7 +365,7 @@ const CATEGORY_ICONS = {
 };
 function featuredVisualHtml(article) {
   if (article.img) {
-    return `<div class="featured-visual" style="background-color:var(--nx-blue);background-image:linear-gradient(rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width)),linear-gradient(90deg,rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width));background-size:var(--nx-grid-cell) var(--nx-grid-cell)"><img src="${article.img}" alt="${article.title}" loading="eager" style="width:100%;height:100%;object-fit:contain;display:block"></div>`;
+    return `<div class="featured-visual" style="background-color:var(--nx-blue);background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));background-size:var(--nx-grid-cell) var(--nx-grid-cell)"><img src="${article.img}" alt="${article.title}" loading="eager" style="width:100%;height:100%;object-fit:contain;display:block"></div>`;
   }
   const category = article.category;
   return `

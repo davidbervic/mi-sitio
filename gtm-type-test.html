@@ -41,7 +41,7 @@ html, body { min-height: 100%; background: var(--blue); font-family: 'Archivo', 
 
 body::before {
   content: ''; position: fixed; inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-image: linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
   background-size: 64px 64px; pointer-events: none; z-index: 0;
 }
 
@@ -274,7 +274,7 @@ body::before {
 .locked-panel { background: var(--black); border: 3px solid var(--black); border-radius: 16px; box-shadow: 4px 4px 0 rgba(0,0,0,.5); padding: 24px; color: var(--white); position: sticky; top: 20px; }
 .locked-heading { font: 900 18px/1.2 'Archivo Black',sans-serif; color: var(--white); letter-spacing: -.01em; margin-bottom: 16px; }
 .locked-list { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-.locked-list li { display: flex; align-items: center; gap: 9px; font: 400 13px/1.4 'Archivo',sans-serif; padding: 9px 11px; background: rgba(255,255,255,.06); border-radius: 8px; transition: background .3s; color: rgba(255,255,255,.7); }
+.locked-list li { display: flex; align-items: center; gap: 9px; font: 400 13px/1.4 'Archivo',sans-serif; padding: 9px 11px; background: rgba(255,255,255,.07); border-radius: 8px; transition: background .3s; color: rgba(255,255,255,.7); }
 .locked-list li.unlocked { background: rgba(0,204,122,.1); color: rgba(255,255,255,.9); }
 .report-sent-box { background: rgba(0,204,122,.12); border: 1.5px solid #00CC7A; border-radius: 10px; padding: 16px; margin-bottom: 18px; font: 400 14px/1.6 'Archivo',sans-serif; color: #00CC7A; display: none; }
 .report-sent-box strong { color: #fff; font-weight: 700; }

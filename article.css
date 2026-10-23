@@ -40,8 +40,8 @@ button{font:inherit;border:none;background:none;cursor:pointer}
 /* ---- nav (Muvap standard) ---- */
 .nx-grid-bg{
   background-color:var(--nx-blue);
-  background-image:linear-gradient(rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width)),
-                    linear-gradient(90deg,rgba(255,255,255,.06) var(--nx-grid-width),transparent var(--nx-grid-width));
+  background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),
+                    linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));
   background-size:var(--nx-grid-cell) var(--nx-grid-cell);
 }
 .top-band{padding:20px clamp(16px,4vw,44px) 24px}
