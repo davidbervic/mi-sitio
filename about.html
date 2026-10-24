@@ -1,4 +1,4 @@
-<!--
+﻿<!--
   RECONSTRUCCION de About de Muvap, a partir del design handoff real
   (design_handoff_munap_site/_extracted/about.html).
 
@@ -198,7 +198,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ---- recommendations ---- */
   .testi-section{background-color:var(--nx-blue);padding:clamp(56px,8vw,96px) clamp(16px,4vw,44px);background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));background-size:var(--nx-grid-cell) var(--nx-grid-cell)}
   .testi-section h2{margin:0 0 32px;color:var(--nx-paper);font:900 clamp(24px,3vw,32px)/1.15 var(--nx-font-display);letter-spacing:var(--nx-track-display);text-align:center}
-  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1160px;margin:0 auto}
+  .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:1080px;margin:0 auto}
+  @media(max-width:700px){.testi-grid{grid-template-columns:1fr}}
   .testi-card{display:flex;flex-direction:column;gap:20px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-xl);box-shadow:var(--nx-drop-sm);padding:28px}
   .testi-quote{margin:0;flex:1;color:var(--nx-ink);font:700 16px/1.5 var(--nx-font-text)}
   .testi-quote.is-pending{color:#999;font-weight:400;font-style:italic}
@@ -274,7 +275,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="images/muvap-logo.webp" alt="Muvap" style="height:72px;width:auto;display:block">
     </a>
     <div class="nav-right">
-      <button class="nav-burger" aria-label="Menu" aria-expanded="false">?</button>
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
       <div class="nav-links">
         <a class="nav-link is-current" href="about.html">About</a>
         <div class="resources-wrap">
@@ -289,7 +290,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="resources-menu">
             <a href="resources.html">Blog</a>
-            <a href="freebies.html">Freebies</a>          </div>
+            <a href="freebies.html">Freebies</a><a href="newsletter.html">Newsletter</a></div>
         </div>
       </div>
             <div class="nav-mob-icons">
@@ -301,7 +302,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </nav>
 
-  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="?"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"?":"?"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
 
   <div class="about-hero-grid">
     <div class="about-hero-photo" style="display:flex;align-items:center;justify-content:center">
@@ -525,8 +526,6 @@ function renderMartech(lang) {
 }
 
 function renderTestimonials(lang) {
-  document.getElementById('testiGrid').style.gridTemplateColumns = 'repeat(2,1fr)';
-  document.getElementById('testiGrid').style.maxWidth = '1080px';
   document.getElementById('testiGrid').innerHTML = `
     <div class="testi-card">
       <p class="testi-quote">"Thanks to David, our team stopped guessing which leads to chase. He built a lead scoring system that surfaces high-intent prospects automatically, and set up outreach automation that keeps us moving without missing any opportunity."</p>

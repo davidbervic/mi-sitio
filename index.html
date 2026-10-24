@@ -1,4 +1,4 @@
-<!--
+﻿<!--
   RECONSTRUCCION del Home de Muvap, a partir del design handoff real
   (design_handoff_munap_site/design_reference_html/index.html).
 
@@ -231,7 +231,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ---- testimonials ---- */
   .testi-section{background-color:var(--nx-blue);background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));background-size:var(--nx-grid-cell) var(--nx-grid-cell);padding:clamp(64px,9vw,120px) clamp(16px,4vw,44px)}
   .testi-section .section-head h2{color:var(--nx-paper)}
-  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1200px;margin:0 auto}
+  .testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;max-width:1080px;margin:0 auto}
+  @media(max-width:700px){.testi-grid{grid-template-columns:1fr}}
   .testi-card{display:flex;flex-direction:column;gap:24px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-xl);box-shadow:var(--nx-drop-sm);padding:32px}
   .testi-quote{margin:0;flex:1;color:var(--nx-ink);font:700 17px/1.5 var(--nx-font-text)}
   .testi-quote.is-pending{color:#999;font-weight:400;font-style:italic}
@@ -283,7 +284,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .sticky-cta{display:none}
   @media(max-width:860px){
     .sticky-cta{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--nx-paper);border-top:1.5px solid var(--nx-ink);padding:12px 16px;box-shadow:0 -4px 12px rgba(0,0,0,.08)}
-    .sticky-cta a{width:100%;text-align:center;background:var(--nx-mint);color:var(--nx-ink);border-radius:var(--nx-radius-sm);padding:13px;font:800 14px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm)}
+    .sticky-cta a{width:100%;text-align:center;background:var(--nx-pink);color:#fff;border-radius:var(--nx-radius-sm);padding:13px;font:800 14px/1 var(--nx-font-display);box-shadow:var(--nx-drop-sm)}
   }
 
   /* ---- footer ---- */
@@ -343,7 +344,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <img src="images/muvap-logo.webp" alt="Muvap" style="height:72px;width:auto;display:block">
     </a>
     <div class="nav-right">
-      <button class="nav-burger" aria-label="Menu" aria-expanded="false">?</button>
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
       <div class="nav-links">
         <a class="nav-link" href="about.html">About</a>
         <div class="resources-wrap">
@@ -358,7 +359,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="resources-menu">
             <a href="resources.html">Blog</a>
-            <a href="freebies.html">Freebies</a>          </div>
+            <a href="freebies.html">Freebies</a><a href="newsletter.html">Newsletter</a></div>
         </div>
       </div>
       <div class="nav-mob-icons">
@@ -371,7 +372,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </nav>
 
-  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="?"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"?":"?"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
 
   <div class="hero-wrap" id="hero">
     <!-- slides injected by JS from HERO_SLIDES below -->
@@ -429,7 +430,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="testi-section" data-grid-parallax>
   <div class="reveal">
     <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--nx-purple);color:#fff;margin-bottom:28px">
+      <span class="eyebrow-pill" style="background:var(--nx-pink);color:#fff;margin-bottom:28px">
         <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z"/></svg><span data-i18n="testi_eyebrow">WHAT CLIENTS SAY</span>
       </span>
       <h2 data-i18n="testi_h2">Teams that fixed their GTM system with us.</h2>
@@ -843,8 +844,6 @@ function renderProcess(lang) {
 }
 
 function renderTestimonials(lang) {
-  document.getElementById('testiGrid').style.gridTemplateColumns = 'repeat(2,1fr)';
-  document.getElementById('testiGrid').style.maxWidth = '1080px';
   document.getElementById('testiGrid').innerHTML = `
     <div class="testi-card">
       <p class="testi-quote">"Thanks to David, our team stopped guessing which leads to chase. He built a lead scoring system that surfaces high-intent prospects automatically, and set up outreach automation that keeps us moving without missing any opportunity."</p>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -228,7 +228,7 @@
   <nav class="site-nav">
     <a href="index.html" class="logo"><img src="images/muvap-logo.webp" alt="Muvap" style="height:72px;width:auto;display:block"></a>
     <div class="nav-right">
-      <button class="nav-burger" aria-label="Menu" aria-expanded="false">?</button>
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
       <div class="nav-links">
         <a class="nav-link" href="about.html" data-i18n="nav_about">About</a>
         <div class="resources-wrap">
@@ -241,7 +241,7 @@
         <a class="nav-link" href="customers.html" data-i18n="nav_casestudies">Case studies</a>
         <div class="resources-wrap">
           <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px" data-i18n="nav_resources">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <div class="resources-menu"><a href="resources.html">Blog</a><a href="freebies.html">Freebies</a></div>
+          <div class="resources-menu"><a href="resources.html">Blog</a><a href="freebies.html">Freebies</a><a href="newsletter.html">Newsletter</a></div>
         </div>
       </div>
             <div class="nav-mob-icons">
@@ -259,7 +259,7 @@
       <p class="sv-hero-sub" data-i18n="hero_sub">We rebuild it so your sales team has a system they follow, your pipeline reflects reality, and every forecast is based on data you can trust.</p>
       <div class="sv-hero-ctas">
         <a class="sv-btn is-acc" href="contact.html?service=GTM%20Architecture%20Evolution%20%C2%B7%20Discovery%20Call" data-i18n="hero_cta">Book a Discovery Call</a>
-        <a class="sv-link" href="#pricing" data-i18n="hero_link">See pricing ?</a>
+        <a class="sv-link" href="#pricing" data-i18n="hero_link">See pricing</a>
       </div>
       <p class="sv-hero-anchor" data-i18n="hero_anchor">Foundation engagements start at $3,000. US agencies charge $15,000 to $25,000 for the same scope.</p>
     </div>
@@ -721,7 +721,7 @@
 
 <script>
 // Nav burger
-(function(){var b=document.querySelector('.nav-burger'),n=document.querySelector('.site-nav');if(!b||!n)return;function close(){n.classList.remove('nav-open');b.setAttribute('aria-expanded','false');b.textContent='?'}b.addEventListener('click',function(e){e.stopPropagation();var o=n.classList.toggle('nav-open');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'?':'?'});document.addEventListener('click',function(e){if(!n.contains(e.target))close()})})();
+(function(){var b=document.querySelector('.nav-burger'),n=document.querySelector('.site-nav');if(!b||!n)return;function close(){n.classList.remove('nav-open');b.setAttribute('aria-expanded','false');b.textContent='☰'}b.addEventListener('click',function(e){e.stopPropagation();var o=n.classList.toggle('nav-open');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'✕':'☰'});document.addEventListener('click',function(e){if(!n.contains(e.target))close()})})();
 
 // Reveal on scroll
 (function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('is-visible')});return}var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target)}})},{threshold:0.1});els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)el.classList.add('is-visible');else io.observe(el)})})();
@@ -825,7 +825,7 @@ var COPY={
     nav_about:'About',nav_casestudies:'Case studies',nav_resources:'Resources',nav_cta:'Let\'s talk',
     hero_h1:'Your CRM should tell you where the money is.',
     hero_sub:'We rebuild it so your sales team has a system they follow, your pipeline reflects reality, and every forecast is based on data you can trust.',
-    hero_cta:'Book a Discovery Call',hero_link:'See pricing ?',
+    hero_cta:'Book a Discovery Call',hero_link:'See pricing',
     hero_anchor:'Foundation engagements start at $3,000. US agencies charge $15,000 to $25,000 for the same scope.',
     eyebrow_why:'The problem',why_h2:'Sound familiar?',
     why_intro:'These aren\'t edge cases. They\'re the default state of a CRM that was never set up for the journey your team is actually running.',
