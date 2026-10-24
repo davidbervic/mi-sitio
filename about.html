@@ -525,12 +525,18 @@ function renderMartech(lang) {
 }
 
 function renderTestimonials(lang) {
-  const copy = COPY[lang];
+  document.getElementById('testiGrid').style.gridTemplateColumns = '1fr';
+  document.getElementById('testiGrid').style.maxWidth = '680px';
   document.getElementById('testiGrid').innerHTML = `
-    <div class="testi-coming">
-      <svg width="30" height="22" viewBox="0 0 34 26" fill="none" aria-hidden="true"><path d="M0 26V15.6C0 6.2 5.9 1 14.6 0l1.1 4.4C10 5.6 6.9 8.7 6.5 13.4h7.3V26H0zm18.4 0V15.6C18.4 6.2 24.3 1 33 0l1.1 4.4c-5.7 1.2-8.8 4.3-9.2 9h7.3V26H18.4z" fill="var(--nx-ink)"/></svg>
-      <h3 style="margin:0;font:900 20px/1.2 var(--nx-font-display)">${copy.testi_coming_h3}</h3>
-      <p>${copy.testi_coming_p}</p>
+    <div class="testi-card">
+      <p class="testi-quote">"Thanks to David, our team stopped guessing which leads to chase. He built a lead scoring system that surfaces high-intent prospects automatically, and set up outreach automation that keeps us moving without missing any opportunity."</p>
+      <div class="testi-person">
+        <img class="testi-avatar" src="images/rosali-vela.jpg" alt="Rosali Vela" style="object-fit:cover">
+        <div>
+          <span class="testi-name">Rosali Vela</span>
+          <span class="testi-role">Marketing Team Lead · MEDLIFE</span>
+        </div>
+      </div>
     </div>
   `;
 }
