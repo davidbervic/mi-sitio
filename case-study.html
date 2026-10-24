@@ -445,6 +445,7 @@ const MEDLIFE = {
   pullQuotePending: false,
   pullQuote: "Thanks to David, our team stopped guessing which leads to chase. He built a lead scoring system that surfaces high-intent prospects automatically, and set up outreach automation that keeps us moving without missing any opportunity.",
   pullQuoteAttribution: "Rosali Vela · Marketing Team Lead, MEDLIFE",
+  pullQuoteAvatarImg: "images/rosali-vela.jpg",
   companyDescPending: false,
   companyDesc: 'MEDLIFE is a global movement with more than two decades on the ground in Latin America and Africa, delivering mobile clinics, education and community development to the people who need it most. Its network spans 400+ chapters at universities and high schools across the US, Canada, Puerto Rico and beyond, mobilizing an army of 20,000+ students behind the mission.',
   website: 'https://www.medlifemovement.org/',
@@ -591,7 +592,14 @@ if (data.pullQuotePending) {
   pullQuoteEl.textContent = `"${data.pullQuote}"`;
   pullQuoteEl.classList.remove('is-pending');
 }
-document.getElementById('casePullQuoteAttribution').textContent = (!data.pullQuotePending && data.pullQuoteAttribution) ? data.pullQuoteAttribution : '';
+const attrEl = document.getElementById('casePullQuoteAttribution');
+if (!data.pullQuotePending && data.pullQuoteAttribution) {
+  if (data.pullQuoteAvatarImg) {
+    attrEl.innerHTML = `<span style="display:flex;align-items:center;gap:10px"><img src="${data.pullQuoteAvatarImg}" alt="" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(255,255,255,.25);flex:0 0 auto"><span>${data.pullQuoteAttribution}</span></span>`;
+  } else {
+    attrEl.textContent = data.pullQuoteAttribution;
+  }
+}
 
 const highlightsEl = document.getElementById('caseImpactHighlights');
 if (data.impactList) {
