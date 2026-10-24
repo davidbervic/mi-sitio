@@ -795,7 +795,7 @@ body::before {
 
     var sent = document.getElementById("reportSent");
     sent.style.display = "block";
-    sent.innerHTML = "? Your results are on their way to <strong>" + esc(email) + "</strong>. Check your inbox in the next few minutes.";
+    sent.innerHTML = "&#x2705; Your results are on their way to <strong>" + esc(email) + "</strong>. Check your inbox in the next few minutes.";
 
     document.getElementById("calendlyBtn").textContent = "?? " + (CALENDLY_COPY[result.overall] || "Book a free 30-min GTM call");
   }
