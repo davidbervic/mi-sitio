@@ -900,7 +900,10 @@ async function handleSubmit(e) {
       name: payload.name, email: payload.email,
       company: payload.company, role: payload.role,
       category: payload.category_label, budget: payload.budget_label,
-      top_recommendation: payload.top_recommendation
+      selected_needs: payload.selected_features_labels.join(', '),
+      top_recommendation: payload.top_recommendation,
+      tool_2: payload.ranked_tools[1] ? payload.ranked_tools[1].name : '',
+      tool_3: payload.ranked_tools[2] ? payload.ranked_tools[2].name : ''
     }).toString()
   }).catch(function () {});
 
@@ -948,7 +951,10 @@ function restart() {
   <input type="text" name="role">
   <input type="text" name="category">
   <input type="text" name="budget">
+  <input type="text" name="selected_needs">
   <input type="text" name="top_recommendation">
+  <input type="text" name="tool_2">
+  <input type="text" name="tool_3">
 </form>
 </body>
 </html>
