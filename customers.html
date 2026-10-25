@@ -162,7 +162,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .love-head{text-align:center;max-width:640px;margin:0 auto 48px}
   .love-head .eyebrow-pill{margin:0 auto 22px}
   .love-head h2{margin:0;color:var(--nx-paper);font:900 clamp(28px,3.6vw,38px)/1.1 var(--nx-font-display);letter-spacing:var(--nx-track-display)}
-  .love-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;max-width:1200px;margin:0 auto}
+  .love-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:900px;margin:0 auto}
   .love-card{background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);padding:22px;display:flex;flex-direction:column;gap:14px}
   .love-quote{margin:0;color:#999;font:400 16px/1.4 var(--nx-font-text);font-style:italic}
   .love-attribution{color:var(--nx-ink-soft);font:400 13px/1.2 var(--nx-font-text)}
@@ -344,13 +344,28 @@ document.getElementById('casesGrid').innerHTML = CASES.map(c => c.pending ? `
   </a>
 `).join('');
 
-// One honest, well-designed panel instead of six empty quote cards.
 document.getElementById('loveGrid').innerHTML = `
-  <div class="love-coming">
-    <svg width="34" height="26" viewBox="0 0 34 26" fill="none" aria-hidden="true"><path d="M0 26V15.6C0 6.2 5.9 1 14.6 0l1.1 4.4C10 5.6 6.9 8.7 6.5 13.4h7.3V26H0zm18.4 0V15.6C18.4 6.2 24.3 1 33 0l1.1 4.4c-5.7 1.2-8.8 4.3-9.2 9h7.3V26H18.4z" fill="var(--nx-ink)"/></svg>
-    <h3 style="margin:0;font:900 22px/1.2 var(--nx-font-display)">This wall is empty on purpose, for now.</h3>
-    <p>Real quotes replace this the moment the first clients sign off on them. No invented names, no stock photos.</p>
-    <a href="contact.html" class="btn-pink" data-magnetic="0.15">Be the first</a>
+  <div class="love-card">
+    <img src="images/medlife-badge-mini.webp" alt="MEDLIFE" style="width:44px;height:44px;object-fit:contain;border-radius:10px;border:1.5px solid rgba(0,0,0,.1)">
+    <p class="love-quote">"Thanks to David, our team stopped guessing which leads to chase. He built a lead scoring system that surfaces high-intent prospects automatically, and set up outreach automation that keeps us moving without missing any opportunity."</p>
+    <div style="display:flex;align-items:center;gap:10px;margin-top:auto">
+      <img src="images/rosali-vela.jpg" alt="Rosali Vela" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:1.5px solid var(--nx-ink);flex:0 0 auto">
+      <div class="love-attribution">
+        <strong style="display:block;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink)">Rosali Vela</strong>
+        Marketing Team Lead · MEDLIFE
+      </div>
+    </div>
+  </div>
+  <div class="love-card">
+    <img src="images/cloudtask-badge-mini.webp" alt="CloudTask" style="width:44px;height:44px;object-fit:contain;border-radius:10px;border:1.5px solid rgba(0,0,0,.1)">
+    <p class="love-quote">"We were running a two-sided marketplace on a CRM that nobody fully understood. David came in and within weeks it made sense: lifecycle stages, scoring, attribution, automation, all connected. But the real change wasn't operational. It was that leadership started making decisions from data instead of instinct. We hired him to fix the CRM. We got a better way to run the company."</p>
+    <div style="display:flex;align-items:center;gap:10px;margin-top:auto">
+      <img src="images/dave-menjura.jpg" alt="Dave Menjura" style="width:36px;height:36px;border-radius:50%;object-fit:cover;border:1.5px solid var(--nx-ink);flex:0 0 auto">
+      <div class="love-attribution">
+        <strong style="display:block;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink)">Dave Menjura</strong>
+        Chief Revenue Officer · CloudTask
+      </div>
+    </div>
   </div>
 `;
 
