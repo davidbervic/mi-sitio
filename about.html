@@ -433,10 +433,10 @@ const COPY = {
     footer_copy: '© 2026 Muvap. All rights reserved.',
     footer_built: 'Built with GTM systems that work.',
     career: [
-      { dates: 'Feb 2026 – Present', role: 'Revenue Operations Specialist & GTM Engineer', company: 'CloudTask', tone: 'var(--nx-cyan)', initial: 'C',
+      { dates: 'Feb 2026 – Present', role: 'Revenue Operations Specialist & GTM Engineer', company: 'CloudTask', tone: 'var(--nx-cyan)', initial: 'C', logoImg: 'images/cloudtask-sidebar-logo.webp',
         companyDesc: 'A RevOps focused marketplace matching B2B and SaaS companies with vetted sales, marketing, customer success and support talent.',
         desc: 'Rebuilt pipeline architecture, shipped a custom talent-matching object syncing both sides of the marketplace, consolidated intake from 7 lead sources, and layered AI agents and answer engine optimization on top of HubSpot.' },
-      { dates: 'Feb 2025 – Feb 2026', role: 'Revenue & Martech Operations Specialist', company: 'MEDLIFE', tone: 'var(--nx-mint)', initial: 'M',
+      { dates: 'Feb 2025 – Feb 2026', role: 'Revenue & Martech Operations Specialist', company: 'MEDLIFE', tone: 'var(--nx-mint)', initial: 'M', logoImg: 'images/medlife-sidebar-logo.webp',
         companyDesc: 'A global nonprofit movement delivering mobile clinics, education and community development across Latin America and Africa.',
         desc: 'Unified lifecycle and lead stages across marketing, sales and service, built scoring and routing on top of a defined ICP, rolled out CRM data governance, and deployed AI agents and automation across research and content.' },
     ],
@@ -495,7 +495,7 @@ function renderTimeline(lang) {
       <span class="timeline-date">${c.dates}</span>
       <div>
         <div class="timeline-head">
-          <div class="timeline-logo" style="background:${c.tone};display:flex;align-items:center;justify-content:center;font:800 15px/1 var(--nx-font-display);color:var(--nx-ink)">${c.initial}</div>
+          <div class="timeline-logo" style="background:var(--nx-paper);display:flex;align-items:center;justify-content:center;padding:5px">${c.logoImg ? `<img src="${c.logoImg}" alt="${c.company}" style="height:26px;width:auto;object-fit:contain">` : `<span style="font:800 15px/1 var(--nx-font-display);color:var(--nx-ink)">${c.initial}</span>`}</div>
           <div class="timeline-role">${c.role}, ${c.company}</div>
         </div>
         <p class="timeline-what">${c.companyDesc}</p>
@@ -534,20 +534,22 @@ function renderTestimonials(lang) {
       <p class="testi-quote">"Thanks to David, our team stopped guessing which leads to chase. He built a lead scoring system that surfaces high-intent prospects automatically, and set up outreach automation that keeps us moving without missing any opportunity."</p>
       <div class="testi-person">
         <img class="testi-avatar" src="images/rosali-vela.jpg" alt="Rosali Vela" style="object-fit:cover;width:80px;height:80px">
-        <div>
+        <div style="flex:1">
           <span class="testi-name">Rosali Vela</span>
           <span class="testi-role">Marketing Team Lead · MEDLIFE</span>
         </div>
+        <img src="images/medlife-sidebar-logo.webp" alt="MEDLIFE" style="height:18px;width:auto;object-fit:contain;opacity:.7;flex-shrink:0;align-self:flex-end">
       </div>
     </div>
     <div class="testi-card">
       <p class="testi-quote">"We were running a two-sided marketplace on a CRM that nobody fully understood. David came in and within weeks it made sense: lifecycle stages, scoring, attribution, automation, all connected. But the real change wasn't operational. It was that leadership started making decisions from data instead of instinct. We hired him to fix the CRM. We got a better way to run the company."</p>
       <div class="testi-person">
         <img class="testi-avatar" src="images/dave-menjura.jpg" alt="Dave Menjura" style="object-fit:cover;width:80px;height:80px">
-        <div>
+        <div style="flex:1">
           <span class="testi-name">Dave Menjura</span>
           <span class="testi-role">Chief Revenue Officer · CloudTask</span>
         </div>
+        <img src="images/cloudtask-sidebar-logo.webp" alt="CloudTask" style="height:18px;width:auto;object-fit:contain;opacity:.7;flex-shrink:0;align-self:flex-end">
       </div>
     </div>
   `;
