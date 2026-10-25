@@ -133,12 +133,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .next-step-num{width:32px;height:32px;flex:0 0 auto;border-radius:50%;border:1.5px solid var(--nx-ink);display:flex;align-items:center;justify-content:center;font:800 14px/1 var(--nx-font-display)}
   .next-step span:last-child{color:var(--nx-ink);font:400 15px/1.4 var(--nx-font-text)}
 
-  .quote-box{display:flex;flex-direction:column;gap:16px;padding:24px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);background:#f4f4f4}
-  .quote-box p{margin:0;color:var(--nx-ink);font:400 15px/1.6 var(--nx-font-text);font-style:italic}
+  /* testimonial slider */
+  .testi-slider{position:relative;overflow:hidden;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);background:#f4f4f4}
+  .testi-track{display:flex;transition:transform .4s cubic-bezier(.4,0,.2,1)}
+  .testi-slide{min-width:100%;display:flex;flex-direction:column;gap:16px;padding:24px;box-sizing:border-box}
+  .testi-slide p{margin:0;color:var(--nx-ink);font:400 15px/1.6 var(--nx-font-text);font-style:italic}
   .quote-person{display:flex;align-items:center;gap:12px}
   .quote-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:0 0 auto;border:2px solid var(--nx-ink)}
   .quote-name{display:block;font:700 13px/1.2 var(--nx-font-text);color:var(--nx-ink)}
   .quote-role{display:block;font:400 12px/1.4 var(--nx-font-text);color:var(--nx-ink-soft)}
+  .testi-dots{display:flex;justify-content:center;gap:6px;padding:10px 0 14px}
+  .testi-dot{width:6px;height:6px;border-radius:50%;background:var(--nx-ink);opacity:.2;border:none;padding:0;cursor:pointer;transition:opacity .25s}
+  .testi-dot.active{opacity:1}
 
   .stats-row{display:flex;gap:24px}
   .stat-value{font:900 26px/1 var(--nx-font-display);color:var(--nx-ink)}
@@ -270,16 +276,49 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <div class="quote-box">
-        <p>"Thanks to David, our team stopped guessing which leads to chase. He built a lead scoring system that surfaces high-intent prospects automatically, and set up outreach automation that keeps us moving without missing any opportunity."</p>
-        <div class="quote-person">
-          <img src="images/rosali-vela.jpg" alt="Rosali Vela" class="quote-avatar">
-          <div>
-            <strong class="quote-name">Rosali Vela</strong>
-            <span class="quote-role">Marketing Team Lead · MEDLIFE</span>
+      <div class="testi-slider" id="testiSlider">
+        <div class="testi-track" id="testiTrack">
+          <div class="testi-slide">
+            <p>"Thanks to David, our team stopped guessing which leads to chase. He built a lead scoring system that surfaces high-intent prospects automatically, and set up outreach automation that keeps us moving without missing any opportunity."</p>
+            <div class="quote-person">
+              <img src="images/rosali-vela.jpg" alt="Rosali Vela" class="quote-avatar">
+              <div>
+                <strong class="quote-name">Rosali Vela</strong>
+                <span class="quote-role">Marketing Team Lead · MEDLIFE</span>
+              </div>
+            </div>
+          </div>
+          <div class="testi-slide">
+            <p>"We were running a two-sided marketplace on a CRM that nobody fully understood. David came in and within weeks it made sense: lifecycle stages, scoring, attribution, automation, all connected. We hired him to fix the CRM. We got a better way to run the company."</p>
+            <div class="quote-person">
+              <img src="images/dave-menjura.jpg" alt="Dave Menjura" class="quote-avatar">
+              <div>
+                <strong class="quote-name">Dave Menjura</strong>
+                <span class="quote-role">Chief Revenue Officer · CloudTask</span>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="testi-dots">
+          <button class="testi-dot active" aria-label="Testimonial 1"></button>
+          <button class="testi-dot" aria-label="Testimonial 2"></button>
+        </div>
       </div>
+      <script>
+        (function(){
+          var track=document.getElementById('testiTrack');
+          var dots=document.querySelectorAll('#testiSlider .testi-dot');
+          var cur=0,total=2,timer;
+          function go(i){
+            cur=i;
+            track.style.transform='translateX(-'+(100*i)+'%)';
+            dots.forEach(function(d,j){d.classList.toggle('active',j===i);});
+          }
+          function next(){go((cur+1)%total);}
+          dots.forEach(function(d,i){d.addEventListener('click',function(){clearInterval(timer);go(i);timer=setInterval(next,5000);});});
+          timer=setInterval(next,5000);
+        })();
+      </script>
 
       <div>
         <div class="stats-row">
