@@ -133,9 +133,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .next-step-num{width:32px;height:32px;flex:0 0 auto;border-radius:50%;border:1.5px solid var(--nx-ink);display:flex;align-items:center;justify-content:center;font:800 14px/1 var(--nx-font-display)}
   .next-step span:last-child{color:var(--nx-ink);font:400 15px/1.4 var(--nx-font-text)}
 
-  .quote-box{display:flex;flex-direction:column;gap:12px;padding:24px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);background:#f4f4f4}
-  .quote-box p{margin:0;color:#999;font:400 16px/1.5 var(--nx-font-text);font-style:italic}
-  .quote-box span{color:var(--nx-ink-soft);font:400 13px/1.2 var(--nx-font-text)}
+  .quote-box{display:flex;flex-direction:column;gap:16px;padding:24px;border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-lg);background:#f4f4f4}
+  .quote-box p{margin:0;color:var(--nx-ink);font:400 15px/1.6 var(--nx-font-text);font-style:italic}
+  .quote-person{display:flex;align-items:center;gap:12px}
+  .quote-avatar{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:0 0 auto;border:2px solid var(--nx-ink)}
+  .quote-name{display:block;font:700 13px/1.2 var(--nx-font-text);color:var(--nx-ink)}
+  .quote-role{display:block;font:400 12px/1.4 var(--nx-font-text);color:var(--nx-ink-soft)}
 
   .stats-row{display:flex;gap:24px}
   .stat-value{font:900 26px/1 var(--nx-font-display);color:var(--nx-ink)}
@@ -267,9 +270,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
 
-      <div class="quote-box is-soon">
-        <p data-i18n="quote_p">"Real client quote landing here soon."</p>
-        <span data-i18n="quote_cta">Want to be the first? Let's work together.</span>
+      <div class="quote-box">
+        <p>"Thanks to David, our team stopped guessing which leads to chase. He built a lead scoring system that surfaces high-intent prospects automatically, and set up outreach automation that keeps us moving without missing any opportunity."</p>
+        <div class="quote-person">
+          <img src="images/rosali-vela.jpg" alt="Rosali Vela" class="quote-avatar">
+          <div>
+            <strong class="quote-name">Rosali Vela</strong>
+            <span class="quote-role">Marketing Team Lead · MEDLIFE</span>
+          </div>
+        </div>
       </div>
 
       <div>
