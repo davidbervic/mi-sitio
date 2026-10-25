@@ -85,9 +85,11 @@ button{font:inherit;border:none;background:none;cursor:pointer}
   .resources-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 4px 14px;pointer-events:auto;min-width:0}
   .lang-toggle{display:none}
   .nav-mob-icons{display:flex}
-  .logo img{height:52px !important}
+  .logo img{height:40px !important}
+  .site-nav{gap:10px}
+  .mob-icon{width:36px;height:36px;box-shadow:2px 2px 0 var(--nx-ink)}
 }
-@media(max-width:420px){.site-nav{gap:8px}.nav-right{gap:8px}}
+@media(max-width:420px){.site-nav{gap:8px}.nav-right{gap:6px}.nav-mob-icons{gap:6px}}
 
 /* ---- shared section scaffolding ---- */
 .sv-section{padding:clamp(64px,9vw,112px) clamp(16px,4vw,44px)}
