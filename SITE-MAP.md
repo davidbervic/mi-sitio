@@ -153,15 +153,41 @@ Estas secciones solo existen en el DOM después de que el JS corre. No buscar su
 
 ## Formularios Netlify registrados
 
-| Nombre del form | Página | Campos principales |
-|---|---|---|
-| `contact-home` | index.html | nombre, email, empresa, mensaje |
-| `contact-main` | contact.html | nombre, email, empresa, servicio, mensaje |
-| `freebie-download` | downloads.html | nombre, email |
-| `gtm-tool-result` | gtm-tool-selector.html | respuestas del quiz + email |
-| `gtm-type-result` | gtm-type-test.html | respuestas del test + email |
+10 formularios en total. Los marcados como "hidden" son formularios fantasma que Netlify necesita para registrar el nombre del form, pero el submit real ocurre via JS fetch.
 
-**Webhook pendiente:** Netlify → n8n → HubSpot (no construido aún).
+| Nombre del form | Página | Tipo |
+|---|---|---|
+| `muvap-book-a-call` | index.html | CTA principal visible |
+| `muvap-contact` | contact.html | Contacto general visible |
+| `gtm-arch-book-a-call` | gtm-architecture-evolution.html | CTA servicio visible |
+| `gtm-tool-selector` | gtm-tool-selector.html | Captura resultado quiz (hidden) |
+| `gtm-type-test` | gtm-type-test.html | Captura resultado test (hidden) |
+| `icp-worksheet` | icp-worksheet.html | Captura descarga (hidden) |
+| `utm-generator-download` | utm-generator.html | Captura descarga (hidden) |
+| `muvap-newsletter` | newsletter.html | Newsletter signup (hidden) |
+| `muvap-lead-magnet-handoff-sla` | downloads/lead-magnet-template.html | Lead magnet descarga |
+| `utm-generator` | downloads/utm-generator.html | Lead magnet UTM Generator |
+
+**CRM destino: Zoho** (no HubSpot).
+
+**Webhook pendiente:** Netlify → n8n → Zoho (no construido aún). Ya hay 9 submissions reales en Netlify: 5 en `gtm-arch-book-a-call`, 1 en `muvap-book-a-call`, 3 en form legacy `contact`. Exportar manualmente antes de construir el webhook.
+
+**Forms que van directo a n8n** (no pasan por Netlify, usan fetch con placeholder URL): `gtm-tool-selector`, `gtm-type-test`, `icp-worksheet`.
+
+---
+
+## Carpeta downloads/ (lead magnets)
+
+Subcarpeta independiente con páginas de descarga y los archivos descargables.
+
+| Archivo | Descripción |
+|---|---|
+| `downloads/lead-magnet-template.html` | Página: Free GTM Handoff SLA Template |
+| `downloads/utm-generator.html` | Página: Free UTM Generator |
+| `downloads/gracias.html` | Página de confirmación post-submit |
+| `downloads/Muvap_UTM_Generator_Public.xlsx` | Archivo descargable: UTM Generator |
+| `downloads/muvap-icp-worksheet.xlsx` | Archivo descargable: ICP Worksheet |
+| `downloads/utm-generator.xlsx` | Archivo descargable: UTM Generator (versión alternativa) |
 
 ---
 

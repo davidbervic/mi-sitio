@@ -108,17 +108,39 @@ El sitio usa tokens propios derivados del brand Muvap. Las reglas completas esta
 - **GTM:** GTM-5GWJM2P9 (instalado en todas las paginas)
 - **GA4:** G-B0L8CEZX5F
 
-**Formularios Netlify registrados (5):**
+**Formularios Netlify registrados (10):**
 
-| Nombre | Pagina |
+| Nombre del form | Pagina | Tipo |
+|---|---|---|
+| `muvap-book-a-call` | index.html | CTA principal |
+| `muvap-contact` | contact.html | Contacto general |
+| `gtm-arch-book-a-call` | gtm-architecture-evolution.html | CTA servicio |
+| `gtm-tool-selector` | gtm-tool-selector.html | Captura resultado quiz (hidden) |
+| `gtm-type-test` | gtm-type-test.html | Captura resultado test (hidden) |
+| `icp-worksheet` | icp-worksheet.html | Captura descarga (hidden) |
+| `utm-generator-download` | utm-generator.html | Captura descarga (hidden) |
+| `muvap-newsletter` | newsletter.html | Newsletter signup (hidden) |
+| `muvap-lead-magnet-handoff-sla` | downloads/lead-magnet-template.html | Lead magnet GTM Handoff SLA |
+| `utm-generator` | downloads/utm-generator.html | Lead magnet UTM Generator |
+
+**CRM destino: Zoho** (no HubSpot).
+
+**Pendiente critico:** Webhook Netlify → n8n → Zoho no esta construido. Ya hay 9 submissions reales en Netlify sin entrar al CRM (5 en `gtm-arch-book-a-call`, 1 en `muvap-book-a-call`, 3 en form legacy `contact`). Exportar manualmente antes de construir el webhook.
+
+**Nota:** `gtm-tool-selector`, `gtm-type-test` e `icp-worksheet` envian directo a n8n via fetch, no pasan por Netlify. Sus webhooks tienen placeholder `YOUR_N8N_WEBHOOK_URL` en el codigo — reemplazar con la URL real cuando se construya el flujo.
+
+## Carpeta downloads/
+
+Subcarpeta con lead magnets independientes. Tiene su propia estructura:
+
+| Archivo | Descripcion |
 |---|---|
-| `contact-home` | index.html |
-| `contact-main` | contact.html |
-| `freebie-download` | downloads.html |
-| `gtm-tool-result` | gtm-tool-selector.html |
-| `gtm-type-result` | gtm-type-test.html |
-
-**Pendiente:** Webhook Netlify → n8n → HubSpot no esta construido. Los leads llegan a Netlify pero no entran al CRM.
+| `downloads/lead-magnet-template.html` | Pagina de descarga: Free GTM Handoff SLA Template |
+| `downloads/utm-generator.html` | Pagina de descarga: Free UTM Generator |
+| `downloads/gracias.html` | Pagina de confirmacion post-submit |
+| `downloads/Muvap_UTM_Generator_Public.xlsx` | Archivo descargable: UTM Generator |
+| `downloads/muvap-icp-worksheet.xlsx` | Archivo descargable: ICP Worksheet |
+| `downloads/utm-generator.xlsx` | Archivo descargable: UTM Generator (version alternativa) |
 
 ---
 
