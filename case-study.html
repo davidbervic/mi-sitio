@@ -69,6 +69,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --nx-track-display:-.035em; --nx-track-tight:-.02em; --nx-track-label:.12em;
   }
   *{margin:0;padding:0;box-sizing:border-box}
+  /* overflow-x on body ONLY — never add html{overflow-x:hidden/clip} here, it creates a scroll container that silently breaks position:sticky on this page */
   body{font-family:var(--nx-font-text);color:var(--nx-ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
@@ -126,7 +127,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .resources-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 4px 14px;pointer-events:auto;min-width:0}
     .lang-toggle{display:none}
     .nav-cta{display:none}
-    .nav-mob-icons{display:flex!important}
+    .nav-mob-icons{display:flex!important} /* !important needed: later media queries in this file declare display:none and override without it */
     .logo img{height:40px !important}
     .site-nav{gap:10px}
     .mob-icon{width:36px;height:36px;box-shadow:2px 2px 0 var(--nx-ink)}
@@ -580,6 +581,9 @@ const CLOUDTASK = {
   impactClosing: "CloudTask now runs prospecting, recruiting and revenue reporting from HubSpot, with data the team trusts and channels, including AI answer engines, that it can measure and grow.",
 };
 
+// To add a case study: create a new named constant above (copy MEDLIFE/CLOUDTASK structure),
+// then add it here. The key ('3', '4', ...) maps to ?case=N in the URL.
+// Do NOT create a separate HTML file — this single page handles all cases.
 const DATA = {
   '1': MEDLIFE,
   '2': CLOUDTASK,

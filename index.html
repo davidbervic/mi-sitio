@@ -83,6 +83,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --nx-track-display:-.035em; --nx-track-tight:-.02em; --nx-track-label:.12em;
   }
   *{margin:0;padding:0;box-sizing:border-box}
+  /* overflow-x on body ONLY — never add html{overflow-x:hidden/clip} here, it creates a scroll container that silently breaks .stages-sticky (position:sticky disappears with no console error) */
   body{font-family:var(--nx-font-text);color:var(--nx-ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
