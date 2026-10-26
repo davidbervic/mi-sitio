@@ -41,10 +41,12 @@ el media query. El `!important` es intencional. No lo quites "para limpiar el CS
 **Siempre usar la herramienta Edit de Claude para modificar HTML.**
 Si PowerShell es inevitable, usar `-Encoding utf8` o `[System.IO.File]::WriteAllText(..., [System.Text.Encoding]::UTF8)`.
 
-### 4. article.css afecta 29 paginas simultaneamente
+### 4. article.css y services.css tienen alcance amplio
 
-Lo usan todos los articulos AEO (19), las paginas de servicio GTM (5), y las herramientas interactivas (4).
-Un cambio en este archivo es un cambio en 29 paginas. Testear antes de pushear.
+- `article.css` — lo usan los **19 articulos AEO solamente**. Un cambio afecta 19 paginas.
+- `services.css` — lo usan **9 archivos**: 5 paginas de servicio GTM + icp-worksheet + newsletter + utm-generator + design-rules.
+- `article-interactions.js` — lo usan los 19 articulos AEO (share, copy link, progress bar).
+- Testear en al menos una pagina de cada grupo antes de pushear.
 
 ### 5. Agregar un articulo AEO requiere dos archivos
 
@@ -69,9 +71,13 @@ Buscar su contenido en el HTML fuente no va a funcionar — hay que mirar el `<s
 
 ## case-study.html es una pagina para N casos
 
-El parametro `?case=0`, `?case=1`, `?case=2` determina que caso se muestra.
-**Agregar un case study = agregar un objeto al array `CASE_DATA` dentro de case-study.html.**
-No crear un archivo nuevo. Ver `SITE-MAP.md` para la guia paso a paso.
+El parametro `?case=1`, `?case=2`, `?case=3` determina que caso se muestra.
+La estructura interna son constantes nombradas (`MEDLIFE`, `CLOUDTASK`) mapeadas en un objeto `DATA`:
+```js
+const DATA = { '1': MEDLIFE, '2': CLOUDTASK, '3': pendingCase(...) }
+```
+**Agregar un case study = crear una nueva constante y agregarla al objeto `DATA`.**
+No hay array numerico, no se crea un archivo nuevo. Ver `SITE-MAP.md` para la guia paso a paso.
 
 ---
 

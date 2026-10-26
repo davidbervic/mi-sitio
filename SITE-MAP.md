@@ -97,11 +97,11 @@ Todos usan `article.css` + `article-interactions.js` + `articles-data.js`.
 
 | Archivo | Lo usan | Qué hace |
 |---|---|---|
-| `article.css` | Todos los artículos AEO + páginas de servicio | Estilos base del layout de artículos |
-| `services.css` | Páginas de servicio GTM | Estilos específicos de páginas de servicio |
-| `article-interactions.js` | Todos los artículos AEO | Share, copy link, progress bar de lectura |
+| `article.css` | Los 19 artículos AEO únicamente | Estilos base del layout de artículos |
+| `services.css` | 9 archivos: gtm-architecture/outbound/intelligence/total/workforce + icp-worksheet + newsletter + utm-generator + design-rules | Estilos de páginas de servicio y herramientas |
+| `article-interactions.js` | Los 19 artículos AEO | Share, copy link, progress bar de lectura |
 | `articles-data.js` | `resources.html` (y artículos que se referencian entre sí) | Array con metadata de todos los artículos (título, slug, tags, fecha) |
-| `_redirects` | Netlify | Redirects 301 de URLs antiguas a nuevas |
+| `_redirects` | Netlify | 10 redirects 301 — 5 URLs antiguas × variante con y sin .html: revenue-architecture, modern-outbound, digital-analytics, ai-gtm-automation, gtm-systems-reset |
 
 ---
 
@@ -194,11 +194,12 @@ Subcarpeta independiente con páginas de descarga y los archivos descargables.
 ## Cómo agregar un nuevo case study
 
 1. Abrir `case-study.html`
-2. Localizar el array `CASE_DATA` al inicio del script
-3. Agregar un nuevo objeto siguiendo la estructura de los existentes
-4. El índice del array (0-based) es el `?case=N` que usará la URL
-5. Agregar la card correspondiente en `customers.html` (array `CASES` en el script)
-6. Agregar las imágenes en `/images/` con el prefijo del nombre de empresa
+2. Al inicio del script hay constantes nombradas (`MEDLIFE`, `CLOUDTASK`) y un objeto `DATA` que las mapea a claves numéricas: `{ '1': MEDLIFE, '2': CLOUDTASK, ... }`
+3. Crear una nueva constante con los datos del caso siguiendo la misma estructura
+4. Agregar la clave al objeto `DATA`: `'3': NUEVAEMPRESA`
+5. El número de la clave es el `?case=N` que usará la URL
+6. Agregar la card correspondiente en `customers.html`
+7. Agregar las imágenes en `/images/` con el prefijo del nombre de empresa
 
 ## Cómo agregar un nuevo artículo AEO
 
