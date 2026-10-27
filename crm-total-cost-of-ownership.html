@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Calculate CRM Total Cost of Ownership: A 3-Year Layered Model · Muvap</title>
+<meta name="description" content="Calculate CRM TCO over three years at net prices with six cost layers, formulas and a worked HubSpot and Salesforce arithmetic example.">
+<meta name="theme-color" content="#0574fd">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://davidbervic.com/crm-total-cost-of-ownership.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Calculate CRM Total Cost of Ownership: A 3-Year Layered Model">
+<meta property="og:description" content="Calculate CRM TCO over three years at net prices with six cost layers, formulas and a worked HubSpot and Salesforce arithmetic example.">
+<meta property="og:url" content="https://davidbervic.com/crm-total-cost-of-ownership.html">
+<meta property="og:image" content="https://davidbervic.com/images/cover-crm-tco.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Calculate CRM Total Cost of Ownership: A 3-Year Layered Model">
+<meta name="twitter:description" content="Calculate CRM TCO over three years at net prices with six cost layers, formulas and a worked HubSpot and Salesforce arithmetic example.">
+<meta name="twitter:image" content="https://davidbervic.com/images/cover-crm-tco.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How to Calculate CRM Total Cost of Ownership: A 3-Year Layered Model",
+  "description": "Calculate CRM TCO over three years at net prices with six cost layers, formulas and a worked HubSpot and Salesforce arithmetic example.",
+  "image": "images/cover-crm-tco.webp",
+  "datePublished": "2026-10-06",
+  "dateModified": "2026-10-06",
+  "author": {"@type": "Organization", "name": "Muvap", "url": "index.html"},
+  "publisher": {"@type": "Organization", "name": "Muvap"},
+  "keywords": ["CRM total cost of ownership","CRM TCO","HubSpot vs Salesforce cost","CRM TCO worksheet","CRM renewal escalation","CRM hidden costs","Salesforce admin cost","HubSpot Credits"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the CRM license really only 30-40% of total cost?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No primary study supports that figure. It is a heuristic repeated by agency guides, and the share varies by team. Calculate your own license share by dividing the three-year license line by the three-year worksheet total, using net quoted prices."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is HubSpot cheaper than Salesforce?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Neither is cheaper by default. The answer depends on seat mix, hubs, add-ons, labor and contract terms, and available sources compare only parts of each stack. Build the worksheet with your own quotes for both."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does HubSpot need an admin too?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Any configurable CRM needs someone who owns changes, permissions and data quality, but we found no independent data on admin FTE requirements by platform. Size labor by change rate: how many integrations, automations and change requests the system carries, and who approves them."}
+    },
+    {
+      "@type": "Question",
+      "name": "What time horizon should a CRM TCO cover?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Three years. That window captures onboarding, at least one renewal and seat growth. Extend to five years only if a re-platform decision is in scope, because exit and switching cost then becomes part of the comparison."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="article.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<div class="nx-grid-bg top-band" data-grid-parallax>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <img src="images/muvap-logo.webp" alt="Muvap" style="height:72px;width:auto;display:block">
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <div class="resources-wrap">
+          <a class="nav-link" href="index.html#programs" style="display:inline-flex;align-items:center;gap:4px">Services<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="gtm-architecture-evolution.html">AI CRM Architecture</a>
+            <a href="gtm-outbound-evolution.html">GTM Outbound Evolution</a>
+          </div>
+        </div>
+        <a class="nav-link" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link is-current" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="freebies.html">Freebies</a><a href="newsletter.html">Newsletter</a></div>
+        </div>
+      </div>
+      <div class="nav-mob-icons">
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="mob-icon mob-icon-wa" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg></a>
+        <a href="contact.html" class="mob-icon mob-icon-contact" aria-label="Contact"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
+      </div><a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+    </div>
+  </nav>
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+</div>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">CRM</span>
+  <h1>How to Calculate CRM Total Cost of Ownership: A 3-Year Layered Model</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">M</span>
+    <span class="meta-chip">Muvap</span>
+    <span class="meta-chip">Published Oct 6, 2026</span>
+    <span class="meta-chip">14 min read</span>
+  </div>
+
+  <div class="article-hero"><img src="images/cover-crm-tco.webp" alt="How to Calculate CRM Total Cost of Ownership: A 3-Year Layered Model" loading="eager"></div>
+
+  <p class="direct-answer"><strong>Direct answer:</strong> Model CRM total cost of ownership (TCO) over three years across six layers: net license, attached and metered costs, one-time implementation, operations, escalation, and change and adoption. Use your actual quoted price, not the list price, and run three cases (low, expected, high) for every usage-driven input. The license is the least informative number in the model. Every price in this article is dated 6 October 2026 and illustrative; verify against vendor pages before use.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li><strong>The license is one layer:</strong> <a href="https://www.salesforce.com/au/crm/crm-total-cost-of-ownership/" target="_blank" rel="noopener">Salesforce's own TCO guidance</a> says licensing fees alone leave out some of the most significant CRM expenses.</li>
+      <li><strong>Six layers, three years:</strong> Net license, attached and metered, one-time implementation, operations, escalation, and change and adoption give a model you can rebuild for any platform.</li>
+      <li><strong>Build from your quote:</strong> Net quoted prices, your headcount plan and low, expected and high cases replace list prices and unsourced benchmarks.</li>
+      <li><strong>TCO constrains, fit decides:</strong> Rank options on TCO and architecture fit together, so the cheapest model does not win by default.</li>
+    </ul>
+  </div>
+
+  <details class="qtoc">
+    <summary class="qtoc-label">Questions this article answers</summary>
+    <ol>
+      <li><a href="#license-mislead">What does CRM TCO include and why does the license price mislead?</a></li>
+      <li><a href="#license-line">How is the CRM license line actually built?</a></li>
+      <li><a href="#six-layers">Which six cost layers sit beneath the sticker price?</a></li>
+      <li><a href="#operations">How do you cost the operations layer?</a></li>
+      <li><a href="#metered">How should you model attached and metered costs, including AI?</a></li>
+      <li><a href="#worksheet">How do you build a 3-year CRM TCO worksheet?</a></li>
+      <li><a href="#errors">Which TCO errors matter most, and should the lowest TCO win?</a></li>
+      <li><a href="#next">What should you do after building the TCO model?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 4 FAQs answered below</a></li>
+    </ol>
+  </details>
+
+  <h2 id="license-mislead" class="sec">What does CRM TCO include and why does the license price mislead?</h2>
+  <p class="lead-answer">CRM TCO is every cost of owning the system over a fixed horizon, typically three years, at the price you actually pay rather than the list price. The license misleads because it is the one number buyers compare and the one number that leaves out implementation, operations, escalation, and change.</p>
+  <p><a href="https://www.salesforce.com/au/crm/crm-total-cost-of-ownership/" target="_blank" rel="noopener">Salesforce's TCO guidance</a> splits cost into four components: licensing, implementation, ongoing operations, and efficiency gains through integration. We use it for that structure only. Its claim that a unified platform removes hidden costs is a vendor argument, not established fact. The same page defines implementation scope as discovery and process mapping, data cleanup and migration, permissions, workflows and customizations, integrations with existing apps, and staff training.</p>
+  <p>Our view is that three years is the right horizon. It captures onboarding, at least one renewal and seat growth. One year hides escalation, and five years mostly adds guesswork unless a re-platform decision is in scope.</p>
+  <blockquote style="border-left:3px solid var(--nx-pink,#fb4aad);padding:12px 18px;margin:24px 0;background:#fef7fb;border-radius:0 8px 8px 0">
+    <p><strong>Numbers not to reuse.</strong> "Licensing is 30-40% of CRM spend" is repeated by agency guides such as <a href="https://www.lowcode.agency/blog/crm-hidden-pricing-total-cost-of-ownership" target="_blank" rel="noopener">LowCode Agency</a> with no primary study behind it. "70% of Salesforce implementations fail" and "$150K-$1.5M for 100 users over 3 years" circulate in secondary sources with no primary citation. Compute your own license share from the worksheet below.</p>
+  </blockquote>
+
+  <h2 id="license-line" class="sec">How is the CRM license line actually built?</h2>
+  <p class="lead-answer">The license line depends on edition, seat type and feature gates, so cost per user is meaningless without the hub and seat mix. List price, quoted price and net-effective price are three different numbers, and only the last two belong in a TCO model.</p>
+  <p>HubSpot shows the seat-mix problem: Sales Hub prices per seat, while platform-fee hubs price differently, so one "HubSpot cost per user" figure blends two pricing models. Salesforce shows the volatility problem. It prices editions per user per month, and it raised Enterprise and Unlimited list prices by an average of 6% effective August 1, 2025, with no planned change to Starter or Pro (<a href="https://www.salesforce.com/news/stories/pricing-update-2025/" target="_blank" rel="noopener">Salesforce</a>).</p>
+  <p><strong>HubSpot inputs (per seat per month, as of 6 Oct 2026, verify on HubSpot's pages):</strong></p>
+  <ul>
+    <li>Sales Hub Professional is $90 on annual billing or $100 monthly. Enterprise is $150 (<a href="https://blog.hubspot.com/sales/hubspot-sales-hub-pricing" target="_blank" rel="noopener">HubSpot</a>). The catalog lists Professional "from $100" (<a href="https://legal.hubspot.com/hubspot-product-and-services-catalog" target="_blank" rel="noopener">HubSpot catalog</a>).</li>
+    <li>Sales and Service seats cost the prices above. Core Seats are roughly $45-50 (Professional) or $75 (Enterprise) for extra seats on platform hubs, and view-only seats are reported as free, so seat mix is a cost lever (<a href="https://blog.hubspot.com/sales/hubspot-sales-hub-pricing" target="_blank" rel="noopener">HubSpot</a>).</li>
+    <li>For new customers after March 5, 2024, Sales Hub has no seat minimums, and full Professional or Enterprise functionality requires a Sales Seat. The retrieved catalog copy may be dated (<a href="https://legal.hubspot.com/hubspot-product-and-services-catalog" target="_blank" rel="noopener">HubSpot catalog</a>).</li>
+    <li>One third-party source reports that Professional needs a separate quoting add-on (<a href="https://www.docket.io/resources/research/hubspot-sales-hub-pricing" target="_blank" rel="noopener">Docket</a>). It is a single-source claim, so verify it before modeling.</li>
+  </ul>
+  <p><strong>Salesforce inputs:</strong> Edition ladder runs Starter Suite, Pro Suite, Enterprise, Unlimited and Agentforce 1. Sources conflict on 2026 list prices. Treat no edition price as current until you check salesforce.com. Your quote, by edition and user type, replaces every published figure.</p>
+
+  <h2 id="six-layers" class="sec">Which six cost layers sit beneath the sticker price?</h2>
+  <p class="lead-answer">Model six layers: net license, attached and metered, one-time implementation, operations, escalation, and change and adoption. Platform choice moves cost between layers rather than removing it.</p>
+  <p>The six-layer split is our synthesis of Salesforce's four-component model and the hidden-cost lists in agency guides, not a published standard. We separate license from attached costs because they scale on different drivers: seats for one, usage or a percentage of license for the other. We separate operations from change because operations is the recurring cost of running the system, while change is the cost of altering it.</p>
+  <ol>
+    <li><strong>Net license:</strong> the per-seat price after discounts, by edition and seat type. <em>Consequence:</em> HubSpot Sales Hub Professional is $90 per seat on annual billing and $100 monthly, so billing basis alone moves the line (<a href="https://blog.hubspot.com/sales/hubspot-sales-hub-pricing" target="_blank" rel="noopener">HubSpot</a>).</li>
+    <li><strong>Attached and metered:</strong> recurring costs outside the seat price, such as credits, storage, success plans and AI add-ons. <em>Consequence:</em> Salesforce Premier Success is 30% of net license fees, so it adds $36,000 a year on $120,000 net licenses if bought separately (arithmetic from <a href="https://www.salesforce.com/services/pricing/" target="_blank" rel="noopener">Salesforce</a>).</li>
+    <li><strong>One-time implementation:</strong> onboarding, discovery, migration, integrations and training, paid mostly in year 1. <em>Consequence:</em> HubSpot lists onboarding at $1,500 (Professional) and $3,500 (Enterprise) (<a href="https://blog.hubspot.com/sales/hubspot-sales-hub-pricing" target="_blank" rel="noopener">HubSpot</a>). We found no independent Salesforce implementation benchmark, so use a partner quote.</li>
+    <li><strong>Operations:</strong> the people and tools that run the system, including admin or retainer, apps, middleware and training. <em>Consequence:</em> US Salesforce Administrator benchmarks run from an $81,537 average (<a href="https://www.payscale.com/research/US/Job=Salesforce_Administrator/Salary" target="_blank" rel="noopener">Payscale</a>) to a $120,000 median total compensation (<a href="https://www.levels.fyi/t/information-technologist/title/salesforce-admin" target="_blank" rel="noopener">Levels.fyi</a>), before benefits, tax and tooling.</li>
+    <li><strong>Escalation:</strong> price growth after signing, from renewal uplift, list-price changes and seat growth. <em>Consequence:</em> three consecutive 6% increases compound to about 19% cumulatively (arithmetic: 1.06³ = 1.191).</li>
+    <li><strong>Change and adoption:</strong> the cost of altering the system after go-live, such as change requests, new objects, integrations, tier upgrades and retraining, plus exit or re-platform cost if the architecture does not fit. <em>Consequence:</em> in our view, onboarding fades after year 1 but these costs recur, and no source quantifies exit cost, so give it an explicit line.</li>
+  </ol>
+  <p><strong>Interpretation, not a measured comparison:</strong> HubSpot's published model tilts cost toward seats, onboarding fees, contact tiers and credits. Salesforce's tilts toward edition upgrades, add-ons, success plans, storage and the admin or partner labor a more configurable platform needs. Because Premier Success is bundled with Unlimited and Agentforce 1 (<a href="https://www.salesforce.com/services/pricing/" target="_blank" rel="noopener">Salesforce</a>), compare an edition upgrade against Enterprise plus a 30% success plan.</p>
+
+  <h2 id="operations" class="sec">How do you cost the operations layer?</h2>
+  <p class="lead-answer">Size labor by who changes the system and how often, then cost it as a full-time admin, a fractional owner or a partner retainer, with an explicit loaded-cost assumption.</p>
+  <p>User count is a poor proxy for workload. Three drivers matter more: configuration debt (accumulated custom fields, automations and permissions), the number of live integrations, and the volume of change requests and who approves them. The logic applies to both platforms, and we found no independent admin FTE-ratio data for either. Put apps, middleware and training in this layer too.</p>
+  <ul>
+    <li><strong>Full-time admin</strong> fits when changes are continuous, several integrations are live and one person must own permissions, data quality and releases. Cost it at salary plus your finance team's loaded-cost multiplier.</li>
+    <li><strong>Fractional owner</strong> fits when an existing RevOps or ops person can own the data model and release process and changes arrive in batches. Cost it as a share of that person's loaded cost.</li>
+    <li><strong>Partner retainer</strong> fits when changes are periodic and no internal person has the platform skills. Industry sources cite $2,000-$5,000 per month, and $80,000-$130,000 per year for a dedicated admin (<a href="https://www.lowcode.agency/blog/crm-hidden-pricing-total-cost-of-ownership" target="_blank" rel="noopener">LowCode Agency</a>). These are practitioner heuristics, not audited benchmarks.</li>
+  </ul>
+  <p><strong>Hypothetical illustration for a generic team, using only the ranges above, before any loaded-cost multiplier (we do not supply one):</strong></p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Case</th><th>Monthly cost</th><th>Annual cost</th><th>3-year total</th></tr></thead>
+      <tbody>
+        <tr><td>Low</td><td>$2,000 retainer</td><td>$24,000</td><td>$72,000</td></tr>
+        <tr><td>Expected</td><td>$5,000 retainer</td><td>$60,000</td><td>$180,000</td></tr>
+        <tr><td>High</td><td>Dedicated admin</td><td>$130,000</td><td>$390,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="metered" class="sec">How should you model attached and metered costs, including AI?</h2>
+  <p class="lead-answer">Treat metered and AI costs as low, expected and high volume scenarios, subtract the included allowance, and price the remainder at the vendor's rate per unit.</p>
+  <p>Each meter has its own driver. HubSpot Credits are one account-level pool shared by Breeze agents, AI workflow actions and buyer-intent. The monthly allowance depends on your highest subscription tier (500 Starter, 3,000 Professional, 5,000 Enterprise), the pool resets monthly with no rollover, and extra credits cost about $10 per 1,000. Since April 14, 2026, Customer Agent bills 50 credits ($0.50) per resolved conversation and Prospecting Agent 100 credits ($1.00) per lead recommended (<a href="https://www.marketingmary.ai/blog/how-hubspot-breeze-credits-work" target="_blank" rel="noopener">Marketing Mary</a>).</p>
+  <p><strong>Salesforce meters (as of 6 Oct 2026, all optional, verify current terms):</strong></p>
+  <ul>
+    <li>Agentforce add-ons start at $125 per user per month on Enterprise and Unlimited, and Agentforce 1 editions at $550 (<a href="https://www.salesforce.com/news/stories/pricing-update-2025/" target="_blank" rel="noopener">Salesforce</a>).</li>
+    <li>Flex Credits are $500 per 100,000 credits, introduced May 15, 2025, per a pricing tracker (<a href="https://softwarepricing.com/pricing-observatory/salesforce/" target="_blank" rel="noopener">SPP Pricing Observatory</a>).</li>
+    <li>Enterprise storage includes 10 GB of data plus per-user increments and 10 GB of files plus 2 GB per user license (<a href="https://help.salesforce.com/s/articleView?id=limits.htm&language=en_US&type=5" target="_blank" rel="noopener">Salesforce Help</a>). Overage rates appear only in secondary sources, so check them with Salesforce.</li>
+  </ul>
+  <pre><code>Monthly metered cost = max(0, volume × credits per outcome - monthly allowance)
+                       × (price per 1,000 credits / 1,000)</code></pre>
+  <p><strong>Hypothetical illustration:</strong> Customer Agent at 50 credits per resolution, a Professional-tier allowance of 3,000 credits, and $10 per 1,000 extra credits. Volumes are invented for arithmetic only.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Scenario</th><th>Resolved conversations / month</th><th>Credits above allowance</th><th>Extra cost / month</th></tr></thead>
+      <tbody>
+        <tr><td>Low</td><td>200</td><td>7,000</td><td>$70</td></tr>
+        <tr><td>Expected</td><td>600</td><td>27,000</td><td>$270</td></tr>
+        <tr><td>High</td><td>1,500</td><td>72,000</td><td>$720</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="worksheet" class="sec">How do you build a 3-year CRM TCO worksheet?</h2>
+  <p class="lead-answer">Year-N cost equals net license plus attached and metered plus operations plus escalation, plus one-time implementation in year 1 and change cost as it occurs. Run three cases and look at the range, not the point estimate.</p>
+  <p>Escalation has two sources that buyers conflate. List-price changes, such as <a href="https://www.salesforce.com/news/stories/pricing-update-2025/" target="_blank" rel="noopener">Salesforce's average 6% rise on Enterprise and Unlimited effective August 1, 2025</a>, pass through to you according to your contract terms. Contractual renewal uplift is a separate clause. Advisors report 5-10% for Salesforce and around 5% for HubSpot, and recommend negotiating caps (commonly 3-5%), multi-year price locks and seat-reduction flexibility (<a href="https://www.lowcode.agency/blog/salesforce-price-increases-at-renewal" target="_blank" rel="noopener">LowCode Agency</a>).</p>
+  <ol>
+    <li><strong>Collect the quote.</strong> Get net seat prices by hub, seat type and billing basis, and date them, because list prices are not what you pay.</li>
+    <li><strong>Plan seats by year.</strong> Enter headcount for years 1 to 3 including growth, because seat growth is part of escalation.</li>
+    <li><strong>Add year-1 one-time costs.</strong> Include onboarding, partner work, migration and integrations, because they do not repeat.</li>
+    <li><strong>Cost operations.</strong> Use your low, expected and high labor case, because labor is recurring and varies by case.</li>
+    <li><strong>Add metered and attached costs.</strong> Subtract allowances from volume scenarios and add success plans or storage, because flat lines misstate usage-driven cost.</li>
+    <li><strong>Apply escalation.</strong> Multiply license and percentage-based items by (1 + u)^(N-1) for uplift u, because increases compound.</li>
+    <li><strong>Run three cases.</strong> Repeat with low, expected and high inputs, because the range matters more than the point estimate.</li>
+  </ol>
+  <pre><code>Year N = seats(N) × net seat price × 12 × (1 + u)^(N-1)
+         + attached/metered(N) + operations(N) + change(N)
+         + implementation (year 1 only)
+3-year TCO = Year 1 + Year 2 + Year 3</code></pre>
+  <p>Compounding is precise, not intuitive. Three consecutive 6% increases give 1.06³ = 1.191, about 19% above the starting price. If the first increase applies at the year-2 renewal, year 3 is 1.06² = 1.1236 times year 1, about 12% higher. The 19% arrives only after the third increase.</p>
+  <p><strong>Hypothetical illustration, arithmetic only, 10-seat team.</strong> HubSpot figures use the $100 monthly rate and $1,500 onboarding (<a href="https://blog.hubspot.com/sales/hubspot-sales-hub-pricing" target="_blank" rel="noopener">HubSpot</a>), as of 6 Oct 2026. Salesforce is formula-only because edition prices conflict. L = 10 × your quoted seat price × 12; u = your uplift.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Layer</th><th>Year 1</th><th>Year 2</th><th>Year 3</th></tr></thead>
+      <tbody>
+        <tr><td>HubSpot Professional license</td><td>$12,000</td><td>$12,000</td><td>$12,000</td></tr>
+        <tr><td>HubSpot onboarding</td><td>$1,500</td><td>$0</td><td>$0</td></tr>
+        <tr><td>HubSpot subtotal</td><td><strong>$13,500</strong></td><td><strong>$12,000</strong></td><td><strong>$12,000</strong></td></tr>
+        <tr><td>Salesforce net license</td><td>L</td><td>L × (1 + u)</td><td>L × (1 + u)²</td></tr>
+        <tr><td>Salesforce Premier (if bought separately)</td><td>0.30 × L</td><td>0.30 × L × (1 + u)</td><td>0.30 × L × (1 + u)²</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>At the $90 annual rate, HubSpot year 1 is $10,800 + $1,500 = $12,300. The HubSpot rows are flat to isolate the sourced arithmetic; apply the same (1 + u) to both platforms and add operations, metered and change rows from your own cases.</p>
+
+  <h2 id="errors" class="sec">Which TCO errors matter most, and should the lowest TCO win?</h2>
+  <p class="lead-answer">TCO is a constraint, not a decision rule: the cheapest model wins only if it also meets your customization, integration and growth requirements.</p>
+  <p>Integrations and data quality are not extras: <a href="https://www.salesforce.com/au/crm/crm-total-cost-of-ownership/" target="_blank" rel="noopener">Salesforce's own implementation scope</a> lists data cleanup, migration and integrations. Discount ranges published by advisory and negotiation vendors come from sources with commercial interests and are unaudited, so the only price that belongs in the model is your actual quote.</p>
+  <p>
+    ☐ Use net quoted prices, not list prices or advisor discount ranges.<br>
+    ☐ Cost integrations, data cleanup and migration inside implementation.<br>
+    ☐ Treat onboarding as year 1 only, then add recurring change requests, new objects, integrations and tier upgrades in the change layer.<br>
+    ☐ Replace unsourced benchmarks with your own quote and worksheet.<br>
+    ☐ Add a "cost of getting it wrong" line for rework, re-platform and exit.
+  </p>
+  <p>Our decision rule: drop any option that fails a hard requirement, then compare the remaining options on their low, expected and high TCO ranges. When ranges overlap, choose on architecture fit.</p>
+
+  <h2 id="next" class="sec">What should you do after building the TCO model?</h2>
+  <p class="lead-answer">Fill in the six layers from your own quote, run three cases, then test the cheapest range against your architecture requirements. The worksheet gives you a cost range per option, not a final answer.</p>
+  <p>It cannot tell you whether an option's data model, integrations and customization limits fit how your team sells, so that is the next question. Keep each input date-stamped and re-verify prices before signing, because both vendors have changed pricing or packaging since 2024: HubSpot's per-seat model for new customers from March 2024 and Salesforce's list increase in August 2025.</p>
+  <p>If you want to pressure-test a TCO model against your architecture requirements, our CRM Architecture and Selection Advisory is built for that step.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>Is the CRM license really only 30-40% of total cost?</h3>
+    <p>No primary study supports that figure. It is a heuristic repeated by agency guides, and the share varies by team. Calculate your own license share by dividing the three-year license line by the three-year worksheet total, using net quoted prices.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Is HubSpot cheaper than Salesforce?</h3>
+    <p>Neither is cheaper by default. The answer depends on seat mix, hubs, add-ons, labor and contract terms, and available sources compare only parts of each stack. Build the worksheet with your own quotes for both.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does HubSpot need an admin too?</h3>
+    <p>Any configurable CRM needs someone who owns changes, permissions and data quality, but we found no independent data on admin FTE requirements by platform. Size labor by change rate: how many integrations, automations and change requests the system carries, and who approves them.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What time horizon should a CRM TCO cover?</h3>
+    <p>Three years. That window captures onboarding, at least one renewal and seat growth. Extend to five years only if a re-platform decision is in scope, because exit and switching cost then becomes part of the comparison.</p>
+  </div>
+
+  <div class="related" id="relatedSlot"></div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://www.salesforce.com/au/crm/crm-total-cost-of-ownership/" target="_blank" rel="noopener">Enterprise CRM Total Cost of Ownership: Going Beyond the Sticker Price, Salesforce</a></li>
+      <li><a href="https://www.lowcode.agency/blog/crm-hidden-pricing-total-cost-of-ownership" target="_blank" rel="noopener">CRM Total Cost of Ownership: What You Really Pay, LowCode Agency</a></li>
+      <li><a href="https://blog.hubspot.com/sales/hubspot-sales-hub-pricing" target="_blank" rel="noopener">HubSpot's Sales Hub pricing guide, HubSpot Blog</a></li>
+      <li><a href="https://legal.hubspot.com/hubspot-product-and-services-catalog" target="_blank" rel="noopener">HubSpot Product and Services Catalog, HubSpot Legal Center</a></li>
+      <li><a href="https://www.docket.io/resources/research/hubspot-sales-hub-pricing" target="_blank" rel="noopener">HubSpot Sales Hub Pricing 2026, Docket</a></li>
+      <li><a href="https://www.salesforce.com/news/stories/pricing-update-2025/" target="_blank" rel="noopener">Updated Product Packaging and Pricing, Salesforce News</a></li>
+      <li><a href="https://softwarepricing.com/pricing-observatory/salesforce/" target="_blank" rel="noopener">Salesforce: the pricing arc, SPP Pricing Observatory</a></li>
+      <li><a href="https://www.salesforce.com/services/pricing/" target="_blank" rel="noopener">Salesforce Success Plans and Professional Services Pricing, Salesforce</a></li>
+      <li><a href="https://help.salesforce.com/s/articleView?id=limits.htm&language=en_US&type=5" target="_blank" rel="noopener">Data and File Storage Allocations, Salesforce Help</a></li>
+      <li><a href="https://www.payscale.com/research/US/Job=Salesforce_Administrator/Salary" target="_blank" rel="noopener">Salesforce Administrator Salary in 2026, Payscale</a></li>
+      <li><a href="https://www.levels.fyi/t/information-technologist/title/salesforce-admin" target="_blank" rel="noopener">Salesforce Administrator Salary, Levels.fyi</a></li>
+      <li><a href="https://www.marketingmary.ai/blog/how-hubspot-breeze-credits-work" target="_blank" rel="noopener">How Do HubSpot Breeze Credits Work?, Marketing Mary</a></li>
+      <li><a href="https://www.lowcode.agency/blog/salesforce-price-increases-at-renewal" target="_blank" rel="noopener">Salesforce Price Increases at Renewal 2026, LowCode Agency</a></li>
+    </ol>
+  </section>
+
+  <div class="article-cta">
+    <p>Want to pressure-test your CRM cost model against your architecture requirements before signing?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Muvap</div>
+      <div class="author-role">GTM and RevOps systems</div>
+      <p class="author-bio">We build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <img src="images/muvap-logo.webp" alt="Muvap" style="height:34px;width:auto;display:block">
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
+        </a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#programs">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="freebies.html">Freebies</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Muvap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar = document.getElementById('readProgress');
+  var article = document.querySelector('article');
+  if(!bar || !article) return;
+  var ticking = false;
+  function update(){
+    var articleTop = article.offsetTop;
+    var scrollable = article.offsetHeight - window.innerHeight;
+    var scrolled = window.scrollY - articleTop;
+    var pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+</script>
+
+<script src="assets/interactions.js" defer></script>
+<script src="article-interactions.js" defer></script>
+</body>
+</html>
