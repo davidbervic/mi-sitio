@@ -95,17 +95,19 @@ Badge 48px arriba → quote text → avatar + nombre + rol de la persona
 
 ## Sistema de diseno
 
-El sitio usa tokens propios derivados del brand Muvap. Las reglas completas estan en:
-- `design-rules.html` — referencia visual navegable en el navegador
-- El CLAUDE.md global del usuario (`~/.claude/CLAUDE.md`) tiene los tokens CSS completos
+**Antes de disenar o crear cualquier pagina, seccion, deck o pieza visual, lee `design-system/README.md` completo.**
+Es la copia en el repo del design system "Muvap Design System" (fuente de verdad: https://claude.ai/artifact/UNy2sPp3fpQ6VaCvDcRPqT).
+Los tokens exactos estan en `design-system/tokens.json` y coinciden con las variables `--nx-*` de `services.css` y `article.css`.
 
-**Ritmo de secciones:**
-1. Azul `#0574fd` + grid blanco — hero, CTAs
-2. Blanco `#ffffff` — problema, cards de contenido
-3. Oscuro `#0d0d0d` — metricas, social proof
-4. Azul + grid — CTA final
+Reglas que mas se olvidan:
+- Grilla azul `#0574fd` de 64px para hero, CTA y features; headlines blancos en Archivo Black. Nunca texto de cuerpo directo sobre el azul.
+- Secciones con tarjetas blancas: sobre el cielo (`images/process-bg.webp`) en vez de fondo blanco o gris, con pill y titulo centrados.
+- Toda tarjeta, boton y pill: borde negro solido y sombra plana desplazada.
+- Eyebrow pills siempre de un color de acento, nunca blancos ni negros.
+- En presentaciones el negro es solo tinta, nunca fondo de slide.
+- Nunca em dashes.
 
-**Headlines en paginas web: blancos con Archivo Black 900.** No sticker negro (eso es solo para infografias/social).
+Si cambias un color, tipografia o regla visual del sitio, actualiza tambien `design-system/` y avisa para re-sincronizar el artifact.
 
 ---
 
