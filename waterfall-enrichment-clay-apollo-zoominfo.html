@@ -18,7 +18,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="canonical" href="https://davidbervic.com/waterfall-enrichment-clay-apollo-zoominfo.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Waterfall Enrichment: What It Is and When to Use It (Clay vs Apollo vs ZoomInfo)">
-<meta property="og:description" content="Use a waterfall to increase data coverage, not to fix data quality. Learn how Clay, Apollo and ZoomInfo each run it, and test your single-provider miss rate before you build.">
+<meta property="og:description" content="What waterfall enrichment is, how Clay, Apollo and ZoomInfo run it, and a test for whether your list needs one before you build.">
 <meta property="og:url" content="https://davidbervic.com/waterfall-enrichment-clay-apollo-zoominfo.html">
 <meta property="og:image" content="https://davidbervic.com/images/cover-waterfall-enrichment-clay-apollo-zoominfo.webp">
 <meta name="twitter:card" content="summary_large_image">
@@ -26,58 +26,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:description" content="What waterfall enrichment is, how Clay, Apollo and ZoomInfo run it, and a test for whether your list needs one before you build.">
 <meta name="twitter:image" content="https://davidbervic.com/images/cover-waterfall-enrichment-clay-apollo-zoominfo.webp">
 <script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Waterfall Enrichment: What It Is and When to Use It (Clay vs Apollo vs ZoomInfo)",
-    "description": "What waterfall enrichment is, how Clay, Apollo and ZoomInfo run it, and a test for whether your list needs one before you build.",
-    "image": "images/cover-waterfall-enrichment-clay-apollo-zoominfo.webp",
-    "datePublished": "2026-10-14",
-    "dateModified": "2026-10-08",
-    "author": {"@type": "Organization", "name": "Muvap", "url": "index.html"},
-    "publisher": {"@type": "Organization", "name": "Muvap"},
-    "keywords": ["waterfall enrichment","Clay waterfall","Apollo waterfall enrichment","ZoomInfo GTM Studio","data enrichment providers","B2B data coverage","RevOps"]
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Does Apollo have waterfall enrichment?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Apollo made waterfall enrichment the default for finding emails and phone numbers in December 2025, checking its own data first and then selected third-party sources (Apollo release notes). Apollo reports about 5% more emails, 7% more phones and 45% fewer bounces, with no baseline stated. Comparison pages saying Apollo has no waterfall are outdated."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is ZoomInfo a true waterfall?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "It depends on the definition. Per ZoomInfo, GTM Studio queries its own database first, then fills gaps from third-party vendors in parallel and returns the highest-confidence result, rather than running sequential first-match (ZoomInfo Pipeline). If you define a waterfall as ordered first-match, it is not one; if you define it as multi-provider gap-fill, it is. This is a vendor description."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Are failed lookups free in a waterfall?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "It depends on the platform. Clay's FAQ says no-result steps are not charged (Clay Docs), while community threads and third-party write-ups report per-attempt charges (Cleanlist). Run a small test batch and compare consumption to results before budgeting."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does a waterfall make enrichment data more accurate?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Not by itself. A waterfall mainly raises coverage. Accuracy depends on a validation step and a stop rule that requires a validated result, because non-empty values can still be wrong and each provider's data ages on its own schedule (Talantir)."
-        }
-      }
-    ]
-  }
-]
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Waterfall Enrichment: What It Is and When to Use It (Clay vs Apollo vs ZoomInfo)",
+  "description": "What waterfall enrichment is, how Clay, Apollo and ZoomInfo run it, and a test for whether your list needs one before you build.",
+  "image": "images/cover-waterfall-enrichment-clay-apollo-zoominfo.webp",
+  "datePublished": "2026-10-06",
+  "dateModified": "2026-10-08",
+  "author": {"@type": "Organization", "name": "Muvap", "url": "index.html"},
+  "publisher": {"@type": "Organization", "name": "Muvap"},
+  "keywords": ["waterfall enrichment","Clay waterfall","Apollo waterfall enrichment","ZoomInfo GTM Studio","data enrichment providers","B2B data coverage","RevOps"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Apollo have waterfall enrichment?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. Apollo made waterfall enrichment the default for finding emails and phone numbers in December 2025, checking its own data first and then selected third-party sources. Apollo reports about 5% more emails, 7% more phones and 45% fewer bounces, with no baseline stated. Comparison pages saying Apollo has no waterfall are outdated."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is ZoomInfo a true waterfall?",
+      "acceptedAnswer": {"@type": "Answer", "text": "It depends on the definition. Per ZoomInfo, GTM Studio queries its own database first, then fills gaps from third-party vendors in parallel and returns the highest-confidence result, rather than running sequential first-match. If you define a waterfall as ordered first-match, it is not one; if you define it as multi-provider gap-fill, it is. This is a vendor description."}
+    },
+    {
+      "@type": "Question",
+      "name": "Are failed lookups free in a waterfall?",
+      "acceptedAnswer": {"@type": "Answer", "text": "It depends on the platform. Clay's FAQ says no-result steps are not charged, while community threads and third-party write-ups report per-attempt charges. Run a small test batch and compare consumption to results before budgeting."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does a waterfall make enrichment data more accurate?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Not by itself. A waterfall mainly raises coverage. Accuracy depends on a validation step and a stop rule that requires a validated result, because non-empty values can still be wrong and each provider's data ages on its own schedule."}
+    }
+  ]
+}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -115,50 +103,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="freebies.html">Freebies</a><a href="newsletter.html">Newsletter</a></div>
         </div>
       </div>
-            <div class="nav-mob-icons">
+      <div class="nav-mob-icons">
         <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="mob-icon mob-icon-wa" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg></a>
         <a href="contact.html" class="mob-icon mob-icon-contact" aria-label="Contact"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
       </div><a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
     </div>
   </nav>
-
   <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
 </div>
 
 <article>
   <a href="resources.html" class="back-link">← All resources</a>
-  <span class="article-tag">Enrichment</span>
+  <span class="article-tag">B2B Enrichment</span>
   <h1>Waterfall Enrichment: What It Is and When to Use It (Clay vs Apollo vs ZoomInfo)</h1>
   <div class="article-meta">
     <span class="meta-avatar">M</span>
     <span class="meta-chip">Muvap</span>
-    <span class="meta-chip">Published Oct 14, 2026</span>
-    <span class="meta-chip">Updated Oct 8, 2026</span>
+    <span class="meta-chip">Published Oct 6, 2026</span>
     <span class="meta-chip">10 min read</span>
   </div>
 
-  <div class="article-hero"><img src="images/cover-waterfall-enrichment-clay-apollo-zoominfo.webp" alt="Waterfall Enrichment: Clay, Apollo and ZoomInfo stack diagram with work email, phone, firmographics and executive data layers" loading="eager"></div>
+  <div class="article-hero"><img src="images/cover-waterfall-enrichment-clay-apollo-zoominfo.webp" alt="Waterfall Enrichment: Clay, Apollo and ZoomInfo logos feeding into a funnel with stages: Find Matches, Fill Missing Fields, Best Data Wins" loading="eager"></div>
 
-  <p class="direct-answer"><strong>Direct answer:</strong> Waterfall enrichment queries several data providers in a defined order for the same field and stops once a valid result is found or the sequence ends. Use it when one provider's miss rate on your actual list is the problem. If one provider already clears roughly 80% on an easy list, a waterfall adds cost and complexity for a few points. Most statistics cited here are vendor-reported and are labelled that way.</p>
+  <p class="direct-answer"><strong>Direct answer:</strong> Waterfall enrichment queries several data providers in a defined order for the same field and stops once a valid result is found. Use it when one provider's miss rate on your actual list is the bottleneck. If one provider already clears roughly 80% on an easy list, a waterfall adds cost and complexity for a few points. Most statistics cited below are vendor-reported and are labelled that way.</p>
 
   <div class="takeaways">
     <span class="tk-label">Key takeaways</span>
     <ul>
-      <li><strong>A waterfall raises coverage only:</strong> Freshness, deliverability and correctness still depend on each provider's data and on your validation step.</li>
+      <li><strong>A waterfall raises coverage only:</strong> freshness, deliverability and correctness still depend on each provider's data and on your validation step.</li>
       <li><strong>Control model is the decision axis:</strong> Clay lets you own order and stop rules, Apollo uses an admin lineup with its own data first, and ZoomInfo manages order for you.</li>
-      <li><strong>Test your miss rate first:</strong> Run one sample through one provider, split it by segment, and add providers only where misses are the problem.</li>
-      <li><strong>Verify billing on misses:</strong> Sources conflict on whether failed lookups are charged, so test a small batch before budgeting.</li>
+      <li><strong>Test your miss rate first:</strong> run one sample through one provider, split it by segment, and add providers only where misses are the problem.</li>
+      <li><strong>Verify billing on misses:</strong> sources conflict on whether failed lookups are charged, so test a small batch before budgeting.</li>
     </ul>
   </div>
 
   <details class="qtoc">
     <summary class="qtoc-label">Questions this article answers</summary>
     <ol>
-      <li><a href="#what">What is waterfall enrichment and why is one provider not enough?</a></li>
-      <li><a href="#how">How do Clay, Apollo and ZoomInfo each run a waterfall?</a></li>
+      <li><a href="#what-is">What is waterfall enrichment and why is one provider not enough?</a></li>
+      <li><a href="#how-each">How do Clay, Apollo and ZoomInfo each run a waterfall?</a></li>
       <li><a href="#compare">How do Clay, Apollo and ZoomInfo compare on control, ordering and billing?</a></li>
-      <li><a href="#sequential">Should a waterfall run sequentially or in parallel, and how many providers do you need?</a></li>
+      <li><a href="#sequential-parallel">Should a waterfall run sequentially or in parallel, and how many providers do you need?</a></li>
       <li><a href="#when">When is a waterfall worth it and when is one provider enough?</a></li>
       <li><a href="#measure">What should you define and measure before building a waterfall?</a></li>
       <li><a href="#limits">What does a waterfall not fix?</a></li>
@@ -167,147 +153,124 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </ol>
   </details>
 
-  <h2 id="what" class="sec">What is waterfall enrichment and why is one provider not enough?</h2>
+  <h2 id="what-is" class="sec">What is waterfall enrichment and why is one provider not enough?</h2>
   <p class="lead-answer">A waterfall runs the same field lookup through several providers in a set order and stops at the first valid result, because no single provider covers a full B2B list.</p>
-  <p>In single-provider enrichment, one vendor's database answers the lookup and a miss stays a miss. In a waterfall, a miss passes to the next provider, and a validation step can check the result before the sequence stops (<a href="https://university.clay.com/docs/building-a-data-waterfall" target="_blank" rel="noopener">Clay Docs</a>).</p>
+  <p>In single-provider enrichment, one vendor's database answers the lookup and a miss stays a miss. In a waterfall, a miss passes to the next provider, and a validation step can check the result before the sequence stops (<a href="https://university.clay.com/docs/building-a-data-waterfall" target="_blank" rel="noopener">Clay Docs</a>). Clay frames the underlying problem as a trade-off: one provider gives high quality on a fraction of the list, or broad coverage with values you cannot trust, and chaining providers is presented as removing that trade-off. That is Clay's marketing position, based on its own 2025 work-email benchmark (<a href="https://www.clay.com/guides/waterfall-enrichment" target="_blank" rel="noopener">Clay</a>).</p>
   <p>Published coverage figures, all vendor-run or vendor-aggregated:</p>
   <ul>
     <li><strong>Single provider:</strong> FullEnrich, Landbase, QuickEnrich and Unify GTM publish figures from 30% to 70% (<a href="https://www.landbase.com/blog/contact-enrichment-waterfall-stack-providers" target="_blank" rel="noopener">Landbase</a>, <a href="https://www.yalc.ai/blog/lead-enrichment/" target="_blank" rel="noopener">Yalc</a>, <a href="https://databar.ai/blog/article/how-waterfall-enrichment-works" target="_blank" rel="noopener">Databar</a>).</li>
     <li><strong>Waterfall:</strong> the same sources report 80%+ or high eighties.</li>
-    <li><strong>Clay's benchmark:</strong> per Databar's summary, no single provider cleared both 95% quality and 90% coverage, while a chain reached 94% usable coverage (<a href="https://databar.ai/blog/article/how-waterfall-enrichment-works" target="_blank" rel="noopener">Databar</a>).</li>
+    <li><strong>Clay's benchmark:</strong> per Databar's summary of Clay's guide, no single provider cleared both 95% quality and 90% coverage, while a chain reached 94% usable coverage (<a href="https://databar.ai/blog/article/how-waterfall-enrichment-works" target="_blank" rel="noopener">Databar</a>).</li>
+    <li><strong>Clay-cited customer:</strong> inbound coverage moved from 40% to 80% after switching from one provider to a waterfall, per the same summary.</li>
   </ul>
   <p>The evidence supports the direction (more coverage), not any specific lift. Coverage also varies by region, which is why one provider can look fine on US data and weak elsewhere (<a href="https://www.yalc.ai/blog/lead-enrichment/" target="_blank" rel="noopener">Yalc</a>).</p>
 
-  <h2 id="how" class="sec">How do Clay, Apollo and ZoomInfo each run a waterfall?</h2>
+  <h2 id="how-each" class="sec">How do Clay, Apollo and ZoomInfo each run a waterfall?</h2>
   <p class="lead-answer">Clay lets you build and order the sequence, Apollo gives admins a default lineup with its own data first, and ZoomInfo fills gaps in parallel without exposing provider order.</p>
   <p>The deciding question is who owns provider order and stop rules, because that determines maintenance work, cost visibility and how far you can tune for one segment. Two claims still circulating in comparison pages are out of date. Apollo does have a waterfall: its December 2025 release notes show it, so pages saying otherwise are outdated or wrong (<a href="https://knowledge.apollo.io/hc/en-us/articles/34072157047309-Release-Notes-2025" target="_blank" rel="noopener">Apollo release notes</a>). And ZoomInfo is not simply single-source: per ZoomInfo, it queries its own database first, then fills gaps from third-party vendors in parallel (<a href="https://pipeline.zoominfo.com/operations/waterfall-enrichment" target="_blank" rel="noopener">ZoomInfo Pipeline</a>).</p>
-
-  <div class="compare">
-    <div class="compare-card accent-a">
-      <div class="cc-label">Clay</div>
-      <div class="cc-title">You control order</div>
-      <p>Pre-built waterfalls for work email and phone can be reordered, extended, trimmed or toggled per provider, and custom waterfalls can be saved as templates. If a provider finds a valid email, the process stops for that contact; otherwise Clay moves to the next provider (<a href="https://university.clay.com/docs/building-a-data-waterfall" target="_blank" rel="noopener">Clay Docs</a>).</p>
-    </div>
-    <div class="compare-card accent-b">
-      <div class="cc-label">Apollo</div>
-      <div class="cc-title">Admin controls the lineup, Apollo stays first</div>
-      <p>Waterfall became the default for finding emails and phones in December 2025. An admin sets a global lineup with an optional validator, can remove third-party sources entirely, and users can switch the waterfall off per activity. Apollo always stays first and cannot be moved (<a href="https://knowledge.apollo.io/hc/en-us/articles/34071121664781-Use-Waterfall-Enrichment" target="_blank" rel="noopener">Apollo docs</a>).</p>
-    </div>
-    <div class="compare-card accent-c">
-      <div class="cc-label">ZoomInfo</div>
-      <div class="cc-title">ZoomInfo controls order</div>
-      <p>GTM Studio Waterfall Enrichment was announced on 19 February 2026. Per ZoomInfo, it fills missing email or mobile data from third-party vendors in parallel, returns the highest-confidence result through Intelligent Scoring, and attributes a source to each data point (<a href="https://www.zoominfo.com/newsroom/press-releases/zoominfos-waterfall-enrichment-eliminates-contact-data-gaps-in-go-to-market" target="_blank" rel="noopener">ZoomInfo press release</a>).</p>
-    </div>
-  </div>
+  <p><strong>Clay: you control order.</strong> Pre-built waterfalls for work email and phone can be reordered, extended, trimmed or toggled per provider, and custom waterfalls can be saved as templates. If a provider finds a valid email, the process stops for that contact; otherwise Clay moves to the next provider (<a href="https://university.clay.com/docs/building-a-data-waterfall" target="_blank" rel="noopener">Clay Docs</a>).</p>
+  <p><strong>Apollo: an admin controls the lineup, and Apollo stays first.</strong> Waterfall became the default for finding emails and phones in December 2025: Apollo checks its own data, then fills gaps from selected third-party sources (<a href="https://knowledge.apollo.io/hc/en-us/articles/34072157047309-Release-Notes-2025" target="_blank" rel="noopener">Apollo release notes</a>). An admin sets a global lineup with an optional validator, can remove third-party sources entirely, and users can switch the waterfall off per activity such as CSV import. Sources run top to bottom, and Apollo always stays first and cannot be moved (<a href="https://knowledge.apollo.io/hc/en-us/articles/34071121664781-Use-Waterfall-Enrichment" target="_blank" rel="noopener">Apollo docs</a>). Apollo reports about 5% more emails, 7% more phones and 45% fewer bounces, but no baseline or method is stated, so treat it as a vendor claim.</p>
+  <p><strong>ZoomInfo: ZoomInfo controls order.</strong> GTM Studio Waterfall Enrichment was announced on 19 February 2026 (<a href="https://www.zoominfo.com/newsroom/press-releases/zoominfos-waterfall-enrichment-eliminates-contact-data-gaps-in-go-to-market" target="_blank" rel="noopener">ZoomInfo press release</a>). Per ZoomInfo, it fills missing email or mobile data from third-party vendors in parallel, returns the highest-confidence result through Intelligent Scoring, and attributes a source to each data point. ZoomInfo's own materials give different vendor counts and third-party sources date the launch differently, so we do not treat any single count or date as settled.</p>
 
   <h2 id="compare" class="sec">How do Clay, Apollo and ZoomInfo compare on control, ordering and billing?</h2>
   <p class="lead-answer">Clay gives the most control and the most configuration work, Apollo a managed default with a fixed native-first order, and ZoomInfo the least visibility into order and scoring.</p>
-  <p>Billing is where the control models diverge most. Clay runs two meters: every enrichment consumes one Action plus variable Data Credits, and a fully enriched record typically costs 6 to 20 Data Credits (<a href="https://university.clay.com/docs/actions-data-credits" target="_blank" rel="noopener">Clay Docs</a>). Misses are the contested cell: Clay's FAQ says no-result steps are free, while community threads and third-party write-ups claim per-attempt charges (<a href="https://www.cleanlist.ai/blog/2026-03-12-clay-pricing-changes-2026" target="_blank" rel="noopener">Cleanlist</a>).</p>
+  <p>Billing is where the control models diverge most. Clay runs two meters: every enrichment consumes one Action plus variable Data Credits, and a fully enriched record typically costs 6 to 20 Data Credits depending on data types, own API keys and waterfall use (<a href="https://university.clay.com/docs/actions-data-credits" target="_blank" rel="noopener">Clay Docs</a>). Apollo ties credits to whichever source returns data and charges extra for a validator (<a href="https://knowledge.apollo.io/hc/en-us/articles/34071121664781-Use-Waterfall-Enrichment" target="_blank" rel="noopener">Apollo docs</a>). ZoomInfo says GTM Studio customers pay no extra credits, which is a vendor claim (<a href="https://www.zoominfo.com/newsroom/press-releases/zoominfos-waterfall-enrichment-eliminates-contact-data-gaps-in-go-to-market" target="_blank" rel="noopener">ZoomInfo press release</a>). Misses are the contested cell: Clay's FAQ says no-result steps are free, while community threads and third-party write-ups claim per-attempt charges (<a href="https://www.cleanlist.ai/blog/2026-03-12-clay-pricing-changes-2026" target="_blank" rel="noopener">Cleanlist</a>).</p>
 
   <div class="table-wrap">
     <table>
-      <thead>
-        <tr><th>Attribute</th><th>Clay</th><th>Apollo</th><th>ZoomInfo</th></tr>
-      </thead>
+      <thead><tr><th>Attribute</th><th>Clay</th><th>Apollo</th><th>ZoomInfo</th></tr></thead>
       <tbody>
         <tr><td>Feature name</td><td>Waterfalls (pre-built and custom)</td><td>Waterfall Enrichment</td><td>GTM Studio Waterfall Enrichment</td></tr>
-        <tr><td>Availability</td><td>Live; current plans since 11 Mar 2026</td><td>Default since Dec 2025</td><td>Announced 19 Feb 2026; verify availability</td></tr>
+        <tr><td>Availability</td><td>Live; current plans since 11 Mar 2026</td><td>Default for emails and phones since Dec 2025</td><td>Announced 19 Feb 2026; verify current status</td></tr>
         <tr><td>Core capability</td><td>User-built sequential chain, saved as templates</td><td>Admin-set source lineup with optional validator</td><td>Parallel third-party gap-fill for email and mobile</td></tr>
         <tr><td>Order control</td><td>You reorder, add, delete or toggle providers</td><td>Admin sets order; Apollo always first and fixed</td><td>Not exposed; no per-field provider ordering</td></tr>
         <tr><td>Stop rule</td><td>Stops per contact at a valid email</td><td>Runs until a match is found; verify in-app</td><td>Returns highest-confidence result via Intelligent Scoring</td></tr>
         <tr><td>Billing model</td><td>1 Action plus Data Credits; own keys cost 1 Action only</td><td>Credits depend on returning source; validator costs extra</td><td>No extra credits for GTM Studio customers, per ZoomInfo</td></tr>
-        <tr><td>Billing on misses</td><td>No-result steps free per Clay FAQ; third-party reports dispute it</td><td>Not established in reviewed sources; test it</td><td>Varies by source; verify with ZoomInfo</td></tr>
+        <tr><td>Billing on misses</td><td>No-result steps free per Clay FAQ; third-party reports dispute; test it</td><td>Not established in reviewed sources; test it</td><td>Varies by source; verify with ZoomInfo</td></tr>
         <tr><td>Key limitation</td><td>Most configuration and maintenance work</td><td>Native source always first; cannot be moved</td><td>Scoring logic and vendor order not visible</td></tr>
         <tr><td>Best-fit profile</td><td>Teams with RevOps capacity to own provider logic</td><td>Apollo admins who accept a native-first default</td><td>GTM Studio customers wanting managed gap-fill</td></tr>
       </tbody>
     </table>
   </div>
+  <p style="font:400 13px/1.4 var(--nx-font-text,sans-serif);color:#666;margin-top:-8px">Clay plan structure from <a href="https://www.cleanlist.ai/blog/2026-03-12-clay-pricing-changes-2026" target="_blank" rel="noopener">Cleanlist's pricing review</a>; confirm on clay.com/pricing before budgeting. No independent head-to-head exists, so no row here supports a coverage or accuracy ranking.</p>
 
-  <p>Clay plan prices come from <a href="https://www.cleanlist.ai/blog/2026-03-12-clay-pricing-changes-2026" target="_blank" rel="noopener">Cleanlist's pricing review</a>; confirm on clay.com/pricing before budgeting. Treat billing on misses as something to test, not assume. No independent head-to-head exists, so none of these rows supports a coverage or accuracy ranking.</p>
-
-  <h2 id="sequential" class="sec">Should a waterfall run sequentially or in parallel, and how many providers do you need?</h2>
-  <p class="lead-answer">Sequential first-match favours cost and control, while parallel scoring favours confidence per field and less order maintenance but is less transparent. Practitioners suggest starting with 2–3 providers.</p>
-  <p>ZoomInfo describes sequential waterfalls as slower and subject to first-match limitations, and parallel scoring as faster and free of double payment (<a href="https://pipeline.zoominfo.com/operations/waterfall-enrichment" target="_blank" rel="noopener">ZoomInfo Pipeline</a>). That is an argument for its own architecture. Clay and Apollo both run top to bottom, with Apollo's own data fixed first.</p>
-
-  <div class="compare">
-    <div class="compare-card accent-a">
-      <div class="cc-label">Sequential first-match</div>
-      <div class="cc-title">More control, visible spend</div>
-      <p>Each step runs only if the previous one missed. You see the logic and the spend, and you maintain the order. Used by Clay and Apollo.</p>
-    </div>
-    <div class="compare-card accent-b">
-      <div class="cc-label">Parallel scored</div>
-      <div class="cc-title">Less maintenance, less transparency</div>
-      <p>Vendors are queried together and the highest-confidence result wins. There is no order to maintain, but provider order and scoring logic are not exposed. Used by ZoomInfo GTM Studio.</p>
-    </div>
-  </div>
-
-  <p>On count: Landbase suggests starting with 2–3 providers and adding more only for a measurable gain (<a href="https://www.landbase.com/blog/contact-enrichment-waterfall-stack-providers" target="_blank" rel="noopener">Landbase</a>). Unify GTM's analysis, via Yalc, puts the practical optimum at 3–4: the second provider recovers roughly 15–25% of the first one's misses, the third 8–12% and the fourth 3–5% (<a href="https://www.yalc.ai/blog/lead-enrichment/" target="_blank" rel="noopener">Yalc</a>). Read those as practitioner heuristics, not a proven curve.</p>
-  <p>Our rule of thumb for order: put the most accurate or most relevant source for the target geography first; put cheap steps before slow or expensive ones, with AI research last (<a href="https://www.landbase.com/blog/contact-enrichment-waterfall-stack-providers" target="_blank" rel="noopener">Landbase</a>); treat the default order as a starting point and reorder from test-batch results.</p>
+  <h2 id="sequential-parallel" class="sec">Should a waterfall run sequentially or in parallel, and how many providers do you need?</h2>
+  <p class="lead-answer">Sequential first-match favours cost and control, while parallel scoring favours confidence per field and less order maintenance but is less transparent. Practitioners suggest starting with 2-3 providers.</p>
+  <p>ZoomInfo describes sequential waterfalls as slower and subject to first-match limitations, and parallel scoring as faster and free of double payment (<a href="https://pipeline.zoominfo.com/operations/waterfall-enrichment" target="_blank" rel="noopener">ZoomInfo Pipeline</a>). That is an argument for its own architecture, and we found no independent head-to-head. Clay and Apollo both run top to bottom, with Apollo's own data fixed first.</p>
+  <ul>
+    <li><strong>Sequential first-match:</strong> each step runs only if the previous one missed. You see the logic and the spend, and you maintain the order.</li>
+    <li><strong>Parallel scored:</strong> vendors are queried together and the highest-confidence result wins. There is no order to maintain, but provider order and scoring are not exposed.</li>
+  </ul>
+  <p>On count, <a href="https://www.landbase.com/blog/contact-enrichment-waterfall-stack-providers" target="_blank" rel="noopener">Landbase</a> suggests starting with 2-3 providers and adding more only for a measurable gain. Unify GTM's analysis, via <a href="https://www.yalc.ai/blog/lead-enrichment/" target="_blank" rel="noopener">Yalc</a>, puts the practical optimum at 3-4: the second provider recovers roughly 15-25% of the first one's misses, the third 8-12% and the fourth 3-5%. Those figures rest on a secondary citation, so read them as a practitioner heuristic, not a proven curve.</p>
+  <p>Our rule of thumb for order:</p>
+  <ol>
+    <li>Put the most accurate or most relevant source for the target geography first.</li>
+    <li>Put cheap steps before slow or expensive ones, with AI research last (<a href="https://www.landbase.com/blog/contact-enrichment-waterfall-stack-providers" target="_blank" rel="noopener">Landbase</a>).</li>
+    <li>Treat the default order as a starting point and reorder from test-batch results; Clay's pre-built waterfall starts in an order optimised for coverage and can be changed (<a href="https://university.clay.com/docs/building-a-data-waterfall" target="_blank" rel="noopener">Clay Docs</a>).</li>
+  </ol>
 
   <h2 id="when" class="sec">When is a waterfall worth it and when is one provider enough?</h2>
   <p class="lead-answer">Use a waterfall when one provider's miss rate on your list is the bottleneck, typically outside US, tech and enterprise segments; about 80% from one provider is often enough.</p>
-  <p>An easy list (US tech, large companies, recent LinkedIn activity) that one source already clears at about 80% gains only a few points from a second provider, at real cost (<a href="https://databar.ai/blog/article/how-waterfall-enrichment-works" target="_blank" rel="noopener">Databar</a>). Landbase says a narrow, well-covered ICP can see 70%+ from one provider, with a waterfall adding about 10–15 points plus complexity (<a href="https://www.landbase.com/blog/contact-enrichment-waterfall-stack-providers" target="_blank" rel="noopener">Landbase</a>). Fields that do not change routing, action, prioritisation or reporting are not worth enriching at all (<a href="https://talantir.ai/en/knowledge/guides/clay-waterfall-enrichment-strategy-explained-69c840b38f7c4b007056dac8" target="_blank" rel="noopener">Talantir</a>).</p>
-
-  <p><strong>Decision sequence before building:</strong></p>
+  <p>The thresholds here are secondary-source heuristics, not universal rules. An easy list (US tech, large companies, recent LinkedIn activity) that one source already clears at about 80% gains only a few points from a second provider, at real cost (<a href="https://databar.ai/blog/article/how-waterfall-enrichment-works" target="_blank" rel="noopener">Databar</a>). <a href="https://www.landbase.com/blog/contact-enrichment-waterfall-stack-providers" target="_blank" rel="noopener">Landbase</a> says a narrow, well-covered ICP can see 70%+ from one provider, with a waterfall adding about 10-15 points plus complexity. Coverage drops outside the core market, so running the same list filtered to US and non-US is a quick test of whether one vendor is enough (<a href="https://www.yalc.ai/blog/lead-enrichment/" target="_blank" rel="noopener">Yalc</a>). Fields that do not change routing, action, prioritisation or reporting are not worth enriching at all (<a href="https://talantir.ai/en/knowledge/guides/clay-waterfall-enrichment-strategy-explained-69c840b38f7c4b007056dac8" target="_blank" rel="noopener">Talantir</a>).</p>
+  <p>Run this decision sequence before building:</p>
   <ol>
     <li><strong>Does the field change routing, action, prioritisation or reporting?</strong> If not, skip enrichment for it.</li>
     <li><strong>What is the miss rate for one provider on a representative sample?</strong> If it already clears roughly 80% on an easy list and the misses do not hurt, stay with one provider.</li>
     <li><strong>Where do the misses cluster?</strong> Split by US vs non-US, company size and role.</li>
-    <li><strong>Choose the build.</strong> Clustered misses call for a targeted waterfall that adds providers only for those segments. Misses spread across the list call for a full waterfall, starting with 2–3 providers.</li>
+    <li><strong>Choose the build.</strong> Clustered misses call for a targeted waterfall that adds providers only for those segments. Misses spread across the list call for a full waterfall, starting with 2-3 providers.</li>
   </ol>
 
   <h2 id="measure" class="sec">What should you define and measure before building a waterfall?</h2>
   <p class="lead-answer">Define the target field, a validated-result stop rule, a validation step and a test batch; then measure lift per provider, cost per valid record and bounce rate.</p>
-  <p>A waterfall has three cost layers: data credits, orchestration Actions or platform meters, and RevOps time to keep provider order and rules current. Clay does not list per-provider credit costs on its pricing page; they appear in-app, so cost per record must be measured on your own recipe. Cleanlist's conversion of Clay's 6–20 credit range to about $0.30–$1.00 per fully enriched contact in Data Credits, plus Actions, is a third-party estimate, not a Clay figure (<a href="https://www.cleanlist.ai/blog/2026-03-12-clay-pricing-changes-2026" target="_blank" rel="noopener">Cleanlist</a>). Sources also conflict on billing for misses, so the test batch is both a quality gate and a billing check.</p>
-
-  <p><strong>Pre-build checklist:</strong></p>
-  <ul>
-    <li>☐ Pick one target field and confirm it changes routing, action, prioritisation or reporting</li>
-    <li>☐ Write the stop rule: stop on a validated result, never on any non-empty value</li>
-    <li>☐ Add a validation step after the providers and decide what happens to results that fail it</li>
-    <li>☐ Set provider order by geography fit, with slow or expensive steps last</li>
-    <li>☐ Run a small test batch before scaling and record whether misses consume credits or Actions</li>
-    <li>☐ Gate CRM write-back so weak or unvalidated data never overwrites existing values</li>
-  </ul>
-
-  <p>Measure the payoff with three numbers: (1) <strong>Coverage lift per provider</strong> &mdash; the share of previously missed records each provider recovers. (2) <strong>Cost per valid record</strong> &mdash; credits, Actions and maintenance time divided by validated results, not by non-empty results. (3) <strong>Bounce rate</strong> &mdash; bounces on validated emails actually sent. Log one row per provider in run order: records tried, valid results, credits or Actions consumed, and bounces from the first send.</p>
+  <p>A waterfall has three cost layers: data credits, orchestration Actions or platform meters, and RevOps time to keep provider order and rules current. Clay does not list per-provider credit costs on its pricing page; they appear in-app, so cost per record must be measured on your own recipe. <a href="https://www.cleanlist.ai/blog/2026-03-12-clay-pricing-changes-2026" target="_blank" rel="noopener">Cleanlist's</a> conversion of Clay's 6-20 credit range to about $0.30-$1.00 per fully enriched contact in Data Credits, plus Actions, is a third-party estimate, not a Clay figure. Sources also conflict on billing for misses, so the test batch is both a quality gate and a billing check.</p>
+  <p>Pre-build checklist:</p>
+  <p>
+    ☐ Pick one target field and confirm it changes routing, action, prioritisation or reporting<br>
+    ☐ Write the stop rule: stop on a validated result, never on any non-empty value<br>
+    ☐ Add a validation step after the providers and decide what happens to results that fail it<br>
+    ☐ Set provider order by geography fit, with slow or expensive steps last<br>
+    ☐ Run a small test batch before scaling and record whether misses consume credits or Actions<br>
+    ☐ Gate CRM write-back so weak or unvalidated data never overwrites existing values
+  </p>
+  <p>Measure the payoff with three numbers:</p>
+  <ol>
+    <li><strong>Coverage lift per provider:</strong> the share of previously missed records each provider recovers.</li>
+    <li><strong>Cost per valid record:</strong> credits, Actions and maintenance time divided by validated results, not by non-empty results.</li>
+    <li><strong>Bounce rate:</strong> bounces on validated emails actually sent.</li>
+  </ol>
+  <p>Log one row per provider in run order: records tried, valid results, credits or Actions consumed, and bounces from the first send.</p>
 
   <h2 id="limits" class="sec">What does a waterfall not fix?</h2>
   <p class="lead-answer">A waterfall raises coverage only: each provider still ages data on its own schedule, found does not mean deliverable, and non-empty values can still be wrong.</p>
-  <p>Each underlying provider keeps its own re-verification schedule, so a found email can be stale and still needs validation (<a href="https://talantir.ai/en/knowledge/guides/clay-waterfall-enrichment-strategy-explained-69c840b38f7c4b007056dac8" target="_blank" rel="noopener">Talantir</a>). The widely used decay benchmark is 2.1% a month, about 22.5% a year; ZoomInfo cites a 22.5–70% range because fields decay at different rates, and one vendor's weekly re-verification study claims about 67% a year, a single-vendor sample that is not consensus (<a href="https://meritdata-tech.com/resources-post/b2b-data-decay-in-2026" target="_blank" rel="noopener">Merit</a>).</p>
-
-  <div class="compare">
-    <div class="compare-card accent-a">
-      <div class="cc-label">Myth</div>
-      <div class="cc-title">A waterfall makes data more accurate</div>
-      <p><strong>Reality:</strong> It primarily raises coverage. Accuracy depends on validation and on stopping on validated results (<a href="https://talantir.ai/en/knowledge/guides/clay-waterfall-enrichment-strategy-explained-69c840b38f7c4b007056dac8" target="_blank" rel="noopener">Talantir</a>).</p>
-    </div>
-    <div class="compare-card accent-b">
-      <div class="cc-label">Myth</div>
-      <div class="cc-title">Failed lookups are always free</div>
-      <p><strong>Reality:</strong> Clay says no-result steps cost nothing, but third-party write-ups report per-attempt charges (<a href="https://university.clay.com/docs/actions-data-credits" target="_blank" rel="noopener">Clay Docs</a>, <a href="https://www.cleanlist.ai/blog/2026-03-12-clay-pricing-changes-2026" target="_blank" rel="noopener">Cleanlist</a>). Test before budgeting.</p>
-    </div>
-  </div>
-
-  <p>We treat coverage, freshness, validation and governance as four separate layers, each needing its own control. A waterfall addresses only the first.</p>
+  <p>Each underlying provider keeps its own re-verification schedule, so a found email can be stale and still needs validation (<a href="https://talantir.ai/en/knowledge/guides/clay-waterfall-enrichment-strategy-explained-69c840b38f7c4b007056dac8" target="_blank" rel="noopener">Talantir</a>). The widely used decay benchmark is 2.1% a month, about 22.5% a year; ZoomInfo cites a 22.5-70% range because fields decay at different rates, and one vendor's weekly re-verification study claims about 67% a year, a single-vendor sample that is not consensus (<a href="https://meritdata-tech.com/resources-post/b2b-data-decay-in-2026" target="_blank" rel="noopener">Merit</a>). Wrong-but-non-empty values are why the stop rule must key on validated results.</p>
+  <ul>
+    <li><strong>Myth:</strong> A waterfall makes data more accurate. <strong>Reality:</strong> It primarily raises coverage; accuracy depends on validation and on stopping on validated results (<a href="https://talantir.ai/en/knowledge/guides/clay-waterfall-enrichment-strategy-explained-69c840b38f7c4b007056dac8" target="_blank" rel="noopener">Talantir</a>).</li>
+    <li><strong>Myth:</strong> Failed lookups are always free. <strong>Reality:</strong> Clay says no-result steps cost nothing, but third-party write-ups report per-attempt charges (<a href="https://university.clay.com/docs/actions-data-credits" target="_blank" rel="noopener">Clay Docs</a>, <a href="https://www.cleanlist.ai/blog/2026-03-12-clay-pricing-changes-2026" target="_blank" rel="noopener">Cleanlist</a>).</li>
+  </ul>
+  <p>Coverage, freshness, validation and governance are four separate layers, each needing its own control. A waterfall addresses only the first.</p>
 
   <h2 id="decide" class="sec">How should you decide whether to build a waterfall?</h2>
   <p class="lead-answer">Test your single-provider miss rate by segment first, then choose the control model that matches who will maintain provider order, stop rules and write-back.</p>
   <p>The control model is the decision axis: you own order in Clay, an admin owns a native-first lineup in Apollo, and ZoomInfo manages order for you (<a href="https://university.clay.com/docs/building-a-data-waterfall" target="_blank" rel="noopener">Clay Docs</a>, <a href="https://knowledge.apollo.io/hc/en-us/articles/34071121664781-Use-Waterfall-Enrichment" target="_blank" rel="noopener">Apollo docs</a>, <a href="https://pipeline.zoominfo.com/operations/waterfall-enrichment" target="_blank" rel="noopener">ZoomInfo Pipeline</a>). If one provider already clears roughly 80% on an easy list, stay with it. If misses cluster in specific segments, add providers there and validate before anything reaches the CRM.</p>
+  <p>
+    ☐ Run one provider on a sample split by region, company size and role.<br>
+    ☐ If miss rate exceeds 20% in a segment, map which providers cover that segment best.<br>
+    ☐ Choose the control model by who will maintain provider order, stop rules and write-back.<br>
+    ☐ Test billing on misses before budgeting; do not assume the FAQ answer matches in-app behaviour.
+  </p>
 
   <h2 id="faq">Frequently asked questions</h2>
   <div class="faq-item">
     <h3>Does Apollo have waterfall enrichment?</h3>
-    <p>Yes. Apollo made waterfall enrichment the default for finding emails and phone numbers in December 2025, checking its own data first and then selected third-party sources (<a href="https://knowledge.apollo.io/hc/en-us/articles/34072157047309-Release-Notes-2025" target="_blank" rel="noopener">Apollo release notes</a>). Apollo reports about 5% more emails, 7% more phones and 45% fewer bounces, with no baseline stated. Comparison pages saying Apollo has no waterfall are outdated.</p>
+    <p>Yes. <a href="https://knowledge.apollo.io/hc/en-us/articles/34072157047309-Release-Notes-2025" target="_blank" rel="noopener">Apollo made waterfall enrichment the default</a> for finding emails and phone numbers in December 2025, checking its own data first and then selected third-party sources. Apollo reports about 5% more emails, 7% more phones and 45% fewer bounces, with no baseline stated. Comparison pages saying Apollo has no waterfall are outdated.</p>
   </div>
   <div class="faq-item">
     <h3>Is ZoomInfo a true waterfall?</h3>
-    <p>It depends on the definition. Per ZoomInfo, GTM Studio queries its own database first, then fills gaps from third-party vendors in parallel and returns the highest-confidence result, rather than running sequential first-match (<a href="https://pipeline.zoominfo.com/operations/waterfall-enrichment" target="_blank" rel="noopener">ZoomInfo Pipeline</a>). If you define a waterfall as ordered first-match, it is not one; if you define it as multi-provider gap-fill, it is. This is a vendor description.</p>
+    <p>It depends on the definition. Per <a href="https://pipeline.zoominfo.com/operations/waterfall-enrichment" target="_blank" rel="noopener">ZoomInfo</a>, GTM Studio queries its own database first, then fills gaps from third-party vendors in parallel and returns the highest-confidence result, rather than running sequential first-match. If you define a waterfall as ordered first-match, it is not one; if you define it as multi-provider gap-fill, it is. This is a vendor description.</p>
   </div>
   <div class="faq-item">
     <h3>Are failed lookups free in a waterfall?</h3>
-    <p>It depends on the platform. Clay's FAQ says no-result steps are not charged (<a href="https://university.clay.com/docs/actions-data-credits" target="_blank" rel="noopener">Clay Docs</a>), while community threads and third-party write-ups report per-attempt charges (<a href="https://www.cleanlist.ai/blog/2026-03-12-clay-pricing-changes-2026" target="_blank" rel="noopener">Cleanlist</a>). Run a small test batch and compare consumption to results before budgeting.</p>
+    <p>It depends on the platform. <a href="https://university.clay.com/docs/actions-data-credits" target="_blank" rel="noopener">Clay's FAQ</a> says no-result steps are not charged, while community threads and <a href="https://www.cleanlist.ai/blog/2026-03-12-clay-pricing-changes-2026" target="_blank" rel="noopener">third-party write-ups</a> report per-attempt charges. Run a small test batch and compare consumption to results before budgeting.</p>
   </div>
   <div class="faq-item">
     <h3>Does a waterfall make enrichment data more accurate?</h3>
@@ -337,7 +300,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <div class="article-cta">
-    <p>Want help designing provider order, stop rules and write-back architecture for your CRM?</p>
+    <p>Want help deciding provider order, stop rules and write-back architecture for your CRM?</p>
     <a href="contact.html" class="btn-primary">Contact →</a>
   </div>
 
@@ -345,7 +308,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="author-avatar">M</div>
     <div>
       <div class="author-name">Muvap</div>
-      <div class="author-role">GTM & RevOps systems</div>
+      <div class="author-role">GTM and RevOps systems</div>
       <p class="author-bio">We build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
       <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
     </div>
@@ -393,6 +356,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
+<script>
+(function(){
+  var bar = document.getElementById('readProgress');
+  var article = document.querySelector('article');
+  if(!bar || !article) return;
+  var ticking = false;
+  function update(){
+    var articleTop = article.offsetTop;
+    var scrollable = article.offsetHeight - window.innerHeight;
+    var scrolled = window.scrollY - articleTop;
+    var pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+</script>
+
+<script src="assets/interactions.js" defer></script>
 <script src="article-interactions.js" defer></script>
 </body>
 </html>
