@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  _new-page-template.html — Muvap marketing page starter
+  ============================================================
+  HOW TO USE:
+  1. Copy this file: cp _new-page-template.html my-new-page.html
+  2. Search for every [PLACEHOLDER] and replace with real content.
+  3. Delete sections you don't need (each section is clearly marked).
+  4. Remove this comment block before publishing.
+
+  SECTION RHYTHM (alternating backgrounds — keep this order):
+    1. Blue + grid  → hero / page opener      (.nx-grid-bg)
+    2. White        → main content / features  (background: var(--nx-paper))
+    3. Dark         → social proof / metrics   (background: #0d0d0d)
+    4. Blue + grid  → closing CTA              (.nx-grid-bg)
+
+  CRITICAL RULES (read CLAUDE.md for full detail):
+  - html{overflow-x:clip} is safe here. NEVER add it on pages that use
+    position:sticky (like index.html) — it silently breaks sticky with no error.
+  - Do NOT add html{overflow-x:hidden} — only body{overflow-x:hidden} is safe.
+  - .nav-mob-icons needs display:flex!important (see nav CSS below).
+  - Never edit this file with PowerShell Set-Content — it corrupts UTF-8 chars.
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ── FILL THESE ───────────────────────────────────────────────────── -->
+<title>[PAGE TITLE] · Muvap</title>
+<meta name="description" content="[PAGE DESCRIPTION — 120-160 chars, plain language, no brand name at start]">
+
+<!-- OG / Social preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Muvap">
+<meta property="og:title" content="[PAGE TITLE] · Muvap">
+<meta property="og:description" content="[PAGE DESCRIPTION]">
+<meta property="og:url" content="https://davidbervic.com/[page-filename.html]">
+<meta property="og:image" content="https://davidbervic.com/images/og-default.webp">
+<!-- If this page has a custom OG image, replace og-default.webp above -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[PAGE TITLE] · Muvap">
+<meta name="twitter:description" content="[PAGE DESCRIPTION]">
+<meta name="twitter:image" content="https://davidbervic.com/images/og-default.webp">
+<!-- ────────────────────────────────────────────────────────────────── -->
+
+<meta name="theme-color" content="#0574fd">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ── DESIGN TOKENS ─────────────────────────────────────────────────── */
+  :root{
+    --nx-ink:#050505; --nx-ink-soft:#141414;
+    --nx-paper:#ffffff; --nx-paper-dim:#f4f4f4;
+    --nx-blue:#0574fd;
+    --nx-mint:#00cc7a; --nx-mint-pale:#c7f4e2;
+    --nx-cyan:#12effb; --nx-cyan-pale:#cbfcfe;
+    --nx-pink:#fb4aad; --nx-pink-soft:#fc89ca; --nx-pink-pale:#fed7ed;
+    --nx-purple:#a040f0; --nx-purple-pale:#ead5fc;
+    --nx-yellow:#fcdf07; --nx-yellow-pale:#fef8c8;
+    --nx-grid-line:rgba(255,255,255,.18); --nx-grid-cell:64px; --nx-grid-width:1px;
+    --nx-radius-sm:10px; --nx-radius-md:16px; --nx-radius-lg:22px; --nx-radius-xl:30px; --nx-radius-pill:999px;
+    --nx-drop-sm:4px 4px 0 var(--nx-ink); --nx-drop-md:7px 7px 0 var(--nx-ink); --nx-drop-lg:11px 11px 0 var(--nx-ink);
+    --nx-font-display:'Archivo Black','Helvetica Neue',Arial,sans-serif;
+    --nx-font-text:'Archivo','Helvetica Neue',Arial,sans-serif;
+    --nx-font-mono:'JetBrains Mono',ui-monospace,monospace;
+    --nx-track-display:-.035em; --nx-track-tight:-.02em; --nx-track-label:.12em;
+  }
+
+  /* ── RESETS ─────────────────────────────────────────────────────────── */
+  *{margin:0;padding:0;box-sizing:border-box}
+  /* overflow-x on html SAFE here — only breaks position:sticky (not used on this template).
+     If you later add a sticky element, move overflow-x:hidden to body only and remove it from html. */
+  html{overflow-x:clip}body{font-family:var(--nx-font-text);color:var(--nx-ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button{font:inherit;border:none;background:none;cursor:pointer}
+
+  /* ── BLUE GRID BACKGROUND (use on sections 1 and 4) ─────────────────── */
+  .nx-grid-bg{
+    background-color:var(--nx-blue);
+    background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),
+                      linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));
+    background-size:var(--nx-grid-cell) var(--nx-grid-cell);
+  }
+
+  /* ── EYEBROW PILL (colored label above headline) ─────────────────────
+     Usage: <span class="eyebrow-pill" style="background:var(--nx-pink)">LABEL</span>
+     Accent color guide: services=cyan, assessment=pink, tool=yellow, download=green */
+  .eyebrow-pill{
+    display:inline-flex;align-items:center;gap:6px;border:none;border-radius:var(--nx-radius-pill);
+    padding:6px 14px;font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);text-transform:uppercase;color:var(--nx-paper);
+  }
+
+  /* ── NAV ─────────────────────────────────────────────────────────────── */
+  .top-band{padding:20px clamp(16px,4vw,44px) 0}
+  .site-nav{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:6px 0;position:relative;z-index:40}
+  .logo{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+  .logo span{font:900 24px/1 var(--nx-font-display);letter-spacing:-.03em;color:var(--nx-paper)}
+  .nav-right{flex:0 0 auto;display:flex;align-items:center;gap:10px}
+  .nav-burger{display:none;appearance:none;cursor:pointer;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:12px;width:44px;height:44px;align-items:center;justify-content:center;font-size:18px;line-height:1;flex-shrink:0}
+  .nav-links{display:flex;align-items:center;gap:22px;background:var(--nx-paper);border-radius:20px;padding:12px 22px;border:3px solid var(--nx-ink);box-shadow:4px 4px 0 var(--nx-ink)}
+  .nav-link{font:700 15px/1 var(--nx-font-text);color:var(--nx-ink);white-space:nowrap}
+  .nav-link:hover{color:var(--nx-pink)}
+  .resources-wrap{position:relative;padding-bottom:14px;margin-bottom:-14px}
+  .resources-menu{
+    position:absolute;top:100%;left:0;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:14px;
+    box-shadow:var(--nx-drop-sm);padding:8px;display:flex;flex-direction:column;gap:2px;min-width:170px;
+    opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .15s ease,transform .15s ease;pointer-events:none;z-index:20;
+  }
+  .resources-wrap:hover .resources-menu{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto}
+  .resources-menu a,.resources-menu span{display:block;white-space:nowrap;padding:9px 10px;border-radius:8px;font:700 14px/1.2 var(--nx-font-text);color:var(--nx-ink)}
+  .resources-menu a:hover{background:#f4f4f4}
+  .resources-menu span{color:#666;cursor:default}
+  .btn-pink,.btn-purple{border-radius:12px;font:800 14px/1 var(--nx-font-display);letter-spacing:var(--nx-track-tight);padding:12px 20px;white-space:nowrap;display:inline-flex;align-items:center;cursor:pointer}
+  .btn-pink{background:var(--nx-pink);color:var(--nx-paper);border:2px solid var(--nx-ink);box-shadow:3px 3px 0 var(--nx-ink)}
+  .btn-purple{background:#25D366;color:#ffffff}
+  .nav-mob-icons{display:none;align-items:center;gap:8px}
+  .mob-icon{width:42px;height:42px;border-radius:50%;border:2.5px solid var(--nx-ink);box-shadow:3px 3px 0 var(--nx-ink);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+  .mob-icon-wa{background:#25D366;color:#fff}
+  .mob-icon-contact{background:var(--nx-pink);color:#fff}
+  .lang-toggle{appearance:none;cursor:pointer;background:rgba(255,255,255,.15);border:1.5px solid rgba(255,255,255,.5);border-radius:var(--nx-radius-pill);padding:6px 14px;font:700 12px/1 var(--nx-font-text);color:var(--nx-paper);letter-spacing:.06em;transition:background .15s;flex-shrink:0}
+  .lang-toggle:hover{background:rgba(255,255,255,.28)}
+  @media(max-width:860px){
+    .nav-burger{display:inline-flex}
+    .nav-cta{display:none}
+    .nav-links{display:none;position:absolute;top:calc(100% + 8px);left:16px;right:16px;flex-direction:column;align-items:stretch;gap:2px;background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:16px;box-shadow:var(--nx-drop-md);padding:10px;z-index:60}
+    .site-nav.nav-open .nav-links{display:flex}
+    .nav-link{padding:12px 14px;border-radius:10px}
+    .nav-link:hover{background:var(--nx-paper-dim)}
+    .resources-wrap{padding-bottom:0;margin-bottom:0}
+    .resources-menu{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 4px 14px;pointer-events:auto;min-width:0}
+    .lang-toggle{display:none}
+    .nav-mob-icons{display:flex!important} /* !important needed: later media queries in this file declare display:none and override without it */
+    .logo img{height:40px !important}
+    .site-nav{gap:10px}
+    .mob-icon{width:36px;height:36px;box-shadow:2px 2px 0 var(--nx-ink)}
+  }
+  @media(max-width:420px){.site-nav{gap:8px}.nav-right{gap:6px}.nav-mob-icons{gap:6px}.btn-pink,.btn-purple{padding:10px 12px;font-size:12px}}
+
+  /* ── SECTION 1: HERO (blue bg, use .nx-grid-bg) ─────────────────────── */
+  .hero-section{padding:clamp(40px,7vw,80px) clamp(16px,4vw,44px) clamp(56px,8vw,96px)}
+  .hero-inner{max-width:1280px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+  /* Hero headline is WHITE (Archivo Black 900). NEVER use sticker effect (black+stroke) here — that's for infographics only. */
+  .hero-inner h1{color:var(--nx-paper);font:900 clamp(32px,4.4vw,52px)/1.06 var(--nx-font-display);letter-spacing:var(--nx-track-display);max-width:720px;text-wrap:balance}
+  .hero-inner p{color:rgba(255,255,255,.85);font:400 clamp(16px,1.5vw,19px)/1.55 var(--nx-font-text);max-width:560px}
+  .hero-ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+
+  /* ── SECTION 2: WHITE CONTENT ────────────────────────────────────────── */
+  .white-section{background:var(--nx-paper);padding:clamp(64px,9vw,112px) clamp(16px,4vw,44px)}
+  .white-inner{max-width:1200px;margin:0 auto}
+  .section-head{max-width:640px;margin:0 auto 48px;text-align:center;display:flex;flex-direction:column;gap:14px}
+  .section-head h2{font:900 clamp(26px,3.2vw,40px)/1.1 var(--nx-font-display);letter-spacing:var(--nx-track-display);color:var(--nx-ink);text-wrap:balance}
+  .section-head p{font:400 17px/1.55 var(--nx-font-text);color:var(--nx-ink-soft)}
+
+  /* White card — border is 1.5px (web), NOT 3px (infographics) */
+  .card{background:var(--nx-paper);border:1.5px solid var(--nx-ink);border-radius:var(--nx-radius-md);box-shadow:var(--nx-drop-sm);padding:24px}
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+
+  /* ── SECTION 3: DARK (social proof / metrics) ────────────────────────── */
+  .dark-section{background:#0d0d0d;padding:clamp(64px,9vw,112px) clamp(16px,4vw,44px)}
+  .dark-inner{max-width:1200px;margin:0 auto}
+  .dark-section .section-head h2{color:var(--nx-paper)}
+  .dark-section .section-head p{color:rgba(255,255,255,.65)}
+
+  /* ── SECTION 4: BLUE CTA (same as hero — use .nx-grid-bg) ───────────── */
+  .cta-section{padding:clamp(64px,9vw,112px) clamp(16px,4vw,44px);text-align:center}
+  .cta-inner{max-width:640px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px}
+  .cta-inner h2{color:var(--nx-paper);font:900 clamp(28px,3.8vw,46px)/1.08 var(--nx-font-display);letter-spacing:var(--nx-track-display);text-wrap:balance}
+  .cta-inner p{color:rgba(255,255,255,.8);font:400 17px/1.5 var(--nx-font-text)}
+  .cta-btns{display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  /* ── FOOTER ──────────────────────────────────────────────────────────── */
+  footer{background:var(--nx-ink);padding:clamp(56px,7vw,80px) clamp(16px,4vw,44px) 32px}
+  .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .footer-brand p{margin:10px 0 0;max-width:280px;color:rgba(255,255,255,.6);font:400 14px/1.6 var(--nx-font-text)}
+  .footer-socials{display:flex;align-items:center;gap:10px;margin-top:14px}
+  .footer-socials a{width:38px;height:38px;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);border-radius:10px;color:var(--nx-paper)}
+  .footer-col{display:flex;flex-direction:column;gap:12px}
+  .footer-col-label{font:800 11px/1 var(--nx-font-display);letter-spacing:var(--nx-track-label);color:rgba(255,255,255,.45);text-transform:uppercase}
+  .footer-col a{color:rgba(255,255,255,.85);font:400 14px/1 var(--nx-font-text)}
+  .footer-bottom{max-width:1200px;margin:0 auto;padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .footer-bottom span{color:rgba(255,255,255,.45);font:400 13px/1 var(--nx-font-text)}
+  @media(max-width:860px){.footer-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
+
+  /* ── SCROLL-REVEAL (optional — remove if you don't need it) ──────────── */
+  .reveal{opacity:0;transform:translateY(28px)}
+  .reveal.is-visible{animation:nx-reveal .7s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes nx-reveal{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+  /* ── PAGE-SPECIFIC STYLES ────────────────────────────────────────────── */
+  /* Add your page-specific CSS below this line */
+
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 1 — HERO (blue + grid background)
+     ═══════════════════════════════════════════════════════════ -->
+<div class="nx-grid-bg top-band">
+
+  <!-- NAV — copy exactly, do not modify the structure -->
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <img src="images/muvap-logo.webp" alt="Muvap" style="height:72px;width:auto;display:block">
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <div class="resources-wrap">
+          <a class="nav-link" href="index.html#programs" style="display:inline-flex;align-items:center;gap:4px">Services<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="gtm-architecture-evolution.html">AI CRM Architecture</a>
+            <a href="gtm-outbound-evolution.html">GTM Outbound Evolution</a>
+          </div>
+        </div>
+        <a class="nav-link" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="freebies.html">Freebies</a>
+            <a href="newsletter.html">Newsletter</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-mob-icons">
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="mob-icon mob-icon-wa" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg></a>
+        <a href="contact.html" class="mob-icon mob-icon-contact" aria-label="Contact"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
+      </div>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">ES</button>
+      <a href="contact.html" class="btn-pink nav-cta">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+    </div>
+  </nav>
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+  <!-- END NAV -->
+
+  <!-- HERO CONTENT -->
+  <div class="hero-section">
+    <div class="hero-inner">
+      <!-- Eyebrow pill — pick accent color: pink=contact/services, cyan=tools, yellow=resources, green=downloads -->
+      <span class="eyebrow-pill" style="background:var(--nx-pink)">[EYEBROW LABEL]</span>
+
+      <!-- h1 is WHITE Archivo Black — never sticker effect, never gradient -->
+      <h1>[Page headline goes here — clear, specific, outcome-focused]</h1>
+      <p>[Supporting paragraph — 1-2 sentences, what the visitor gets or learns]</p>
+
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn-pink">[Primary CTA]<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <!-- Secondary CTA (optional — delete if not needed): -->
+        <!-- <a href="[url]" style="color:rgba(255,255,255,.85);font:700 15px/1 var(--nx-font-text);text-decoration:underline">[Secondary CTA]</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 2 — WHITE CONTENT
+     ═══════════════════════════════════════════════════════════ -->
+<section class="white-section">
+  <div class="white-inner">
+
+    <!-- Section header (center-aligned) -->
+    <div class="section-head reveal">
+      <span class="eyebrow-pill" style="background:var(--nx-cyan);color:var(--nx-ink)">[SECTION LABEL]</span>
+      <h2>[Section headline]</h2>
+      <p>[Section subtext — optional, delete if not needed]</p>
+    </div>
+
+    <!-- Card grid — 3 columns on desktop, stacks to 1 on mobile -->
+    <div class="card-grid">
+      <div class="card reveal">
+        <!-- Icon (optional) -->
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--nx-cyan-pale);border:1.5px solid var(--nx-ink);display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+          <!-- Replace with your SVG icon -->
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 style="font:800 17px/1.3 var(--nx-font-display);color:var(--nx-ink);margin-bottom:8px">[Card title]</h3>
+        <p style="font:400 15px/1.5 var(--nx-font-text);color:var(--nx-ink-soft)">[Card body text]</p>
+      </div>
+
+      <div class="card reveal">
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--nx-pink-pale);border:1.5px solid var(--nx-ink);display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h3 style="font:800 17px/1.3 var(--nx-font-display);color:var(--nx-ink);margin-bottom:8px">[Card title]</h3>
+        <p style="font:400 15px/1.5 var(--nx-font-text);color:var(--nx-ink-soft)">[Card body text]</p>
+      </div>
+
+      <div class="card reveal">
+        <div style="width:44px;height:44px;border-radius:12px;background:var(--nx-mint-pale);border:1.5px solid var(--nx-ink);display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3 style="font:800 17px/1.3 var(--nx-font-display);color:var(--nx-ink);margin-bottom:8px">[Card title]</h3>
+        <p style="font:400 15px/1.5 var(--nx-font-text);color:var(--nx-ink-soft)">[Card body text]</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 3 — DARK (social proof / metrics / testimonials)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="dark-section">
+  <div class="dark-inner">
+
+    <div class="section-head reveal" style="margin-bottom:40px">
+      <h2 style="color:var(--nx-paper)">[Social proof headline]</h2>
+      <p style="color:rgba(255,255,255,.65)">[Supporting copy — optional]</p>
+    </div>
+
+    <!-- Metrics row (delete if not needed) -->
+    <div class="reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:32px;max-width:700px;margin:0 auto">
+      <div style="text-align:center">
+        <div style="font:900 40px/1 var(--nx-font-display);color:var(--nx-cyan)">[N+]</div>
+        <div style="font:400 14px/1.4 var(--nx-font-text);color:rgba(255,255,255,.6);margin-top:6px">[Metric label]</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font:900 40px/1 var(--nx-font-display);color:var(--nx-pink)">[N%]</div>
+        <div style="font:400 14px/1.4 var(--nx-font-text);color:rgba(255,255,255,.6);margin-top:6px">[Metric label]</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font:900 40px/1 var(--nx-font-display);color:var(--nx-yellow)">[N]</div>
+        <div style="font:400 14px/1.4 var(--nx-font-text);color:rgba(255,255,255,.6);margin-top:6px">[Metric label]</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 4 — BLUE CTA (closing section, blue + grid)
+     ═══════════════════════════════════════════════════════════ -->
+<div class="nx-grid-bg cta-section">
+  <div class="cta-inner reveal">
+    <span class="eyebrow-pill" style="background:var(--nx-pink)">[CTA EYEBROW]</span>
+    <h2>[Closing headline — action-oriented, outcome-focused]</h2>
+    <p>[One sentence that removes the last hesitation]</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-pink">[CTA text]<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="btn-purple"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER — do not modify
+     ═══════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <img src="images/muvap-logo.webp" alt="Muvap" style="height:34px;width:auto;display:block">
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
+        </a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#programs">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="freebies.html">Freebies</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Muvap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
+</footer>
+
+<script>
+// Scroll-reveal
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) { entry.target.classList.add('is-visible'); revealObserver.unobserve(entry.target); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// Lang toggle (keeps the button wired — extend COPY object if you add i18n strings)
+(function(){
+  var toggle = document.getElementById('langToggle');
+  if (!toggle) return;
+  var lang = localStorage.getItem('muvap-lang') || 'en';
+  toggle.textContent = lang === 'en' ? 'ES' : 'EN';
+  toggle.addEventListener('click', function(){
+    lang = lang === 'en' ? 'es' : 'en';
+    localStorage.setItem('muvap-lang', lang);
+    toggle.textContent = lang === 'en' ? 'ES' : 'EN';
+  });
+})();
+
+// Add page-specific JS below this line
+</script>
+</body>
+</html>
