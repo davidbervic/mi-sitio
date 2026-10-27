@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lead Routing Logic: How to Design the Decision Cascade That Assigns Every Lead · Muvap</title>
+<meta name="description" content="Design lead routing as an ordered cascade: eligibility, dedup, account match, ownership, pool, priority, distribution, fallback and SLA reroute.">
+<meta name="theme-color" content="#0574fd">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="canonical" href="https://davidbervic.com/lead-routing-logic.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lead Routing Logic: How to Design the Decision Cascade That Assigns Every Lead">
+<meta property="og:description" content="Design lead routing as an ordered cascade: eligibility, dedup, account match, ownership, pool, priority, distribution, fallback and SLA reroute.">
+<meta property="og:url" content="https://davidbervic.com/lead-routing-logic.html">
+<meta property="og:image" content="https://davidbervic.com/images/cover-lead-routing-logic.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lead Routing Logic: How to Design the Decision Cascade That Assigns Every Lead">
+<meta name="twitter:description" content="Design lead routing as an ordered cascade: eligibility, dedup, account match, ownership, pool, priority, distribution, fallback and SLA reroute.">
+<meta name="twitter:image" content="https://davidbervic.com/images/cover-lead-routing-logic.webp">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Lead Routing Logic: How to Design the Decision Cascade That Assigns Every Lead",
+  "description": "Design lead routing as an ordered cascade: eligibility, dedup, account match, ownership, pool, priority, distribution, fallback and SLA reroute.",
+  "image": "images/cover-lead-routing-logic.webp",
+  "datePublished": "2026-10-18",
+  "dateModified": "2026-10-18",
+  "author": {"@type": "Organization", "name": "Muvap", "url": "index.html"},
+  "publisher": {"@type": "Organization", "name": "Muvap"},
+  "keywords": ["lead routing logic","lead routing","lead assignment","round robin","lead-to-account matching","SLA reroute","Salesforce assignment rules","HubSpot rotation","speed to lead"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Should territory or segment be evaluated first?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Sources differ, so it is a design choice, not a standard. One published hierarchy puts territory before segment, while other sources order them differently. We recommend picking the order that matches how ownership is defined in your organisation, documenting the reason, and testing leads that fall into both territory and segment overlaps before activation."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is round robin enough as a routing strategy?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. Round robin is a last-step distribution mechanism. It fits small teams with similar lead quality and rep capacity, but it ignores account ownership, rep expertise, territory and capacity. Because it assigns per lead, a new contact at a strategic account can bypass the account owner unless matching runs upstream."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does the 5-minute rule come from Harvard Business Review?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. The 100x contact and 21x qualification figures for 5 versus 30 minutes come from the 2007 InsideSales.com/MIT Lead Response Management Study. HBR 2011 reports different figures, such as nearly 7x the odds of a meaningful decision-maker conversation for contact within an hour. We could not retrieve the 2007 primary PDF, so that attribution rests on secondary sources."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do Salesforce assignment rules re-route a lead when it changes?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Per practitioner reports, no. Assignment rules run once on create, and leads created through the API or middleware do not trigger them unless the auto-assign header is set. Re-routing on field change needs a record-triggered Flow. This behaviour is time-sensitive, so verify it against current Salesforce documentation."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="article.css">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="progress-bar" id="readProgress"></div>
+
+<div class="nx-grid-bg top-band" data-grid-parallax>
+  <nav class="site-nav">
+    <a href="index.html" class="logo">
+      <img src="images/muvap-logo.webp" alt="Muvap" style="height:72px;width:auto;display:block">
+    </a>
+    <div class="nav-right">
+      <button class="nav-burger" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="nav-link" href="about.html">About</a>
+        <div class="resources-wrap">
+          <a class="nav-link" href="index.html#programs" style="display:inline-flex;align-items:center;gap:4px">Services<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="gtm-architecture-evolution.html">AI CRM Architecture</a>
+            <a href="gtm-outbound-evolution.html">GTM Outbound Evolution</a>
+          </div>
+        </div>
+        <a class="nav-link" href="customers.html">Case studies</a>
+        <div class="resources-wrap">
+          <a class="nav-link is-current" href="resources.html" style="display:inline-flex;align-items:center;gap:4px">Resources<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="resources-menu">
+            <a href="resources.html">Blog</a>
+            <a href="freebies.html">Freebies</a><a href="newsletter.html">Newsletter</a></div>
+        </div>
+      </div>
+      <div class="nav-mob-icons">
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" class="mob-icon mob-icon-wa" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg></a>
+        <a href="contact.html" class="mob-icon mob-icon-contact" aria-label="Contact"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></a>
+      </div><a href="contact.html" class="btn-pink nav-cta" data-magnetic="0.12">Let's talk<svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="Message on WhatsApp" class="btn-purple nav-cta" data-magnetic="0.12"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>WhatsApp</a>
+    </div>
+  </nav>
+  <script>(function(){var b=document.querySelector(".nav-burger"),n=document.querySelector(".site-nav");if(!b||!n)return;function close(){n.classList.remove("nav-open");b.setAttribute("aria-expanded","false");b.textContent="☰"}b.addEventListener("click",function(e){e.stopPropagation();var open=n.classList.toggle("nav-open");b.setAttribute("aria-expanded",open?"true":"false");b.textContent=open?"✕":"☰"});document.addEventListener("click",function(e){if(!n.contains(e.target))close()})})();</script>
+</div>
+
+<article>
+  <a href="resources.html" class="back-link">← All resources</a>
+  <span class="article-tag">Sales Operations</span>
+  <h1>Lead Routing Logic: How to Design the Decision Cascade That Assigns Every Lead</h1>
+  <div class="article-meta">
+    <span class="meta-avatar">M</span>
+    <span class="meta-chip">Muvap</span>
+    <span class="meta-chip">Published Oct 18, 2026</span>
+    <span class="meta-chip">12 min read</span>
+  </div>
+
+  <div class="article-hero"><img src="images/cover-lead-routing-logic.webp" alt="Lead Routing Logic: flowchart showing New Lead to ICP Fit check, then Region split to US, LATAM and EMEA Sales Teams, with Nurture fallback" loading="eager"></div>
+
+  <p class="direct-answer"><strong>Direct answer:</strong> Lead routing is an ordered decision cascade that decides who owns a lead, and it should end in a measurable first-contact event, not an owner field update. Design it as nine checks in a fixed order and build the failure path (fallback owner and SLA timeout) before the rotation. Routing fails more often on bad data and unhandled edge cases than on the choice between round robin and territory.</p>
+
+  <div class="takeaways">
+    <span class="tk-label">Key takeaways</span>
+    <ul>
+      <li><strong>Order decides routing quality:</strong> eligibility, dedup, account match and existing ownership must run before territory and rotation, or strategic accounts get misrouted.</li>
+      <li><strong>Build failure paths first:</strong> a fallback owner and an SLA reroute catch every lead the happy path misses.</li>
+      <li><strong>Data comes first:</strong> rules can only act on fields they can read, so blank fields and duplicate accounts undermine any distribution method.</li>
+      <li><strong>Scoring emits, routing consumes:</strong> a priority lane value keeps the two systems coupled but separable.</li>
+      <li><strong>Log every assignment reason:</strong> a decision log makes fallback rate, reassignments and SLA adherence measurable.</li>
+    </ul>
+  </div>
+
+  <details class="qtoc">
+    <summary class="qtoc-label">Questions this article answers</summary>
+    <ol>
+      <li><a href="#what-decides">What does lead routing decide, and what does it leave to scoring?</a></li>
+      <li><a href="#data-first">Which data must be fixed before you write routing rules?</a></li>
+      <li><a href="#cascade">What order should the lead routing decision cascade run in?</a></li>
+      <li><a href="#distribution">Which distribution method fits your sales motion?</a></li>
+      <li><a href="#speed">What does the speed-to-lead evidence actually show?</a></li>
+      <li><a href="#platforms">What are the native routing limits in Salesforce and HubSpot, and when do you need a dedicated tool?</a></li>
+      <li><a href="#failures">How does lead routing fail silently, and how do you test it?</a></li>
+      <li><a href="#next">What should you do next?</a></li>
+      <li><a href="#faq" class="qtoc-faq">Plus 4 FAQs answered below</a></li>
+    </ol>
+  </details>
+
+  <h2 id="what-decides" class="sec">What does lead routing decide, and what does it leave to scoring?</h2>
+  <p class="lead-answer">Routing decides who owns a lead and how fast it is worked; scoring decides how good the lead is, and a priority lane value connects them.</p>
+  <p>Routing is the ownership decision: it assigns an owner, applies availability checks and starts the response clock. Scoring is the qualification decision: it rates fit or intent and outputs a priority. Modern setups chain enrichment, lead-to-account matching, scoring, routing logic and availability checks (<a href="https://www.digitalapplied.com/blog/lead-routing-assignment-2026-crm-sla-framework" target="_blank" rel="noopener">Digital Applied</a>). We recommend that scoring emit a single lane value that routing reads at step 6, so either side can change without rewriting the other.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>System</th><th>Question it answers</th><th>Output</th></tr></thead>
+      <tbody>
+        <tr><td>Scoring</td><td>How good is this lead?</td><td>Priority or lane value</td></tr>
+        <tr><td>Routing</td><td>Who owns it, and how fast is it worked?</td><td>Owner, reason code, first-contact event</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="data-first" class="sec">Which data must be fixed before you write routing rules?</h2>
+  <p class="lead-answer">Fix data first: confirm domain, country, segment, owner and account hierarchy fields are populated and reliable, and clean duplicate accounts, before building rules.</p>
+  <p><a href="https://pipeline.zoominfo.com/operations/what-is-lead-routing" target="_blank" rel="noopener">ZoomInfo</a> argues that blank or stale firmographic, territory and hierarchy fields cause misroutes more than the assignment rules do. We agree with the direction, because a rule can only act on values it can read. Duplicates compound this: a lead can match the wrong duplicate account and route to the wrong rep (<a href="https://daeda.tech/blogs/hubspot-round-robin-workflow/" target="_blank" rel="noopener">Daeda Tech</a>). Lead-to-account (L2A) matching needs filters, which can exclude inactive accounts, and tie-breakers, which pick among candidates (<a href="https://support.leandata.com/s/article/RoutingLeadtoAccountMatchNodeGuide6901eecc5b920" target="_blank" rel="noopener">LeanData</a>). <a href="https://www.leandata.com/blog/account-based-routing-salesforce/" target="_blank" rel="noopener">LeanData</a> notes that Salesforce does not match leads to accounts natively, so teams typically build Apex or Flow that stores the matched Account ID on the lead before rules run.</p>
+  <p>Consider a hypothetical lead from a prospect domain that appears on two account records: an active one with an owner and an inactive duplicate with none. Without dedup or an inactive-account filter, matching can pick the empty record, the lead looks unowned and drops into rotation, and the account owner never sees it.</p>
+  <p>Pre-flight checklist, with the cascade step each field feeds:</p>
+  <p>
+    ☐ Email domain and company name: step 3 (L2A match); if blank, the lead skips matching and takes the new-business path.<br>
+    ☐ Duplicate accounts cleaned by domain: steps 2 and 3; if left, matching picks the wrong record.<br>
+    ☐ Account owner and owner active status: step 4; if blank or inactive, the lead falls through to the pool.<br>
+    ☐ Country and segment: step 5 (pool selection); if blank, the lead lands in the fallback.<br>
+    ☐ Account hierarchy parent: step 4, for parent or regional-child routing; if blank, routing treats the account as standalone.<br>
+    ☐ Rep availability flag: steps 5 and 7; if stale, reps are skipped or wrongly included.
+  </p>
+
+  <h2 id="cascade" class="sec">What order should the lead routing decision cascade run in?</h2>
+  <p class="lead-answer">Run nine checks in order: eligibility, dedup, L2A match, existing owner, pool selection, priority lane, distribution, fallback and SLA reroute, with the failure path designed first.</p>
+  <p>This is our recommended design, a synthesis of published orders, not an industry standard. Sources agree on the core: existing ownership before territory before round robin (<a href="https://sellingsignals.com/round-robin-lead-routing/" target="_blank" rel="noopener">Selling Signals</a>, <a href="https://www.leadangel.com/blog/abm/what-is-lead-routing-the-ultimate-guide/" target="_blank" rel="noopener">LeadAngel</a>). Sources differ on whether territory or segment comes first and where priority sits relative to pool selection, so both are design choices. Write a log entry (rule matched, reason code, timestamp) at every step.</p>
+  <ol>
+    <li><strong>Filter ineligible records.</strong> Suppress spam, test and disqualified leads. Junk otherwise consumes rotation turns. <em>In:</em> status, source flags. <em>Out:</em> eligible or suppressed. <em>Null:</em> treat as eligible.</li>
+    <li><strong>Deduplicate leads and accounts.</strong> Link or merge duplicates before matching. Matching a duplicate routes to the wrong rep. <em>In:</em> email, domain. <em>Out:</em> canonical record. <em>Null:</em> continue, flag for review.</li>
+    <li><strong>Match lead to account.</strong> Apply filters and tie-breakers to find the account. Round robin is per lead, so unmatched contacts bypass account owners. <em>In:</em> domain, company name. <em>Out:</em> matched Account ID. <em>Null:</em> new-business path.</li>
+    <li><strong>Honour existing owner.</strong> Send matched leads to the account or opportunity owner. Ownership outranks geography and rotation. <em>In:</em> owner, active status. <em>Out:</em> assigned owner. <em>Null or inactive:</em> continue.</li>
+    <li><strong>Select eligible rep pool.</strong> Apply territory and segment to list reps who can take the lead. Distribution needs valid candidates. <em>In:</em> country, segment, availability. <em>Out:</em> rep pool. <em>Null:</em> empty pool goes to step 8.</li>
+    <li><strong>Apply priority lane.</strong> Read the lane value from scoring and fast-track high-priority leads to named users. Scoring stays outside routing, and fast-tracking is a practitioner recommendation, not tested evidence. <em>In:</em> lane value. <em>Out:</em> standard or fast-track queue. <em>Null:</em> standard lane.</li>
+    <li><strong>Distribute the lead.</strong> Assign using your chosen method. Rotation belongs only here. <em>In:</em> pool, method data. <em>Out:</em> owner, reason code. <em>Null:</em> no valid rep goes to step 8.</li>
+    <li><strong>Catch unrouted leads.</strong> Assign leftovers to a named fallback owner or queue. Leads otherwise sit unnoticed. <em>In:</em> unowned leads. <em>Out:</em> fallback owner. <em>Null:</em> never null; the fallback must always exist.</li>
+    <li><strong>Reroute on SLA timeout.</strong> Reassign leads with no first-contact event inside the acknowledgement window. An owner update is not contact. <em>In:</em> assign time, contact event. <em>Out:</em> new owner, log entry. <em>Null:</em> no event means timeout.</li>
+  </ol>
+  <p><strong>Build order:</strong> build steps 8 and 9 first. A fallback owner and a timeout must exist before any rotation goes live, because a rotation with no valid rep leaves leads unnoticed (<a href="https://daeda.tech/blogs/hubspot-round-robin-workflow/" target="_blank" rel="noopener">Daeda Tech</a>).</p>
+
+  <h2 id="distribution" class="sec">Which distribution method fits your sales motion?</h2>
+  <p class="lead-answer">Match the method to your motion: round robin for interchangeable reps, weighted for uneven capacity, territory for specialisation, account-based for enterprise deals.</p>
+  <p>Distribution is step 7 only. Round robin ignores rep expertise, territory alignment and lead value (<a href="https://pipeline.zoominfo.com/operations/what-is-lead-routing" target="_blank" rel="noopener">ZoomInfo</a>, <a href="https://www.leadangel.com/blog/operations/lead-routing-best-practices/" target="_blank" rel="noopener">LeadAngel</a>), so it works as a last-step mechanism after steps 1 to 6 have narrowed the pool, not as a strategy. The better test is maintenance cost: every method needs data someone must keep current.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Method</th><th>Best fit</th><th>Main limitation</th><th>Data required</th></tr></thead>
+      <tbody>
+        <tr><td>Round robin</td><td>Even teams, high volume, interchangeable reps</td><td>Ignores expertise, territory and lead value</td><td>Active rep list</td></tr>
+        <tr><td>Weighted or capacity-based</td><td>Uneven bandwidth or ramping reps</td><td>Needs ongoing capacity data</td><td>Capacity or performance per rep</td></tr>
+        <tr><td>Territory</td><td>Geographic or vertical specialisation</td><td>Weak with remote teams</td><td>Country, region, industry fields</td></tr>
+        <tr><td>Account-based or buying group</td><td>Enterprise multi-stakeholder deals</td><td>Depends on accurate account matching</td><td>Matched account, hierarchy, owner</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Fairness and speed trade off. <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">HBR authors</a> listed lead-distribution rules based on geography and "fairness" among the causes of slow response. We recommend choosing the method that gets an available, qualified rep to first contact fastest, and treating fairness as a tie-breaker inside the pool.</p>
+
+  <h2 id="speed" class="sec">What does the speed-to-lead evidence actually show?</h2>
+  <p class="lead-answer">HBR 2011 shows that fast response matters: firms that tried to contact a web lead within an hour were nearly 7x as likely to have a meaningful conversation with a key decision-maker than slower responders.</p>
+  <p><a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">HBR audited 2,241 US companies</a> with a test web lead. Only 37% responded within an hour, 24% took over 24 hours and 23% never responded; average response among responders was 42 hours. These figures measure contact odds in a US test, not revenue outcomes. The widely quoted "5-minute rule" (100x contact, 21x qualification) comes from a 2007 InsideSales.com/MIT study, not HBR, though the two share an author and are often conflated (<a href="https://www.expertise.ai/stats/speed-to-lead-statistics" target="_blank" rel="noopener">Expertise.ai</a>). We could not retrieve the 2007 primary PDF, so that attribution rests on secondary sources.</p>
+  <p>The design implication: add routing complexity only if it does not delay first contact. Speed to lead is not speed to conversation, so measure the first-contact event, not the assignment timestamp.</p>
+
+  <h2 id="platforms" class="sec">What are the native routing limits in Salesforce and HubSpot, and when do you need a dedicated tool?</h2>
+  <p class="lead-answer">Salesforce assignment rules are first-match, allow one active rule and, per practitioners, run once on create; HubSpot rotation is action-scoped and not capacity-aware.</p>
+  <p><a href="https://help.salesforce.com/s/articleView?id=service.creating_assignment_rules.htm&language=en_US" target="_blank" rel="noopener">Salesforce lead assignment rules</a> are ordered entries: the first match assigns and evaluation stops, unmatched leads go to a default owner, and an org can have only one active rule. One <a href="https://dev.to/sapotacorp/lead-assignment-rules-and-round-robin-distribution-in-sales-cloud-o0o" target="_blank" rel="noopener">practitioner reports</a> that API or middleware-created leads skip the rules unless the auto-assign header is set, and that re-routing on change needs a record-triggered Flow. All of these are time-sensitive product behaviours, so verify them against current vendor docs before building.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Platform</th><th>Behaviour</th><th>Limit</th><th>Cascade step affected</th></tr></thead>
+      <tbody>
+        <tr><td>Salesforce assignment rules</td><td>First match assigns; default owner otherwise</td><td>One active rule per org</td><td>Steps 5, 7, 8</td></tr>
+        <tr><td>Salesforce (practitioner-reported)</td><td>Runs once on create; API leads need auto-assign header</td><td>Re-routing needs record-triggered Flow</td><td>Step 9</td></tr>
+        <tr><td>Salesforce L2A</td><td>No native matching; Apex or Flow stores Account ID</td><td>Rules need the Account ID first</td><td>Steps 3, 4</td></tr>
+        <tr><td>HubSpot rotate action</td><td>Needs active users with paid Sales or Service Hub seats</td><td>May not work if the owner property syncs with Salesforce</td><td>Step 7</td></tr>
+        <tr><td><a href="https://thatsgonna.help/blog/hubspot-lead-rotation-workflow" target="_blank" rel="noopener">HubSpot rotation count</a></td><td>Picks lowest per-action count</td><td>Owner list change resets count; not workload-aware</td><td>Step 7</td></tr>
+        <tr><td>HubSpot ownership</td><td>Existing owners kept unless overwrite option is on</td><td>Specialist rules must run before rotation</td><td>Step 4</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><a href="https://knowledge.hubspot.com/workflows/assign-and-rotate-record-owners-using-workflows" target="_blank" rel="noopener">HubSpot's seat and sync details</a> come from its knowledge base. Dedicated routing tools such as LeanData exist for what these platforms lack. We recommend considering one when the cascade needs:</p>
+  <ul>
+    <li>Lead-to-account matching with filters and tie-breakers</li>
+    <li>Account hierarchy routing to a parent or regional child owner</li>
+    <li>Capacity-aware distribution rather than turn-based rotation</li>
+    <li>Reason codes and audit logs without custom builds</li>
+  </ul>
+
+  <h2 id="failures" class="sec">How does lead routing fail silently, and how do you test it?</h2>
+  <p class="lead-answer">Routing fails silently through skipped rules, rotation resets, inactive owners, duplicates and overly broad entries, so log a reason for every assignment and test every rule path with seeded leads.</p>
+  <p>The decision log from the cascade (rule matched, reason code, timestamp) is what makes failure visible. <a href="https://www.digitalapplied.com/blog/lead-routing-assignment-2026-crm-sla-framework" target="_blank" rel="noopener">One source</a> suggests tracking fallback-route hit rate, manual reassignment rate and SLA adherence by lead source, and calls a fallback rate above roughly 10% a sign of gaps in primary rules; that is one source's heuristic, not a validated benchmark. Test before activation: seed leads for each entry plus fall-through cases, duplicates and existing-owner conflicts, because failures are otherwise silent (<a href="https://daeda.tech/blogs/hubspot-round-robin-workflow/" target="_blank" rel="noopener">Daeda Tech</a>).</p>
+  <p>Failure modes (symptom, cause, check):</p>
+  <p>
+    ☐ API or integration leads keep no new owner: rules not triggered (<a href="https://dev.to/sapotacorp/lead-assignment-rules-and-round-robin-distribution-in-sales-cloud-o0o" target="_blank" rel="noopener">DEV Community</a>); check the auto-assign header or Flow.<br>
+    ☐ Rotation suddenly favours one rep: owner list changed and the count reset (<a href="https://thatsgonna.help/blog/hubspot-lead-rotation-workflow" target="_blank" rel="noopener">source</a>); check the action's edit history.<br>
+    ☐ Leads sit with a departed user: owner status never validated; check active status at steps 4 and 5.<br>
+    ☐ Contacts at known accounts go to random reps: a duplicate account was matched; check dedup at step 2.<br>
+    ☐ Many leads land in the catch-all: entries are broad or overlapping; check entry order.
+  </p>
+  <p>Seeded test-lead matrix:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Test lead type</th><th>Expected path</th><th>Expected owner and reason code</th></tr></thead>
+      <tbody>
+        <tr><td>Spam or test record</td><td>Step 1</td><td>Suppressed, INELIGIBLE</td></tr>
+        <tr><td>Duplicate-domain prospect</td><td>Steps 2 and 3</td><td>Canonical account owner, MATCHED</td></tr>
+        <tr><td>New contact, existing customer</td><td>Step 4</td><td>Account owner, EXISTING_OWNER</td></tr>
+        <tr><td>Outside every territory</td><td>Steps 5 and 8</td><td>Fallback owner, FALLBACK</td></tr>
+        <tr><td>Unworked past the window</td><td>Step 9</td><td>Next available rep, SLA_REROUTE</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="next" class="sec">What should you do next?</h2>
+  <p class="lead-answer">Audit your data fields, write the cascade spec, and seed test leads before activating any routing change.</p>
+  <p>The order of checks, the failure path designed first, a decision log at every step and a lane value separating scoring from routing are the non-negotiables. Territory-versus-segment order and distribution method are design choices to document and test. For each of the nine steps, write input, output and on-null handling, then confirm your platform can execute each step natively.</p>
+  <p>
+    ☐ Audit the data fields in the pre-flight checklist and fix blanks and duplicate accounts.<br>
+    ☐ Write the nine-step cascade spec with fallback owner and SLA timeout defined first.<br>
+    ☐ Seed test leads for every rule path and fall-through case, and check the logged reason codes.
+  </p>
+  <p>If you want help redesigning the cascade, the scoring interface and lifecycle stages together, that is the scope of Muvap's Lifecycle, Scoring &amp; Routing Redesign service.</p>
+
+  <h2 id="faq">Frequently asked questions</h2>
+  <div class="faq-item">
+    <h3>Should territory or segment be evaluated first?</h3>
+    <p>Sources differ, so it is a design choice, not a standard. One published hierarchy puts territory before segment, while other sources order them differently (<a href="https://www.leadangel.com/blog/abm/what-is-lead-routing-the-ultimate-guide/" target="_blank" rel="noopener">LeadAngel</a>, <a href="https://sellingsignals.com/round-robin-lead-routing/" target="_blank" rel="noopener">Selling Signals</a>). We recommend picking the order that matches how ownership is defined in your organisation, documenting the reason, and testing leads that fall into both territory and segment overlaps before activation.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Is round robin enough as a routing strategy?</h3>
+    <p>No. Round robin is a last-step distribution mechanism. It fits small teams with similar lead quality and rep capacity, but it ignores account ownership, rep expertise, territory and capacity (<a href="https://www.leadangel.com/blog/operations/lead-routing-best-practices/" target="_blank" rel="noopener">LeadAngel</a>). Because it assigns per lead, a new contact at a strategic account can bypass the account owner unless matching runs upstream.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Does the 5-minute rule come from Harvard Business Review?</h3>
+    <p>No. The 100x contact and 21x qualification figures for 5 versus 30 minutes come from the 2007 InsideSales.com/MIT Lead Response Management Study. <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">HBR 2011</a> reports different figures, such as nearly 7x the odds of a meaningful decision-maker conversation for contact within an hour. We could not retrieve the 2007 primary PDF, so that attribution rests on secondary sources.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Do Salesforce assignment rules re-route a lead when it changes?</h3>
+    <p>Per practitioner reports, no. Assignment rules run once on create, and leads created through the API or middleware do not trigger them unless the auto-assign header is set. Re-routing on field change needs a record-triggered Flow (<a href="https://dev.to/sapotacorp/lead-assignment-rules-and-round-robin-distribution-in-sales-cloud-o0o" target="_blank" rel="noopener">DEV Community</a>). This behaviour is time-sensitive, so verify it against current Salesforce documentation.</p>
+  </div>
+
+  <div class="related" id="relatedSlot"></div>
+
+  <section class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li><a href="https://www.leandata.com/blog/account-based-routing-salesforce/" target="_blank" rel="noopener">Account-Based Routing in Salesforce: How It Works, LeanData</a></li>
+      <li><a href="https://support.leandata.com/s/article/RoutingLeadtoAccountMatchNodeGuide6901eecc5b920" target="_blank" rel="noopener">Routing: Lead-to-Account Match Node Guide, LeanData Support</a></li>
+      <li><a href="https://pipeline.zoominfo.com/operations/what-is-lead-routing" target="_blank" rel="noopener">What Is Lead Routing? Strategies, Data, and Best Practices, ZoomInfo Pipeline</a></li>
+      <li><a href="https://www.leadangel.com/blog/operations/lead-routing-best-practices/" target="_blank" rel="noopener">Top 12 Lead Routing Best Practices, LeadAngel</a></li>
+      <li><a href="https://sellingsignals.com/round-robin-lead-routing/" target="_blank" rel="noopener">Round Robin Lead Routing: Rules, Examples &amp; Best Practices, Selling Signals</a></li>
+      <li><a href="https://www.leadangel.com/blog/abm/what-is-lead-routing-the-ultimate-guide/" target="_blank" rel="noopener">What is Lead Routing? The Ultimate Guide, LeadAngel</a></li>
+      <li><a href="https://www.digitalapplied.com/blog/lead-routing-assignment-2026-crm-sla-framework" target="_blank" rel="noopener">Lead Routing &amp; Assignment: The 2026 CRM SLA Framework, Digital Applied</a></li>
+      <li><a href="https://help.salesforce.com/s/articleView?id=service.creating_assignment_rules.htm&language=en_US" target="_blank" rel="noopener">Set Up Assignment Rules, Salesforce Help</a></li>
+      <li><a href="https://dev.to/sapotacorp/lead-assignment-rules-and-round-robin-distribution-in-sales-cloud-o0o" target="_blank" rel="noopener">Lead assignment rules and round-robin distribution in Sales Cloud, DEV Community</a></li>
+      <li><a href="https://knowledge.hubspot.com/workflows/assign-and-rotate-record-owners-using-workflows" target="_blank" rel="noopener">Assign and rotate record owners using workflows, HubSpot Knowledge Base</a></li>
+      <li><a href="https://daeda.tech/blogs/hubspot-round-robin-workflow/" target="_blank" rel="noopener">HubSpot Round Robin Workflow: Assignment Rules That Hold Up in Production, Daeda Tech</a></li>
+      <li><a href="https://thatsgonna.help/blog/hubspot-lead-rotation-workflow" target="_blank" rel="noopener">Lead Rotation HubSpot Guide: Setup and Failure Modes, thatsgonna.help</a></li>
+      <li><a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">The Short Life of Online Sales Leads, Harvard Business Review</a></li>
+      <li><a href="https://www.expertise.ai/stats/speed-to-lead-statistics" target="_blank" rel="noopener">Speed-to-Lead Statistics, Verified, With Folklore Debunked, Expertise.ai</a></li>
+    </ol>
+  </section>
+
+  <div class="article-cta">
+    <p>Want to redesign your routing cascade, scoring interface and lifecycle stages together?</p>
+    <a href="contact.html" class="btn-primary">Contact →</a>
+  </div>
+
+  <div class="author-box">
+    <div class="author-avatar">M</div>
+    <div>
+      <div class="author-name">Muvap</div>
+      <div class="author-role">GTM and RevOps systems</div>
+      <p class="author-bio">We build governed GTM revenue engines: lead sourcing, scoring, enrichment, signals, and automation on a CRM your team can trust.</p>
+      <a class="author-link" href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener">Connect on LinkedIn →</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo">
+        <img src="images/muvap-logo.webp" alt="Muvap" style="height:34px;width:auto;display:block">
+      </a>
+      <p>GTM and RevOps systems for teams who are done patching their funnel together.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/david-berrocal-vic/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C21.7 8.65 23 11.1 23 14.8V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21H11V9z"/></svg>
+        </a>
+        <a href="https://wa.me/51981785475" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3.1.8.8-3-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Site</span>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#programs">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Resources</span>
+      <a href="resources.html">Blog</a>
+      <a href="freebies.html">Freebies</a>
+      <a href="link-in-bio.html">Link in bio</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-label">Get started</span>
+      <a href="index.html#services">Book a call</a>
+      <a href="downloads/lead-magnet-template.html">Free guide</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Muvap. All rights reserved.</span>
+    <span>Built with GTM systems that work.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar = document.getElementById('readProgress');
+  var article = document.querySelector('article');
+  if(!bar || !article) return;
+  var ticking = false;
+  function update(){
+    var articleTop = article.offsetTop;
+    var scrollable = article.offsetHeight - window.innerHeight;
+    var scrolled = window.scrollY - articleTop;
+    var pct = scrollable > 0 ? Math.min(100, Math.max(0, (scrolled / scrollable) * 100)) : 0;
+    bar.style.width = pct + '%';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  update();
+})();
+</script>
+
+<script src="assets/interactions.js" defer></script>
+<script src="article-interactions.js" defer></script>
+</body>
+</html>
