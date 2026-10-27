@@ -7,8 +7,9 @@ Lee esto antes de tocar cualquier archivo del proyecto.
 
 ## Stack y deploy
 
-- **HTML/CSS/JS estatico. Sin framework. Sin build step.** No hay npm, no hay bundler.
-- **Deploy:** `git push origin main` → GitHub → Netlify auto-deploy (~1 min).
+- **HTML/CSS/JS estatico. Sin framework.** No hay npm, no hay bundler en local.
+- **Build step en Netlify:** `node generate-articles.js` — regenera `articles-data.js` a partir de `articles-meta.json` + el JSON-LD de cada articulo HTML. Corre automaticamente en cada deploy.
+- **Deploy:** `git push origin main` → GitHub → Netlify corre el build → auto-deploy (~1-2 min).
 - **No pushear automaticamente.** Solo cuando el usuario lo pida explicitamente. Cada push consume un build credit de Netlify.
 - Arquitectura completa en `SITE-MAP.md`. Leelo si necesitas saber donde esta algo.
 
@@ -48,10 +49,20 @@ Si PowerShell es inevitable, usar `-Encoding utf8` o `[System.IO.File]::WriteAll
 - `article-interactions.js` — lo usan los 19 articulos AEO (share, copy link, progress bar).
 - Testear en al menos una pagina de cada grupo antes de pushear.
 
-### 5. Agregar un articulo AEO requiere dos archivos
+### 5. Agregar un articulo AEO: el pipeline correcto
 
-Crear el HTML sin actualizar `articles-data.js` = articulo que no aparece en `resources.html`.
-Siempre actualizar ambos.
+`articles-data.js` es **generado automaticamente** por Netlify — no editarlo a mano.
+
+**Pasos para publicar un articulo nuevo:**
+1. Crear el archivo `.html` del articulo con JSON-LD de tipo `Article` en el `<head>` (headline, description, image, datePublished).
+2. Agregar una linea en `articles-meta.json` con los campos que no se pueden extraer del HTML:
+   ```json
+   { "href": "nombre-del-archivo.html", "id": "a23", "category": "RevOps", "readTime": "10 min read" }
+   ```
+   Categorias validas: `Scoring`, `Enrichment`, `CRM`, `AI & Automation`, `RevOps`, `Data Analytics`.
+3. Push a GitHub → Netlify corre `generate-articles.js` → `articles-data.js` se regenera → el articulo aparece en `resources.html`.
+
+**No tocar `articles-data.js` directamente** — cualquier cambio manual se sobreescribe en el proximo build.
 
 ---
 
@@ -169,4 +180,6 @@ Subcarpeta con lead magnets independientes. Tiene su propia estructura:
 | `SITE-MAP.md` | Arquitectura completa: todas las paginas, shared files, how-tos |
 | `design-rules.html` | Sistema de diseno visual navegable |
 | `_redirects` | Redirects 301 de Netlify (URLs antiguas → nuevas) |
-| `articles-data.js` | Indice de todos los articulos AEO (alimenta resources.html) |
+| `articles-meta.json` | **Fuente de verdad** de articulos AEO: id, category, readTime. Editar aqui para agregar articulos. |
+| `generate-articles.js` | Script de build que genera `articles-data.js` desde `articles-meta.json` + JSON-LD de cada HTML. |
+| `articles-data.js` | **AUTO-GENERADO** por Netlify. No editar a mano — se sobreescribe en cada build. |
