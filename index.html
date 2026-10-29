@@ -292,6 +292,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .cta-done.show{display:flex}
   .cta-done h3{margin:0;color:var(--nx-ink);font:900 24px/1.1 var(--nx-font-display)}
   .cta-done p{margin:0;color:var(--nx-ink-soft);font:400 15px/1.5 var(--nx-font-text)}
+  .btn-book-call{width:100%;background:var(--nx-pink);color:var(--nx-paper);border:2px solid var(--nx-ink);border-radius:12px;box-shadow:3px 3px 0 var(--nx-ink);font:800 14px/1 var(--nx-font-display);padding:13px 20px;cursor:pointer;text-align:center}
+  .btn-skip-call{background:transparent;border:none;color:var(--nx-ink-soft);font:400 13px/1 var(--nx-font-text);text-decoration:underline;cursor:pointer;padding:4px 0}
   @media(max-width:860px){.cta-grid{grid-template-columns:1fr}}
 
   /* ---- sticky mobile CTA ---- */
@@ -522,6 +524,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="stage-bullet"><span class="stage-dot"></span><span data-i18n="done_b2">We'll review what you shared before the call.</span></div>
           <div class="stage-bullet"><span class="stage-dot"></span><span data-i18n="done_b3">Come with access to your CRM if you can.</span></div>
         </div>
+        <div id="ctaDoneActions" style="display:flex;flex-direction:column;gap:10px;width:100%;margin-top:4px"></div>
       </div>
     </div>
   </div>
@@ -993,15 +996,37 @@ let formStep = 0;
     const data = new FormData(form);
     nextBtn.disabled = true;
     nextBtn.textContent = COPY[currentLang].btn_sending;
+    const firstName = (data.get('firstName') || '').trim();
+    const lastName  = (data.get('lastName')  || '').trim();
+    const fullName  = [firstName, lastName].filter(Boolean).join(' ');
+    const email     = emailField.value.trim();
+    const calendlyUrl = 'https://calendly.com/davidbervic/discovery-call'
+      + '?name='  + encodeURIComponent(fullName)
+      + '&email=' + encodeURIComponent(email);
     fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
       .then(() => {
         doneMsg.textContent = currentLang === 'en'
-          ? `We'll email ${emailField.value} a link to pick a time that works.`
-          : `Te enviamos a ${emailField.value} un enlace para elegir un horario.`;
+          ? `We'll email ${email} a link to pick a time that works.`
+          : `Te enviamos a ${email} un enlace para elegir un horario.`;
         form.style.display = 'none';
         doneEl.classList.add('show');
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'lead_submitted', lead_source: 'munap_book_a_call' });
+        const actionsEl = document.getElementById('ctaDoneActions');
+        actionsEl.innerHTML = currentLang === 'en'
+          ? `<p style="margin:0;font:400 14px/1.4 var(--nx-font-text);color:var(--nx-ink-soft)">Want to book a video call while you're here?</p>
+             <button class="btn-book-call" id="ctaBtnBookCall">Book a video call</button>
+             <button class="btn-skip-call" id="ctaBtnSkipCall">No thanks, I'll wait for your reply</button>`
+          : `<p style="margin:0;font:400 14px/1.4 var(--nx-font-text);color:var(--nx-ink-soft)">¿Quieres agendar una videollamada ahora mismo?</p>
+             <button class="btn-book-call" id="ctaBtnBookCall">Agendar videollamada</button>
+             <button class="btn-skip-call" id="ctaBtnSkipCall">No por ahora, espero tu respuesta</button>`;
+        document.getElementById('ctaBtnBookCall').addEventListener('click', () => {
+          Calendly.initPopupWidget({ url: calendlyUrl });
+          return false;
+        });
+        document.getElementById('ctaBtnSkipCall').addEventListener('click', () => {
+          actionsEl.innerHTML = '';
+        });
       })
       .catch(() => {
         nextBtn.disabled = false;
@@ -1017,6 +1042,9 @@ let formStep = 0;
 setLang(currentLang);
 </script>
 <script src="assets/interactions.js" defer></script>
+<script src="assets/utm.js"></script>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
 

@@ -46,6 +46,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400..900;1,400..900&family=Archivo+Black&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <style>
   :root{
     --nx-ink:#050505; --nx-ink-soft:#141414;
@@ -187,6 +188,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .form-done.show{display:flex}
   .form-done h3{margin:0;color:var(--nx-ink);font:900 24px/1.1 var(--nx-font-display)}
   .form-done p{margin:0;color:var(--nx-ink-soft);font:400 15px/1.5 var(--nx-font-text)}
+  .btn-book-call{appearance:none;cursor:pointer;width:100%;padding:14px 20px;background:var(--nx-pink);color:var(--nx-paper);border:2px solid var(--nx-ink);border-radius:12px;box-shadow:var(--nx-drop-sm);font:800 14px/1 var(--nx-font-display);letter-spacing:.02em;text-align:center}
+  .btn-skip-call{appearance:none;cursor:pointer;width:100%;padding:10px 20px;background:transparent;color:var(--nx-ink-soft);border:none;font:400 13px/1 var(--nx-font-text);text-decoration:underline}
 
   /* ---- faq ---- */
   .faq-section{background-color:var(--nx-blue);padding:clamp(56px,8vw,96px) clamp(16px,4vw,44px);background-image:linear-gradient(rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width)),linear-gradient(90deg,rgba(255,255,255,.07) var(--nx-grid-width),transparent var(--nx-grid-width));background-size:var(--nx-grid-cell) var(--nx-grid-cell)}
@@ -392,6 +395,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="form-done" id="formDone">
         <h3 data-i18n="done_title">Message sent.</h3>
         <p id="formDoneMsg" data-i18n="done_msg">We'll reply within one business day.</p>
+        <div id="formDoneActions" style="display:flex;flex-direction:column;gap:10px;width:100%;margin-top:8px"></div>
       </div>
     </div>
   </div>
@@ -673,14 +677,39 @@ let currentStep = 0;
     const data = new FormData(form);
     nextBtn.disabled = true;
     nextBtn.textContent = COPY[currentLang].btn_sending;
+    const firstName = (data.get('firstName') || '').trim();
+    const lastName  = (data.get('lastName')  || '').trim();
+    const fullName  = [firstName, lastName].filter(Boolean).join(' ');
+    const email     = emailField.value.trim();
+    const calendlyUrl = 'https://calendly.com/davidbervic/discovery-call'
+      + '?name='  + encodeURIComponent(fullName)
+      + '&email=' + encodeURIComponent(email);
+
     fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() })
       .then(() => {
-        const copy = COPY[currentLang];
         doneMsg.textContent = currentLang === 'en'
-          ? `We'll reply to ${emailField.value} within one business day.`
-          : `Respondemos a ${emailField.value} en un día hábil.`;
+          ? `We'll reply to ${email} within one business day.`
+          : `Respondemos a ${email} en un día hábil.`;
         form.style.display = 'none';
         doneEl.classList.add('show');
+
+        const actionsEl = document.getElementById('formDoneActions');
+        actionsEl.innerHTML = currentLang === 'en'
+          ? `<p style="margin:0 0 4px;font:700 13px/1.3 var(--nx-font-text);color:var(--nx-ink)">Want to book a video call while you're here?</p>
+             <button class="btn-book-call" id="btnBookCall">Book a video call</button>
+             <button class="btn-skip-call" id="btnSkipCall">No thanks, I'll wait for your reply</button>`
+          : `<p style="margin:0 0 4px;font:700 13px/1.3 var(--nx-font-text);color:var(--nx-ink)">¿Quieres agendar una videollamada ahora mismo?</p>
+             <button class="btn-book-call" id="btnBookCall">Agendar videollamada</button>
+             <button class="btn-skip-call" id="btnSkipCall">No por ahora, espero tu respuesta</button>`;
+
+        document.getElementById('btnBookCall').addEventListener('click', () => {
+          Calendly.initPopupWidget({ url: calendlyUrl });
+          return false;
+        });
+        document.getElementById('btnSkipCall').addEventListener('click', () => {
+          actionsEl.innerHTML = '';
+        });
+
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'lead_submitted', lead_source: 'munap_contact_form' });
       })
@@ -697,7 +726,9 @@ let currentStep = 0;
 // Initialize language
 setLang(currentLang);
 </script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script src="assets/interactions.js" defer></script>
+<script src="assets/utm.js"></script>
 </body>
 </html>
 
