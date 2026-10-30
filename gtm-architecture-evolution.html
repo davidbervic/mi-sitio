@@ -825,7 +825,7 @@ var formStep=0;
         form.style.display='none';
         doneEl.classList.add('show');
         window.dataLayer=window.dataLayer||[];
-        window.dataLayer.push({event:'lead_submitted',lead_source:'gtm_arch_book_a_call'});
+        window.dataLayer.push({event:'lead_gtm_arch'});
         var actionsEl=document.getElementById('ctaDoneActions');
         actionsEl.innerHTML=currentLang==='en'
           ?'<p style="margin:0;font:400 14px/1.4 var(--nx-font-text);color:var(--nx-ink-soft)">Want to book a video call while you\'re here?</p>'
@@ -835,6 +835,8 @@ var formStep=0;
            +'<button class="btn-book-call" id="ctaBtnBookCall">Agendar videollamada</button>'
            +'<button class="btn-skip-call" id="ctaBtnSkipCall">No por ahora, espero tu respuesta</button>';
         document.getElementById('ctaBtnBookCall').addEventListener('click',function(){
+          window.dataLayer=window.dataLayer||[];
+          window.dataLayer.push({event:'calendly_opened',lead_source:'gtm_arch'});
           Calendly.initPopupWidget({url:calendlyUrl});
           return false;
         });

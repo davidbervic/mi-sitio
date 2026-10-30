@@ -704,6 +704,8 @@ let currentStep = 0;
              <button class="btn-skip-call" id="btnSkipCall">No por ahora, espero tu respuesta</button>`;
 
         document.getElementById('btnBookCall').addEventListener('click', () => {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'calendly_opened', lead_source: 'contact_form' });
           Calendly.initPopupWidget({ url: calendlyUrl });
           return false;
         });
@@ -712,7 +714,7 @@ let currentStep = 0;
         });
 
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'lead_submitted', lead_source: 'munap_contact_form' });
+        window.dataLayer.push({ event: 'lead_contact' });
       })
       .catch(() => {
         nextBtn.disabled = false;

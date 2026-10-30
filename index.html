@@ -1012,7 +1012,7 @@ let formStep = 0;
         form.style.display = 'none';
         doneEl.classList.add('show');
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'lead_submitted', lead_source: 'munap_book_a_call' });
+        window.dataLayer.push({ event: 'lead_home_cta' });
         const actionsEl = document.getElementById('ctaDoneActions');
         actionsEl.innerHTML = currentLang === 'en'
           ? `<p style="margin:0;font:400 14px/1.4 var(--nx-font-text);color:var(--nx-ink-soft)">Want to book a video call while you're here?</p>
@@ -1022,6 +1022,8 @@ let formStep = 0;
              <button class="btn-book-call" id="ctaBtnBookCall">Agendar videollamada</button>
              <button class="btn-skip-call" id="ctaBtnSkipCall">No por ahora, espero tu respuesta</button>`;
         document.getElementById('ctaBtnBookCall').addEventListener('click', () => {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'calendly_opened', lead_source: 'home_cta' });
           Calendly.initPopupWidget({ url: calendlyUrl });
           return false;
         });

@@ -923,6 +923,8 @@ async function handleSubmit(e) {
       tool_3: payload.ranked_tools[2] ? payload.ranked_tools[2].name : ''
     }).toString()
   }).catch(function () {});
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'lead_gtm_tool' });
 
   showScreen(5);
 }

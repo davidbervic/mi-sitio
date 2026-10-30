@@ -436,7 +436,7 @@
     fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:name,email:emailVal,company:company,role:role,source:'icp-worksheet',timestamp:new Date().toISOString()})}).catch(function(){});
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({'form-name':'icp-worksheet',intent:'Problem Aware',name:name,email:emailVal,company:company,role:role}).toString()}).catch(function(){});
     window.dataLayer=window.dataLayer||[];
-    window.dataLayer.push({event:'lead_submitted',lead_source:'icp_worksheet_download'});
+    window.dataLayer.push({event:'lead_download_icp'});
   });
 
   // Hero mini form: pre-fill email and jump to step 2
