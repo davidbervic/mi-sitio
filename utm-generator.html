@@ -365,7 +365,7 @@
     triggerDownload();
     document.getElementById('dlSuccessEmail').textContent=emailVal;
     formState.style.display='none';doneState.classList.add('show');
-    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({'form-name':'utm-generator-download',name:name,email:emailVal,company:company,role:role}).toString()}).catch(function(){});
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({'form-name':'utm-generator-download',intent:'Problem Aware',name:name,email:emailVal,company:company,role:role}).toString()}).catch(function(){});
     window.dataLayer=window.dataLayer||[];
     window.dataLayer.push({event:'lead_submitted',lead_source:'utm_generator_download'});
   });
