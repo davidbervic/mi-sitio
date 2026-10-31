@@ -367,7 +367,7 @@
     formState.style.display='none';doneState.classList.add('show');
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({'form-name':'utm-generator-download',intent:'Problem Aware',name:name,email:emailVal,company:company,role:role}).toString()}).catch(function(){});
     window.dataLayer=window.dataLayer||[];
-    window.dataLayer.push({event:'lead_download_utm'});
+    window.dataLayer.push({event:'content_downloaded',asset_name:'utm_generator',intent:'Problem Aware'});
   });
 
   var heroForm=document.getElementById('heroForm');
@@ -393,6 +393,8 @@
 window.addEventListener('load',function(){(function(){var els=document.querySelectorAll('.reveal');if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('is-visible')});return}var io=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target)}})},{threshold:0.1});els.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)el.classList.add('is-visible');else io.observe(el)})})()});
 </script>
 <script src="assets/interactions.js" defer></script>
+<script src="assets/utm.js"></script>
+<script src="assets/analytics.js"></script>
 
 <form name="utm-generator-download" data-netlify="true" hidden>
   <input type="text" name="name">

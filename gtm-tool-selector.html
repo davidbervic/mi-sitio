@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5GWJM2P9');</script>
+<!-- End Google Tag Manager -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GTM Tool Selector — Muvap</title>
   <meta name="description" content="Find the right tool for your GTM stack. Answer a few questions about your use case and get a recommendation in seconds.">
@@ -345,6 +352,10 @@
   </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5GWJM2P9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <nav class="site-nav">
   <a href="index.html" class="logo">
@@ -924,7 +935,7 @@ async function handleSubmit(e) {
     }).toString()
   }).catch(function () {});
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event: 'lead_gtm_tool' });
+  window.dataLayer.push({ event: 'form_submitted', form_id: 'gtm_tool' });
 
   showScreen(5);
 }
@@ -975,6 +986,8 @@ function restart() {
   <input type="text" name="tool_2">
   <input type="text" name="tool_3">
 </form>
+<script src="assets/utm.js"></script>
+<script src="assets/analytics.js"></script>
 </body>
 </html>
 

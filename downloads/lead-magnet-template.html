@@ -189,5 +189,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="wrap"><p>© 2026 Muvap.</p></div>
 </footer>
 <script src="../assets/interactions.js" defer></script>
+<script src="../assets/utm.js"></script>
+<script src="../assets/analytics.js"></script>
+<script>
+document.querySelector('form[name="muvap-lead-magnet-handoff-sla"]').addEventListener('submit', function() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'content_downloaded', asset_name: 'lead_magnet_template', intent: 'Problem Aware' });
+});
+</script>
 </body>
 </html>

@@ -705,7 +705,7 @@ let currentStep = 0;
 
         document.getElementById('btnBookCall').addEventListener('click', () => {
           window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ event: 'calendly_opened', lead_source: 'contact_form' });
+          window.dataLayer.push({ event: 'cta_clicked', destination: 'calendly', lead_source: 'contact' });
           Calendly.initPopupWidget({ url: calendlyUrl });
           return false;
         });
@@ -714,7 +714,7 @@ let currentStep = 0;
         });
 
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'lead_contact' });
+        window.dataLayer.push({ event: 'form_submitted', form_id: 'contact', intent: (document.querySelector('[name="intent"]') || {}).value || '' });
       })
       .catch(() => {
         nextBtn.disabled = false;
@@ -732,6 +732,7 @@ setLang(currentLang);
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script src="assets/interactions.js" defer></script>
 <script src="assets/utm.js"></script>
+<script src="assets/analytics.js"></script>
 </body>
 </html>
 

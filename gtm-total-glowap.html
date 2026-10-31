@@ -431,7 +431,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 document.querySelectorAll('a[href^="contact.html?service="]').forEach(function(a){
   a.addEventListener('click', function(){
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'program_cta_click', program: "GTM Total Glowap!", cta_service: decodeURIComponent(a.getAttribute('href').split('service=')[1] || '') });
+    window.dataLayer.push({ event: 'cta_clicked', service_interest: 'GTM Total Glowap', destination: 'contact' });
   });
 });
 
@@ -621,5 +621,6 @@ document.getElementById('langToggle').addEventListener('click', function() {
 setLang(currentLang);
 </script>
 <script src="assets/interactions.js" defer></script>
+<script src="assets/analytics.js"></script>
 </body>
 </html>

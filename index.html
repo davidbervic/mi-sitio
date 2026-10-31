@@ -1012,7 +1012,7 @@ let formStep = 0;
         form.style.display = 'none';
         doneEl.classList.add('show');
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'lead_home_cta' });
+        window.dataLayer.push({ event: 'form_submitted', form_id: 'home', intent: (document.querySelector('[name="intent"]') || {}).value || '' });
         const actionsEl = document.getElementById('ctaDoneActions');
         actionsEl.innerHTML = currentLang === 'en'
           ? `<p style="margin:0;font:400 14px/1.4 var(--nx-font-text);color:var(--nx-ink-soft)">Want to book a video call while you're here?</p>
@@ -1023,7 +1023,7 @@ let formStep = 0;
              <button class="btn-skip-call" id="ctaBtnSkipCall">No por ahora, espero tu respuesta</button>`;
         document.getElementById('ctaBtnBookCall').addEventListener('click', () => {
           window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ event: 'calendly_opened', lead_source: 'home_cta' });
+          window.dataLayer.push({ event: 'cta_clicked', destination: 'calendly', lead_source: 'home' });
           Calendly.initPopupWidget({ url: calendlyUrl });
           return false;
         });
@@ -1046,6 +1046,7 @@ setLang(currentLang);
 </script>
 <script src="assets/interactions.js" defer></script>
 <script src="assets/utm.js"></script>
+<script src="assets/analytics.js"></script>
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
